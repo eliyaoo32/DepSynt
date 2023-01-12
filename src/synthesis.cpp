@@ -101,10 +101,11 @@ int main(int argc, const char* argv[]) {
     if (found_depedencies) {
         vector<string> input_vars(synt_instance.get_input_vars());
         DependentsSynthesiser dependents_synt(nba_without_deps, input_vars,
-                                              independent_variables);
-        spot::aig_ptr next_states_aig = dependents_synt.synthesis_next_states_aig();
+                                              independent_variables,
+                                              dependent_variables);
+        spot::aig_ptr dependents_strategy = dependents_synt.synthesis();
 
-        cout << "Next States Aiger: " << endl;
-        spot::print_aiger(std::cout, next_states_aig) << '\n';
+        cout << "Dependent Variables Strategy: " << endl;
+        spot::print_aiger(std::cout, dependents_strategy) << '\n';
     }
 }
