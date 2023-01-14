@@ -12,6 +12,12 @@
 
 #define AIGER_MODE "ite"
 
+/**
+ * This CLI tool synthesizes a AIGER machine from a given LTL formula.
+ * The tool supports decomposing the formula into sub-formulas.
+ * The tool also supports finding dependent variables and removing them.
+ * The tool DOES NOT synthesising the dependent variables.
+ */
 int main(int argc, const char* argv[]) {
     /**
      * Process the LTL specfication
