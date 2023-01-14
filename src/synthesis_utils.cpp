@@ -95,10 +95,10 @@ spot::twa_graph_ptr get_nba_for_synthesis(SyntInstance& synt_instance,
 
     verbose << "=> Pruning Automaton" << endl;
     synt_measures.start_prune_automaton();
-    automaton = spot::scc_filter_states(automaton);  // Prune automaton
-    synt_measures.end_prune_automaton(automaton);
+    auto pruned_automaton = spot::scc_filter_states(automaton);  // Prune automaton
+    synt_measures.end_prune_automaton(pruned_automaton);
 
-    return automaton;
+    return pruned_automaton;
 }
 
 void find_and_remove_dependents(const twa_graph_ptr& automaton,
