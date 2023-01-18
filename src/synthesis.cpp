@@ -42,6 +42,8 @@ int main(int argc, const char* argv[]) {
 
     SyntInstance synt_instance(options.inputs, options.outputs, options.formula);
     AutomatonSyntMeasure synt_measure(synt_instance, options.skip_dependencies);
+    TimeMeasure total_duration;
+    total_duration.start();
 
     /**
      * Synthesising
@@ -116,6 +118,7 @@ int main(int argc, const char* argv[]) {
 
     // Output results
     cout << "Synthesis Measures: " << endl;
+    cout << "total duration: " << total_duration.end() << " ms" << endl;
     cout << synt_measure << endl;
 
     cout << "=========================" << endl;

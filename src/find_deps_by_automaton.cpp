@@ -27,7 +27,8 @@ void FindDepsByAutomaton::find_dependencies(vector<string>& dependent_variables,
         m_measures.start_testing_variable(dependent_var);
 
         vector<string> dependency_set;
-        this->extract_dependency_set(dependency_set, candidates, independent_variables);
+        this->extract_dependency_set(dependency_set, candidates,
+                                     independent_variables);
 
         // Check if candidates variable is dependent
         if (FindDepsByAutomaton::is_variable_dependent(dependent_var, dependency_set,
@@ -50,7 +51,8 @@ void FindDepsByAutomaton::find_dependencies_candidates(
             ? m_synt_instance.get_output_vars()
             : m_synt_instance.get_input_vars();
 
-    std::copy(candidates.begin(), candidates.end(), std::back_inserter(candidates_dst));
+    std::copy(candidates.begin(), candidates.end(),
+              std::back_inserter(candidates_dst));
 }
 
 void FindDepsByAutomaton::extract_dependency_set(
@@ -115,9 +117,9 @@ bool FindDepsByAutomaton::is_variable_dependent(std::string dependent_var,
 }
 
 /**
- * A Variable X is dependent on the set Y if for all pair-states (s1, s2), not exists an
- * assignment 𝜋 of Y such that both s1(𝜋, X=True, ...), s2(𝜋, X=False, ...) are satified
- * (And vice-versa).
+ * A Variable X is dependent on the set Y if for all pair-states (s1, s2), not exists
+ * an assignment 𝜋 of Y such that both s1(𝜋, X=True, ...), s2(𝜋, X=False, ...) are
+ * satified (And vice-versa).
  *
  * Mathematcially, [∃Y : s1(Y, X=True, Z) & s2(Y, X=False, Z')] is not satisfiable.
  * and [∃Y : s1(Y, X=False, Z) & s2(Y, X=True, Z')] is not satisfiable as well.
@@ -137,25 +139,18 @@ bool FindDepsByAutomaton::is_dependent_by_pair_edges(int dependent_var,
     }
     z2 = bdd_replace(z2, pairs);
 
-    bdd vars_exists = bddtrue;
-    for (auto& var : dependency_vars) {
-        vars_exists = vars_exists & bdd_ithvar(var);
-    }
-
-    // Case 1: [∃Y : s1(Y, X=True, Z) & s2(Y, X=False, Z')] is unsat
-    bdd cond1 =
-        bdd_appex(bdd_restrict(z1, bdd_ithvar(dependent_var)),
-                  bdd_restrict(z2, bdd_nithvar(dependent_var)), bddop_and, vars_exists);
+    // Case 1: s1(Y, X=True, Z) & s2(Y, X=False, Z') is unsat
+    bdd cond1 = bdd_restrict(z1, bdd_ithvar(dependent_var)) &
+                bdd_restrict(z2, bdd_nithvar(dependent_var));
     bool cond1_sat = cond1 != bddfalse;
     if (cond1_sat) {
         bdd_freepair(pairs);
         return false;
     }
 
-    // Case 2: [∃Y : s1(Y, X=False, Z) & s2(Y, X=True, Z')] is unsat
-    bdd cond2 =
-        bdd_appex(bdd_restrict(z1, bdd_nithvar(dependent_var)),
-                  bdd_restrict(z2, bdd_ithvar(dependent_var)), bddop_and, vars_exists);
+    // Case 2: s1(Y, X=False, Z) & s2(Y, X=True, Z') is unsat
+    bdd cond2 = bdd_restrict(z1, bdd_nithvar(dependent_var)) &
+                bdd_restrict(z2, bdd_ithvar(dependent_var));
     bool cond2_sat = cond2 != bddfalse;
     if (cond2_sat) {
         bdd_freepair(pairs);
