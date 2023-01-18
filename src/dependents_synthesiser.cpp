@@ -152,14 +152,14 @@ Gate DependentsSynthesiser::get_partial_impl(const bdd& cond, string& dep_var) {
 
     // Create partial implementation
     unordered_map<int, Gate> bdds_partial_impl;
-    Gate partial_impl = calc_partial_impl(cond, dep_var, bdds_partial_impl);
+    Gate partial_impl = generate_partial_impl(cond, dep_var, bdds_partial_impl);
 
     // Store to cache and return it
     partial_impl_cache[partial_impl_key] = partial_impl;
     return partial_impl_cache[partial_impl_key];
 }
 
-Gate DependentsSynthesiser::calc_partial_impl(
+Gate DependentsSynthesiser::generate_partial_impl(
     const bdd& cond, string& dep_var, unordered_map<int, Gate>& bdd_partial_impl) {
     if (cond == bddtrue) {
         return m_aiger->aig_true();
@@ -172,8 +172,9 @@ Gate DependentsSynthesiser::calc_partial_impl(
     }
 
     // Post-order traversal
-    Gate high_gate = calc_partial_impl(bdd_high(cond), dep_var, bdd_partial_impl);
-    Gate low_gate = calc_partial_impl(bdd_low(cond), dep_var, bdd_partial_impl);
+    Gate high_gate =
+        generate_partial_impl(bdd_high(cond), dep_var, bdd_partial_impl);
+    Gate low_gate = generate_partial_impl(bdd_low(cond), dep_var, bdd_partial_impl);
 
     bool is_dep_var = deps_bdd_vars.find(bdd_var(cond)) != deps_bdd_vars.end();
     Gate n_v, neg_n_v;

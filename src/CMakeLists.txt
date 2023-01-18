@@ -4,12 +4,11 @@ project(reactive-synthesis-bfss)
 set(CMAKE_CXX_STANDARD 17)
 
 FILE(GLOB non_executable_SRC  ${PROJECT_SOURCE_DIR}/*.cpp ${PROJECT_SOURCE_DIR}/**/*.cpp )
-list(FILTER non_executable_SRC EXCLUDE REGEX "(.*)(find_dependencies|synt_independents|synthesis|playground).cpp")
+list(FILTER non_executable_SRC EXCLUDE REGEX "(.*)(find_dependencies|synt_independents|synthesis).cpp")
 
 add_executable(find_dependencies ${non_executable_SRC} find_dependencies.cpp )
 add_executable(synt_independents ${non_executable_SRC} synt_independents.cpp )
 add_executable(synthesis ${non_executable_SRC} synthesis.cpp )
-add_executable(playground ${non_executable_SRC} playground.cpp )
 
 # Include Boots Options package
 find_library(boost_options_location NAMES libboost_program_options.a)
@@ -51,7 +50,6 @@ set_target_properties(spot PROPERTIES IMPORTED_LOCATION ${spot_location})
 target_link_libraries( find_dependencies boost_options boost_json bddx spot )
 target_link_libraries( synt_independents boost_options boost_json bddx spot )
 target_link_libraries( synthesis boost_options boost_json bddx spot )
-target_link_libraries( playground boost_options boost_json bddx spot )
 
 # TODO: find a way to include the spot headers and boost headers
 include_directories(/usr/local/include)

@@ -41,8 +41,8 @@ class DependentsSynthesiser {
 
     Gate get_partial_impl(const bdd& cond, string& dep_var);
 
-    Gate calc_partial_impl(const bdd& cond, string& dep_var,
-                           unordered_map<int, Gate>& bdd_partial_impl);
+    Gate generate_partial_impl(const bdd& cond, string& dep_var,
+                               unordered_map<int, Gate>& bdd_partial_impl);
 
     BDDVar ap_to_bdd_varnum(string& ap) {
         // TODO: check that it returns the value of varnum and not nith_var
