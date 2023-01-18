@@ -75,11 +75,15 @@ void DependentsSynthesiser::define_next_latches() {
         } else {
             next_latch_gate = m_aiger->aig_or(next_latch_conds);
         }
-        /**
-         * TODO: check maybe it should be dst_gate instead of
-         * m_aiger->latch_var(dst);
-         */
+
         m_aiger->set_next_latch(dst, next_latch_gate);
+    }
+
+    // States which do not have any transition
+    for (State state = 0; state < m_nba_without_deps->num_states(); state++) {
+        if (dst_transitions.find(state) == dst_transitions.end()) {
+            m_aiger->set_next_latch(state, m_aiger->aig_false());
+        }
     }
 }
 
@@ -108,7 +112,7 @@ void DependentsSynthesiser::define_output_gates() {
      */
     for (unsigned dep_idx = 0; dep_idx < m_dep_vars.size(); dep_idx++) {
         /**
-         * TODO: we can small optimization here by removing the
+         * TODO: we can have small optimization here by removing the
          * partial_impl_cache of current dependent varaible after finished
          */
         /** TODO: For the same BDD the process PartialImpl(BDD,d1) and

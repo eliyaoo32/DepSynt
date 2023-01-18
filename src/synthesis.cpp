@@ -70,7 +70,6 @@ int main(int argc, const char* argv[]) {
                 << " dependent variables" << endl;
 
         if (found_depedencies) {
-            // TODO: make sure it clones correctly
             // TODO: report how long it took to clone this NBA
             const_twa_graph_ptr nba_to_clone = nba;
 
@@ -88,7 +87,6 @@ int main(int argc, const char* argv[]) {
         synt_measure.end_remove_dependent_ap();
 
         if (found_depedencies) {
-            // TODO: make sure it clones correctly
             // TODO: report how long it took to clone this NBA
             const_twa_graph_ptr nba_to_clone = nba;
 
