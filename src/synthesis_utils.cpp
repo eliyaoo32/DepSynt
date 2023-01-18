@@ -95,48 +95,43 @@ spot::twa_graph_ptr get_nba_for_synthesis(SyntInstance& synt_instance,
 
     verbose << "=> Pruning Automaton" << endl;
     synt_measures.start_prune_automaton();
-    automaton = spot::scc_filter_states(automaton);  // Prune automaton
-    synt_measures.end_prune_automaton(automaton);
+    auto pruned_automaton = spot::scc_filter_states(automaton);  // Prune automaton
+    synt_measures.end_prune_automaton(pruned_automaton);
 
-    return automaton;
+    return pruned_automaton;
+}
+
+void find_and_remove_dependents(const twa_graph_ptr& automaton,
+                                SyntInstance& synt_instance,
+                                AutomatonSyntMeasure& synt_measures,
+                                vector<string>& dependent_variables_dst,
+                                vector<string>& independent_variables_dst,
+                                std::ostream& verbose) {
+    verbose << "=> Finding Dependent Variables" << endl;
+
+    FindDepsByAutomaton automaton_dependencies(synt_instance, synt_measures,
+                                               automaton, false);
+    automaton_dependencies.find_dependencies(dependent_variables_dst,
+                                             independent_variables_dst);
+    verbose << "=> Found " << dependent_variables_dst.size()
+            << " dependent variables" << endl;
+
+    verbose << "=> Remove Dependent Variables" << endl;
+    synt_measures.start_remove_dependent_ap();
+    remove_ap_from_automaton(automaton, dependent_variables_dst);
+    synt_measures.end_remove_dependent_ap();
 }
 
 // Return if realizable
-bool synthesis_to_mealy(SyntInstance& synt_instance, synthesis_info& gi,
-                        AutomatonSyntMeasure& synt_measures, std::ostream& verbose,
-                        bool find_deps, bool should_split_mealy,
-                        spot::mealy_like& ml) {
-    // =================== Step 1: Construct NBA
-    vector<string> output_vars(synt_instance.get_output_vars());
-    spot::twa_graph_ptr automaton =
-        get_nba_for_synthesis(synt_instance, gi, synt_measures, verbose);
-
-    // =================== Step 2: Find Dependent Variables & Remove from NBW
-    if (find_deps) {
-        // === Step 2.1: Find output dependent variables
-        verbose << "=> Finding Dependent Variables" << endl;
-
-        vector<string> dependent_variables, independent_variables;
-        FindDepsByAutomaton automaton_dependencies(synt_instance, synt_measures,
-                                                   automaton, false);
-        automaton_dependencies.find_dependencies(dependent_variables,
-                                                 independent_variables);
-        verbose << "=> Found " << dependent_variables.size()
-                << " dependent variables" << endl;
-
-        // === Step 2.2: Remove dependent variables from the NBA
-        verbose << "=> Remove Dependent Variables" << endl;
-        synt_measures.start_remove_dependent_ap();
-        remove_ap_from_automaton(automaton, dependent_variables);
-        synt_measures.end_remove_dependent_ap();
-    } else {
-        verbose << "=> Skip finding dependent variables..." << endl;
-    }
-
-    // =================== Step 3: Build a determanstic-parity-game from the NBA
+bool synthesis_nba_to_mealy(spot::synthesis_info& gi,
+                            AutomatonSyntMeasure& synt_measures,
+                            twa_graph_ptr& automaton, SyntInstance& synt_instance,
+                            std::ostream& verbose, bool should_split_mealy,
+                            spot::mealy_like& ml) {
+    // =================== Step 1: Build a determanstic-parity-game from the NBA
     auto arena = get_dpa_from_nba(automaton, gi, synt_measures, synt_instance);
 
-    // =================== Step 4: Solve the determanstic-parity-game
+    // =================== Step 2: Solve the determanstic-parity-game
     synt_measures.start_solve_game();
     bool is_solved = spot::solve_game(arena, gi);
     synt_measures.end_solve_game();
@@ -146,7 +141,7 @@ bool synthesis_to_mealy(SyntInstance& synt_instance, synthesis_info& gi,
         return false;
     }
 
-    // =================== Step 5: Convert the solved game to mealy_machine
+    // =================== Step 3: Convert the solved game to mealy_machine
     synt_measures.start_dpa_to_mealy();
     ml.success = spot::mealy_like::realizability_code::REALIZABLE_REGULAR;
     ml.mealy_like = spot::solved_game_to_mealy(arena, gi);

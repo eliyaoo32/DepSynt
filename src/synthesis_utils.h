@@ -34,10 +34,17 @@ spot::twa_graph_ptr get_nba_for_synthesis(SyntInstance& synt_instance,
                                           AutomatonSyntMeasure& synt_measures,
                                           std::ostream& verbose);
 
-// Return if realizable
-bool synthesis_to_mealy(SyntInstance& synt_instance, spot::synthesis_info& gi,
-                        AutomatonSyntMeasure& synt_measures, std::ostream& verbose,
-                        bool find_deps, bool should_split_mealy,
-                        spot::mealy_like& ml);
+void find_and_remove_dependents(const spot::twa_graph_ptr& automaton,
+                                SyntInstance& synt_instance,
+                                AutomatonSyntMeasure& synt_measures,
+                                vector<string>& dependent_variables_dst,
+                                vector<string>& independent_variables_dst,
+                                std::ostream& verbose);
+
+bool synthesis_nba_to_mealy(spot::synthesis_info& gi,
+                            AutomatonSyntMeasure& synt_measures,
+                            spot::twa_graph_ptr& automaton,
+                            SyntInstance& synt_instance, std::ostream& verbose,
+                            bool should_split_mealy, spot::mealy_like& ml);
 
 #endif

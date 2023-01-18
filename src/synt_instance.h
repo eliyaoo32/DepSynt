@@ -26,7 +26,8 @@ class SyntInstance {
     void construct_formula();
 
    public:
-    explicit SyntInstance(const std::string& input_str, const std::string& output_str,
+    explicit SyntInstance(const std::string& input_str,
+                          const std::string& output_str,
                           const std::string& formula_str);
 
     explicit SyntInstance(std::vector<std::string>& inputs,
