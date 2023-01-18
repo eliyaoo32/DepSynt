@@ -30,6 +30,7 @@ def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, deco
             timeout=timeout, formula=ltl_formula, inputs=input_vars, outputs=output_vars, algo=algorithm)
         if not decompose:
             cli_cmd += " --decompose=no"
+        cli_cmd += " --aiger"   # Output in the aiger fromat
     elif 'bfss-synt' in synt_tool:
         cli_cmd = 'timeout --signal=HUP {timeout} {tool_path} --formula="{formula}" --input="{inputs}" --output="{outputs}" --algo=automaton'.format(
             timeout=timeout, formula=ltl_formula, inputs=input_vars, outputs=output_vars,
