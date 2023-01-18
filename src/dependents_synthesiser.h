@@ -15,6 +15,7 @@
 using State = unsigned;
 using Gate = unsigned;
 using BDDVar = int;
+using StateGatePair = std::pair<State, Gate>;
 
 using namespace spot;
 using namespace std;
@@ -29,7 +30,7 @@ class DependentsSynthesiser {
 
     aig_ptr m_aiger;
 
-    unordered_set<BDDVar> m_deps_bdd_vars;
+    unordered_set<BDDVar> deps_bdd_vars;
     unordered_map<string, Gate> partial_impl_cache;
 
     void init_aiger();

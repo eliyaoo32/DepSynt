@@ -33,7 +33,7 @@ void DependentsSynthesiser::init_aiger() {
      * Preprocessed data
      */
     for (auto& var : m_dep_vars) {
-        m_deps_bdd_vars.insert(this->ap_to_bdd_varnum(var));
+        deps_bdd_vars.insert(this->ap_to_bdd_varnum(var));
     }
 }
 
@@ -44,34 +44,42 @@ void DependentsSynthesiser::define_next_latches() {
      * unordered_map<Dst, vector<(Src, Gate)> dst_transitions means that the
      * transition (src, gate, dst) exists in the projected NBA
      */
-    unordered_map<State, std::vector<std::pair<State, Gate>>> dst_transitions;
+    unordered_map<State, std::vector<StateGatePair>> dst_transitions;
     for (State state = 0; state < m_nba_without_deps->num_states(); state++) {
         for (auto& transition : m_nba_without_deps->out(state)) {
             State src = transition.src;
             State dst = transition.dst;
             bdd& cond = transition.cond;
 
-            if (dst_transitions.find(dst) == dst_transitions.end())
-                dst_transitions[dst] = std::vector<std::pair<State, Gate>>();
-
             dst_transitions[dst].emplace_back(src, m_aiger->bdd2INFvar(cond));
         }
     }
-    auto next_latch_cond_op = [this](std::pair<State, Gate>& transition) {
-        Gate src_gate = this->m_aiger->latch_var(transition.first);
-        Gate cond_gate = transition.second;
 
-        return this->m_aiger->aig_and(src_gate, cond_gate);
-    };
-    for (State state = 0; state < m_nba_without_deps->num_states(); state++) {
+    for (auto& trans_to_dst : dst_transitions) {
+        State dst = trans_to_dst.first;
+        auto& trans = trans_to_dst.second;
+
         vector<Gate> next_latch_conds;
+        for (auto& src_and_cond : trans) {
+            // i.e. the transition (src, cond, dst)
+            State src_gate = m_aiger->latch_var(src_and_cond.first);
+            Gate cond_gate = src_and_cond.second;
 
-        std::transform(dst_transitions[state].begin(), dst_transitions[state].end(),
-                       std::back_inserter(next_latch_conds), next_latch_cond_op);
+            next_latch_conds.emplace_back(m_aiger->aig_and(src_gate, cond_gate));
+        }
 
-        Gate next_latch_gate = m_aiger->aig_or(next_latch_conds);
-        Gate latch = m_aiger->latch_var(state);
-        m_aiger->set_next_latch(latch, next_latch_gate);
+        assert(next_latch_conds.size() > 0);
+        Gate next_latch_gate;
+        if (next_latch_conds.size() == 1) {
+            next_latch_gate = next_latch_conds[0];
+        } else {
+            next_latch_gate = m_aiger->aig_or(next_latch_conds);
+        }
+        /**
+         * TODO: check maybe it should be dst_gate instead of
+         * m_aiger->latch_var(dst);
+         */
+        m_aiger->set_next_latch(dst, next_latch_gate);
     }
 }
 
@@ -163,7 +171,7 @@ Gate DependentsSynthesiser::calc_partial_impl(
     Gate high_gate = calc_partial_impl(bdd_high(cond), dep_var, bdd_partial_impl);
     Gate low_gate = calc_partial_impl(bdd_low(cond), dep_var, bdd_partial_impl);
 
-    bool is_dep_var = m_deps_bdd_vars.find(bdd_var(cond)) != m_deps_bdd_vars.end();
+    bool is_dep_var = deps_bdd_vars.find(bdd_var(cond)) != deps_bdd_vars.end();
     Gate n_v, neg_n_v;
 
     if (!is_dep_var) {
