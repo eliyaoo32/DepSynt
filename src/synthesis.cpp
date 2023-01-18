@@ -52,24 +52,52 @@ int main(int argc, const char* argv[]) {
 
     // Step 2: Find & Remove dependent variables
     vector<string> dependent_variables, independent_variables;
+    twa_graph_ptr nba_without_deps, nba_with_deps;
     bool found_depedencies = false;
+
     if (options.skip_dependencies) {
         verbose << "=> Skip finding dependent variables..." << endl;
     } else {
-        find_and_remove_dependents(nba, synt_instance, synt_measure,
-                                   dependent_variables, independent_variables,
-                                   verbose);
-        found_depedencies = dependent_variables.size() > 0;
-    }
+        verbose << "=> Finding Dependent Variables" << endl;
 
-    // Step 2.1: Store NBA without dependencies, will be used to synthesis
-    // dependecies strategy
-    twa_graph_ptr nba_without_deps;
-    if (found_depedencies) {
-        const_twa_graph_ptr nba_to_clone = nba;
-        twa_graph* nba_without_deps_ =
-            new twa_graph(*nba_to_clone);  // TODO: make sure it clones correctly}
-        nba_without_deps = shared_ptr<twa_graph>(nba_without_deps_);
+        FindDepsByAutomaton automaton_dependencies(synt_instance, synt_measure, nba,
+                                                   false);
+        automaton_dependencies.find_dependencies(dependent_variables,
+                                                 independent_variables);
+
+        found_depedencies = dependent_variables.size() > 0;
+        verbose << "=> Found " << dependent_variables.size()
+                << " dependent variables" << endl;
+
+        if (found_depedencies) {
+            // TODO: make sure it clones correctly
+            // TODO: report how long it took to clone this NBA
+            const_twa_graph_ptr nba_to_clone = nba;
+
+            spot::twa::prop_set props;
+            props.state_based = true;
+            twa_graph* cloned_nba = new twa_graph(nba_to_clone, props);
+
+            nba_with_deps = shared_ptr<twa_graph>(cloned_nba);
+        }
+
+        verbose << "=> Remove Dependent Variables" << endl;
+
+        synt_measure.start_remove_dependent_ap();
+        remove_ap_from_automaton(nba, dependent_variables);
+        synt_measure.end_remove_dependent_ap();
+
+        if (found_depedencies) {
+            // TODO: make sure it clones correctly
+            // TODO: report how long it took to clone this NBA
+            const_twa_graph_ptr nba_to_clone = nba;
+
+            spot::twa::prop_set props;
+            props.state_based = true;
+            twa_graph* cloned_nba = new twa_graph(nba_to_clone, props);
+
+            nba_without_deps = shared_ptr<twa_graph>(cloned_nba);
+        }
     }
 
     // Step 3: Synthesis the NBA
@@ -98,14 +126,18 @@ int main(int argc, const char* argv[]) {
     spot::print_aiger(std::cout, independent_aig) << '\n';
 
     // Step 5: Synthesis Dependent vars
+    cout << "Dependents Aiger: " << endl;
     if (found_depedencies) {
         vector<string> input_vars(synt_instance.get_input_vars());
-        DependentsSynthesiser dependents_synt(nba_without_deps, input_vars,
-                                              independent_variables,
+        DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
+                                              input_vars, independent_variables,
                                               dependent_variables);
-        spot::aig_ptr dependents_strategy = dependents_synt.synthesis();
 
-        cout << "Dependent Variables Strategy: " << endl;
+        spot::aig_ptr dependents_strategy = dependents_synt.synthesis();
         spot::print_aiger(std::cout, dependents_strategy) << '\n';
+    } else if (options.skip_dependencies) {
+        cout << "Skipped finding dependencies." << endl;
+    } else {
+        cout << "No dependent variables found." << endl;
     }
 }

@@ -6,56 +6,176 @@
 #include <spot/tl/print.hh>
 #include <spot/twaalgos/aiger.hh>
 #include <spot/twaalgos/translate.hh>
+#include <string>
+#include <vector>
 
 using namespace std;
 using namespace spot;
 
-aig_ptr DependentsSynthesiser::synthesis_next_states_aig() {
+void DependentsSynthesiser::init_aiger() {
     /**
-     * Step 1: Create an AIGER with required input, output and latches
+     * Create AIGER
+     * Input = Input Vars + Indep Vars
+     * Output = Dep Vars
+     * Latches = #States
      */
-    vector<string> outputs = {};
-    uint num_latches = m_nba_without_deps->num_states();
+    std::vector<std::string> aiger_inputs;
+    std::copy(m_input_vars.begin(), m_input_vars.end(),
+              std::back_inserter(aiger_inputs));
+    std::copy(m_indep_vars.begin(), m_indep_vars.end(),
+              std::back_inserter(aiger_inputs));
 
-    // Inputs = Independets Vars + Dependent Vars
-    vector<string> inputs = {};
-    std::copy(m_input_vars.begin(), m_input_vars.end(), std::back_inserter(inputs));
-    std::copy(m_indep_vars.begin(), m_indep_vars.end(), std::back_inserter(inputs));
-
-    aig_ptr res_ptr = std::make_shared<aig>(inputs, outputs, num_latches,
-                                            m_nba_without_deps->get_dict());
-    aig& circ = *res_ptr;
+    unsigned num_latches = m_nba_with_deps->num_states();
+    m_aiger = std::make_shared<aig>(aiger_inputs, m_dep_vars, num_latches,
+                                    m_nba_with_deps->get_dict());
 
     /**
-     * Step 2: Find for each latch (state), between what gates it suppose to apply OR
-     * operator
+     * Preprocessed data
      */
-    unordered_map<uint, vector<uint>> latch_to_bdds_gate;
-    unordered_map<int, uint> bdd_to_aig_var_num;  // Maps BDD id to AIGER var num
+    for (auto& var : m_dep_vars) {
+        m_deps_bdd_vars.insert(this->ap_to_bdd_varnum(var));
+    }
+}
 
-    for (uint state = 0; state < num_latches; state++) {
-        for (auto& trans : m_nba_without_deps->out(state)) {
-            int bdd_id = trans.cond.id();
+void DependentsSynthesiser::define_next_latches() {
+    /**
+     * Define next latches values
+     *
+     * unordered_map<Dst, vector<(Src, Gate)> dst_transitions means that the
+     * transition (src, gate, dst) exists in the projected NBA
+     */
+    unordered_map<State, std::vector<std::pair<State, Gate>>> dst_transitions;
+    for (State state = 0; state < m_nba_without_deps->num_states(); state++) {
+        for (auto& transition : m_nba_without_deps->out(state)) {
+            State src = transition.src;
+            State dst = transition.dst;
+            bdd& cond = transition.cond;
 
-            // Create a var num to bdd if not exists
-            if (bdd_to_aig_var_num.find(bdd_id) == bdd_to_aig_var_num.end()) {
-                bdd_to_aig_var_num[bdd_id] = circ.bdd2INFvar(trans.cond);
-            }
+            if (dst_transitions.find(dst) == dst_transitions.end())
+                dst_transitions[dst] = std::vector<std::pair<State, Gate>>();
 
-            // Add the gate to the latch
-            if (latch_to_bdds_gate.find(trans.dst) == latch_to_bdds_gate.end()) {
-                latch_to_bdds_gate[trans.dst] = {};
-            }
-            latch_to_bdds_gate[trans.dst].push_back(bdd_to_aig_var_num[bdd_id]);
+            dst_transitions[dst].emplace_back(src, m_aiger->bdd2INFvar(cond));
         }
     }
+    auto next_latch_cond_op = [this](std::pair<State, Gate>& transition) {
+        Gate src_gate = this->m_aiger->latch_var(transition.first);
+        Gate cond_gate = transition.second;
 
+        return this->m_aiger->aig_and(src_gate, cond_gate);
+    };
+    for (State state = 0; state < m_nba_without_deps->num_states(); state++) {
+        vector<Gate> next_latch_conds;
+
+        std::transform(dst_transitions[state].begin(), dst_transitions[state].end(),
+                       std::back_inserter(next_latch_conds), next_latch_cond_op);
+
+        Gate next_latch_gate = m_aiger->aig_or(next_latch_conds);
+        Gate latch = m_aiger->latch_var(state);
+        m_aiger->set_next_latch(latch, next_latch_gate);
+    }
+}
+
+void DependentsSynthesiser::define_output_gates() {
     /**
-     * Step 3: each latch, next state value is OR between all its BDD gates
+     * Create for each state which corresponds if any transiiton of the state is
+     * activate based on Input and Indep Vars
      */
-    for (auto& [latch, bdds_gates] : latch_to_bdds_gate) {
-        circ.set_next_latch(latch, circ.aig_or(bdds_gates));
+    unordered_map<State, Gate> active_state_gate;
+    for (State state = 0; state < m_nba_without_deps->num_states(); state++) {
+        const auto& state_outs = m_nba_without_deps->out(state);
+        vector<Gate> state_trans_gates;
+
+        std::transform(state_outs.begin(), state_outs.end(),
+                       std::back_inserter(state_trans_gates),
+                       [this](auto& transition) {
+                           return m_aiger->bdd2INFvar(transition.cond);
+                       });
+
+        active_state_gate[state] = m_aiger->aig_and(
+            m_aiger->latch_var(state), m_aiger->aig_or(state_trans_gates));
     }
 
-    return res_ptr;
+    /**
+     * Define output for the dependent variables
+     */
+    for (unsigned dep_idx = 0; dep_idx < m_dep_vars.size(); dep_idx++) {
+        /**
+         * TODO: we can small optimization here by removing the
+         * partial_impl_cache of current dependent varaible after finished
+         */
+        /** TODO: For the same BDD the process PartialImpl(BDD,d1) and
+         * PartialImpl(BDD, d2) shares the same construction except assignment of
+         * neg_n_v  */
+        /**
+         * TODO: optimization - BDD1 may be included in BDD2, so in the process
+         * BDD2 we can conver BDD1. */
+
+        string& dep_var = m_dep_vars[dep_idx];
+        vector<Gate> dep_partial_impls;
+
+        // For all transitions (src, cond, dst)
+        for (State state = 0; state < m_nba_with_deps->num_states(); state++) {
+            for (auto& transition : m_nba_with_deps->out(state)) {
+                State src = transition.src;
+                bdd& cond = transition.cond;
+
+                Gate partial_impl = get_partial_impl(cond, dep_var);
+
+                dep_partial_impls.emplace_back(
+                    m_aiger->aig_and(active_state_gate[src], partial_impl));
+            }
+        }
+
+        m_aiger->set_output(dep_idx, m_aiger->aig_or(dep_partial_impls));
+    }
+}
+
+Gate DependentsSynthesiser::get_partial_impl(const bdd& cond, string& dep_var) {
+    string partial_impl_key = std::to_string(cond.id()) + "#" + dep_var;
+
+    // If exists in cache
+    if (partial_impl_cache.find(partial_impl_key) != partial_impl_cache.end()) {
+        return partial_impl_cache[partial_impl_key];
+    }
+
+    // Create partial implementation
+    unordered_map<int, Gate> bdds_partial_impl;
+    Gate partial_impl = calc_partial_impl(cond, dep_var, bdds_partial_impl);
+
+    // Store to cache and return it
+    partial_impl_cache[partial_impl_key] = partial_impl;
+    return partial_impl_cache[partial_impl_key];
+}
+
+Gate DependentsSynthesiser::calc_partial_impl(
+    const bdd& cond, string& dep_var, unordered_map<int, Gate>& bdd_partial_impl) {
+    if (cond == bddtrue) {
+        return m_aiger->aig_true();
+    }
+    if (cond == bddfalse) {
+        return m_aiger->aig_false();
+    }
+    if (bdd_partial_impl.find(cond.id()) != bdd_partial_impl.end()) {
+        return bdd_partial_impl[cond.id()];
+    }
+
+    // Post-order traversal
+    Gate high_gate = calc_partial_impl(bdd_high(cond), dep_var, bdd_partial_impl);
+    Gate low_gate = calc_partial_impl(bdd_low(cond), dep_var, bdd_partial_impl);
+
+    bool is_dep_var = m_deps_bdd_vars.find(bdd_var(cond)) != m_deps_bdd_vars.end();
+    Gate n_v, neg_n_v;
+
+    if (!is_dep_var) {
+        n_v = m_aiger->bdd2aigvar(bdd_ithvar(bdd_var(cond)));
+        neg_n_v = m_aiger->aig_not(n_v);
+    } else {
+        bool is_bdd_var_cur_dep = bdd_var(cond) == ap_to_bdd_varnum(dep_var);
+        neg_n_v = is_bdd_var_cur_dep ? m_aiger->aig_false() : m_aiger->aig_true();
+        n_v = m_aiger->aig_true();
+    }
+
+    bdd_partial_impl[cond.id()] = m_aiger->aig_or(
+        m_aiger->aig_and(neg_n_v, low_gate), m_aiger->aig_and(n_v, high_gate));
+    return bdd_partial_impl[cond.id()];
 }
