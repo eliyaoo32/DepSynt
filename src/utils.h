@@ -16,6 +16,8 @@
 
 enum Algorithm { UNKNOWN = 0, FORMULA = 1, AUTOMATON = 2 };
 
+enum SyntDepsAlgo { UNKNOWN = 0, SPOT = 1, DEPS_AIGER = 2 };
+
 Algorithm string_to_algorithm(const std::string &str);
 std::string algorithm_to_string(const Algorithm &algo);
 
@@ -29,6 +31,7 @@ struct BaseCLIOptions {
 struct SynthesisCLIOptions : public BaseCLIOptions {
     bool skip_dependencies;
     bool decompose_formula;
+    SyntDepsAlgo synt_deps_algo;
 };
 
 struct FindDependenciesCLIOptions : public BaseCLIOptions {
@@ -47,7 +50,8 @@ std::ostream &operator<<(std::ostream &out, const std::vector<std::string> &vec)
 
 std::ostream &operator<<(std::ostream &out, const SynthesisCLIOptions &options);
 
-std::ostream &operator<<(std::ostream &out, const FindDependenciesCLIOptions &options);
+std::ostream &operator<<(std::ostream &out,
+                         const FindDependenciesCLIOptions &options);
 
 using Duration = long;
 

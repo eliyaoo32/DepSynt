@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "dependents_synthesiser.h"
+#include "dependents_aiger_synthesiser.h"
 #include "find_deps_by_automaton.h"
 #include "synt_instance.h"
 #include "synthesis_utils.h"
@@ -42,8 +42,6 @@ int main(int argc, const char* argv[]) {
 
     SyntInstance synt_instance(options.inputs, options.outputs, options.formula);
     AutomatonSyntMeasure synt_measure(synt_instance, options.skip_dependencies);
-    TimeMeasure total_duration;
-    total_duration.start();
 
     /**
      * Synthesising
@@ -118,7 +116,6 @@ int main(int argc, const char* argv[]) {
 
     // Output results
     cout << "Synthesis Measures: " << endl;
-    cout << "total duration: " << total_duration.end() << " ms" << endl;
     cout << synt_measure << endl;
 
     cout << "=========================" << endl;
@@ -130,9 +127,9 @@ int main(int argc, const char* argv[]) {
     cout << "Dependents Aiger: " << endl;
     if (found_depedencies) {
         vector<string> input_vars(synt_instance.get_input_vars());
-        DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
-                                              input_vars, independent_variables,
-                                              dependent_variables);
+        DependentsAigerSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
+                                                   input_vars, independent_variables,
+                                                   dependent_variables);
 
         spot::aig_ptr dependents_strategy = dependents_synt.synthesis();
         spot::print_aiger(std::cout, dependents_strategy) << '\n';

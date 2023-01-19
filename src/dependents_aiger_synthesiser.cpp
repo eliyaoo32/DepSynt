@@ -12,7 +12,7 @@
 using namespace std;
 using namespace spot;
 
-void DependentsSynthesiser::init_aiger() {
+void DependentsAigerSynthesiser::init_aiger() {
     /**
      * Create AIGER
      * Input = Input Vars + Indep Vars
@@ -37,7 +37,7 @@ void DependentsSynthesiser::init_aiger() {
     }
 }
 
-void DependentsSynthesiser::define_next_latches() {
+void DependentsAigerSynthesiser::define_next_latches() {
     /**
      * Define next latches values
      *
@@ -87,7 +87,7 @@ void DependentsSynthesiser::define_next_latches() {
     }
 }
 
-void DependentsSynthesiser::define_output_gates() {
+void DependentsAigerSynthesiser::define_output_gates() {
     /**
      * Create for each state which corresponds if any transiiton of the state is
      * activate based on Input and Indep Vars
@@ -142,7 +142,7 @@ void DependentsSynthesiser::define_output_gates() {
     }
 }
 
-Gate DependentsSynthesiser::get_partial_impl(const bdd& cond, string& dep_var) {
+Gate DependentsAigerSynthesiser::get_partial_impl(const bdd& cond, string& dep_var) {
     string partial_impl_key = std::to_string(cond.id()) + "#" + dep_var;
 
     // If exists in cache
@@ -159,7 +159,7 @@ Gate DependentsSynthesiser::get_partial_impl(const bdd& cond, string& dep_var) {
     return partial_impl_cache[partial_impl_key];
 }
 
-Gate DependentsSynthesiser::generate_partial_impl(
+Gate DependentsAigerSynthesiser::generate_partial_impl(
     const bdd& cond, string& dep_var, unordered_map<int, Gate>& bdd_partial_impl) {
     if (cond == bddtrue) {
         return m_aiger->aig_true();

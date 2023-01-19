@@ -20,7 +20,7 @@ using StateGatePair = std::pair<State, Gate>;
 using namespace spot;
 using namespace std;
 
-class DependentsSynthesiser {
+class DependentsAigerSynthesiser {
    private:
     spot::twa_graph_ptr m_nba_without_deps;
     spot::twa_graph_ptr m_nba_with_deps;
@@ -50,11 +50,11 @@ class DependentsSynthesiser {
     }
 
    public:
-    DependentsSynthesiser(spot::twa_graph_ptr& nba_without_deps,
-                          spot::twa_graph_ptr& nba_with_deps,
-                          std::vector<std::string>& input_vars,
-                          std::vector<std::string>& indep_vars,
-                          std::vector<std::string>& dep_vars)
+    DependentsAigerSynthesiser(spot::twa_graph_ptr& nba_without_deps,
+                               spot::twa_graph_ptr& nba_with_deps,
+                               std::vector<std::string>& input_vars,
+                               std::vector<std::string>& indep_vars,
+                               std::vector<std::string>& dep_vars)
         : m_nba_without_deps(nba_without_deps),
           m_nba_with_deps(nba_with_deps),
           m_input_vars(input_vars),
