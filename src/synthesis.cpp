@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "dependents_aiger_synthesiser.h"
+#include "dependents_spot_synthesiser.h"
 #include "find_deps_by_automaton.h"
 #include "synt_instance.h"
 #include "synthesis_utils.h"
@@ -12,8 +13,6 @@
 
 using namespace std;
 using namespace spot;
-
-#define AIGER_MODE "ite"
 
 int main(int argc, const char* argv[]) {
     /**
@@ -71,13 +70,7 @@ int main(int argc, const char* argv[]) {
 
         if (found_depedencies) {
             // TODO: report how long it took to clone this NBA
-            const_twa_graph_ptr nba_to_clone = nba;
-
-            spot::twa::prop_set props;
-            props.state_based = true;
-            twa_graph* cloned_nba = new twa_graph(nba_to_clone, props);
-
-            nba_with_deps = shared_ptr<twa_graph>(cloned_nba);
+            nba_with_deps = clone_automaton(nba);
         }
 
         verbose << "=> Remove Dependent Variables" << endl;
@@ -88,13 +81,7 @@ int main(int argc, const char* argv[]) {
 
         if (found_depedencies) {
             // TODO: report how long it took to clone this NBA
-            const_twa_graph_ptr nba_to_clone = nba;
-
-            spot::twa::prop_set props;
-            props.state_based = true;
-            twa_graph* cloned_nba = new twa_graph(nba_to_clone, props);
-
-            nba_without_deps = shared_ptr<twa_graph>(cloned_nba);
+            nba_without_deps = clone_automaton(nba);
         }
     }
 
@@ -126,13 +113,32 @@ int main(int argc, const char* argv[]) {
     // Step 5: Synthesis Dependent vars
     cout << "Dependents Aiger: " << endl;
     if (found_depedencies) {
+        spot::aig_ptr dependents_strategy;
         vector<string> input_vars(synt_instance.get_input_vars());
-        DependentsAigerSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
-                                                   input_vars, independent_variables,
-                                                   dependent_variables);
 
-        spot::aig_ptr dependents_strategy = dependents_synt.synthesis();
-        spot::print_aiger(std::cout, dependents_strategy) << '\n';
+        if (options.synt_deps_algo == SyntDepsAlgo::DEPS_AIGER) {
+            DependentsAigerSynthesiser aiger_deps_synt(
+                nba_without_deps, nba_with_deps, input_vars, independent_variables,
+                dependent_variables);
+
+            dependents_strategy = aiger_deps_synt.synthesis();
+        } else if (options.synt_deps_algo == SyntDepsAlgo::SPOT) {
+            DependentsSpotSynthesiser spot_deps_synt(
+                input_vars, independent_variables, dependent_variables,
+                nba_with_deps);
+
+            dependents_strategy = spot_deps_synt.synthesis(gi);
+        } else {
+            cerr << "Missing implementation for " << options.synt_deps_algo << endl;
+            return EXIT_FAILURE;
+        }
+
+        if (dependents_strategy == nullptr) {
+            // Unrealizable
+            cout << "UNREALIZABLE (Dependents)" << endl;
+        } else {
+            spot::print_aiger(std::cout, dependents_strategy) << '\n';
+        }
     } else if (options.skip_dependencies) {
         cout << "Skipped finding dependencies." << endl;
     } else {

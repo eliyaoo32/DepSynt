@@ -1,5 +1,5 @@
-#ifndef DEPENDENTS_SYNTHESISER_H
-#define DEPENDENTS_SYNTHESISER_H
+#ifndef DEPENDENTS_AIGER_SYNTHESISER_H
+#define DEPENDENTS_AIGER_SYNTHESISER_H
 
 #include <algorithm>
 #include <iostream>

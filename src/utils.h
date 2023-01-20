@@ -16,7 +16,7 @@
 
 enum Algorithm { UNKNOWN = 0, FORMULA = 1, AUTOMATON = 2 };
 
-enum SyntDepsAlgo { UNKNOWN = 0, SPOT = 1, DEPS_AIGER = 2 };
+enum SyntDepsAlgo { SPOT = 1, DEPS_AIGER = 2 };
 
 Algorithm string_to_algorithm(const std::string &str);
 std::string algorithm_to_string(const Algorithm &algo);

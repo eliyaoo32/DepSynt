@@ -41,14 +41,15 @@ void remove_ap_from_automaton(const twa_graph_ptr& automaton,
 }
 
 spot::twa_graph_ptr get_dpa_from_nba(spot::twa_graph_ptr nba, synthesis_info& gi,
-                                     AutomatonSyntMeasure& synt_measures,
-                                     SyntInstance& synt_instance) {
+                                     const vector<string>& output_vars,
+                                     AutomatonSyntMeasure* synt_measures) {
     auto tobdd = [&nba](const std::string& ap_name) {
         return bdd_ithvar(nba->register_ap(ap_name));
     };
-    const vector<string>& output_vars = synt_instance.get_output_vars();
 
-    synt_measures.start_split_2step();
+    if (synt_measures != nullptr) {
+        synt_measures->start_split_2step();
+    }
     auto is_out = [&output_vars](const std::string& ao) -> bool {
         return std::find(output_vars.begin(), output_vars.end(), ao) !=
                output_vars.end();
@@ -60,18 +61,30 @@ spot::twa_graph_ptr get_dpa_from_nba(spot::twa_graph_ptr nba, synthesis_info& gi
         }
     }
     auto splitted = split_2step(nba, outs, true);
-    synt_measures.end_split_2step();
 
-    synt_measures.start_nba_to_dpa();
+    if (synt_measures != nullptr) {
+        synt_measures->end_split_2step();
+        synt_measures->start_nba_to_dpa();
+    }
     auto dpa = ntgba2dpa(splitted, gi.force_sbacc);
     // Transform an automaton into a parity game by propagating players.
     alternate_players(dpa);
     // Merge states knows about players
     dpa->merge_states();
     set_synthesis_outputs(dpa, outs);
-    synt_measures.end_nba_to_dpa();
+
+    if (synt_measures != nullptr) {
+        synt_measures->end_nba_to_dpa();
+    }
 
     return dpa;
+}
+
+spot::twa_graph_ptr get_dpa_from_nba(spot::twa_graph_ptr nba, synthesis_info& gi,
+                                     AutomatonSyntMeasure& synt_measures,
+                                     SyntInstance& synt_instance) {
+    return get_dpa_from_nba(nba, gi, synt_instance.get_output_vars(),
+                            &synt_measures);
 }
 
 spot::twa_graph_ptr get_nba_for_synthesis(SyntInstance& synt_instance,
@@ -150,4 +163,14 @@ bool synthesis_nba_to_mealy(spot::synthesis_info& gi,
 
     synt_measures.completed();
     return true;
+}
+
+spot::twa_graph_ptr clone_automaton(spot::twa_graph_ptr nba) {
+    spot::const_twa_graph_ptr nba_to_clone = nba;
+
+    spot::twa::prop_set props;
+    props.state_based = true;
+    spot::twa_graph* cloned_nba = new spot::twa_graph(nba_to_clone, props);
+
+    return shared_ptr<spot::twa_graph>(cloned_nba);
 }

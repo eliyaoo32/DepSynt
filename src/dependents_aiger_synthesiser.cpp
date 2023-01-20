@@ -1,4 +1,4 @@
-#include "dependents_synthesiser.h"
+#include "dependents_aiger_synthesiser.h"
 
 #include <algorithm>
 #include <iostream>

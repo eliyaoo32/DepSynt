@@ -19,10 +19,17 @@
 #include "synt_instance.h"
 #include "utils.h"
 
+#define AIGER_MODE "ite"
+
 spot::twa_graph_ptr ntgba2dpa(const spot::twa_graph_ptr& aut, bool force_sbacc);
 
 void remove_ap_from_automaton(const spot::twa_graph_ptr& automaton,
                               vector<string>& variables);
+
+spot::twa_graph_ptr get_dpa_from_nba(spot::twa_graph_ptr nba,
+                                     spot::synthesis_info& gi,
+                                     const vector<string>& output_vars,
+                                     AutomatonSyntMeasure* synt_measures = nullptr);
 
 spot::twa_graph_ptr get_dpa_from_nba(spot::twa_graph_ptr nba,
                                      spot::synthesis_info& gi,
@@ -46,5 +53,7 @@ bool synthesis_nba_to_mealy(spot::synthesis_info& gi,
                             spot::twa_graph_ptr& automaton,
                             SyntInstance& synt_instance, std::ostream& verbose,
                             bool should_split_mealy, spot::mealy_like& ml);
+
+spot::twa_graph_ptr clone_automaton(spot::twa_graph_ptr nba);
 
 #endif
