@@ -1,5 +1,5 @@
-#ifndef FORMULA_DEPENDENCIES_H
-#define FORMULA_DEPENDENCIES_H
+#ifndef FIND_DEPS_BY_FORMULA_H
+#define FIND_DEPS_BY_FORMULA_H
 
 #include <spot/twa/twa.hh>
 #include <string>
@@ -21,7 +21,8 @@ class FindDepsByFormula {
     SyntInstance *m_prime_synt_instance;
     SyntMeasures &m_measures;
 
-    bool is_variable_dependent(string &dependent_var, vector<string> &dependency_vars);
+    bool is_variable_dependent(string &dependent_var,
+                               vector<string> &dependency_vars);
 
     spot::formula *get_dependency_formula(string &dependent_var,
                                           vector<string> &dependency_vars);

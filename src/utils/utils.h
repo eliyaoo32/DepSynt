@@ -1,5 +1,5 @@
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef REACTIVE_SYNTHESIS_UTILS_H
+#define REACTIVE_SYNTHESIS_UTILS_H
 
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
@@ -47,7 +47,8 @@ std::ostream &operator<<(std::ostream &out, const std::vector<std::string> &vec)
 
 std::ostream &operator<<(std::ostream &out, const SynthesisCLIOptions &options);
 
-std::ostream &operator<<(std::ostream &out, const FindDependenciesCLIOptions &options);
+std::ostream &operator<<(std::ostream &out,
+                         const FindDependenciesCLIOptions &options);
 
 using Duration = long;
 

@@ -1,5 +1,5 @@
-#ifndef AUTOMATON_DEPENDENCIES_H
-#define AUTOMATON_DEPENDENCIES_H
+#ifndef FIND_DEPS_BY_AUTOMATON_H
+#define FIND_DEPS_BY_AUTOMATON_H
 
 #include <map>
 #include <spot/tl/parse.hh>
@@ -38,7 +38,8 @@ struct VarIndexer {
 class FindDepsByAutomaton {
    public:
     /**
-     * @brief This class is used to determinate the type of dependent variable to search.
+     * @brief This class is used to determinate the type of dependent variable to
+     * search.
      */
     enum DependentVariableType { Output, Input };
 
@@ -53,7 +54,8 @@ class FindDepsByAutomaton {
                                std::vector<std::string>& dependency_vars,
                                std::vector<PairState>& pairStates);
 
-    bool is_dependent_by_pair_edges(int dependent_var, std::vector<int>& dependency_vars,
+    bool is_dependent_by_pair_edges(int dependent_var,
+                                    std::vector<int>& dependency_vars,
                                     vector<VarIndexer>& reset_vars,
                                     const PairEdges& edges);
 
@@ -62,9 +64,9 @@ class FindDepsByAutomaton {
     void find_dependencies_candidates(std::vector<std::string>& candidates_dst);
 
     /**
-     * @brief In a validation of a dependent variables, we need to calculate what's the
-     * dependency set of the dependent variable. This function extracts the dependency
-     * set.
+     * @brief In a validation of a dependent variables, we need to calculate what's
+     * the dependency set of the dependent variable. This function extracts the
+     * dependency set.
      */
     void extract_dependency_set(std::vector<std::string>& dependency_set_dst,
                                 std::vector<std::string>& current_candidates,
