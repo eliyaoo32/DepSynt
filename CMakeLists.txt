@@ -3,7 +3,8 @@ project(reactive-synthesis-bfss)
 
 set(CMAKE_CXX_STANDARD 17)
 
-FILE(GLOB non_executable_SRC  ${PROJECT_SOURCE_DIR}/src/*.cpp )
+FILE(GLOB non_executable_SRC  ${PROJECT_SOURCE_DIR}/src/**/*.cpp )
+message(STATUS "non_executable_SRC: ${non_executable_SRC}")
 
 add_executable(find_dependencies ${non_executable_SRC} bins/find_dependencies.cpp )
 add_executable(synt_independents ${non_executable_SRC} bins/synt_independents.cpp )
@@ -50,7 +51,8 @@ target_link_libraries( find_dependencies boost_options boost_json bddx spot )
 target_link_libraries( synt_independents boost_options boost_json bddx spot )
 target_link_libraries( synthesis boost_options boost_json bddx spot )
 
-include_directories(./src)  # TODO: seperate it
+# TODO: clean this up
+include_directories(./src/findDeps ./src/synthesis ./src/utils )
 
 # TODO: find a way to include the spot headers and boost headers
 include_directories(/usr/local/include)
