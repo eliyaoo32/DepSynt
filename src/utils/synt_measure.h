@@ -74,6 +74,7 @@ class AutomatonFindDepsMeasure : public SyntMeasures {
     TimeMeasure m_search_pair_states_time;
     int m_total_pair_states;
     bool m_skipped_dependency_check;
+    TimeMeasure m_total_find_deps_duration;
 
    protected:
     void get_json_object(json::object& obj) const override;
@@ -85,6 +86,10 @@ class AutomatonFindDepsMeasure : public SyntMeasures {
           m_total_pair_states(-1),
           m_total_prune_automaton_states(-1),
           m_skipped_dependency_check(skipped_dependency_check) {}
+
+    void start_find_deps() { m_total_find_deps_duration.start(); }
+
+    void end_find_deps() { m_total_find_deps_duration.end(); }
 
     void start_search_pair_states();
 
@@ -98,10 +103,10 @@ class AutomatonFindDepsMeasure : public SyntMeasures {
 class SynthesisMeasure : public AutomatonFindDepsMeasure {
    private:
     TimeMeasure m_remove_dependent_ap;
-    TimeMeasure m_split_2step;
-    TimeMeasure m_nba_to_dpa;
-    TimeMeasure m_solve_game;
-    TimeMeasure m_dpa_to_mealy;
+    TimeMeasure m_independents_total_duration;
+    TimeMeasure m_dependents_total_duration;
+
+    string m_independents_realizable;
 
    protected:
     void get_json_object(json::object& obj) const override;
@@ -109,19 +114,21 @@ class SynthesisMeasure : public AutomatonFindDepsMeasure {
    public:
     explicit SynthesisMeasure(SyntInstance& m_synt_instance,
                               bool skipped_dependency_check)
-        : AutomatonFindDepsMeasure(m_synt_instance, skipped_dependency_check) {}
+        : AutomatonFindDepsMeasure(m_synt_instance, skipped_dependency_check),
+          m_independents_realizable("UNKNOWN") {}
 
     void start_remove_dependent_ap() { m_remove_dependent_ap.start(); }
-    void start_split_2step() { m_split_2step.start(); }
-    void start_nba_to_dpa() { m_nba_to_dpa.start(); }
-    void start_solve_game() { m_solve_game.start(); }
-    void start_dpa_to_mealy() { m_dpa_to_mealy.start(); }
-
     void end_remove_dependent_ap() { m_remove_dependent_ap.end(); }
-    void end_split_2step() { m_split_2step.end(); }
-    void end_nba_to_dpa() { m_nba_to_dpa.end(); }
-    void end_solve_game() { m_solve_game.end(); }
-    void end_dpa_to_mealy() { m_dpa_to_mealy.end(); }
+
+    void start_independents_synthesis() { m_independents_total_duration.start(); }
+    void end_independents_synthesis() { m_independents_total_duration.end(); }
+
+    void start_dependents_synthesis() { m_dependents_total_duration.start(); }
+    void end_dependents_synthesis() { m_dependents_total_duration.end(); }
+
+    void set_independents_realizability(const char* realizability) {
+        m_independents_realizable = realizability;
+    }
 };
 
 #endif  // REACTIVE_SYNTHESIS_BFSS_SYNT_MEASURE_H

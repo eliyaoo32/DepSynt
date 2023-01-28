@@ -99,11 +99,13 @@ void AutomatonFindDepsMeasure::end_prune_automaton(
 
 void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
     SyntMeasures::get_json_object(obj);
-    obj["algorithm_type"] = "automaton";
 
     json::object automaton_algo_obj;
+
+    automaton_algo_obj["total_duration"] =
+        this->m_total_find_deps_duration.get_duration();
     automaton_algo_obj["skipped_dependecies"] = this->m_skipped_dependency_check;
-    automaton_algo_obj["type"] = "automaton";
+    automaton_algo_obj["algorithm_type"] = "automaton";
     automaton_algo_obj["total_pair_state"] = this->m_total_pair_states;
     if (this->m_search_pair_states_time.has_started()) {
         automaton_algo_obj["search_pair_state_duration"] =
@@ -118,28 +120,32 @@ void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
     automaton_algo_obj["prune_total_states"] =
         static_cast<int>(this->m_total_prune_automaton_states);
 
-    obj.emplace("algorithm", automaton_algo_obj);
+    obj.emplace("find_dependencies", automaton_algo_obj);
 }
 
 void SynthesisMeasure::get_json_object(json::object& obj) const {
     AutomatonFindDepsMeasure::get_json_object(obj);
+    obj.emplace("algorithm_type", "aiger_synthesis");
 
     json::object synthesis_process_obj;
+
+    // Report remove depenedents
     if (m_remove_dependent_ap.has_started()) {
         synthesis_process_obj.emplace("remove_dependent_ap_duration",
                                       m_remove_dependent_ap.get_duration());
     }
+    if (m_dependents_total_duration.has_started()) {
+        synthesis_process_obj.emplace("synthesis_dependents_duration",
+                                      m_dependents_total_duration.get_duration());
+    }
+    synthesis_process_obj.emplace("synthesis_independents_duration",
+                                  m_independents_total_duration.get_duration());
+    synthesis_process_obj.emplace("independents_realizability",
+                                  m_independents_realizable);
+    synthesis_process_obj.emplace("synthesis_independents_duration",
+                                  m_independents_total_duration.get_duration());
 
-    synthesis_process_obj.emplace("split_2step_duration",
-                                  m_split_2step.get_duration());
-    synthesis_process_obj.emplace("nba_to_dpa_duration",
-                                  m_nba_to_dpa.get_duration());
-    synthesis_process_obj.emplace("solve_game_duration",
-                                  m_solve_game.get_duration());
-    synthesis_process_obj.emplace("dpa_to_mealy_duration",
-                                  m_dpa_to_mealy.get_duration(false));
-
-    obj.emplace("synthesis_process", synthesis_process_obj);
+    obj.emplace("synthesis", synthesis_process_obj);
 }
 
 ostream& operator<<(ostream& os, const SyntMeasures& sm) {

@@ -76,22 +76,32 @@ int main(int argc, const char* argv[]) {
     }
 
     // Synthesis the independent variables
-    spot::aig_ptr indep_strategy = synthesis_nba_to_aiger(
-        gi, synt_measure, nba, independent_variables, input_vars, verbose);
+    synt_measure.start_independents_synthesis();
+    spot::aig_ptr indep_strategy =
+        synthesis_nba_to_aiger(gi, nba, independent_variables, input_vars, verbose);
+    synt_measure.end_independents_synthesis();
+
     cout << "Indepedent strategy: " << endl;
     spot::print_aiger(std::cout, indep_strategy) << '\n';
 
     if (indep_strategy == nullptr) {
         cout << "UNREALIZABLE" << endl;
-        // TODO: handle UNREALIZABLE
+        synt_measure.completed();
+        synt_measure.set_independents_realizability("UNREALIZABLE");
+
+        return EXIT_SUCCESS;
+    } else {
+        synt_measure.set_independents_realizability("REALIZABLE");
     }
 
     // Synthesis the dependent variables
     if (found_depedencies) {
+        synt_measure.start_dependents_synthesis();
         DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
                                               input_vars, independent_variables,
                                               dependent_variables);
         spot::aig_ptr dependents_strategy = dependents_synt.synthesis();
+        synt_measure.end_dependents_synthesis();
 
         cout << "Dependents strategy: " << endl;
         spot::print_aiger(std::cout, dependents_strategy) << '\n';
@@ -101,6 +111,12 @@ int main(int argc, const char* argv[]) {
         cout << "No dependent variables found." << endl;
     }
 
+    // Print Measures
+    synt_measure.completed();
+    cout << synt_measure << endl;
+
     // TODO: merge the dependents strategy and independent strategy
     // TODO: add model checking
+
+    return EXIT_SUCCESS;
 }

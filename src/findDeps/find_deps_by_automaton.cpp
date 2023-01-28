@@ -11,6 +11,8 @@ using namespace std;
 
 void FindDepsByAutomaton::find_dependencies(vector<string>& dependent_variables,
                                             vector<string>& independent_variables) {
+    m_measures.start_find_deps();
+
     // Find PairStates
     m_measures.start_search_pair_states();
     vector<PairState> compatibleStates;
@@ -40,6 +42,8 @@ void FindDepsByAutomaton::find_dependencies(vector<string>& dependent_variables,
             m_measures.end_testing_variable(false, dependency_set);
         }
     }
+
+    m_measures.end_find_deps();
 }
 
 void FindDepsByAutomaton::find_dependencies_candidates(
