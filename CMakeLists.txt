@@ -4,7 +4,6 @@ project(reactive-synthesis-bfss)
 set(CMAKE_CXX_STANDARD 17)
 
 FILE(GLOB non_executable_SRC  ${PROJECT_SOURCE_DIR}/src/**/*.cpp )
-message(STATUS "non_executable_SRC: ${non_executable_SRC}")
 
 add_executable(find_dependencies ${non_executable_SRC} bins/find_dependencies.cpp )
 add_executable(synthesis ${non_executable_SRC} bins/synthesis.cpp )
