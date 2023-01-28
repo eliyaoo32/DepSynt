@@ -36,11 +36,7 @@ bool parse_synthesis_cli(int argc, const char *argv[],
         "Should skip finding and ejecting dependent variables")(
         "skip-synt-deps",
         Options::bool_switch(&options.skip_synt_dependencies)->default_value(false),
-        "Should skip synthesing a strategy with dependent variables")(
-        "decompose",
-        Options::bool_switch(&options.decompose_formula)->default_value(false),
-        "Should decompose the formula into sub formulas and synthesis each formula "
-        "separately");
+        "Should skip synthesing a strategy with dependent variables");
 
     try {
         Options::command_line_parser parser{argc, argv};
@@ -53,13 +49,6 @@ bool parse_synthesis_cli(int argc, const char *argv[],
         Options::store(parsed_options, vm);
         Options::notify(vm);
 
-        // If decompose formula, then cannot synthesis dependencies
-        if (options.decompose_formula && !options.skip_synt_dependencies) {
-            cerr << "Decomposing formula is only possible if skip synthesis "
-                    "dependencies"
-                 << endl;
-            return false;
-        }
         // Can synthesis dependencies only if eject dependencies
         if (!options.skip_synt_dependencies && options.skip_eject_dependencies) {
             cerr << "Synthesis dependencies is only possible if eject "
@@ -174,8 +163,10 @@ std::ostream &operator<<(std::ostream &out, const SynthesisCLIOptions &options) 
     out << " - Outputs: " << options.outputs << endl;
     out << " - Verbose: " << options.verbose << endl;
 
-    out << " - Skip dependencies synthesis: " << options.skip_dependencies << endl;
-    out << " - Decompose to Sub-Formulas: " << options.decompose_formula << endl;
+    out << " - Skip ejects dependencies synthesis: "
+        << options.skip_eject_dependencies << endl;
+    out << " - Skip synthesis dependencies synthesis: "
+        << options.skip_synt_dependencies << endl;
 
     return out;
 }

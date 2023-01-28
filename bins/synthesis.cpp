@@ -34,8 +34,7 @@ int main(int argc, const char* argv[]) {
     gi.minimize_lvl = 2;  // i.e, simplication level
     SyntInstance synt_instance(options.inputs, options.outputs, options.formula);
     vector<string> input_vars(synt_instance.get_input_vars());
-    SynthesisMeasure
-        synt_measure;  // TODO: fix it and create custom automaton synt measures
+    SynthesisMeasure synt_measure(synt_instance, options.skip_eject_dependencies);
 
     // Get NBA for synthesis
     spot::twa_graph_ptr nba = get_nba_for_synthesis(
@@ -79,6 +78,8 @@ int main(int argc, const char* argv[]) {
     // Synthesis the independent variables
     spot::aig_ptr indep_strategy = synthesis_nba_to_aiger(
         gi, synt_measure, nba, independent_variables, input_vars, verbose);
+    cout << "Indepedent strategy: " << endl;
+    spot::print_aiger(std::cout, indep_strategy) << '\n';
 
     if (indep_strategy == nullptr) {
         cout << "UNREALIZABLE" << endl;
@@ -91,6 +92,8 @@ int main(int argc, const char* argv[]) {
                                               input_vars, independent_variables,
                                               dependent_variables);
         spot::aig_ptr dependents_strategy = dependents_synt.synthesis();
+
+        cout << "Dependents strategy: " << endl;
         spot::print_aiger(std::cout, dependents_strategy) << '\n';
     } else if (options.skip_synt_dependencies) {
         verbose << "=> Skipping synthesis dependent variables" << endl;

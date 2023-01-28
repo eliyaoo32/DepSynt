@@ -36,7 +36,8 @@ void SyntMeasures::get_json_object(json::object& obj) const {
                    [](const std::string& var) { return json::string(var); });
     json::array input_vars;
     std::transform(m_synt_instance.get_input_vars().begin(),
-                   m_synt_instance.get_input_vars().end(), std::back_inserter(input_vars),
+                   m_synt_instance.get_input_vars().end(),
+                   std::back_inserter(input_vars),
                    [](const std::string& var) { return json::string(var); });
 
     obj.emplace("is_completed", m_is_completed);
@@ -81,7 +82,9 @@ void AutomatonFindDepsMeasure::end_search_pair_states(int total_pair_states) {
     m_total_pair_states = total_pair_states;
 }
 
-void AutomatonFindDepsMeasure::start_prune_automaton() { m_prune_automaton_time.start(); }
+void AutomatonFindDepsMeasure::start_prune_automaton() {
+    m_prune_automaton_time.start();
+}
 
 void AutomatonFindDepsMeasure::end_prune_automaton(
     spot::twa_graph_ptr& pruned_automaton) {
@@ -118,7 +121,7 @@ void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
     obj.emplace("algorithm", automaton_algo_obj);
 }
 
-void AutomatonSyntMeasure::get_json_object(json::object& obj) const {
+void SynthesisMeasure::get_json_object(json::object& obj) const {
     AutomatonFindDepsMeasure::get_json_object(obj);
 
     json::object synthesis_process_obj;
@@ -127,9 +130,12 @@ void AutomatonSyntMeasure::get_json_object(json::object& obj) const {
                                       m_remove_dependent_ap.get_duration());
     }
 
-    synthesis_process_obj.emplace("split_2step_duration", m_split_2step.get_duration());
-    synthesis_process_obj.emplace("nba_to_dpa_duration", m_nba_to_dpa.get_duration());
-    synthesis_process_obj.emplace("solve_game_duration", m_solve_game.get_duration());
+    synthesis_process_obj.emplace("split_2step_duration",
+                                  m_split_2step.get_duration());
+    synthesis_process_obj.emplace("nba_to_dpa_duration",
+                                  m_nba_to_dpa.get_duration());
+    synthesis_process_obj.emplace("solve_game_duration",
+                                  m_solve_game.get_duration());
     synthesis_process_obj.emplace("dpa_to_mealy_duration",
                                   m_dpa_to_mealy.get_duration(false));
 

@@ -7,7 +7,6 @@ FILE(GLOB non_executable_SRC  ${PROJECT_SOURCE_DIR}/src/**/*.cpp )
 message(STATUS "non_executable_SRC: ${non_executable_SRC}")
 
 add_executable(find_dependencies ${non_executable_SRC} bins/find_dependencies.cpp )
-add_executable(synt_independents ${non_executable_SRC} bins/synt_independents.cpp )
 add_executable(synthesis ${non_executable_SRC} bins/synthesis.cpp )
 
 # Include Boots Options package
@@ -48,7 +47,6 @@ set_target_properties(spot PROPERTIES IMPORTED_LOCATION ${spot_location})
 
 # Linking exectuables to packages
 target_link_libraries( find_dependencies boost_options boost_json bddx spot )
-target_link_libraries( synt_independents boost_options boost_json bddx spot )
 target_link_libraries( synthesis boost_options boost_json bddx spot )
 
 # TODO: clean this up
