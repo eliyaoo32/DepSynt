@@ -19,7 +19,7 @@ struct TestedVariable {
     vector<string> tested_dependency_set;
 };
 
-class SyntMeasures {
+class BaseMeasures {
    private:
     // Automaton data
     bool m_is_automaton_built;
@@ -41,7 +41,7 @@ class SyntMeasures {
     virtual void get_json_object(json::object& obj) const;
 
    public:
-    explicit SyntMeasures(SyntInstance& m_synt_instance)
+    explicit BaseMeasures(SyntInstance& m_synt_instance)
         : m_is_automaton_built(false),
           currently_testing_var(nullptr),
           m_synt_instance(m_synt_instance),
@@ -50,7 +50,7 @@ class SyntMeasures {
         m_total_time.start();
     }
 
-    ~SyntMeasures() { delete currently_testing_var; }
+    ~BaseMeasures() { delete currently_testing_var; }
 
     void start_automaton_construct() { m_aut_construct_time.start(); }
 
@@ -63,10 +63,10 @@ class SyntMeasures {
 
     void completed() { m_is_completed = true; }
 
-    friend ostream& operator<<(ostream& os, const SyntMeasures& sm);
+    friend ostream& operator<<(ostream& os, const BaseMeasures& sm);
 };
 
-class AutomatonFindDepsMeasure : public SyntMeasures {
+class AutomatonFindDepsMeasure : public BaseMeasures {
    private:
     TimeMeasure m_prune_automaton_time;
     string m_prune_automaton_state_based_status;
@@ -82,7 +82,7 @@ class AutomatonFindDepsMeasure : public SyntMeasures {
    public:
     explicit AutomatonFindDepsMeasure(SyntInstance& m_synt_instance,
                                       bool skipped_dependency_check)
-        : SyntMeasures(m_synt_instance),
+        : BaseMeasures(m_synt_instance),
           m_total_pair_states(-1),
           m_total_prune_automaton_states(-1),
           m_skipped_dependency_check(skipped_dependency_check) {}

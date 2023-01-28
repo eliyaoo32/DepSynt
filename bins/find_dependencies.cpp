@@ -13,7 +13,7 @@
 namespace Options = boost::program_options;
 using namespace std;
 
-static SyntMeasures* synt_measures = nullptr;
+static BaseMeasures* synt_measures = nullptr;
 
 // TODO: throw cerr and exit instead of cout
 void on_sighup(int args) {
@@ -54,7 +54,7 @@ int main(int argc, const char* argv[]) {
 
     try {
         if (options.algorithm == Algorithm::FORMULA) {
-            auto* formula_measures = new SyntMeasures(synt_instance);
+            auto* formula_measures = new BaseMeasures(synt_instance);
             synt_measures = formula_measures;
 
             verbose_out << "Building Synthesis Automaton..." << endl;

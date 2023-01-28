@@ -1,6 +1,6 @@
 #include "synt_measure.h"
 
-void SyntMeasures::end_automaton_construct(spot::twa_graph_ptr& automaton) {
+void BaseMeasures::end_automaton_construct(spot::twa_graph_ptr& automaton) {
     m_aut_construct_time.end();
     m_is_automaton_built = true;
 
@@ -11,12 +11,12 @@ void SyntMeasures::end_automaton_construct(spot::twa_graph_ptr& automaton) {
             : (automaton->prop_state_acc().is_false() ? "false" : "maybe");
 }
 
-void SyntMeasures::start_testing_variable(string& var) {
+void BaseMeasures::start_testing_variable(string& var) {
     m_variable_test_time.start();
     currently_testing_var = new string(var);
 }
 
-void SyntMeasures::end_testing_variable(bool is_dependent,
+void BaseMeasures::end_testing_variable(bool is_dependent,
                                         vector<string>& tested_dependency_set) {
     m_variable_test_time.end();
 
@@ -27,7 +27,7 @@ void SyntMeasures::end_testing_variable(bool is_dependent,
     currently_testing_var = nullptr;
 }
 
-void SyntMeasures::get_json_object(json::object& obj) const {
+void BaseMeasures::get_json_object(json::object& obj) const {
     // General information
     json::array output_vars;
     std::transform(m_synt_instance.get_output_vars().begin(),
@@ -98,7 +98,7 @@ void AutomatonFindDepsMeasure::end_prune_automaton(
 }
 
 void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
-    SyntMeasures::get_json_object(obj);
+    BaseMeasures::get_json_object(obj);
 
     json::object automaton_algo_obj;
 
@@ -148,7 +148,7 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
     obj.emplace("synthesis", synthesis_process_obj);
 }
 
-ostream& operator<<(ostream& os, const SyntMeasures& sm) {
+ostream& operator<<(ostream& os, const BaseMeasures& sm) {
     json::object obj;
     sm.get_json_object(obj);
     os << json::serialize(obj);

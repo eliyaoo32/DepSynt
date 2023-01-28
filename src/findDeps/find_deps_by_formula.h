@@ -19,7 +19,7 @@ class FindDepsByFormula {
    private:
     SyntInstance &m_synt_instance;
     SyntInstance *m_prime_synt_instance;
-    SyntMeasures &m_measures;
+    BaseMeasures &m_measures;
 
     bool is_variable_dependent(string &dependent_var,
                                vector<string> &dependency_vars);
@@ -30,7 +30,7 @@ class FindDepsByFormula {
     void build_prime_synt_instance();
 
    public:
-    explicit FindDepsByFormula(SyntInstance &synt_instance, SyntMeasures &measure)
+    explicit FindDepsByFormula(SyntInstance &synt_instance, BaseMeasures &measure)
         : m_synt_instance(synt_instance), m_measures(measure) {
         build_prime_synt_instance();
     }

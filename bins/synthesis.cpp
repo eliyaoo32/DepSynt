@@ -16,6 +16,23 @@ using namespace spot;
 
 #define AIGER_MODE "ite"
 
+static SynthesisMeasure* g_synt_measure = nullptr;
+
+void on_sighup(int args) {
+    try {
+        cout << *g_synt_measure << endl;
+    } catch (const std::runtime_error& re) {
+        std::cout << "Runtime error: " << re.what() << std::endl;
+    } catch (const std::exception& ex) {
+        std::cout << "Error occurred: " << ex.what() << std::endl;
+    } catch (...) {
+        std::cout << "Unknown failure occurred. Possible memory corruption"
+                  << std::endl;
+    }
+
+    exit(EXIT_SUCCESS);
+}
+
 int main(int argc, const char* argv[]) {
     SynthesisCLIOptions options;
     int parsed_cli_status = parse_synthesis_cli(argc, argv, options);
@@ -34,89 +51,101 @@ int main(int argc, const char* argv[]) {
     gi.minimize_lvl = 2;  // i.e, simplication level
     SyntInstance synt_instance(options.inputs, options.outputs, options.formula);
     vector<string> input_vars(synt_instance.get_input_vars());
-    SynthesisMeasure synt_measure(synt_instance, options.skip_eject_dependencies);
 
-    // Get NBA for synthesis
-    spot::twa_graph_ptr nba = get_nba_for_synthesis(
-        synt_instance.get_formula_parsed(), gi, synt_measure, verbose);
+    g_synt_measure =
+        new SynthesisMeasure(synt_instance, options.skip_eject_dependencies);
+    SynthesisMeasure& synt_measure = *g_synt_measure;
 
-    // Handle Dependent variables
-    vector<string> dependent_variables, independent_variables;
-    twa_graph_ptr nba_without_deps = nullptr, nba_with_deps = nullptr;
+    signal(SIGINT, on_sighup);
+    signal(SIGHUP, on_sighup);
 
-    if (options.skip_eject_dependencies) {
-        verbose << "=> Skipping finding and ejecting dependencies" << endl;
-    } else {
-        FindDepsByAutomaton automaton_dependencies(synt_instance, synt_measure, nba,
-                                                   false);
-        automaton_dependencies.find_dependencies(dependent_variables,
-                                                 independent_variables);
+    try {
+        // Get NBA for synthesis
+        spot::twa_graph_ptr nba = get_nba_for_synthesis(
+            synt_instance.get_formula_parsed(), gi, synt_measure, verbose);
 
-        verbose << "Found " << dependent_variables.size() << " dependent variables"
-                << endl;
-    }
+        // Handle Dependent variables
+        vector<string> dependent_variables, independent_variables;
+        twa_graph_ptr nba_without_deps = nullptr, nba_with_deps = nullptr;
 
-    bool found_depedencies =
-        !options.skip_eject_dependencies && !dependent_variables.empty();
-    bool should_clone_nba_with_deps = found_depedencies;
-    bool should_clone_nba_without_deps = found_depedencies;
+        if (options.skip_eject_dependencies) {
+            verbose << "=> Skipping finding and ejecting dependencies" << endl;
+        } else {
+            FindDepsByAutomaton automaton_dependencies(synt_instance, synt_measure,
+                                                       nba, false);
+            automaton_dependencies.find_dependencies(dependent_variables,
+                                                     independent_variables);
 
-    if (should_clone_nba_with_deps) {
-        nba_with_deps = clone_nba(nba);
-    }
+            verbose << "Found " << dependent_variables.size()
+                    << " dependent variables" << endl;
+        }
 
-    if (found_depedencies) {
-        synt_measure.start_remove_dependent_ap();
-        remove_ap_from_automaton(nba, dependent_variables);
-        synt_measure.end_remove_dependent_ap();
-    }
+        bool found_depedencies =
+            !options.skip_eject_dependencies && !dependent_variables.empty();
+        bool should_clone_nba_with_deps = found_depedencies;
+        bool should_clone_nba_without_deps = found_depedencies;
 
-    if (should_clone_nba_without_deps) {
-        nba_without_deps = clone_nba(nba);
-    }
+        if (should_clone_nba_with_deps) {
+            nba_with_deps = clone_nba(nba);
+        }
 
-    // Synthesis the independent variables
-    synt_measure.start_independents_synthesis();
-    spot::aig_ptr indep_strategy =
-        synthesis_nba_to_aiger(gi, nba, independent_variables, input_vars, verbose);
-    synt_measure.end_independents_synthesis();
+        if (found_depedencies) {
+            synt_measure.start_remove_dependent_ap();
+            remove_ap_from_automaton(nba, dependent_variables);
+            synt_measure.end_remove_dependent_ap();
+        }
 
-    cout << "Indepedent strategy: " << endl;
-    spot::print_aiger(std::cout, indep_strategy) << '\n';
+        if (should_clone_nba_without_deps) {
+            nba_without_deps = clone_nba(nba);
+        }
 
-    if (indep_strategy == nullptr) {
-        cout << "UNREALIZABLE" << endl;
+        // Synthesis the independent variables
+        synt_measure.start_independents_synthesis();
+        spot::aig_ptr indep_strategy = synthesis_nba_to_aiger(
+            gi, nba, independent_variables, input_vars, verbose);
+        synt_measure.end_independents_synthesis();
+
+        cout << "Indepedent strategy: " << endl;
+        spot::print_aiger(std::cout, indep_strategy) << '\n';
+
+        if (indep_strategy == nullptr) {
+            cout << "UNREALIZABLE" << endl;
+            synt_measure.completed();
+            synt_measure.set_independents_realizability("UNREALIZABLE");
+
+            return EXIT_SUCCESS;
+        } else {
+            synt_measure.set_independents_realizability("REALIZABLE");
+        }
+
+        // Synthesis the dependent variables
+        if (found_depedencies) {
+            synt_measure.start_dependents_synthesis();
+            DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
+                                                  input_vars, independent_variables,
+                                                  dependent_variables);
+            spot::aig_ptr dependents_strategy = dependents_synt.synthesis();
+            synt_measure.end_dependents_synthesis();
+
+            cout << "Dependents strategy: " << endl;
+            spot::print_aiger(std::cout, dependents_strategy) << '\n';
+        } else if (options.skip_synt_dependencies) {
+            verbose << "=> Skipping synthesis dependent variables" << endl;
+        } else {
+            cout << "No dependent variables found." << endl;
+        }
+
+        // Print Measures
         synt_measure.completed();
-        synt_measure.set_independents_realizability("UNREALIZABLE");
+        cout << synt_measure << endl;
 
         return EXIT_SUCCESS;
-    } else {
-        synt_measure.set_independents_realizability("REALIZABLE");
+    } catch (const std::runtime_error& re) {
+        std::cout << "Runtime error: " << re.what() << std::endl;
+    } catch (const std::exception& ex) {
+        std::cout << "Error occurred: " << ex.what() << std::endl;
+    } catch (...) {
+        std::cout << "Unknown failure occurred. Possible memory corruption"
+                  << std::endl;
     }
-
-    // Synthesis the dependent variables
-    if (found_depedencies) {
-        synt_measure.start_dependents_synthesis();
-        DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
-                                              input_vars, independent_variables,
-                                              dependent_variables);
-        spot::aig_ptr dependents_strategy = dependents_synt.synthesis();
-        synt_measure.end_dependents_synthesis();
-
-        cout << "Dependents strategy: " << endl;
-        spot::print_aiger(std::cout, dependents_strategy) << '\n';
-    } else if (options.skip_synt_dependencies) {
-        verbose << "=> Skipping synthesis dependent variables" << endl;
-    } else {
-        cout << "No dependent variables found." << endl;
-    }
-
-    // Print Measures
-    synt_measure.completed();
-    cout << synt_measure << endl;
-
-    // TODO: merge the dependents strategy and independent strategy
-    // TODO: add model checking
-
-    return EXIT_SUCCESS;
 }
