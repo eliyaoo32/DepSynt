@@ -100,9 +100,13 @@ int main(int argc, const char* argv[]) {
         }
 
         // Synthesis the independent variables
+        vector<string>& outs = options.skip_synt_dependencies
+                                   ? synt_instance.get_output_vars()
+                                   : independent_variables;
+
         synt_measure.start_independents_synthesis();
-        spot::aig_ptr indep_strategy = synthesis_nba_to_aiger(
-            gi, nba, independent_variables, input_vars, verbose);
+        spot::aig_ptr indep_strategy =
+            synthesis_nba_to_aiger(gi, nba, outs, input_vars, verbose);
         synt_measure.end_independents_synthesis();
 
         cout << "Indepedent strategy: " << endl;
