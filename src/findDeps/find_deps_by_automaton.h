@@ -81,6 +81,7 @@ class FindDepsByAutomaton {
           m_dependent_variable_type(DependentVariableType::Output) {
         m_automaton = aut;
 
+        // TODO: remove shuold_prune and making sure the caller is pruning by himself
         if (should_prune) {
             m_measures.start_prune_automaton();
             m_automaton = spot::scc_filter_states(m_automaton);  // Prune m_automaton

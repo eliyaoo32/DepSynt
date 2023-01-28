@@ -8,7 +8,8 @@ namespace Options = boost::program_options;
 using namespace std;
 
 void parse_cli_common(BaseCLIOptions &options, Options::options_description &desc) {
-    desc.add_options()("formula,f", Options::value<string>(&options.formula)->required(),
+    desc.add_options()("formula,f",
+                       Options::value<string>(&options.formula)->required(),
                        "LTL formula")(
         "output,o", Options::value<string>(&options.outputs)->required(),
         "Output variables")("input,i",
@@ -17,14 +18,25 @@ void parse_cli_common(BaseCLIOptions &options, Options::options_description &des
         "verbose,v", Options::bool_switch(&options.verbose), "Verbose messages");
 }
 
-bool parse_synthesis_cli(int argc, const char *argv[], SynthesisCLIOptions &options) {
+/**
+ * Options:
+ * - Decompostion (Only possible if skip synt dependencies)
+ * - Skip eject dependencies
+ * - Skip synt dependencies
+ */
+
+bool parse_synthesis_cli(int argc, const char *argv[],
+                         SynthesisCLIOptions &options) {
     Options::options_description desc(
         "Tool to synthesis LTL specfication using dependencies concept");
     parse_cli_common(options, desc);
     desc.add_options()(
-        "skip-deps",
-        Options::bool_switch(&options.skip_dependencies)->default_value(false),
-        "Should skip finding dependent variables and synthesis them separately")(
+        "skip-eject-deps",
+        Options::bool_switch(&options.skip_eject_dependencies)->default_value(false),
+        "Should skip finding and ejecting dependent variables")(
+        "skip-synt-deps",
+        Options::bool_switch(&options.skip_synt_dependencies)->default_value(false),
+        "Should skip synthesing a strategy with dependent variables")(
         "decompose",
         Options::bool_switch(&options.decompose_formula)->default_value(false),
         "Should decompose the formula into sub formulas and synthesis each formula "
@@ -40,6 +52,21 @@ bool parse_synthesis_cli(int argc, const char *argv[], SynthesisCLIOptions &opti
         Options::variables_map vm;
         Options::store(parsed_options, vm);
         Options::notify(vm);
+
+        // If decompose formula, then cannot synthesis dependencies
+        if (options.decompose_formula && !options.skip_synt_dependencies) {
+            cerr << "Decomposing formula is only possible if skip synthesis "
+                    "dependencies"
+                 << endl;
+            return false;
+        }
+        // Can synthesis dependencies only if eject dependencies
+        if (!options.skip_synt_dependencies && options.skip_eject_dependencies) {
+            cerr << "Synthesis dependencies is only possible if eject "
+                    "dependencies"
+                 << endl;
+            return false;
+        }
 
         return true;
     } catch (const Options::error &ex) {
@@ -58,7 +85,8 @@ bool parse_find_dependencies_cli(int argc, const char *argv[],
                        "Which algorithm to use: formula, automaton")(
         "find-input-only",
         Options::bool_switch(&options.find_input_dependencies)->default_value(false),
-        "Search for input dependent variables instead of output dependent variables");
+        "Search for input dependent variables instead of output dependent "
+        "variables");
 
     try {
         Options::command_line_parser parser{argc, argv};
@@ -79,7 +107,8 @@ bool parse_find_dependencies_cli(int argc, const char *argv[],
 
         if (options.algorithm != Algorithm::AUTOMATON &&
             options.find_input_dependencies) {
-            cerr << "Input dependencies can only be found using the automaton algorithm"
+            cerr << "Input dependencies can only be found using the automaton "
+                    "algorithm"
                  << endl;
             return false;
         }
@@ -124,7 +153,8 @@ void extract_variables(const std::string &str, std::vector<std::string> &dst) {
     boost::split(dst, str, boost::is_any_of(","));
 }
 
-std::ostream &operator<<(std::ostream &out, const FindDependenciesCLIOptions &options) {
+std::ostream &operator<<(std::ostream &out,
+                         const FindDependenciesCLIOptions &options) {
     out << " - Formula: " << options.formula << endl;
     out << " - Inputs: " << options.inputs << endl;
     out << " - Outputs: " << options.outputs << endl;
@@ -164,7 +194,8 @@ Duration TimeMeasure::end() {
 Duration TimeMeasure::time_elapsed() const {
     auto end = std::chrono::steady_clock::now();
     return static_cast<Duration>(
-        std::chrono::duration_cast<std::chrono::milliseconds>(end - m_start).count());
+        std::chrono::duration_cast<std::chrono::milliseconds>(end - m_start)
+            .count());
 }
 
 Duration TimeMeasure::get_duration(bool validate_is_ended) const {

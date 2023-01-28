@@ -58,7 +58,8 @@ class SyntMeasures {
 
     void start_testing_variable(string& var);
 
-    void end_testing_variable(bool is_dependent, vector<string>& tested_dependency_set);
+    void end_testing_variable(bool is_dependent,
+                              vector<string>& tested_dependency_set);
 
     void completed() { m_is_completed = true; }
 
@@ -94,7 +95,7 @@ class AutomatonFindDepsMeasure : public SyntMeasures {
     void end_prune_automaton(spot::twa_graph_ptr& pruned_automaton);
 };
 
-class AutomatonSyntMeasure : public AutomatonFindDepsMeasure {
+class SynthesisMeasure : public AutomatonFindDepsMeasure {
    private:
     TimeMeasure m_remove_dependent_ap;
     TimeMeasure m_split_2step;
@@ -106,8 +107,8 @@ class AutomatonSyntMeasure : public AutomatonFindDepsMeasure {
     void get_json_object(json::object& obj) const override;
 
    public:
-    explicit AutomatonSyntMeasure(SyntInstance& m_synt_instance,
-                                  bool skipped_dependency_check)
+    explicit SynthesisMeasure(SyntInstance& m_synt_instance,
+                              bool skipped_dependency_check)
         : AutomatonFindDepsMeasure(m_synt_instance, skipped_dependency_check) {}
 
     void start_remove_dependent_ap() { m_remove_dependent_ap.start(); }

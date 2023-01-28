@@ -41,18 +41,18 @@ void remove_ap_from_automaton(const twa_graph_ptr& automaton,
 }
 
 spot::twa_graph_ptr get_dpa_from_nba(spot::twa_graph_ptr nba, synthesis_info& gi,
-                                     AutomatonSyntMeasure& synt_measures,
-                                     SyntInstance& synt_instance) {
+                                     SynthesisMeasure& synt_measures,
+                                     const vector<string>& output_vars) {
     auto tobdd = [&nba](const std::string& ap_name) {
         return bdd_ithvar(nba->register_ap(ap_name));
     };
-    const vector<string>& output_vars = synt_instance.get_output_vars();
 
     synt_measures.start_split_2step();
     auto is_out = [&output_vars](const std::string& ao) -> bool {
         return std::find(output_vars.begin(), output_vars.end(), ao) !=
                output_vars.end();
     };
+
     bdd outs = bddtrue;
     for (auto&& aap : nba->ap()) {
         if (is_out(aap.ap_name())) {
@@ -74,9 +74,9 @@ spot::twa_graph_ptr get_dpa_from_nba(spot::twa_graph_ptr nba, synthesis_info& gi
     return dpa;
 }
 
-spot::twa_graph_ptr get_nba_for_synthesis(SyntInstance& synt_instance,
+spot::twa_graph_ptr get_nba_for_synthesis(const spot::formula& formula,
                                           synthesis_info& gi,
-                                          AutomatonSyntMeasure& synt_measures,
+                                          SynthesisMeasure& synt_measures,
                                           std::ostream& verbose) {
     option_map& extra_options = gi.opt;
     const bdd_dict_ptr& dict = gi.dict;
@@ -90,7 +90,7 @@ spot::twa_graph_ptr get_nba_for_synthesis(SyntInstance& synt_instance,
     trans.set_type(spot::postprocessor::Buchi);
     trans.set_pref(spot::postprocessor::SBAcc);
 
-    auto automaton = trans.run(synt_instance.get_formula_parsed());
+    auto automaton = trans.run(formula);
     synt_measures.end_automaton_construct(automaton);
 
     verbose << "=> Pruning Automaton" << endl;
@@ -101,35 +101,14 @@ spot::twa_graph_ptr get_nba_for_synthesis(SyntInstance& synt_instance,
     return pruned_automaton;
 }
 
-void find_and_remove_dependents(const twa_graph_ptr& automaton,
-                                SyntInstance& synt_instance,
-                                AutomatonSyntMeasure& synt_measures,
-                                vector<string>& dependent_variables_dst,
-                                vector<string>& independent_variables_dst,
-                                std::ostream& verbose) {
-    verbose << "=> Finding Dependent Variables" << endl;
-
-    FindDepsByAutomaton automaton_dependencies(synt_instance, synt_measures,
-                                               automaton, false);
-    automaton_dependencies.find_dependencies(dependent_variables_dst,
-                                             independent_variables_dst);
-    verbose << "=> Found " << dependent_variables_dst.size()
-            << " dependent variables" << endl;
-
-    verbose << "=> Remove Dependent Variables" << endl;
-    synt_measures.start_remove_dependent_ap();
-    remove_ap_from_automaton(automaton, dependent_variables_dst);
-    synt_measures.end_remove_dependent_ap();
-}
-
 // Return if realizable
 bool synthesis_nba_to_mealy(spot::synthesis_info& gi,
-                            AutomatonSyntMeasure& synt_measures,
-                            twa_graph_ptr& automaton, SyntInstance& synt_instance,
-                            std::ostream& verbose, bool should_split_mealy,
-                            spot::mealy_like& ml) {
+                            SynthesisMeasure& synt_measures,
+                            twa_graph_ptr& automaton,
+                            const vector<string>& output_vars, std::ostream& verbose,
+                            bool should_split_mealy, spot::mealy_like& ml) {
     // =================== Step 1: Build a determanstic-parity-game from the NBA
-    auto arena = get_dpa_from_nba(automaton, gi, synt_measures, synt_instance);
+    auto arena = get_dpa_from_nba(automaton, gi, synt_measures, output_vars);
 
     // =================== Step 2: Solve the determanstic-parity-game
     synt_measures.start_solve_game();
@@ -150,4 +129,25 @@ bool synthesis_nba_to_mealy(spot::synthesis_info& gi,
 
     synt_measures.completed();
     return true;
+}
+
+spot::aig_ptr synthesis_nba_to_aiger(spot::synthesis_info& gi,
+                                     SynthesisMeasure& synt_measures,
+                                     spot::twa_graph_ptr& automaton,
+                                     const vector<string>& outs,
+                                     const vector<string>& ins,
+                                     std::ostream& verbose) {
+    mealy_like mealy;
+    bool should_split = true;  // Because it's an AIGER
+    bool is_realizable = synthesis_nba_to_mealy(gi, synt_measures, automaton, outs,
+                                                verbose, should_split, mealy);
+
+    if (!is_realizable) {
+        return nullptr;
+    }
+
+    spot::aig_ptr aiger_strategy =
+        mealy_machines_to_aig({mealy}, AIGER_MODE, ins, {outs});
+
+    return aiger_strategy;
 }

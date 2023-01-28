@@ -27,7 +27,8 @@ struct BaseCLIOptions {
 };
 
 struct SynthesisCLIOptions : public BaseCLIOptions {
-    bool skip_dependencies;
+    bool skip_synt_dependencies;
+    bool skip_eject_dependencies;
     bool decompose_formula;
 };
 
