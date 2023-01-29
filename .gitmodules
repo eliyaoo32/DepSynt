@@ -1,6 +1,6 @@
 [submodule "tools/syfco"]
 	path = tools/syfco
 	url = https://github.com/reactive-systems/syfco.git
-[submodule "benchmarks"]
-	path = benchmarks
+[submodule "tools/benchmarks"]
+	path = tools/benchmarks
 	url = https://github.com/SYNTCOMP/benchmarks.git

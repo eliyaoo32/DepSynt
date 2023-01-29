@@ -7,11 +7,11 @@ import os
 
 
 TLSF_FILES_PATH = os.path.join(
-    Path(__file__).parent.resolve(), '../benchmarks/tlsf')
+    Path(__file__).parent.resolve(), './benchmarks/tlsf')
 OUTPUT_BENCHMARKS = os.path.join(
-    Path(__file__).parent.resolve(), '../benchmarks.csv')
+    Path(__file__).parent.resolve(), './benchmarks.csv')
 ERROR_BENCHMARKS_PATH = os.path.join(
-    Path(__file__).parent.resolve(), '../benchmarks-errors.csv')
+    Path(__file__).parent.resolve(), './benchmarks-errors.csv')
 
 
 def get_all_tlsf_files(all_tlsf_file_path):
@@ -34,7 +34,7 @@ def generate_benchmark_from_tlsf(tlsf_filepath):
     output_vars = omit_spaces(
         os.popen('syfco {} -outs'.format(tlsf_filepath)).read()).lower()
     ltl_formula = os.popen(
-        'syfco {} -f ltlxba'.format(tlsf_filepath)).read().strip()
+        'syfco -f ltlxba -m fully {}'.format(tlsf_filepath)).read().strip()
 
     return {
         'benchmark_name': benchmark_name,
