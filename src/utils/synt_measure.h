@@ -4,6 +4,7 @@
 #include <boost/json.hpp>
 #include <iostream>
 #include <spot/twa/twa.hh>
+#include <spot/twaalgos/aiger.hh>
 #include <vector>
 
 #include "synt_instance.h"
@@ -18,6 +19,20 @@ struct TestedVariable {
     bool is_dependent;
     vector<string> tested_dependency_set;
 };
+
+struct AigerDescription {
+    int inputs = -1;
+    int outputs = -1;
+    int latches = -1;
+    int gates = -1;
+};
+
+class BaseMeasures;
+
+void dump_measures(const BaseMeasures& sm, BaseCLIOptions& cli_options);
+
+void extract_aiger_description(AigerDescription& description_dst,
+                               spot::aig_ptr& aiger);
 
 class BaseMeasures {
    private:
@@ -105,6 +120,11 @@ class SynthesisMeasure : public AutomatonFindDepsMeasure {
     TimeMeasure m_remove_dependent_ap;
     TimeMeasure m_independents_total_duration;
     TimeMeasure m_dependents_total_duration;
+    TimeMeasure m_clone_nba_with_deps;
+    TimeMeasure m_clone_nba_without_deps;
+
+    AigerDescription m_independent_strategy;
+    AigerDescription m_dependent_strategy;
 
     string m_independents_realizable;
 
@@ -120,17 +140,33 @@ class SynthesisMeasure : public AutomatonFindDepsMeasure {
     void start_remove_dependent_ap() { m_remove_dependent_ap.start(); }
     void end_remove_dependent_ap() { m_remove_dependent_ap.end(); }
 
+    void start_clone_nba_with_deps() { m_clone_nba_with_deps.start(); }
+    void end_clone_nba_with_deps() { m_clone_nba_with_deps.end(); }
+
+    void start_clone_nba_without_deps() { m_clone_nba_without_deps.start(); }
+    void end_clone_nba_without_deps() { m_clone_nba_without_deps.end(); }
+
     void start_independents_synthesis() { m_independents_total_duration.start(); }
-    void end_independents_synthesis() { m_independents_total_duration.end(); }
+
+    void end_independents_synthesis(spot::aig_ptr& aiger_strat) {
+        if (aiger_strat != nullptr) {
+            extract_aiger_description(m_independent_strategy, aiger_strat);
+            m_independents_realizable = "REALIZABLE";
+        } else {
+            m_independents_realizable = "UNREALIZABLE";
+        }
+
+        m_independents_total_duration.end();
+    }
 
     void start_dependents_synthesis() { m_dependents_total_duration.start(); }
-    void end_dependents_synthesis() { m_dependents_total_duration.end(); }
 
-    void set_independents_realizability(const char* realizability) {
-        m_independents_realizable = realizability;
+    void end_dependents_synthesis(spot::aig_ptr& aiger_strat) {
+        if (aiger_strat != nullptr) {
+            extract_aiger_description(m_dependent_strategy, aiger_strat);
+        }
+        m_dependents_total_duration.end();
     }
 };
-
-void dump_measures(const BaseMeasures& sm, BaseCLIOptions& cli_options);
 
 #endif  // REACTIVE_SYNTHESIS_BFSS_SYNT_MEASURE_H

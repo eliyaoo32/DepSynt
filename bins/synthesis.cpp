@@ -86,7 +86,9 @@ int main(int argc, const char* argv[]) {
         bool should_clone_nba_without_deps = found_depedencies;
 
         if (should_clone_nba_with_deps) {
+            synt_measure.start_clone_nba_with_deps();
             nba_with_deps = clone_nba(nba);
+            synt_measure.end_clone_nba_with_deps();
         }
 
         if (found_depedencies) {
@@ -96,7 +98,9 @@ int main(int argc, const char* argv[]) {
         }
 
         if (should_clone_nba_without_deps) {
+            synt_measure.start_clone_nba_without_deps();
             nba_without_deps = clone_nba(nba);
+            synt_measure.end_clone_nba_without_deps();
         }
 
         // Synthesis the independent variables
@@ -107,7 +111,7 @@ int main(int argc, const char* argv[]) {
         synt_measure.start_independents_synthesis();
         spot::aig_ptr indep_strategy =
             synthesis_nba_to_aiger(gi, nba, outs, input_vars, verbose);
-        synt_measure.end_independents_synthesis();
+        synt_measure.end_independents_synthesis(indep_strategy);
 
         cout << "Indepedent strategy: " << endl;
         spot::print_aiger(std::cout, indep_strategy) << '\n';
@@ -115,13 +119,10 @@ int main(int argc, const char* argv[]) {
         if (indep_strategy == nullptr) {
             cout << "UNREALIZABLE" << endl;
             synt_measure.completed();
-            synt_measure.set_independents_realizability("UNREALIZABLE");
 
             dump_measures(synt_measure, options);
 
             return EXIT_SUCCESS;
-        } else {
-            synt_measure.set_independents_realizability("REALIZABLE");
         }
 
         // Synthesis the dependent variables
@@ -131,7 +132,7 @@ int main(int argc, const char* argv[]) {
                                                   input_vars, independent_variables,
                                                   dependent_variables);
             spot::aig_ptr dependents_strategy = dependents_synt.synthesis();
-            synt_measure.end_dependents_synthesis();
+            synt_measure.end_dependents_synthesis(dependents_strategy);
 
             cout << "Dependents strategy: " << endl;
             spot::print_aiger(std::cout, dependents_strategy) << '\n';

@@ -70,7 +70,7 @@ class TimeMeasure {
 
     [[nodiscard]] Duration time_elapsed() const;
 
-    [[nodiscard]] Duration get_duration(bool validate_is_ended = true) const;
+    [[nodiscard]] Duration get_duration(bool validate_is_ended = false) const;
 };
 
 #endif

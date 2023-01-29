@@ -2,6 +2,21 @@
 
 #include <fstream>
 
+void aiger_description_obj(json::object& obj, const AigerDescription& description) {
+    obj.emplace("total_inputs", description.inputs);
+    obj.emplace("total_outputs", description.outputs);
+    obj.emplace("total_latches", description.latches);
+    obj.emplace("total_gates", description.gates);
+}
+
+void extract_aiger_description(AigerDescription& description_dst,
+                               spot::aig_ptr& aiger) {
+    description_dst.gates = aiger->num_gates();
+    description_dst.latches = aiger->num_latches();
+    description_dst.outputs = aiger->num_outputs();
+    description_dst.inputs = aiger->num_inputs();
+}
+
 void BaseMeasures::end_automaton_construct(spot::twa_graph_ptr& automaton) {
     m_aut_construct_time.end();
     m_is_automaton_built = true;
@@ -122,7 +137,7 @@ void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
     automaton_algo_obj["prune_total_states"] =
         static_cast<int>(this->m_total_prune_automaton_states);
 
-    obj.emplace("find_dependencies", automaton_algo_obj);
+    obj.emplace("dependencies", automaton_algo_obj);
 }
 
 void SynthesisMeasure::get_json_object(json::object& obj) const {
@@ -136,16 +151,32 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
         synthesis_process_obj.emplace("remove_dependent_ap_duration",
                                       m_remove_dependent_ap.get_duration());
     }
+    if (m_clone_nba_with_deps.has_started()) {
+        synthesis_process_obj.emplace("clone_nba_with_dep",
+                                      m_clone_nba_with_deps.get_duration());
+    }
+    if (m_clone_nba_without_deps.has_started()) {
+        synthesis_process_obj.emplace("clone_nba_without_dep",
+                                      m_clone_nba_without_deps.get_duration());
+    }
     if (m_dependents_total_duration.has_started()) {
         synthesis_process_obj.emplace("synthesis_dependents_duration",
                                       m_dependents_total_duration.get_duration());
     }
-    synthesis_process_obj.emplace("synthesis_independents_duration",
-                                  m_independents_total_duration.get_duration());
-    synthesis_process_obj.emplace("independents_realizability",
-                                  m_independents_realizable);
-    synthesis_process_obj.emplace("synthesis_independents_duration",
-                                  m_independents_total_duration.get_duration());
+
+    json::object independent_strategy_obj, dependent_strategy_obj;
+
+    independent_strategy_obj.emplace("duration",
+                                     m_independents_total_duration.get_duration());
+    independent_strategy_obj.emplace("realizability", m_independents_realizable);
+    aiger_description_obj(independent_strategy_obj, m_independent_strategy);
+
+    dependent_strategy_obj.emplace("duration",
+                                   m_dependents_total_duration.get_duration());
+    aiger_description_obj(dependent_strategy_obj, m_dependent_strategy);
+
+    synthesis_process_obj.emplace("independent_strategy", independent_strategy_obj);
+    synthesis_process_obj.emplace("dependent_strategy", dependent_strategy_obj);
 
     obj.emplace("synthesis", synthesis_process_obj);
 }
