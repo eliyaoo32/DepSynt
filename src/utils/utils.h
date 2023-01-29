@@ -24,6 +24,7 @@ struct BaseCLIOptions {
     std::string inputs;
     std::string outputs;
     bool verbose;
+    std::string measures_path;
 };
 
 struct SynthesisCLIOptions : public BaseCLIOptions {

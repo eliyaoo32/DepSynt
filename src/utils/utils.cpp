@@ -15,7 +15,9 @@ void parse_cli_common(BaseCLIOptions &options, Options::options_description &des
         "Output variables")("input,i",
                             Options::value<string>(&options.inputs)->required(),
                             "Input variables")(
-        "verbose,v", Options::bool_switch(&options.verbose), "Verbose messages");
+        "verbose,v", Options::bool_switch(&options.verbose), "Verbose messages")(
+        "measures-path",
+        Options::value<string>(&options.measures_path)->default_value(""));
 }
 
 /**

@@ -17,10 +17,11 @@ using namespace spot;
 #define AIGER_MODE "ite"
 
 static SynthesisMeasure* g_synt_measure = nullptr;
+static SynthesisCLIOptions options;
 
 void on_sighup(int args) {
     try {
-        cout << *g_synt_measure << endl;
+        dump_measures(*g_synt_measure, options);
     } catch (const std::runtime_error& re) {
         std::cout << "Runtime error: " << re.what() << std::endl;
     } catch (const std::exception& ex) {
@@ -34,7 +35,6 @@ void on_sighup(int args) {
 }
 
 int main(int argc, const char* argv[]) {
-    SynthesisCLIOptions options;
     int parsed_cli_status = parse_synthesis_cli(argc, argv, options);
     if (!parsed_cli_status) {
         return EXIT_FAILURE;
@@ -117,6 +117,8 @@ int main(int argc, const char* argv[]) {
             synt_measure.completed();
             synt_measure.set_independents_realizability("UNREALIZABLE");
 
+            dump_measures(synt_measure, options);
+
             return EXIT_SUCCESS;
         } else {
             synt_measure.set_independents_realizability("REALIZABLE");
@@ -141,7 +143,7 @@ int main(int argc, const char* argv[]) {
 
         // Print Measures
         synt_measure.completed();
-        cout << synt_measure << endl;
+        dump_measures(synt_measure, options);
 
         return EXIT_SUCCESS;
     } catch (const std::runtime_error& re) {

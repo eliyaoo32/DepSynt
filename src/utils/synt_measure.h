@@ -131,4 +131,6 @@ class SynthesisMeasure : public AutomatonFindDepsMeasure {
     }
 };
 
+void dump_measures(const BaseMeasures& sm, BaseCLIOptions& cli_options);
+
 #endif  // REACTIVE_SYNTHESIS_BFSS_SYNT_MEASURE_H

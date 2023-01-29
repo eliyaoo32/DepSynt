@@ -1,5 +1,7 @@
 #include "synt_measure.h"
 
+#include <fstream>
+
 void BaseMeasures::end_automaton_construct(spot::twa_graph_ptr& automaton) {
     m_aut_construct_time.end();
     m_is_automaton_built = true;
@@ -103,7 +105,7 @@ void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
     json::object automaton_algo_obj;
 
     automaton_algo_obj["total_duration"] =
-        this->m_total_find_deps_duration.get_duration();
+        this->m_total_find_deps_duration.get_duration(false);
     automaton_algo_obj["skipped_dependecies"] = this->m_skipped_dependency_check;
     automaton_algo_obj["algorithm_type"] = "automaton";
     automaton_algo_obj["total_pair_state"] = this->m_total_pair_states;
@@ -154,4 +156,23 @@ ostream& operator<<(ostream& os, const BaseMeasures& sm) {
     os << json::serialize(obj);
 
     return os;
+}
+
+void dump_measures(const BaseMeasures& sm, BaseCLIOptions& cli_options) {
+    if (cli_options.measures_path.empty()) {
+        cout << sm << endl;
+        return;
+    }
+
+    ofstream measure_file(cli_options.measures_path);
+
+    if (measure_file.is_open()) {
+        measure_file << sm << endl;
+        measure_file.close();
+
+        cout << "Measures written to file: " << cli_options.measures_path << endl;
+    } else {
+        cerr << "Failed to open fail: " << cli_options.measures_path << endl;
+        cout << sm << endl;
+    }
 }
