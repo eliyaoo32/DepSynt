@@ -1,3 +1,5 @@
+#include <signal.h>
+
 #include <iostream>
 #include <spot/twaalgos/aiger.hh>
 #include <spot/twaalgos/mealy_machine.hh>
