@@ -7,12 +7,17 @@ from random import shuffle
 from lookup_dependencies import create_folder, get_all_benchmarks
 
 BENCHMARK_OUTPUT_FILE_FORMAT = '{}.hoa'
+BENCHMARK_MEASURES_FILE_FORMAT = '{}.json'
 TOOLS = ['ltlsynt-sd', 'ltlsynt-ds',
          'ltlsynt-lar.old', 'ltlsynt-lar', 'ltlsynt-ps', 'bfss-synt', 'bfss-synt-skip-deps']
 
 
 def get_benchmark_output_path(tool_name, benchmark_name, output_dir):
     return os.path.join(output_dir, BENCHMARK_OUTPUT_FILE_FORMAT.format(tool_name + " - " + benchmark_name))
+
+
+def get_benchmark_measures_path(tool_name, benchmark_name, output_dir):
+    return os.path.join(output_dir, BENCHMARK_MEASURES_FILE_FORMAT.format(tool_name + " - " + benchmark_name))
 
 
 def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, decompose):
@@ -34,9 +39,10 @@ def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, deco
     elif 'bfss-synt' in synt_tool:
         algorithm = synt_tool
 
-        cli_cmd = 'time timeout --signal=HUP {timeout} {tool_path} --formula="{formula}" --input="{inputs}" --output="{outputs}" --algo=automaton'.format(
+        cli_cmd = 'time timeout --signal=HUP {timeout} {tool_path} --formula="{formula}" --input="{inputs}" --output="{outputs}" --algo=automaton --measures-path="{measures_path}"'.format(
             timeout=timeout, formula=ltl_formula, inputs=input_vars, outputs=output_vars,
-            tool_path=tool_path if tool_path != '' else 'bfss-synt'
+            tool_path=tool_path if tool_path != '' else 'bfss-synt',
+            measures_path=get_benchmark_measures_path(algorithm, benchmark_name, output_dir)
         )
         if 'skip-deps' in synt_tool:
             cli_cmd += ' --skip-eject-deps --skip-synt-deps'
@@ -60,6 +66,7 @@ def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, deco
 
 def main():
     from argparse import ArgumentParser
+
     parser = ArgumentParser(add_help=True)
     parser.add_argument(
         '--name', help="Filter by benchmarks name", type=str, default='')
