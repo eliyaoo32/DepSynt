@@ -1,5 +1,5 @@
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef REACTIVE_SYNTHESIS_UTILS_H
+#define REACTIVE_SYNTHESIS_UTILS_H
 
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
@@ -24,11 +24,12 @@ struct BaseCLIOptions {
     std::string inputs;
     std::string outputs;
     bool verbose;
+    std::string measures_path;
 };
 
 struct SynthesisCLIOptions : public BaseCLIOptions {
-    bool skip_dependencies;
-    bool decompose_formula;
+    bool skip_synt_dependencies;
+    bool skip_eject_dependencies;
 };
 
 struct FindDependenciesCLIOptions : public BaseCLIOptions {
@@ -47,7 +48,8 @@ std::ostream &operator<<(std::ostream &out, const std::vector<std::string> &vec)
 
 std::ostream &operator<<(std::ostream &out, const SynthesisCLIOptions &options);
 
-std::ostream &operator<<(std::ostream &out, const FindDependenciesCLIOptions &options);
+std::ostream &operator<<(std::ostream &out,
+                         const FindDependenciesCLIOptions &options);
 
 using Duration = long;
 
@@ -68,7 +70,7 @@ class TimeMeasure {
 
     [[nodiscard]] Duration time_elapsed() const;
 
-    [[nodiscard]] Duration get_duration(bool validate_is_ended = true) const;
+    [[nodiscard]] Duration get_duration(bool validate_is_ended = false) const;
 };
 
 #endif

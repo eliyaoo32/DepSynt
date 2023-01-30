@@ -37,13 +37,9 @@ class SyntInstance {
                           std::vector<std::string>& outputs,
                           spot::formula& parsed_formula);
 
-    [[nodiscard]] const std::vector<std::string>& get_input_vars() const {
-        return m_input_vars;
-    }
+    std::vector<std::string>& get_input_vars() { return m_input_vars; }
 
-    [[nodiscard]] const std::vector<std::string>& get_output_vars() const {
-        return m_output_vars;
-    }
+    std::vector<std::string>& get_output_vars() { return m_output_vars; }
 
     // Return all the variables exclude requested in "excluded"
     void all_vars_excluded(std::vector<std::string>& dst,

@@ -13,18 +13,19 @@
 namespace Options = boost::program_options;
 using namespace std;
 
-static SyntMeasures* synt_measures = nullptr;
+static BaseMeasures* synt_measures = nullptr;
 
 // TODO: throw cerr and exit instead of cout
 void on_sighup(int args) {
     try {
         cout << *synt_measures << endl;
     } catch (const std::runtime_error& re) {
-        std::cout << "Runtime error: " << re.what() << std::endl;
+        std::cerr << "Runtime error: " << re.what() << std::endl;
     } catch (const std::exception& ex) {
-        std::cout << "Error occurred: " << ex.what() << std::endl;
+        std::cerr << "Error occurred: " << ex.what() << std::endl;
     } catch (...) {
-        std::cout << "Unknown failure occurred. Possible memory corruption" << std::endl;
+        std::cerr << "Unknown failure occurred. Possible memory corruption"
+                  << std::endl;
     }
 
     exit(EXIT_SUCCESS);
@@ -53,7 +54,7 @@ int main(int argc, const char* argv[]) {
 
     try {
         if (options.algorithm == Algorithm::FORMULA) {
-            auto* formula_measures = new SyntMeasures(synt_instance);
+            auto* formula_measures = new BaseMeasures(synt_instance);
             synt_measures = formula_measures;
 
             verbose_out << "Building Synthesis Automaton..." << endl;
@@ -67,20 +68,23 @@ int main(int argc, const char* argv[]) {
 
             verbose_out << "Searching Dependencies By Formula Definition..." << endl;
 
-            vector<string> formula_dependent_variables, formula_independent_variables;
+            vector<string> formula_dependent_variables,
+                formula_independent_variables;
             FindDepsByFormula formula_dependencies(synt_instance, *formula_measures);
             formula_dependencies.find_dependencies(formula_dependent_variables,
                                                    formula_independent_variables);
 
-            verbose_out << "Formula Dependent Variables: " << formula_dependent_variables
-                        << endl;
+            verbose_out << "Formula Dependent Variables: "
+                        << formula_dependent_variables << endl;
             verbose_out << "Formula Dependency Variables: "
                         << formula_independent_variables << endl;
         } else if (options.algorithm == Algorithm::AUTOMATON) {
-            auto* automaton_measures = new AutomatonFindDepsMeasure(synt_instance, false);
+            auto* automaton_measures =
+                new AutomatonFindDepsMeasure(synt_instance, false);
             synt_measures = automaton_measures;
 
-            verbose_out << "Searching Dependencies By Automaton Definition..." << endl;
+            verbose_out << "Searching Dependencies By Automaton Definition..."
+                        << endl;
 
             // Building Instance Automaton
             automaton_measures->start_automaton_construct();
@@ -92,9 +96,10 @@ int main(int argc, const char* argv[]) {
             automaton_measures->end_prune_automaton(automaton);
 
             // Search for depedent variables
-            vector<string> automaton_dependent_variables, automaton_independent_variables;
-            FindDepsByAutomaton automaton_dependencies(synt_instance, *automaton_measures,
-                                                       automaton, false);
+            vector<string> automaton_dependent_variables,
+                automaton_independent_variables;
+            FindDepsByAutomaton automaton_dependencies(
+                synt_instance, *automaton_measures, automaton, false);
             if (options.find_input_dependencies) {
                 verbose_out << "Searching for input dependent variables..." << endl;
                 automaton_dependencies.set_dependent_variable_type(
@@ -104,8 +109,8 @@ int main(int argc, const char* argv[]) {
                 automaton_dependencies.set_dependent_variable_type(
                     FindDepsByAutomaton::DependentVariableType::Output);
             }
-            automaton_dependencies.find_dependencies(automaton_dependent_variables,
-                                                     automaton_independent_variables);
+            automaton_dependencies.find_dependencies(
+                automaton_dependent_variables, automaton_independent_variables);
 
             verbose_out << "Automaton Dependent Variables: "
                         << automaton_dependent_variables << endl;
@@ -120,11 +125,12 @@ int main(int argc, const char* argv[]) {
         cout << *synt_measures << endl;
         delete synt_measures;
     } catch (const std::runtime_error& re) {
-        std::cout << "Runtime error: " << re.what() << std::endl;
+        std::cerr << "Runtime error: " << re.what() << std::endl;
     } catch (const std::exception& ex) {
-        std::cout << "Error occurred: " << ex.what() << std::endl;
+        std::cerr << "Error occurred: " << ex.what() << std::endl;
     } catch (...) {
-        std::cout << "Unknown failure occurred. Possible memory corruption" << std::endl;
+        std::cerr << "Unknown failure occurred. Possible memory corruption"
+                  << std::endl;
     }
 
     return EXIT_SUCCESS;

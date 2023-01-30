@@ -1,6 +1,23 @@
 #include "synt_measure.h"
 
-void SyntMeasures::end_automaton_construct(spot::twa_graph_ptr& automaton) {
+#include <fstream>
+
+void aiger_description_obj(json::object& obj, const AigerDescription& description) {
+    obj.emplace("total_inputs", description.inputs);
+    obj.emplace("total_outputs", description.outputs);
+    obj.emplace("total_latches", description.latches);
+    obj.emplace("total_gates", description.gates);
+}
+
+void extract_aiger_description(AigerDescription& description_dst,
+                               spot::aig_ptr& aiger) {
+    description_dst.gates = aiger->num_gates();
+    description_dst.latches = aiger->num_latches();
+    description_dst.outputs = aiger->num_outputs();
+    description_dst.inputs = aiger->num_inputs();
+}
+
+void BaseMeasures::end_automaton_construct(spot::twa_graph_ptr& automaton) {
     m_aut_construct_time.end();
     m_is_automaton_built = true;
 
@@ -11,12 +28,12 @@ void SyntMeasures::end_automaton_construct(spot::twa_graph_ptr& automaton) {
             : (automaton->prop_state_acc().is_false() ? "false" : "maybe");
 }
 
-void SyntMeasures::start_testing_variable(string& var) {
+void BaseMeasures::start_testing_variable(string& var) {
     m_variable_test_time.start();
     currently_testing_var = new string(var);
 }
 
-void SyntMeasures::end_testing_variable(bool is_dependent,
+void BaseMeasures::end_testing_variable(bool is_dependent,
                                         vector<string>& tested_dependency_set) {
     m_variable_test_time.end();
 
@@ -27,7 +44,7 @@ void SyntMeasures::end_testing_variable(bool is_dependent,
     currently_testing_var = nullptr;
 }
 
-void SyntMeasures::get_json_object(json::object& obj) const {
+void BaseMeasures::get_json_object(json::object& obj) const {
     // General information
     json::array output_vars;
     std::transform(m_synt_instance.get_output_vars().begin(),
@@ -36,7 +53,8 @@ void SyntMeasures::get_json_object(json::object& obj) const {
                    [](const std::string& var) { return json::string(var); });
     json::array input_vars;
     std::transform(m_synt_instance.get_input_vars().begin(),
-                   m_synt_instance.get_input_vars().end(), std::back_inserter(input_vars),
+                   m_synt_instance.get_input_vars().end(),
+                   std::back_inserter(input_vars),
                    [](const std::string& var) { return json::string(var); });
 
     obj.emplace("is_completed", m_is_completed);
@@ -81,7 +99,9 @@ void AutomatonFindDepsMeasure::end_search_pair_states(int total_pair_states) {
     m_total_pair_states = total_pair_states;
 }
 
-void AutomatonFindDepsMeasure::start_prune_automaton() { m_prune_automaton_time.start(); }
+void AutomatonFindDepsMeasure::start_prune_automaton() {
+    m_prune_automaton_time.start();
+}
 
 void AutomatonFindDepsMeasure::end_prune_automaton(
     spot::twa_graph_ptr& pruned_automaton) {
@@ -95,12 +115,14 @@ void AutomatonFindDepsMeasure::end_prune_automaton(
 }
 
 void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
-    SyntMeasures::get_json_object(obj);
-    obj["algorithm_type"] = "automaton";
+    BaseMeasures::get_json_object(obj);
 
     json::object automaton_algo_obj;
+
+    automaton_algo_obj["total_duration"] =
+        this->m_total_find_deps_duration.get_duration(false);
     automaton_algo_obj["skipped_dependecies"] = this->m_skipped_dependency_check;
-    automaton_algo_obj["type"] = "automaton";
+    automaton_algo_obj["algorithm_type"] = "automaton";
     automaton_algo_obj["total_pair_state"] = this->m_total_pair_states;
     if (this->m_search_pair_states_time.has_started()) {
         automaton_algo_obj["search_pair_state_duration"] =
@@ -115,31 +137,73 @@ void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
     automaton_algo_obj["prune_total_states"] =
         static_cast<int>(this->m_total_prune_automaton_states);
 
-    obj.emplace("algorithm", automaton_algo_obj);
+    obj.emplace("dependencies", automaton_algo_obj);
 }
 
-void AutomatonSyntMeasure::get_json_object(json::object& obj) const {
+void SynthesisMeasure::get_json_object(json::object& obj) const {
     AutomatonFindDepsMeasure::get_json_object(obj);
+    obj.emplace("algorithm_type", "aiger_synthesis");
 
     json::object synthesis_process_obj;
+
+    // Report remove depenedents
     if (m_remove_dependent_ap.has_started()) {
         synthesis_process_obj.emplace("remove_dependent_ap_duration",
                                       m_remove_dependent_ap.get_duration());
     }
+    if (m_clone_nba_with_deps.has_started()) {
+        synthesis_process_obj.emplace("clone_nba_with_dep",
+                                      m_clone_nba_with_deps.get_duration());
+    }
+    if (m_clone_nba_without_deps.has_started()) {
+        synthesis_process_obj.emplace("clone_nba_without_dep",
+                                      m_clone_nba_without_deps.get_duration());
+    }
+    if (m_dependents_total_duration.has_started()) {
+        synthesis_process_obj.emplace("synthesis_dependents_duration",
+                                      m_dependents_total_duration.get_duration());
+    }
 
-    synthesis_process_obj.emplace("split_2step_duration", m_split_2step.get_duration());
-    synthesis_process_obj.emplace("nba_to_dpa_duration", m_nba_to_dpa.get_duration());
-    synthesis_process_obj.emplace("solve_game_duration", m_solve_game.get_duration());
-    synthesis_process_obj.emplace("dpa_to_mealy_duration",
-                                  m_dpa_to_mealy.get_duration(false));
+    json::object independent_strategy_obj, dependent_strategy_obj;
 
-    obj.emplace("synthesis_process", synthesis_process_obj);
+    independent_strategy_obj.emplace("duration",
+                                     m_independents_total_duration.get_duration());
+    independent_strategy_obj.emplace("realizability", m_independents_realizable);
+    aiger_description_obj(independent_strategy_obj, m_independent_strategy);
+
+    dependent_strategy_obj.emplace("duration",
+                                   m_dependents_total_duration.get_duration());
+    aiger_description_obj(dependent_strategy_obj, m_dependent_strategy);
+
+    synthesis_process_obj.emplace("independent_strategy", independent_strategy_obj);
+    synthesis_process_obj.emplace("dependent_strategy", dependent_strategy_obj);
+
+    obj.emplace("synthesis", synthesis_process_obj);
 }
 
-ostream& operator<<(ostream& os, const SyntMeasures& sm) {
+ostream& operator<<(ostream& os, const BaseMeasures& sm) {
     json::object obj;
     sm.get_json_object(obj);
     os << json::serialize(obj);
 
     return os;
+}
+
+void dump_measures(const BaseMeasures& sm, BaseCLIOptions& cli_options) {
+    if (cli_options.measures_path.empty()) {
+        cout << sm << endl;
+        return;
+    }
+
+    ofstream measure_file(cli_options.measures_path);
+
+    if (measure_file.is_open()) {
+        measure_file << sm << endl;
+        measure_file.close();
+
+        cout << "Measures written to file: " << cli_options.measures_path << endl;
+    } else {
+        cerr << "Failed to open fail: " << cli_options.measures_path << endl;
+        cout << sm << endl;
+    }
 }

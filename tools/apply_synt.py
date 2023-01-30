@@ -11,8 +11,8 @@ TOOLS = ['ltlsynt-sd', 'ltlsynt-ds',
          'ltlsynt-lar.old', 'ltlsynt-lar', 'ltlsynt-ps', 'bfss-synt', 'bfss-synt-skip-deps']
 
 
-def get_benchmark_output_path(benchmark_name, output_dir):
-    return os.path.join(output_dir, BENCHMARK_OUTPUT_FILE_FORMAT.format(benchmark_name))
+def get_benchmark_output_path(tool_name, benchmark_name, output_dir):
+    return os.path.join(output_dir, BENCHMARK_OUTPUT_FILE_FORMAT.format(tool_name + " - " + benchmark_name))
 
 
 def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, decompose):
@@ -26,19 +26,20 @@ def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, deco
     # Find the cli command of the tool
     if 'ltlsynt' in synt_tool:
         _, algorithm = synt_tool.split('-')
-        cli_cmd = 'timeout --signal=HUP {timeout} ltlsynt --formula="{formula}" --ins="{inputs}" --outs="{outputs}" --algo={algo}'.format(
+        cli_cmd = 'time timeout --signal=HUP {timeout} ltlsynt --verbose --formula="{formula}" --ins="{inputs}" --outs="{outputs}" --algo={algo}'.format(
             timeout=timeout, formula=ltl_formula, inputs=input_vars, outputs=output_vars, algo=algorithm)
         if not decompose:
             cli_cmd += " --decompose=no"
         cli_cmd += " --aiger"   # Output in the aiger fromat
     elif 'bfss-synt' in synt_tool:
-        cli_cmd = 'timeout --signal=HUP {timeout} {tool_path} --formula="{formula}" --input="{inputs}" --output="{outputs}" --algo=automaton'.format(
+        algorithm = synt_tool
+
+        cli_cmd = 'time timeout --signal=HUP {timeout} {tool_path} --formula="{formula}" --input="{inputs}" --output="{outputs}" --algo=automaton'.format(
             timeout=timeout, formula=ltl_formula, inputs=input_vars, outputs=output_vars,
             tool_path=tool_path if tool_path != '' else 'bfss-synt'
         )
         if 'skip-deps' in synt_tool:
-            cli_cmd += ' --skip-deps'
-
+            cli_cmd += ' --skip-eject-deps --skip-synt-deps'
         if decompose:
             cli_cmd += ' --decompose'
     else:
@@ -52,14 +53,8 @@ def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, deco
         cli_stderr = process_communicate[1].decode("utf-8")
         result = cli_stdout + cli_stderr
 
-    # Write the results to output file
-    total_duration = (datetime.now() - start_time).total_seconds() * 1000
-    result_header = "/* Total Duration: {} ms */\r\n".format(total_duration)
-    result_header += "/* Tool: {} */\r\n".format(synt_tool)
-    result = result_header + result
-
     print("Done Processing {}!".format(benchmark_name))
-    with open(get_benchmark_output_path(benchmark_name, output_dir), "w+") as outfile:
+    with open(get_benchmark_output_path(algorithm, benchmark_name, output_dir), "w+") as outfile:
         outfile.write(result)
 
 
