@@ -9,7 +9,7 @@ from lookup_dependencies import create_folder, get_all_benchmarks
 BENCHMARK_OUTPUT_FILE_FORMAT = '{}.hoa'
 BENCHMARK_MEASURES_FILE_FORMAT = '{}.json'
 TOOLS = ['ltlsynt-sd', 'ltlsynt-ds',
-         'ltlsynt-lar.old', 'ltlsynt-lar', 'ltlsynt-ps', 'bfss-synt', 'bfss-synt-skip-deps']
+         'ltlsynt-lar.old', 'ltlsynt-lar', 'ltlsynt-ps', 'bfss-synt', 'bfss-synt-eject-deps', 'bfss-synt-skip-deps']
 
 
 def get_benchmark_output_path(tool_name, benchmark_name, output_dir):
@@ -46,6 +46,8 @@ def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, deco
         )
         if 'skip-deps' in synt_tool:
             cli_cmd += ' --skip-eject-deps --skip-synt-deps'
+        elif 'eject-deps' in synt_tool:
+            cli_cmd += ' --skip-synt-deps'
         if decompose:
             cli_cmd += ' --decompose'
     else:
