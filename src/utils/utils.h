@@ -30,6 +30,7 @@ struct BaseCLIOptions {
 struct SynthesisCLIOptions : public BaseCLIOptions {
     bool skip_synt_dependencies;
     bool skip_eject_dependencies;
+    bool apply_model_checking;
 };
 
 struct FindDependenciesCLIOptions : public BaseCLIOptions {

@@ -122,11 +122,13 @@ class SynthesisMeasure : public AutomatonFindDepsMeasure {
     TimeMeasure m_dependents_total_duration;
     TimeMeasure m_clone_nba_with_deps;
     TimeMeasure m_clone_nba_without_deps;
+    TimeMeasure m_model_checking;
 
     AigerDescription m_independent_strategy;
     AigerDescription m_dependent_strategy;
 
     string m_independents_realizable;
+    string m_model_checking_status;
 
    protected:
     void get_json_object(json::object& obj) const override;
@@ -135,7 +137,8 @@ class SynthesisMeasure : public AutomatonFindDepsMeasure {
     explicit SynthesisMeasure(SyntInstance& m_synt_instance,
                               bool skipped_dependency_check)
         : AutomatonFindDepsMeasure(m_synt_instance, skipped_dependency_check),
-          m_independents_realizable("UNKNOWN") {}
+          m_independents_realizable("UNKNOWN"),
+          m_model_checking_status("UNKNOWN") {}
 
     void start_remove_dependent_ap() { m_remove_dependent_ap.start(); }
     void end_remove_dependent_ap() { m_remove_dependent_ap.end(); }
@@ -145,6 +148,13 @@ class SynthesisMeasure : public AutomatonFindDepsMeasure {
 
     void start_clone_nba_without_deps() { m_clone_nba_without_deps.start(); }
     void end_clone_nba_without_deps() { m_clone_nba_without_deps.end(); }
+
+    void start_model_checking() { m_model_checking.start(); }
+
+    void end_model_checking(const char* status) {
+        m_model_checking.end();
+        m_model_checking_status = status;
+    }
 
     void start_independents_synthesis() { m_independents_total_duration.start(); }
 
