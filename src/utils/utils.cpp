@@ -38,7 +38,10 @@ bool parse_synthesis_cli(int argc, const char *argv[],
         "Should skip finding and ejecting dependent variables")(
         "skip-synt-deps",
         Options::bool_switch(&options.skip_synt_dependencies)->default_value(false),
-        "Should skip synthesing a strategy with dependent variables");
+        "Should skip synthesing a strategy with dependent variables")(
+        "model-checking",
+        Options::bool_switch(&options.apply_model_checking)->default_value(false),
+        "Should apply model checking to the synthesized strategy");
 
     try {
         Options::command_line_parser parser{argc, argv};

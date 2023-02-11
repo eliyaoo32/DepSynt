@@ -163,6 +163,11 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
         synthesis_process_obj.emplace("synthesis_dependents_duration",
                                       m_dependents_total_duration.get_duration());
     }
+    synthesis_process_obj.emplace("model_checking_status", m_model_checking_status);
+    if (m_model_checking.has_started()) {
+        synthesis_process_obj.emplace("model_checking_duration",
+                                      m_model_checking.get_duration());
+    }
 
     json::object independent_strategy_obj, dependent_strategy_obj;
 

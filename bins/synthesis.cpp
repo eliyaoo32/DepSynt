@@ -21,20 +21,7 @@ using namespace spot;
 static SynthesisMeasure* g_synt_measure = nullptr;
 static SynthesisCLIOptions options;
 
-void on_sighup(int args) {
-    try {
-        dump_measures(*g_synt_measure, options);
-    } catch (const std::runtime_error& re) {
-        std::cout << "Runtime error: " << re.what() << std::endl;
-    } catch (const std::exception& ex) {
-        std::cout << "Error occurred: " << ex.what() << std::endl;
-    } catch (...) {
-        std::cout << "Unknown failure occurred. Possible memory corruption"
-                  << std::endl;
-    }
-
-    exit(EXIT_SUCCESS);
-}
+void on_sighup(int args);
 
 int main(int argc, const char* argv[]) {
     int parsed_cli_status = parse_synthesis_cli(argc, argv, options);
@@ -144,11 +131,48 @@ int main(int argc, const char* argv[]) {
             cout << "No dependent variables found." << endl;
         }
 
+        // Model Checking
+        auto& final_strategy =
+            indep_strategy;  // TODO: merge indeps and deps strategy
+        if (options.apply_model_checking) {
+            synt_measure.start_model_checking();
+
+            spot::translator trans(gi.dict, &gi.opt);
+            auto neg_spec =
+                trans.run(spot::formula::Not(synt_instance.get_formula_parsed()));
+
+            auto strategy_aut = final_strategy->as_automaton(false);
+            bool model_checking_ok = !neg_spec->intersects(strategy_aut);
+
+            if (model_checking_ok) {
+                verbose << "=> Model checking: OK" << endl;
+            } else {
+                cerr << "=> Model checking: Error - Strategy intersects with "
+                        "negation of specificaiton"
+                     << endl;
+            }
+
+            synt_measure.end_model_checking(model_checking_ok ? "OK" : "Error");
+        }
+
         // Print Measures
         synt_measure.completed();
         dump_measures(synt_measure, options);
 
         return EXIT_SUCCESS;
+    } catch (const std::runtime_error& re) {
+        std::cerr << "Runtime error: " << re.what() << std::endl;
+    } catch (const std::exception& ex) {
+        std::cerr << "Error occurred: " << ex.what() << std::endl;
+    } catch (...) {
+        std::cerr << "Unknown failure occurred. Possible memory corruption"
+                  << std::endl;
+    }
+}
+
+void on_sighup(int args) {
+    try {
+        dump_measures(*g_synt_measure, options);
     } catch (const std::runtime_error& re) {
         std::cout << "Runtime error: " << re.what() << std::endl;
     } catch (const std::exception& ex) {
@@ -157,4 +181,6 @@ int main(int argc, const char* argv[]) {
         std::cout << "Unknown failure occurred. Possible memory corruption"
                   << std::endl;
     }
+
+    exit(EXIT_SUCCESS);
 }
