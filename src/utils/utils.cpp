@@ -203,3 +203,13 @@ Duration TimeMeasure::get_duration(bool validate_is_ended) const {
 
     return m_total_duration;
 }
+
+string exec(const char *cmd, string &dst) {
+    char buffer[128];
+    FILE *pipe = popen(cmd, "r");
+    if (!pipe) throw runtime_error("popen() failed!");
+    while (!feof(pipe)) {
+        if (fgets(buffer, 128, pipe) != NULL) dst += buffer;
+    }
+    pclose(pipe);
+}

@@ -45,6 +45,8 @@ bool parse_synthesis_cli(int argc, const char *argv[], SynthesisCLIOptions &opti
 
 void extract_variables(const std::string &str, std::vector<std::string> &dst);
 
+string exec(const char *cmd, string &dst);
+
 std::ostream &operator<<(std::ostream &out, const std::vector<std::string> &vec);
 
 std::ostream &operator<<(std::ostream &out, const SynthesisCLIOptions &options);
