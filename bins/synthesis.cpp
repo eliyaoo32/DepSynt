@@ -8,6 +8,7 @@
 
 #include "dependents_synthesiser.h"
 #include "find_deps_by_automaton.h"
+#include "merge_strategies.h"
 #include "nba_utils.h"
 #include "synt_instance.h"
 #include "synthesis_utils.h"
@@ -115,25 +116,33 @@ int main(int argc, const char* argv[]) {
         }
 
         // Synthesis the dependent variables
+        spot::aig_ptr final_strategy, dependents_strategy;
+
         if (found_depedencies) {
             synt_measure.start_dependents_synthesis();
             DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
                                                   input_vars, independent_variables,
                                                   dependent_variables);
-            spot::aig_ptr dependents_strategy = dependents_synt.synthesis();
+            dependents_strategy = dependents_synt.synthesis();
             synt_measure.end_dependents_synthesis(dependents_strategy);
 
             cout << "Dependents strategy: " << endl;
             spot::print_aiger(std::cout, dependents_strategy) << '\n';
-        } else if (options.skip_synt_dependencies) {
-            verbose << "=> Skipping synthesis dependent variables" << endl;
+
+            string model_name = "ltl2dpa16";  // TODO: fetch from options
+            final_strategy = merge_strategies(
+                indep_strategy, dependents_strategy, input_vars,
+                independent_variables, dependent_variables, gi.dict, model_name);
         } else {
-            cout << "No dependent variables found." << endl;
+            final_strategy = indep_strategy;
+
+            if (options.skip_synt_dependencies) {
+                verbose << "=> Skipping synthesis dependent variables" << endl;
+            } else {
+                cout << "No dependent variables found." << endl;
+            }
         }
 
-        // Model Checking
-        auto& final_strategy =
-            indep_strategy;  // TODO: merge indeps and deps strategy
         if (options.apply_model_checking) {
             synt_measure.start_model_checking();
 
