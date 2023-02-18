@@ -204,14 +204,23 @@ Duration TimeMeasure::get_duration(bool validate_is_ended) const {
     return m_total_duration;
 }
 
-string exec(const char *cmd, string &dst) {
+string exec(string &cmd, string &dst) { system((cmd + " 2>&1").c_str()); }
+
+string exec_2(string &cmd, string &dst) {
+    cout << "Executing: " << cmd << endl;
+
     char buffer[128];
-    FILE *pipe = popen(cmd, "r");
+    auto pipe = popen((cmd + " 2>&1").c_str(), "r");
     if (!pipe) throw runtime_error("popen() failed!");
+
     while (!feof(pipe)) {
         if (fgets(buffer, 128, pipe) != NULL) dst += buffer;
     }
-    pclose(pipe);
+
+    auto rc = pclose(pipe);
+    if (rc == EXIT_FAILURE) {
+        throw runtime_error("pclose() failed!");
+    }
 }
 
 string replaceFirstLine(string &inputString, string newFirstLine) {

@@ -12,7 +12,7 @@
 
 using namespace std;
 
-string blif_wired_var(string var) { return "In" + var; }
+inline string blif_wired_var(string var) { return "In" + var; }
 
 spot::aig_ptr blif_file_to_aiger(string& blif_path, spot::bdd_dict_ptr dict,
                                  string& model_name);

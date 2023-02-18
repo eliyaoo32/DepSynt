@@ -2,6 +2,13 @@
 
 using namespace std;
 
+#define AIGTOBLIF_CMD                                                       \
+    "/Users/eliyahub/Thesis/reactive-synthesis-bfss/tools/aiger-utilities/" \
+    "aigtoblif"
+#define AIGTOAIG_CMD \
+    "/Users/eliyahub/Thesis/reactive-synthesis-bfss/tools/aiger-utilities/aigtoaig"
+#define ABC_CMD "/Users/eliyahub/Thesis/aiger/abc/abc"
+
 spot::aig_ptr blif_file_to_aiger(string& blif_path, spot::bdd_dict_ptr dict,
                                  string& model_name) {
     // TODO: extract this constant to a global variable
@@ -9,15 +16,16 @@ spot::aig_ptr blif_file_to_aiger(string& blif_path, spot::bdd_dict_ptr dict,
     string ascii_aig_path = "/tmp/" + model_name + ".aag";
 
     string cmd_res;
-    string cmd = "read " + blif_path + "; strash; " +
+    string cmd = string(ABC_CMD) + " \"read " + blif_path + "; strash; " +
                  "rewrite; balance; refactor; "
                  "rewrite; balance; refactor; "
                  "rewrite; balance; refactor; " +
-                 "write " + bin_aig_path + ";";
-    exec(cmd.c_str(), cmd_res);
+                 "write " + bin_aig_path + ";\"";
+    exec(cmd, cmd_res);
 
     // Convert aiger to ascii via aigtoaig
-    exec(("aigtoaig " + bin_aig_path + " " + ascii_aig_path).c_str(), cmd_res);
+    string cmd2 = string(AIGTOAIG_CMD) + " " + bin_aig_path + " " + ascii_aig_path;
+    exec(cmd2, cmd_res);
 
     // Load the ASCII Aiger
     return spot::aig::parse_aag(ascii_aig_path, dict);
@@ -30,10 +38,15 @@ void aiger_to_blif(spot::aig_ptr aiger, string& blif_dst, string blif_name) {
     string aiger_path = "/tmp/" + blif_name + ".aag";
     ofstream aiger_file_stream(aiger_path);
     spot::print_aiger(aiger_file_stream, aiger);
+    aiger_file_stream << endl;
     aiger_file_stream.close();
 
     // Convert aiger file to blif
-    exec(("aigtoblif " + aiger_path).c_str(), blif_dst);
+    string blif_path = "/tmp/" + blif_name + ".blif";
+    string exec_res;
+    string cmd = string(AIGTOBLIF_CMD) + " " + aiger_path + " " + blif_path;
+    exec(cmd, exec_res);
+
     blif_dst = replaceFirstLine(blif_dst, ".model " + string(blif_name));
 
     // TODO: Remove the file here maybe?

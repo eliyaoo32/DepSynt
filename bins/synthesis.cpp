@@ -118,7 +118,7 @@ int main(int argc, const char* argv[]) {
         // Synthesis the dependent variables
         spot::aig_ptr final_strategy, dependents_strategy;
 
-        if (found_depedencies) {
+        if (found_depedencies && !options.skip_synt_dependencies) {
             synt_measure.start_dependents_synthesis();
             DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
                                                   input_vars, independent_variables,

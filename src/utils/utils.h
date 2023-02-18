@@ -5,6 +5,9 @@
 #include <boost/algorithm/string/split.hpp>
 #include <boost/program_options.hpp>
 #include <chrono>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
 #include <spot/tl/formula.hh>
 #include <spot/tl/parse.hh>
@@ -45,9 +48,9 @@ bool parse_synthesis_cli(int argc, const char *argv[], SynthesisCLIOptions &opti
 
 void extract_variables(const std::string &str, std::vector<std::string> &dst);
 
-std::string exec(const char *cmd, std::string &dst);
+std::string exec(std::string &cmd, std::string &dst);
 
-string replaceFirstLine(string &inputString, string newFirstLine);
+std::string replaceFirstLine(std::string &inputString, std::string newFirstLine);
 
 std::ostream &operator<<(std::ostream &out, const std::vector<std::string> &vec);
 
