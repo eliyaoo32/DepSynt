@@ -126,10 +126,13 @@ int main(int argc, const char* argv[]) {
             dependents_strategy = dependents_synt.synthesis();
             synt_measure.end_dependents_synthesis(dependents_strategy);
 
+            // TODO: print only final strategy
             cout << "Dependents strategy: " << endl;
             spot::print_aiger(std::cout, dependents_strategy) << '\n';
 
             string model_name = "ltl2dpa16";  // TODO: fetch from options
+
+            // TODO: calculate duration of merge_strategies
             final_strategy = merge_strategies(
                 indep_strategy, dependents_strategy, input_vars,
                 independent_variables, dependent_variables, gi.dict, model_name);
