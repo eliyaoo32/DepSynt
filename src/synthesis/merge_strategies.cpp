@@ -2,12 +2,9 @@
 
 using namespace std;
 
-#define AIGTOBLIF_CMD                                                       \
-    "/Users/eliyahub/Thesis/reactive-synthesis-bfss/tools/aiger-utilities/" \
-    "aigtoblif"
-#define AIGTOAIG_CMD \
-    "/Users/eliyahub/Thesis/reactive-synthesis-bfss/tools/aiger-utilities/aigtoaig"
-#define ABC_CMD "/Users/eliyahub/Thesis/aiger/abc/abc"
+#define AIGTOBLIF_CMD   "aigtoblif"
+#define AIGTOAIG_CMD "aigtoaig"
+#define ABC_CMD "abc"
 
 spot::aig_ptr blif_file_to_aiger(string& blif_path, spot::bdd_dict_ptr dict,
                                  string& model_name) {
