@@ -1,7 +1,10 @@
 #include "utils.h"
 
 #include <boost/program_options.hpp>
+#include <cstdio>
 #include <iostream>
+#include <memory>
+#include <stdexcept>
 #include <vector>
 
 namespace Options = boost::program_options;
@@ -204,23 +207,18 @@ Duration TimeMeasure::get_duration(bool validate_is_ended) const {
     return m_total_duration;
 }
 
-string exec(string &cmd, string &dst) { system((cmd + " 2>&1").c_str()); }
-
-string exec_2(string &cmd, string &dst) {
-    cout << "Executing: " << cmd << endl;
-
+void exec(const char* cmd, std::string &dst) {
     char buffer[128];
-    auto pipe = popen((cmd + " 2>&1").c_str(), "r");
+    auto pipe = popen(cmd, "r");
     if (!pipe) throw runtime_error("popen() failed!");
 
     while (!feof(pipe)) {
-        if (fgets(buffer, 128, pipe) != NULL) dst += buffer;
+        if (fgets(buffer, 128, pipe) != NULL) {
+            dst += buffer;
+        }
     }
 
-    auto rc = pclose(pipe);
-    if (rc == EXIT_FAILURE) {
-        throw runtime_error("pclose() failed!");
-    }
+    pclose(pipe);
 }
 
 string replaceFirstLine(string &inputString, string newFirstLine) {

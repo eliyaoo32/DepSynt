@@ -5,6 +5,9 @@
 #include <spot/twaalgos/mealy_machine.hh>
 #include <string>
 #include <vector>
+#include <cstdio>
+#include <memory>
+#include <stdexcept>
 
 #include "dependents_synthesiser.h"
 #include "find_deps_by_automaton.h"
@@ -45,6 +48,31 @@ int main(int argc, const char* argv[]) {
     g_synt_measure =
         new SynthesisMeasure(synt_instance, options.skip_eject_dependencies);
     SynthesisMeasure& synt_measure = *g_synt_measure;
+
+//    string dst2;
+//    exec2("/Users/eliyahub/Thesis/reactive-synthesis-bfss/tools/aiger-utilities/aigtoblif /tmp/ltl2dpa16_deps.aag", dst2);
+//    cout << dst2 << endl;
+//
+//
+//    cout << "Results: " << endl << dst2 << endl;
+//    return 0;
+//
+//    string dst;
+//    char buffer[128];
+//    auto pipe = popen("/Users/eliyahub/Thesis/reactive-synthesis-bfss/tools/aiger-utilities/aigtoblif /tmp/ltl2dpa16_deps.aag", "r");
+//    if (!pipe) throw runtime_error("popen() failed!");
+//
+//    while (!feof(pipe)) {
+//        if (fgets(buffer, 128, pipe) != NULL) {
+//            dst += buffer;
+//        }
+//    }
+//
+//    pclose(pipe);
+//
+//    cout << "Results: " << endl << dst << endl;
+//
+//    return 0;
 
     signal(SIGINT, on_sighup);
     signal(SIGHUP, on_sighup);

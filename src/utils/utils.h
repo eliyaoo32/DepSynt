@@ -48,7 +48,7 @@ bool parse_synthesis_cli(int argc, const char *argv[], SynthesisCLIOptions &opti
 
 void extract_variables(const std::string &str, std::vector<std::string> &dst);
 
-std::string exec(std::string &cmd, std::string &dst);
+void exec(const char* cmd, std::string &dst);
 
 std::string replaceFirstLine(std::string &inputString, std::string newFirstLine);
 

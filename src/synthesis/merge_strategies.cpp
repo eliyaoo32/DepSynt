@@ -16,16 +16,16 @@ spot::aig_ptr blif_file_to_aiger(string& blif_path, spot::bdd_dict_ptr dict,
     string ascii_aig_path = "/tmp/" + model_name + ".aag";
 
     string cmd_res;
-    string cmd = string(ABC_CMD) + " \"read " + blif_path + "; strash; " +
+    string cmd = string(ABC_CMD) + " -c \"read " + blif_path + "; strash; " +
                  "rewrite; balance; refactor; "
                  "rewrite; balance; refactor; "
                  "rewrite; balance; refactor; " +
                  "write " + bin_aig_path + ";\"";
-    exec(cmd, cmd_res);
+    exec(cmd.c_str(), cmd_res);
 
     // Convert aiger to ascii via aigtoaig
     string cmd2 = string(AIGTOAIG_CMD) + " " + bin_aig_path + " " + ascii_aig_path;
-    exec(cmd2, cmd_res);
+    exec(cmd2.c_str(), cmd_res);
 
     // Load the ASCII Aiger
     return spot::aig::parse_aag(ascii_aig_path, dict);
@@ -43,9 +43,8 @@ void aiger_to_blif(spot::aig_ptr aiger, string& blif_dst, string blif_name) {
 
     // Convert aiger file to blif
     string blif_path = "/tmp/" + blif_name + ".blif";
-    string exec_res;
-    string cmd = string(AIGTOBLIF_CMD) + " " + aiger_path + " " + blif_path;
-    exec(cmd, exec_res);
+    string cmd = string(AIGTOBLIF_CMD) + " " + aiger_path;
+    exec(cmd.c_str(), blif_dst);
 
     blif_dst = replaceFirstLine(blif_dst, ".model " + string(blif_name));
 
@@ -86,14 +85,14 @@ void merge_strategies_blifs(ostream& out, string& indeps_blif, string& deps_blif
     string deps_wires = "";
 
     for (int i = 0; i < inputs.size(); i++) {
-        input_wires += inputs[i] + "=" + inputs[i];
+        input_wires += inputs[i] + "=" + inputs[i] + " ";
     }
     for (int i = 0; i < independent_vars.size(); i++) {
         indeps_wires +=
-            independent_vars[i] + "=" + blif_wired_var(independent_vars[i]);
+            independent_vars[i] + "=" + blif_wired_var(independent_vars[i]) + " ";
     }
     for (int i = 0; i < dependent_vars.size(); i++) {
-        deps_wires += dependent_vars[i] + "=" + blif_wired_var(dependent_vars[i]);
+        deps_wires += dependent_vars[i] + "=" + blif_wired_var(dependent_vars[i]) + " ";
     }
 
     // Create subsckts
