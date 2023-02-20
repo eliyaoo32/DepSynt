@@ -123,9 +123,11 @@ class SynthesisMeasure : public AutomatonFindDepsMeasure {
     TimeMeasure m_clone_nba_with_deps;
     TimeMeasure m_clone_nba_without_deps;
     TimeMeasure m_model_checking;
+    TimeMeasure m_merge_strategies;
 
     AigerDescription m_independent_strategy;
     AigerDescription m_dependent_strategy;
+    AigerDescription m_final_strategy;
 
     string m_independents_realizable;
     string m_model_checking_status;
@@ -158,16 +160,7 @@ class SynthesisMeasure : public AutomatonFindDepsMeasure {
 
     void start_independents_synthesis() { m_independents_total_duration.start(); }
 
-    void end_independents_synthesis(spot::aig_ptr& aiger_strat) {
-        if (aiger_strat != nullptr) {
-            extract_aiger_description(m_independent_strategy, aiger_strat);
-            m_independents_realizable = "REALIZABLE";
-        } else {
-            m_independents_realizable = "UNREALIZABLE";
-        }
-
-        m_independents_total_duration.end();
-    }
+    void end_independents_synthesis(spot::aig_ptr& aiger_strat);
 
     void start_dependents_synthesis() { m_dependents_total_duration.start(); }
 
@@ -176,6 +169,13 @@ class SynthesisMeasure : public AutomatonFindDepsMeasure {
             extract_aiger_description(m_dependent_strategy, aiger_strat);
         }
         m_dependents_total_duration.end();
+    }
+
+    void start_merge_strategies() { m_merge_strategies.start(); }
+
+    void end_merge_strategies(spot::aig_ptr& aiger_strat) {
+        m_merge_strategies.end();
+        extract_aiger_description(m_final_strategy, aiger_strat);
     }
 };
 

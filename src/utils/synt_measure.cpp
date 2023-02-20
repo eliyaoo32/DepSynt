@@ -140,6 +140,17 @@ void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
     obj.emplace("dependencies", automaton_algo_obj);
 }
 
+void SynthesisMeasure::end_independents_synthesis(spot::aig_ptr& aiger_strat) {
+    if (aiger_strat != nullptr) {
+        extract_aiger_description(m_independent_strategy, aiger_strat);
+        m_independents_realizable = "REALIZABLE";
+    } else {
+        m_independents_realizable = "UNREALIZABLE";
+    }
+
+    m_independents_total_duration.end();
+}
+
 void SynthesisMeasure::get_json_object(json::object& obj) const {
     AutomatonFindDepsMeasure::get_json_object(obj);
     obj.emplace("algorithm_type", "aiger_synthesis");
@@ -168,6 +179,10 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
         synthesis_process_obj.emplace("model_checking_duration",
                                       m_model_checking.get_duration());
     }
+    if(m_merge_strategies.has_started()) {
+        synthesis_process_obj.emplace("merge_strategies_duration",
+                                      m_merge_strategies.get_duration());
+    }
 
     json::object independent_strategy_obj, dependent_strategy_obj;
 
@@ -179,6 +194,14 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
     dependent_strategy_obj.emplace("duration",
                                    m_dependents_total_duration.get_duration());
     aiger_description_obj(dependent_strategy_obj, m_dependent_strategy);
+
+    if(m_merge_strategies.has_started()) {
+        json::object final_strategy_obj;
+        final_strategy_obj.emplace("merge_duration",
+                                       m_merge_strategies.get_duration());
+        aiger_description_obj(final_strategy_obj, m_final_strategy);
+        synthesis_process_obj.emplace("final_strategy", dependent_strategy_obj);
+    }
 
     synthesis_process_obj.emplace("independent_strategy", independent_strategy_obj);
     synthesis_process_obj.emplace("dependent_strategy", dependent_strategy_obj);
