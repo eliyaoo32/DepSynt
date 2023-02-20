@@ -1,11 +1,7 @@
 #include <signal.h>
-
 #include <iostream>
 #include <spot/twaalgos/aiger.hh>
-#include <spot/twaalgos/mealy_machine.hh>
-#include <string>
 #include <vector>
-#include <cstdio>
 #include <memory>
 #include <stdexcept>
 
@@ -13,9 +9,7 @@
 #include "find_deps_by_automaton.h"
 #include "merge_strategies.h"
 #include "nba_utils.h"
-#include "synt_instance.h"
 #include "synthesis_utils.h"
-#include "utils.h"
 
 using namespace std;
 using namespace spot;
@@ -48,31 +42,6 @@ int main(int argc, const char* argv[]) {
     g_synt_measure =
         new SynthesisMeasure(synt_instance, options.skip_eject_dependencies);
     SynthesisMeasure& synt_measure = *g_synt_measure;
-
-//    string dst2;
-//    exec2("/Users/eliyahub/Thesis/reactive-synthesis-bfss/tools/aiger-utilities/aigtoblif /tmp/ltl2dpa16_deps.aag", dst2);
-//    cout << dst2 << endl;
-//
-//
-//    cout << "Results: " << endl << dst2 << endl;
-//    return 0;
-//
-//    string dst;
-//    char buffer[128];
-//    auto pipe = popen("/Users/eliyahub/Thesis/reactive-synthesis-bfss/tools/aiger-utilities/aigtoblif /tmp/ltl2dpa16_deps.aag", "r");
-//    if (!pipe) throw runtime_error("popen() failed!");
-//
-//    while (!feof(pipe)) {
-//        if (fgets(buffer, 128, pipe) != NULL) {
-//            dst += buffer;
-//        }
-//    }
-//
-//    pclose(pipe);
-//
-//    cout << "Results: " << endl << dst << endl;
-//
-//    return 0;
 
     signal(SIGINT, on_sighup);
     signal(SIGHUP, on_sighup);
@@ -131,8 +100,6 @@ int main(int argc, const char* argv[]) {
             synthesis_nba_to_aiger(gi, nba, outs, input_vars, verbose);
         synt_measure.end_independents_synthesis(indep_strategy);
 
-        cout << "Indepedent strategy: " << endl;
-        spot::print_aiger(std::cout, indep_strategy) << '\n';
 
         if (indep_strategy == nullptr) {
             cout << "UNREALIZABLE" << endl;
@@ -154,10 +121,6 @@ int main(int argc, const char* argv[]) {
             dependents_strategy = dependents_synt.synthesis();
             synt_measure.end_dependents_synthesis(dependents_strategy);
 
-            // TODO: print only final strategy
-            cout << "Dependents strategy: " << endl;
-            spot::print_aiger(std::cout, dependents_strategy) << '\n';
-
             string model_name = "ltl2dpa16";  // TODO: fetch from options
 
             // TODO: calculate duration of merge_strategies
@@ -170,9 +133,11 @@ int main(int argc, const char* argv[]) {
             if (options.skip_synt_dependencies) {
                 verbose << "=> Skipping synthesis dependent variables" << endl;
             } else {
-                cout << "No dependent variables found." << endl;
+                verbose << "=> No dependent variables found." << endl;
             }
         }
+
+        spot::print_aiger(std::cout, final_strategy) << '\n';
 
         if (options.apply_model_checking) {
             synt_measure.start_model_checking();
