@@ -36,12 +36,14 @@ bool parse_synthesis_cli(int argc, const char *argv[],
         "Tool to synthesis LTL specfication using dependencies concept");
     parse_cli_common(options, desc);
     desc.add_options()(
-        "skip-eject-deps",
+            "model-name", Options::value<string>(&options.model_name)->required(),
+            "Unique model name of the specification"
+        )("skip-eject-deps",
         Options::bool_switch(&options.skip_eject_dependencies)->default_value(false),
         "Should skip finding and ejecting dependent variables")(
         "skip-synt-deps",
         Options::bool_switch(&options.skip_synt_dependencies)->default_value(false),
-        "Should skip synthesing a strategy with dependent variables")(
+        "Should skip synthesising a strategy with dependent variables")(
         "model-checking",
         Options::bool_switch(&options.apply_model_checking)->default_value(false),
         "Should apply model checking to the synthesized strategy");
