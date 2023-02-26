@@ -1,11 +1,12 @@
-#ifndef MERGE_AIGERS_H
-#define MERGE_AIGERS_H
+#ifndef MERGE_STRATEGIES_H
+#define MERGE_STRATEGIES_H
 
 #include <boost/algorithm/string/join.hpp>
 #include <fstream>
 #include <spot/twa/bdddict.hh>
 #include <spot/twaalgos/aiger.hh>
 #include <string>
+#include <cstdio>
 #include <regex>
 #include <vector>
 

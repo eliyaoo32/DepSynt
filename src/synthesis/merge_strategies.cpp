@@ -25,8 +25,13 @@ spot::aig_ptr blif_file_to_aiger(string& blif_path, spot::bdd_dict_ptr dict,
     exec(cmd2.c_str(), cmd_res);
 
     // Load the ASCII Aiger
-    return spot::aig::parse_aag(ascii_aig_path, dict);
-    // TODO: remove the AIGER files
+    auto parsed_aiger = spot::aig::parse_aag(ascii_aig_path, dict);
+
+    // Remove the aiger files
+    remove(bin_aig_path.c_str());
+    remove(ascii_aig_path.c_str());
+
+    return parsed_aiger;
 }
 
 string find_init_latch(string& blif, unsigned init_latch_var) {
@@ -56,7 +61,7 @@ void aiger_to_blif(spot::aig_ptr aiger, string& blif_dst, string blif_name) {
 
     blif_dst = replaceFirstLine(blif_dst, ".model " + string(blif_name));
 
-    // TODO: Remove the file here maybe?
+    remove(aiger_path.c_str());
 }
 
 // Create a middleware in the init latches values.
@@ -191,7 +196,8 @@ spot::aig_ptr merge_strategies(spot::aig_ptr independent_strategy,
     spot::aig_ptr merged_strategy =
         blif_file_to_aiger(merged_blif_path, dict, model_name);
 
-    // TODO: remove BLIF file
+    remove(merged_blif_path.c_str());
+
     return merged_strategy;
 }
 
