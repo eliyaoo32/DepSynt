@@ -29,6 +29,17 @@ spot::aig_ptr blif_file_to_aiger(string& blif_path, spot::bdd_dict_ptr dict,
     // TODO: remove the AIGER files
 }
 
+string find_init_latch(string& blif, unsigned init_latch_var) {
+    std::regex init_latch_pattern(".latch .* ([a-zA-Z]+"+std::to_string(init_latch_var)+") .*");
+    std::smatch match;
+
+    if(std::regex_search(blif, match, init_latch_pattern)) {
+        return match[1];
+    } else{
+        cerr << "Couldn't find init latch in the blif file." << endl;
+    }
+}
+
 void aiger_to_blif(spot::aig_ptr aiger, string& blif_dst, string blif_name) {
     // Create a file of the aiger
     // TODO: extract this constant to a global variable
@@ -69,14 +80,13 @@ void deps_blif_latches_middleware(string& deps_strategy_blif, string& init_latch
     // Define a new latch, init value is 0 and next value is always 1
     string tmp_latch = "lltmpinit";
     size_t tmp_latch_idx = deps_strategy_blif.find(".latch");
-    if(tmp_latch_idx != std::string::npos) {
-        deps_strategy_blif.insert(tmp_latch_idx, ".latch c1 " + tmp_latch + " 0\r\n\r\n");
-    }
+    assert(tmp_latch_idx != std::string::npos && "Error: .latch not found in the blif file.");
+    deps_strategy_blif.insert(tmp_latch_idx, ".latch c1 " + tmp_latch + " 0\r\n\r\n");
 
     // Replace the latch with a temp init latch
     string init_latch_tmp = init_latch + "Tmp";
     std::regex init_latch_pattern(".latch (.*) (" + init_latch + ") (.*)");
-    // TODO: assert the init latch exists
+    assert(std::regex_search(deps_strategy_blif, init_latch_pattern) && "Init latch not found in the blif file.");
     deps_strategy_blif = std::regex_replace(deps_strategy_blif, init_latch_pattern, ".latch $1 " + init_latch_tmp + " $3");
 
     // Add a new name, where it takes the new latch and the temp init latch and outputs the original init latch
@@ -166,7 +176,7 @@ spot::aig_ptr merge_strategies(spot::aig_ptr independent_strategy,
     aiger_to_blif(dependent_strategy, deps_blif, deps_model_name);
     aiger_to_blif(independent_strategy, indeps_blif, indeps_model_name);
 
-    string deps_init_latch = "ll" + std::to_string(dependent_strategy->latch_var(0));
+    string deps_init_latch = find_init_latch(deps_blif, dependent_strategy->latch_var(0));
     deps_blif_latches_middleware(deps_blif, deps_init_latch);
 
     // Merge BLIF
@@ -184,3 +194,4 @@ spot::aig_ptr merge_strategies(spot::aig_ptr independent_strategy,
     // TODO: remove BLIF file
     return merged_strategy;
 }
+
