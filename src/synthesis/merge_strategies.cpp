@@ -48,6 +48,46 @@ void aiger_to_blif(spot::aig_ptr aiger, string& blif_dst, string blif_name) {
     // TODO: Remove the file here maybe?
 }
 
+// Create a middleware in the init latches values.
+// In the first input, the init values are 0.
+// The latch corresponding to the init state of the independent NBA must to be initialized to 1.
+// This function creates a new latch that is initialized to 0 and its next value is always 1.
+// When the new latch value is 0, the init value of the latch corresponding to the initialize state will become 1.
+
+void deps_blif_latches_middleware(string& deps_strategy_blif, string& init_latch) {
+    // Remove .end
+    std::size_t end_ind = deps_strategy_blif.find(".end");
+    if(end_ind != std::string::npos) {
+        deps_strategy_blif.erase(end_ind, 4);
+    }
+
+        // Add const 1 if it is not in the blif
+    if(deps_strategy_blif.find(".names c1") == string::npos) {
+        deps_strategy_blif += ".names c1\r\n1\r\n\r\n";
+    }
+
+    // Define a new latch, init value is 0 and next value is always 1
+    string tmp_latch = "lltmpinit";
+    size_t tmp_latch_idx = deps_strategy_blif.find(".latch");
+    if(tmp_latch_idx != std::string::npos) {
+        deps_strategy_blif.insert(tmp_latch_idx, ".latch c1 " + tmp_latch + " 0\r\n\r\n");
+    }
+
+    // Replace the latch with a temp init latch
+    string init_latch_tmp = init_latch + "Tmp";
+    std::regex init_latch_pattern(".latch (.*) (" + init_latch + ") (.*)");
+    // TODO: assert the init latch exists
+    deps_strategy_blif = std::regex_replace(deps_strategy_blif, init_latch_pattern, ".latch $1 " + init_latch_tmp + " $3");
+
+    // Add a new name, where it takes the new latch and the temp init latch and outputs the original init latch
+    deps_strategy_blif += ".names " + init_latch_tmp + " " + tmp_latch + " " + init_latch + "\r\n"
+                            "-0 1\r\n"
+                            "11 1\r\n\r\n";
+
+    // Add .end
+    deps_strategy_blif += ".end\r\n\r\n";
+}
+
 void merge_strategies_blifs(ostream& out, string& indeps_blif, string& deps_blif,
                             string& indeps_model_name, string& deps_model_name,
                             const vector<string>& inputs,
@@ -112,10 +152,10 @@ spot::aig_ptr merge_strategies(spot::aig_ptr independent_strategy,
                                spot::bdd_dict_ptr dict, string& model_name) {
     // TODO: validate the commands: aigtoblif, aigtoaig, abc are exists
 
-    if (independent_vars.size() == 0 || independent_strategy == nullptr) {
+    if (independent_vars.empty() || independent_strategy == nullptr) {
         return dependent_strategy;
     }
-    if (dependent_vars.size() == 0 || dependent_strategy == nullptr) {
+    if (dependent_vars.empty() || dependent_strategy == nullptr) {
         return independent_strategy;
     }
 
@@ -125,6 +165,9 @@ spot::aig_ptr merge_strategies(spot::aig_ptr independent_strategy,
     string indeps_model_name = model_name + "_indeps";
     aiger_to_blif(dependent_strategy, deps_blif, deps_model_name);
     aiger_to_blif(independent_strategy, indeps_blif, indeps_model_name);
+
+    string deps_init_latch = "ll" + std::to_string(dependent_strategy->latch_var(0));
+    deps_blif_latches_middleware(deps_blif, deps_init_latch);
 
     // Merge BLIF
     // TODO: extract this constant to a global variable

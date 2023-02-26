@@ -6,6 +6,7 @@
 #include <spot/twa/bdddict.hh>
 #include <spot/twaalgos/aiger.hh>
 #include <string>
+#include <regex>
 #include <vector>
 
 #include "utils.h"
