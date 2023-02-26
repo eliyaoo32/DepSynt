@@ -39,8 +39,8 @@ def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, deco
     elif 'bfss-synt' in synt_tool:
         algorithm = synt_tool
 
-        cli_cmd = 'time timeout --signal=HUP {timeout} {tool_path} --formula="{formula}" --input="{inputs}" --output="{outputs}" --algo=automaton --measures-path="{measures_path}"'.format(
-            timeout=timeout, formula=ltl_formula, inputs=input_vars, outputs=output_vars,
+        cli_cmd = 'time timeout --signal=HUP {timeout} {tool_path} --formula="{formula}" --input="{inputs}" --output="{outputs}" --algo=automaton --measures-path="{measures_path}" --model-name={model_name}'.format(
+            timeout=timeout, formula=ltl_formula, inputs=input_vars, outputs=output_vars, model_name=benchmark_name,
             tool_path=tool_path if tool_path != '' else 'bfss-synt',
             measures_path=get_benchmark_measures_path(algorithm, benchmark_name, output_dir)
         )
