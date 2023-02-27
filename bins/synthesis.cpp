@@ -1,17 +1,15 @@
 #include <signal.h>
-
 #include <iostream>
 #include <spot/twaalgos/aiger.hh>
-#include <spot/twaalgos/mealy_machine.hh>
-#include <string>
 #include <vector>
+#include <memory>
+#include <stdexcept>
 
 #include "dependents_synthesiser.h"
 #include "find_deps_by_automaton.h"
+#include "merge_strategies.h"
 #include "nba_utils.h"
-#include "synt_instance.h"
 #include "synthesis_utils.h"
-#include "utils.h"
 
 using namespace std;
 using namespace spot;
@@ -102,8 +100,6 @@ int main(int argc, const char* argv[]) {
             synthesis_nba_to_aiger(gi, nba, outs, input_vars, verbose);
         synt_measure.end_independents_synthesis(indep_strategy);
 
-        cout << "Indepedent strategy: " << endl;
-        spot::print_aiger(std::cout, indep_strategy) << '\n';
 
         if (indep_strategy == nullptr) {
             cout << "UNREALIZABLE" << endl;
@@ -115,25 +111,33 @@ int main(int argc, const char* argv[]) {
         }
 
         // Synthesis the dependent variables
-        if (found_depedencies) {
+        spot::aig_ptr final_strategy, dependents_strategy;
+
+        if (found_depedencies && !options.skip_synt_dependencies) {
             synt_measure.start_dependents_synthesis();
             DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
                                                   input_vars, independent_variables,
                                                   dependent_variables);
-            spot::aig_ptr dependents_strategy = dependents_synt.synthesis();
+            dependents_strategy = dependents_synt.synthesis();
             synt_measure.end_dependents_synthesis(dependents_strategy);
 
-            cout << "Dependents strategy: " << endl;
-            spot::print_aiger(std::cout, dependents_strategy) << '\n';
-        } else if (options.skip_synt_dependencies) {
-            verbose << "=> Skipping synthesis dependent variables" << endl;
+            synt_measure.start_merge_strategies();
+            final_strategy = merge_strategies(
+                indep_strategy, dependents_strategy, input_vars,
+                independent_variables, dependent_variables, gi.dict, options.model_name);
+            synt_measure.end_merge_strategies(final_strategy);
         } else {
-            cout << "No dependent variables found." << endl;
+            final_strategy = indep_strategy;
+
+            if (options.skip_synt_dependencies) {
+                verbose << "=> Skipping synthesis dependent variables" << endl;
+            } else {
+                verbose << "=> No dependent variables found." << endl;
+            }
         }
 
-        // Model Checking
-        auto& final_strategy =
-            indep_strategy;  // TODO: merge indeps and deps strategy
+        spot::print_aiger(std::cout, final_strategy) << '\n';
+
         if (options.apply_model_checking) {
             synt_measure.start_model_checking();
 

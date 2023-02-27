@@ -38,6 +38,8 @@ void DependentsSynthesiser::init_aiger() {
 }
 
 void DependentsSynthesiser::define_next_latches() {
+    assert(m_nba_without_deps->get_init_state_number() == 0 && "Init state of nba without deps must be 0");
+
     /**
      * Define next latches values
      *
@@ -68,7 +70,7 @@ void DependentsSynthesiser::define_next_latches() {
             next_latch_conds.emplace_back(m_aiger->aig_and(src_gate, cond_gate));
         }
 
-        assert(next_latch_conds.size() > 0);
+        assert(!next_latch_conds.empty());
         Gate next_latch_gate;
         if (next_latch_conds.size() == 1) {
             next_latch_gate = next_latch_conds[0];

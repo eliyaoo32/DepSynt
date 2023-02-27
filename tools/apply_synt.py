@@ -20,7 +20,7 @@ def get_benchmark_measures_path(tool_name, benchmark_name, output_dir):
     return os.path.join(output_dir, BENCHMARK_MEASURES_FILE_FORMAT.format(tool_name + " - " + benchmark_name))
 
 
-def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, decompose):
+def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, decompose, model_checking):
     benchmark_name = benchmark['benchmark_name']
     input_vars = benchmark['input_vars']
     output_vars = benchmark['output_vars']
@@ -36,11 +36,13 @@ def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, deco
         if not decompose:
             cli_cmd += " --decompose=no"
         cli_cmd += " --aiger"   # Output in the aiger fromat
+        if model_checking:
+            cli_cmd += " --verify"
     elif 'bfss-synt' in synt_tool:
         algorithm = synt_tool
 
-        cli_cmd = 'time timeout --signal=HUP {timeout} {tool_path} --formula="{formula}" --input="{inputs}" --output="{outputs}" --algo=automaton --measures-path="{measures_path}"'.format(
-            timeout=timeout, formula=ltl_formula, inputs=input_vars, outputs=output_vars,
+        cli_cmd = 'time timeout --signal=HUP {timeout} {tool_path} --formula="{formula}" --input="{inputs}" --output="{outputs}" --algo=automaton --measures-path="{measures_path}" --model-name={model_name}'.format(
+            timeout=timeout, formula=ltl_formula, inputs=input_vars, outputs=output_vars, model_name=benchmark_name,
             tool_path=tool_path if tool_path != '' else 'bfss-synt',
             measures_path=get_benchmark_measures_path(algorithm, benchmark_name, output_dir)
         )
@@ -50,6 +52,8 @@ def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, deco
             cli_cmd += ' --skip-synt-deps'
         if decompose:
             cli_cmd += ' --decompose'
+        if model_checking:
+            cli_cmd += " --model-checking"
     else:
         raise Exception("Unknown tool {}".format(synt_tool))
 
@@ -88,6 +92,7 @@ def main():
                         type=str, required=False, default='')
     parser.add_argument('--decompose', help="Apply the synthesis tool with decompose option",
                         default=False, action='store_true')
+    parser.add_argument('--model_checking', help="Apply model checking on the tool", default=False, action='store_true')
     args = parser.parse_args()
 
     workers = args.workers
@@ -96,6 +101,7 @@ def main():
     benchmarks_path = args.benchs_list
     benchmarks_timeout = args.timeout
     output_dir = args.output_dir
+    model_checking = args.model_checking
     tool_path = args.tool_path
     synt_tool = args.tool
     decompose = args.decompose
@@ -117,7 +123,7 @@ def main():
     Apply the algorithm
     """
     process_benchmark_args = [
-        (benchmark, benchmarks_timeout, output_dir, synt_tool, tool_path, decompose)
+        (benchmark, benchmarks_timeout, output_dir, synt_tool, tool_path, decompose, model_checking)
         for benchmark in benchmarks
     ]
     with Pool(workers) as pool:

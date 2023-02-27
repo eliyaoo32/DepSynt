@@ -1,7 +1,10 @@
 #include "utils.h"
 
 #include <boost/program_options.hpp>
+#include <cstdio>
 #include <iostream>
+#include <memory>
+#include <stdexcept>
 #include <vector>
 
 namespace Options = boost::program_options;
@@ -33,12 +36,14 @@ bool parse_synthesis_cli(int argc, const char *argv[],
         "Tool to synthesis LTL specfication using dependencies concept");
     parse_cli_common(options, desc);
     desc.add_options()(
-        "skip-eject-deps",
+            "model-name", Options::value<string>(&options.model_name)->required(),
+            "Unique model name of the specification"
+        )("skip-eject-deps",
         Options::bool_switch(&options.skip_eject_dependencies)->default_value(false),
         "Should skip finding and ejecting dependent variables")(
         "skip-synt-deps",
         Options::bool_switch(&options.skip_synt_dependencies)->default_value(false),
-        "Should skip synthesing a strategy with dependent variables")(
+        "Should skip synthesising a strategy with dependent variables")(
         "model-checking",
         Options::bool_switch(&options.apply_model_checking)->default_value(false),
         "Should apply model checking to the synthesized strategy");
@@ -202,4 +207,35 @@ Duration TimeMeasure::get_duration(bool validate_is_ended) const {
     }
 
     return m_total_duration;
+}
+
+void exec(const char* cmd, std::string &dst) {
+    char buffer[128];
+    auto pipe = popen(cmd, "r");
+    if (!pipe) throw runtime_error("popen() failed!");
+
+    while (!feof(pipe)) {
+        if (fgets(buffer, 128, pipe) != NULL) {
+            dst += buffer;
+        }
+    }
+
+    pclose(pipe);
+}
+
+string replaceFirstLine(string &inputString, string newFirstLine) {
+    istringstream iss(inputString);
+    ostringstream oss;
+    string line;
+
+    // Replace the first line with newFirstLine
+    getline(iss, line);
+    oss << newFirstLine << endl;
+
+    // Copy the remaining lines
+    while (getline(iss, line)) {
+        oss << line << endl;
+    }
+
+    return oss.str();
 }

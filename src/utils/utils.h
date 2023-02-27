@@ -5,6 +5,9 @@
 #include <boost/algorithm/string/split.hpp>
 #include <boost/program_options.hpp>
 #include <chrono>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
 #include <spot/tl/formula.hh>
 #include <spot/tl/parse.hh>
@@ -31,6 +34,7 @@ struct SynthesisCLIOptions : public BaseCLIOptions {
     bool skip_synt_dependencies;
     bool skip_eject_dependencies;
     bool apply_model_checking;
+    std::string model_name;
 };
 
 struct FindDependenciesCLIOptions : public BaseCLIOptions {
@@ -44,6 +48,10 @@ bool parse_find_dependencies_cli(int argc, const char *argv[],
 bool parse_synthesis_cli(int argc, const char *argv[], SynthesisCLIOptions &options);
 
 void extract_variables(const std::string &str, std::vector<std::string> &dst);
+
+void exec(const char* cmd, std::string &dst);
+
+std::string replaceFirstLine(std::string &inputString, std::string newFirstLine);
 
 std::ostream &operator<<(std::ostream &out, const std::vector<std::string> &vec);
 
