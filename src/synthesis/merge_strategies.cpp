@@ -9,8 +9,8 @@ using namespace std;
 spot::aig_ptr blif_file_to_aiger(string& blif_path, spot::bdd_dict_ptr dict,
                                  string& model_name) {
     // TODO: extract this constant to a global variable
-    string bin_aig_path = "/tmp/" + model_name + ".aig";
-    string ascii_aig_path = "/tmp/" + model_name + ".aag";
+    string bin_aig_path = "./tmp/" + model_name + ".aig";
+    string ascii_aig_path = "./tmp/" + model_name + ".aag";
 
     string cmd_res;
     string cmd = string(ABC_CMD) + " -c \"read " + blif_path + "; strash; " +
@@ -48,14 +48,14 @@ string find_init_latch(string& blif, unsigned init_latch_var) {
 void aiger_to_blif(spot::aig_ptr aiger, string& blif_dst, string blif_name) {
     // Create a file of the aiger
     // TODO: extract this constant to a global variable
-    string aiger_path = "/tmp/" + blif_name + ".aag";
+    string aiger_path = "./tmp/" + blif_name + ".aag";
     ofstream aiger_file_stream(aiger_path);
     spot::print_aiger(aiger_file_stream, aiger);
     aiger_file_stream << endl;
     aiger_file_stream.close();
 
     // Convert aiger file to blif
-    string blif_path = "/tmp/" + blif_name + ".blif";
+    string blif_path = "./tmp/" + blif_name + ".blif";
     string cmd = string(AIGTOBLIF_CMD) + " " + aiger_path;
     exec(cmd.c_str(), blif_dst);
 
@@ -186,7 +186,7 @@ spot::aig_ptr merge_strategies(spot::aig_ptr independent_strategy,
 
     // Merge BLIF
     // TODO: extract this constant to a global variable
-    std::string merged_blif_path = "/tmp/" + model_name + ".blif";
+    std::string merged_blif_path = "./tmp/" + model_name + ".blif";
     ofstream merged_blif_file(merged_blif_path);
     merge_strategies_blifs(merged_blif_file, indeps_blif, deps_blif,
                            indeps_model_name, deps_model_name, inputs,
