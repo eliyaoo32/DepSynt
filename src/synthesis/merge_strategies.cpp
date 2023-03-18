@@ -1,11 +1,16 @@
 #include "merge_strategies.h"
+#include "aigtoblif.h"
+
+#include <cstdio>
+#include <sstream>
 
 using namespace std;
+
 
 #define AIGTOBLIF_CMD "aigtoblif"
 #define AIGTOAIG_CMD "aigtoaig"
 #define ABC_CMD "abc"
-#define TMP_DIR "./tmp/"
+#define TMP_DIR "/tmp/"
 
 spot::aig_ptr blif_file_to_aiger(string& blif_path, spot::bdd_dict_ptr dict,
                                  string& model_name) {
@@ -49,22 +54,25 @@ string find_init_latch(string& blif, unsigned init_latch_var) {
 }
 
 void aiger_to_blif(spot::aig_ptr aiger, string& blif_dst, string blif_name) {
-    // Create a file of the aiger
-    // TODO: extract this constant to a global variable
-    string aiger_path = TMP_DIR + blif_name + ".aag";
-    ofstream aiger_file_stream(aiger_path);
-    spot::print_aiger(aiger_file_stream, aiger);
-    aiger_file_stream << endl;
-    aiger_file_stream.close();
+    std::stringstream aiger_stream;
+    spot::print_aiger(aiger_stream, aiger) << endl;
 
-    // Convert aiger file to blif
-    string blif_path = TMP_DIR + blif_name + ".blif";
-    string cmd = string(AIGTOBLIF_CMD) + " " + aiger_path;
-    exec(cmd.c_str(), blif_dst);
+    FILE* aiger_file = fmemopen((void*)aiger_stream.str().c_str(), aiger_stream.str().size(), "r");
+    char* buff;
+    size_t size;
+    FILE* blif_file = open_memstream (&buff, &size);
 
-    blif_dst = replaceFirstLine(blif_dst, ".model " + string(blif_name));
+    int err = aigtoblif(aiger_file, blif_file, blif_name.c_str());
+    if(err != 0) {
+        cerr << "Error converting aiger to blif" << endl;
+        exit(1);
+    }
 
-//    remove(aiger_path.c_str());
+    fclose(aiger_file);
+    fclose(blif_file);
+
+    blif_dst = std::string(buff, size);
+    free(buff);
 }
 
 // Create a middleware in the init latches values.

@@ -6,7 +6,11 @@ set(CMAKE_CXX_STANDARD 17)
 FILE(GLOB non_executable_SRC  ${PROJECT_SOURCE_DIR}/src/**/*.cpp )
 
 add_executable(find_dependencies ${non_executable_SRC} bins/find_dependencies.cpp )
-add_executable(synthesis ${non_executable_SRC} bins/synthesis.cpp )
+
+# TODO: seperate the aiger library from the rest of the code
+add_executable(synthesis ${non_executable_SRC} bins/synthesis.cpp libs/aiger/aigtoblif.c libs/aiger/aiger.c)
+
+list(APPEND CMAKE_PREFIX_PATH "/Users/eliyahub/spot/lib/")
 
 # Include Boots Options package
 find_library(boost_options_location NAMES libboost_program_options.a)
@@ -49,7 +53,7 @@ target_link_libraries( find_dependencies boost_options boost_json bddx spot )
 target_link_libraries( synthesis boost_options boost_json bddx spot )
 
 # TODO: clean this up
-include_directories(./src/findDeps ./src/synthesis ./src/utils )
+include_directories(./src/findDeps ./src/synthesis ./src/utils ./libs/aiger )
 
 # TODO: find a way to include the spot headers and boost headers
 include_directories(/usr/local/include)
