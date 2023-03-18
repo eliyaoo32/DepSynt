@@ -54,25 +54,32 @@ string find_init_latch(string& blif, unsigned init_latch_var) {
 }
 
 void aiger_to_blif(spot::aig_ptr aiger, string& blif_dst, string blif_name) {
+    // Aiger to String
     std::stringstream aiger_stream;
     spot::print_aiger(aiger_stream, aiger) << endl;
+    string aiger_str = aiger_stream.str();
 
-    FILE* aiger_file = fmemopen((void*)aiger_stream.str().c_str(), aiger_stream.str().size(), "r");
-    char* buff;
-    size_t size;
-    FILE* blif_file = open_memstream (&buff, &size);
+    // Create file to aiger
+    char* aiger_buff = (char*)aiger_str.c_str();
+    FILE* aiger_file = fmemopen(aiger_buff, aiger_str.size(), "r+");
 
+    // Create file to blif
+    char* blif_buff;
+    size_t blif_buff_size;
+    FILE* blif_file = open_memstream (&blif_buff, &blif_buff_size);
+
+    // Convert aiger to blif
     int err = aigtoblif(aiger_file, blif_file, blif_name.c_str());
     if(err != 0) {
         cerr << "Error converting aiger to blif" << endl;
         exit(1);
     }
 
+    blif_dst = std::string(blif_buff, blif_buff_size);
+
     fclose(aiger_file);
     fclose(blif_file);
-
-    blif_dst = std::string(buff, size);
-    free(buff);
+    free(blif_buff);
 }
 
 // Create a middleware in the init latches values.

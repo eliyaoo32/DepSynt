@@ -147,15 +147,6 @@ setupcount (aiger *mgr)
 
 extern int aigtoblif(FILE* aig_src, FILE* file, const char* model_name)
 {
-    printf("input file: \n");
-//    char c = fgetc(aig_src);
-//    while (c != EOF)
-//    {
-//        printf ("%c", c);
-//        c = fgetc(aig_src);
-//    }
-//    rewind(aig_src);
-
     aiger* mgr;
   unsigned i, j, latch_helper_cnt;
   const char *dst, *error;
