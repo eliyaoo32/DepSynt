@@ -9,7 +9,6 @@
 #include <cstdio>
 #include <regex>
 #include <vector>
-
 #include "utils.h"
 
 using namespace std;

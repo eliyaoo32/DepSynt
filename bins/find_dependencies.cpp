@@ -15,7 +15,6 @@ using namespace std;
 
 static BaseMeasures* synt_measures = nullptr;
 
-// TODO: throw cerr and exit instead of cout
 void on_sighup(int args) {
     try {
         cout << *synt_measures << endl;
