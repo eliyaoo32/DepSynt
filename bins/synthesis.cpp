@@ -7,7 +7,7 @@
 
 #include "dependents_synthesiser.h"
 #include "find_deps_by_automaton.h"
-#include "merge_strategies_.h"
+#include "merge_strategies.h"
 #include "nba_utils.h"
 #include "synthesis_utils.h"
 
@@ -122,7 +122,7 @@ int main(int argc, const char* argv[]) {
             synt_measure.end_dependents_synthesis(dependents_strategy);
 
             synt_measure.start_merge_strategies();
-            final_strategy = merge_strategies_(
+            final_strategy = merge_strategies(
                 indep_strategy, dependents_strategy, input_vars,
                 independent_variables, dependent_variables, gi.dict, options.model_name);
             synt_measure.end_merge_strategies(final_strategy);
