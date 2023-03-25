@@ -129,7 +129,7 @@ int aigtoaig(FILE* src_file, FILE* dst_file, int ascii)
   src_name = dst_name = src = dst = 0;
   remove_outputs = 0;
   num_outputs = 0;
-  strip = 1;
+  strip = 0;
 
   if (dst && ascii)
     die ("'dst' file and '-a' specified");
