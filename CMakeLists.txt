@@ -1,3 +1,5 @@
+# TODO: import library only from SO objects
+
 cmake_minimum_required(VERSION 3.21)
 project(reactive-synthesis-bfss)
 

@@ -5,6 +5,7 @@
 #include <fstream>
 
 #include "aigtoblif.h"
+#include "aigtoaig.h"
 #include "abc_utils.h"
 #include "BLIF.h"
 
@@ -170,7 +171,24 @@ spot::aig_ptr BLIF::to_aig(spot::bdd_dict_ptr& dict) {
     blif_file << *this;
     blif_file.close();
 
+    // Convert BLIF to Binary AIGER
     string binary_aig_file_name = "./tmp_aig.aig";
-
     blif_file_to_binary_aig_file(blif_file_path, binary_aig_file_name);
+
+    // Binary Aiger To ASCII Aiger
+    FILE* binary_aig_file = fopen(binary_aig_file_name.c_str(), "rb");
+
+    char* ascii_aig_buff;
+    size_t ascii_aig_size;
+    FILE* ascii_aig_file = open_memstream (&ascii_aig_buff, &ascii_aig_size);
+
+    aigtoaig(binary_aig_file, ascii_aig_file, 1);
+
+    fclose(binary_aig_file);
+    fclose(ascii_aig_file);
+
+    string ascii_aig = std::string(ascii_aig_buff, ascii_aig_size);
+    cout << ascii_aig << endl;
+
+    free(ascii_aig_buff);
 }
