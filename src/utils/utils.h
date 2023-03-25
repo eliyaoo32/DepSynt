@@ -51,8 +51,6 @@ void extract_variables(const std::string &str, std::vector<std::string> &dst);
 
 void exec(const char* cmd, std::string &dst);
 
-std::string replaceFirstLine(std::string &inputString, std::string newFirstLine);
-
 std::ostream &operator<<(std::ostream &out, const std::vector<std::string> &vec);
 
 std::ostream &operator<<(std::ostream &out, const SynthesisCLIOptions &options);
