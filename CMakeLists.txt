@@ -4,7 +4,7 @@ project(reactive-synthesis-bfss)
 set(CMAKE_CXX_STANDARD 17)
 
 FILE(GLOB non_executable_SRC  ${PROJECT_SOURCE_DIR}/src/**/*.cpp )
-FILE(GLOB aiger_lib_SRC ${PROJECT_SOURCE_DIR}/libs/aiger/**/*.c )
+FILE(GLOB aiger_lib_SRC ${PROJECT_SOURCE_DIR}/libs/aiger/*.c )
 
 add_executable(find_dependencies ${non_executable_SRC} bins/find_dependencies.cpp )
 add_executable(synthesis ${non_executable_SRC} ${aiger_lib_SRC} bins/synthesis.cpp)
@@ -59,7 +59,7 @@ set_target_properties(spot PROPERTIES IMPORTED_LOCATION ${spot_location})
 
 # Linking exectuables to packages
 target_link_libraries( find_dependencies boost_options boost_json bddx spot )
-target_link_libraries( synthesis boost_options boost_json bddx abc spot )
+target_link_libraries( synthesis boost_options boost_json bddx spot abc )
 
 # TODO: Import all libs and src folder automatically
 include_directories(./src/findDeps ./src/models ./src/synthesis ./src/utils ./libs/aiger ./libs/abc ./libs/abc/src )

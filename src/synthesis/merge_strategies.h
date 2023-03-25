@@ -34,13 +34,7 @@ spot::aig_ptr merge_strategies(spot::aig_ptr independent_strategy,
                                const vector<string>& dependent_vars,
                                spot::bdd_dict_ptr dict, string& model_name);
 
-/**
- * Solve the problem of latches initialize value in the dependent strategy
- * @param dependent_strategy
- * @param model_name
- * @param dict
- * @return
- */
+
 spot::aig_ptr refine_dependent_strategy(spot::aig_ptr dependent_strategy, string& model_name, spot::bdd_dict_ptr dict);
 
 #endif

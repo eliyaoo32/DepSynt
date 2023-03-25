@@ -1,9 +1,11 @@
 #include <cstdio>
 #include <sstream>
 #include <regex>
+#include <boost/algorithm/string/join.hpp>
+#include <fstream>
 
 #include "aigtoblif.h"
-
+#include "abc_utils.h"
 #include "BLIF.h"
 
 
@@ -90,4 +92,85 @@ string BLIF::find_latch_name_by_num(unsigned int latch_num) {
         cerr << "Couldn't find init latch in the blif file." << endl;
         return "";
     }
+}
+
+BLIF_ptr BLIF::merge_dependency_strategies(BLIF& indep_blif, BLIF& dep_blif,
+                                     const vector<string>& inputs,
+                                     const vector<string>& independent_vars,
+                                     const vector<string>& dependent_vars,
+                                     string& model_name) {
+    auto merged_blif = std::make_shared<BLIF>(model_name);
+    std::stringstream out;
+
+    string blif_inputs = boost::algorithm::join(inputs, " ");
+    string blif_independent_vars = boost::algorithm::join(independent_vars, " ");
+    string blif_dependent_vars = boost::algorithm::join(dependent_vars, " ");
+
+    // Base of the blif
+    out << ".model " << model_name << endl;
+    out << ".inputs " << blif_inputs << endl;
+    out << ".outputs " << blif_independent_vars << " " << blif_dependent_vars
+        << endl;
+
+    // Declare Wired Variables
+    for (const auto & independent_var : independent_vars) {
+        out << ".names " << blif_wired_var(independent_var) << " "
+            << independent_var << endl;
+        out << "1 1" << endl;
+    }
+    for (const auto & dependent_var : dependent_vars) {
+        out << ".names " << blif_wired_var(dependent_var) << " "
+            << dependent_var << endl;
+        out << "1 1" << endl;
+    }
+
+    // Create Circuits Connectors
+    string input_wires = "";
+    string indeps_wires = "";
+    string deps_wires = "";
+
+    for (const auto & input : inputs) {
+        input_wires += input + "=" + input + " ";
+    }
+    for (const auto & independent_var : independent_vars) {
+        indeps_wires +=
+                independent_var + "=" + blif_wired_var(independent_var) + " ";
+    }
+    for (const auto & dependent_var : dependent_vars) {
+        deps_wires +=
+                dependent_var + "=" + blif_wired_var(dependent_var) + " ";
+    }
+
+    // Create subsckts
+    out << ".subckt " << indep_blif.m_model_name << " " << input_wires << " "
+        << indeps_wires << endl;
+    out << ".subckt " << dep_blif.m_model_name << " " << input_wires << " " << indeps_wires
+        << " " << deps_wires << endl;
+    out << ".end" << endl;
+
+    // Attach subckts to the base
+    out << indep_blif << endl;
+    out << dep_blif << endl;
+
+    string merged_blif_content = out.str();
+    merged_blif->load_string(merged_blif_content);
+
+    return merged_blif;
+}
+
+ostream& operator<<(ostream& os, const BLIF& sm) {
+    os << *(sm.m_blif_content);
+    return os;
+}
+
+spot::aig_ptr BLIF::to_aig(spot::bdd_dict_ptr& dict) {
+    // Write the blif to a file
+    string blif_file_path = "./tmp_blif.blif";
+    ofstream blif_file(blif_file_path);
+    blif_file << *this;
+    blif_file.close();
+
+    string binary_aig_file_name = "./tmp_aig.aig";
+
+    blif_file_to_binary_aig_file(blif_file_path, binary_aig_file_name);
 }
