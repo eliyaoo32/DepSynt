@@ -58,7 +58,7 @@ add_library(spot STATIC IMPORTED)
 set_target_properties(spot PROPERTIES IMPORTED_LOCATION ${spot_location})
 
 # Linking exectuables to packages
-target_link_libraries( find_dependencies boost_options boost_json bddx spot )
+target_link_libraries( find_dependencies boost_options boost_json bddx spot abc )
 target_link_libraries( synthesis boost_options boost_json bddx spot abc )
 
 # TODO: Import all libs and src folder automatically
