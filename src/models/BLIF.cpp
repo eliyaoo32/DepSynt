@@ -187,8 +187,9 @@ spot::aig_ptr BLIF::to_aig(spot::bdd_dict_ptr& dict) {
     fclose(binary_aig_file);
     fclose(ascii_aig_file);
 
-    string ascii_aig = std::string(ascii_aig_buff, ascii_aig_size);
-    cout << ascii_aig << endl;
+    // ASCII Aiger to Spot AIG
+    spot::aig_ptr aig = spot::aig::parse_aag(ascii_aig_buff, "tmp_aig", dict);
 
     free(ascii_aig_buff);
+    return aig;
 }

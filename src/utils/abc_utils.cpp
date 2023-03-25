@@ -20,7 +20,7 @@ int blif_file_to_binary_aig_file(std::string& blifFile, std::string& aigerFile) 
     Cmd_CommandExecute( pAbc, "rewrite" ); Cmd_CommandExecute( pAbc, "balance" ); Cmd_CommandExecute( pAbc, "refactor" );
 
     // Write the AIGER file
-    if ( Cmd_CommandExecute( pAbc, ("write_aiger " + aigerFile).c_str() ) )
+    if ( Cmd_CommandExecute( pAbc, ("write " + aigerFile).c_str() ) )
     {
         fprintf( stdout, "Cannot write AIGER path %s", aigerFile.c_str() );
         return EXIT_FAILURE;
