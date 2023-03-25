@@ -166,21 +166,20 @@ ostream& operator<<(ostream& os, const BLIF& sm) {
 
 spot::aig_ptr BLIF::to_aig(spot::bdd_dict_ptr& dict) {
     // Write the blif to a file
-    string blif_file_path = "./tmp_blif.blif";
+    string blif_file_path = "./" + this->m_model_name + ".blif";
     ofstream blif_file(blif_file_path);
     blif_file << *this;
     blif_file.close();
 
     // Convert BLIF to Binary AIGER
-    string binary_aig_file_name = "./tmp_aig.aig";
+    string binary_aig_file_name = "./" + this->m_model_name + ".aig";
     blif_file_to_binary_aig_file(blif_file_path, binary_aig_file_name);
 
     // Binary Aiger To ASCII Aiger
-    FILE* binary_aig_file = fopen(binary_aig_file_name.c_str(), "rb");
-
     char* ascii_aig_buff;
     size_t ascii_aig_size;
     FILE* ascii_aig_file = open_memstream (&ascii_aig_buff, &ascii_aig_size);
+    FILE* binary_aig_file = fopen(binary_aig_file_name.c_str(), "rb");
 
     aigtoaig(binary_aig_file, ascii_aig_file, 1);
 
@@ -190,6 +189,10 @@ spot::aig_ptr BLIF::to_aig(spot::bdd_dict_ptr& dict) {
     // ASCII Aiger to Spot AIG
     spot::aig_ptr aig = spot::aig::parse_aag(ascii_aig_buff, "tmp_aig", dict);
 
+    // Clean up
     free(ascii_aig_buff);
+    remove(blif_file_path.c_str());
+    remove(binary_aig_file_name.c_str());
+
     return aig;
 }
