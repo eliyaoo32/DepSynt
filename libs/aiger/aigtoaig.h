@@ -8,7 +8,7 @@ extern "C"
 {
 #endif
 
-int aigtoaig(FILE* src_file, FILE* dst_file, int ascii);
+int aigtoaig(FILE* src_file, FILE* dst_file, int ascii_output);
 
 #ifdef __cplusplus
 }

@@ -12,4 +12,4 @@ int bliftoaig(FILE* blif, FILE* aig);
 }
 #endif
 
-#endif //REACTIVE_SYNTHESIS_BFSS_AIGTOBLIF_H
+#endif //REACTIVE_SYNTHESIS_BFSS_BLIFTOAIG_H

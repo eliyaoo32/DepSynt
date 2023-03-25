@@ -111,10 +111,8 @@ die (const char *fmt, ...)
   exit (1);
 }
 
-//int main (int argc, char **argv)
 int aigtoaig(FILE* src_file, FILE* dst_file, int ascii)
 {
-    // TODO: get src and dst as a file
   const char *src, *dst, *src_name, *dst_name, *error;
   int verbose, strip, res;
   stream reader, writer;
