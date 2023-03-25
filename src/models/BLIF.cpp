@@ -164,6 +164,10 @@ ostream& operator<<(ostream& os, const BLIF& sm) {
     return os;
 }
 
+void BLIF::load_string(string& content) {
+    m_blif_content = new string(content);
+}
+
 spot::aig_ptr BLIF::to_aig(spot::bdd_dict_ptr& dict) {
     // Write the blif to a file
     string blif_file_path = "./" + this->m_model_name + ".blif";

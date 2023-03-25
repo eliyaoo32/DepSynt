@@ -20,9 +20,7 @@ public:
 
     void load_aig(spot::aig_ptr& aig);
 
-    void load_string(string& content) {
-        m_blif_content = new string(content);
-    }
+    void load_string(string& content);
 
     void init_latch_to_one(string& latch_name);
 
