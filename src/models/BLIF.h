@@ -32,6 +32,31 @@ public:
 public:
     friend ostream& operator<<(ostream& os, const BLIF& sm);
 
+    /**
+     * Merge independent and dependent strategies into a single BLIF.
+     * The format of the merged BLIF:
+     *
+     * .model <model_name>
+     * .inputs <inputs>
+     * .outputs <outputs> // outputs = indep_vars + dep_vars
+     * .names <output>  // Create wired variables for output variables
+     *  1 1
+     *
+     * .subckt <indep_blif> <inputs> <indep_wired_vars>
+     * .subckt <dep_blif> <inputs> <indep_wired_vars> <dep_wired_vars>
+     *  .end
+     *
+     *  <indep_blif>
+     *  <dep_blif>
+     *
+     * @param indep_blif
+     * @param dep_blif
+     * @param inputs
+     * @param indep_vars
+     * @param dep_vars
+     * @param model_name
+     * @return BLIF of merged strategies
+     */
     static BLIF_ptr merge_dependency_strategies(BLIF& indep_blif, BLIF& dep_blif,
                                              const vector<string>& inputs,
                                              const vector<string>& indep_vars,
