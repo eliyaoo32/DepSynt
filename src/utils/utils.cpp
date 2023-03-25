@@ -222,20 +222,3 @@ void exec(const char* cmd, std::string &dst) {
 
     pclose(pipe);
 }
-
-string replaceFirstLine(string &inputString, string newFirstLine) {
-    istringstream iss(inputString);
-    ostringstream oss;
-    string line;
-
-    // Replace the first line with newFirstLine
-    getline(iss, line);
-    oss << newFirstLine << endl;
-
-    // Copy the remaining lines
-    while (getline(iss, line)) {
-        oss << line << endl;
-    }
-
-    return oss.str();
-}

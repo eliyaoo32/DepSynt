@@ -7,3 +7,6 @@
 [submodule "tools/aiger-utilities"]
 	path = tools/aiger-utilities
 	url = https://github.com/arminbiere/aiger.git
+[submodule "libs/abc"]
+	path = libs/abc
+	url = https://github.com/berkeley-abc/abc.git

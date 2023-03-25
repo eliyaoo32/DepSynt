@@ -4,9 +4,22 @@ project(reactive-synthesis-bfss)
 set(CMAKE_CXX_STANDARD 17)
 
 FILE(GLOB non_executable_SRC  ${PROJECT_SOURCE_DIR}/src/**/*.cpp )
+FILE(GLOB aiger_lib_SRC ${PROJECT_SOURCE_DIR}/libs/aiger/*.c )
 
 add_executable(find_dependencies ${non_executable_SRC} bins/find_dependencies.cpp )
-add_executable(synthesis ${non_executable_SRC} bins/synthesis.cpp )
+add_executable(synthesis ${non_executable_SRC} ${aiger_lib_SRC} bins/synthesis.cpp)
+
+list(APPEND CMAKE_PREFIX_PATH "/Users/eliyahub/spot/lib/" "./libs/abc")
+
+
+# Include ABC package
+find_library(abc_location NAMES libabc.so)
+if(NOT abc_location)
+    message(FATAL_ERROR "ABC library not found")
+endif()
+message(STATUS "Found ABC location at ${abc_location}")
+add_library(abc STATIC IMPORTED)
+set_target_properties(abc PROPERTIES IMPORTED_LOCATION ${abc_location})
 
 # Include Boots Options package
 find_library(boost_options_location NAMES libboost_program_options.a)
@@ -46,11 +59,12 @@ set_target_properties(spot PROPERTIES IMPORTED_LOCATION ${spot_location})
 
 # Linking exectuables to packages
 target_link_libraries( find_dependencies boost_options boost_json bddx spot )
-target_link_libraries( synthesis boost_options boost_json bddx spot )
+target_link_libraries( synthesis boost_options boost_json bddx spot abc )
 
-# TODO: clean this up
-include_directories(./src/findDeps ./src/synthesis ./src/utils )
+# TODO: Import all libs and src folder automatically
+include_directories(./src/findDeps ./src/models ./src/synthesis ./src/utils ./libs/aiger ./libs/abc ./libs/abc/src )
 
 # TODO: find a way to include the spot headers and boost headers
 include_directories(/usr/local/include)
 include_directories(/Users/eliyahub/spot/include)
+include_directories(./libs/abc/src)
