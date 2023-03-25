@@ -1,8 +1,7 @@
-#include <stdio.h>
+#include <cstdio>
 #include "abc_utils.h"
 
 int blif_file_to_binary_aig_file(std::string& blifFile, std::string& aigerFile) {
-    char* Command;
     Abc_Frame_t * pAbc;
     Abc_Start();
     pAbc = Abc_FrameGetGlobalFrame();
