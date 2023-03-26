@@ -4,6 +4,7 @@
 #include <boost/algorithm/string/join.hpp>
 #include <fstream>
 
+#include "config.h"
 #include "aigtoblif.h"
 #include "aigtoaig.h"
 #include "abc_utils.h"
@@ -34,9 +35,9 @@ void BLIF::load_aig(spot::aig_ptr& aig) {
 
     m_blif_content = new std::string(blif_buff, blif_buff_size);
 
-    fclose(aiger_file);
-    fclose(blif_file);
-    free(blif_buff);
+     fclose(aiger_file);
+     fclose(blif_file);
+     free(blif_buff);
 }
 
 void BLIF::init_latch_to_one(string& latch_name) {
@@ -59,7 +60,7 @@ void BLIF::init_latch_to_one(string& latch_name) {
     assert(tmp_latch_idx != std::string::npos &&
            "Error: .latch not found in the BLIF file.");
     blif.insert(tmp_latch_idx,
-                              ".latch c1 " + tmp_latch + " 0\r\n\r\n");
+                ".latch c1 " + tmp_latch + " 0\r\n\r\n");
 
     // Replace the latch with a temp init latch
     string init_latch_tmp = latch_name + "Tmp";
@@ -67,15 +68,15 @@ void BLIF::init_latch_to_one(string& latch_name) {
     assert(std::regex_search(blif, init_latch_pattern) &&
            "Init latch not found in the blif file.");
     blif = std::regex_replace(blif, init_latch_pattern,
-                                            ".latch $1 " + init_latch_tmp + " $3");
+                              ".latch $1 " + init_latch_tmp + " $3");
 
     // Add a new name, where it takes the new latch and the temp init latch and
     // outputs the original init latch
     blif += ".names " + init_latch_tmp + " " + tmp_latch + " " +
             latch_name +
-                          "\r\n"
-                          "-0 1\r\n"
-                          "11 1\r\n\r\n";
+            "\r\n"
+            "-0 1\r\n"
+            "11 1\r\n\r\n";
 
     // Add .end
     blif += ".end\r\n\r\n";
@@ -96,10 +97,10 @@ string BLIF::find_latch_name_by_num(unsigned int latch_num) {
 }
 
 BLIF_ptr BLIF::merge_dependency_strategies(BLIF& indep_blif, BLIF& dep_blif,
-                                     const vector<string>& inputs,
-                                     const vector<string>& independent_vars,
-                                     const vector<string>& dependent_vars,
-                                     string& model_name) {
+                                           const vector<string>& inputs,
+                                           const vector<string>& independent_vars,
+                                           const vector<string>& dependent_vars,
+                                           string& model_name) {
     auto merged_blif = std::make_shared<BLIF>(model_name);
     std::stringstream out;
 
@@ -170,13 +171,17 @@ void BLIF::load_string(string& content) {
 
 spot::aig_ptr BLIF::to_aig(spot::bdd_dict_ptr& dict) {
     // Write the blif to a file
-    string blif_file_path = "./" + this->m_model_name + ".blif";
+    string blif_file_path = TEMP_DIRECTORY + this->m_model_name + ".blif";
     ofstream blif_file(blif_file_path);
+    if (!blif_file.is_open()) {
+        cerr << "Failed to write BLIF to the file: " << blif_file_path << endl;
+        exit(1);
+    }
     blif_file << *this;
     blif_file.close();
 
     // Convert BLIF to Binary AIGER
-    string binary_aig_file_name = "./" + this->m_model_name + ".aig";
+    string binary_aig_file_name = TEMP_DIRECTORY + this->m_model_name + ".aig";
     blif_file_to_binary_aig_file(blif_file_path, binary_aig_file_name);
 
     // Binary Aiger To ASCII Aiger
@@ -184,6 +189,10 @@ spot::aig_ptr BLIF::to_aig(spot::bdd_dict_ptr& dict) {
     size_t ascii_aig_size;
     FILE* ascii_aig_file = open_memstream (&ascii_aig_buff, &ascii_aig_size);
     FILE* binary_aig_file = fopen(binary_aig_file_name.c_str(), "rb");
+    if(binary_aig_file == NULL) {
+        cerr << "Failed to read binary aig file: " << binary_aig_file_name << endl;
+        exit(1);
+    }
 
     aigtoaig(binary_aig_file, ascii_aig_file, 1);
 

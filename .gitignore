@@ -141,3 +141,4 @@ results.json
 src/cmake-build-debug/
 *.csv
 assets/
+config.h

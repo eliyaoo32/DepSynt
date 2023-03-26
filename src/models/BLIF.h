@@ -15,8 +15,12 @@ private:
     string* m_blif_content;
     string m_model_name;
 public:
-    BLIF(string model_name): m_model_name(model_name) {}
-    ~BLIF() { delete m_blif_content; }
+    BLIF(string model_name): m_model_name(model_name), m_blif_content(nullptr) {}
+    ~BLIF() {
+        if(m_blif_content != nullptr) {
+            delete m_blif_content;
+        }
+    }
 
     void load_aig(spot::aig_ptr& aig);
 

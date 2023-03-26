@@ -11,6 +11,10 @@ add_executable(synthesis ${non_executable_SRC} ${aiger_lib_SRC} bins/synthesis.c
 
 list(APPEND CMAKE_PREFIX_PATH "/Users/eliyahub/spot/lib/" "./libs/abc")
 
+# Configuration
+option(TEMP_DIRECTORY "Directory to store temporary files" "./")
+configure_file(./src/utils/config.h.in ./src/utils/config.h)
+
 
 # Include ABC package
 find_library(abc_location NAMES libabc.so)

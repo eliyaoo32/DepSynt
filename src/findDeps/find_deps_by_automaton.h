@@ -91,7 +91,11 @@ class FindDepsByAutomaton {
         m_bdd_cacher = new BDDVarsCacher(m_automaton);
     }
 
-    ~FindDepsByAutomaton() { delete m_bdd_cacher; }
+    ~FindDepsByAutomaton() {
+        if(m_bdd_cacher != nullptr) {
+            delete m_bdd_cacher;
+        }
+    }
 
     void set_dependent_variable_type(DependentVariableType type) {
         m_dependent_variable_type = type;
