@@ -11,7 +11,6 @@ if file_path != "":
 
 BENCHMARK_OUTPUT_FILE_FORMAT = '{}.json'
 
-
 def get_benchmark_output_path(benchmark_name, output_dir):
     return os.path.join(output_dir, BENCHMARK_OUTPUT_FILE_FORMAT.format(benchmark_name))
 
@@ -61,14 +60,17 @@ def process_benchmark(benchmark, timeout, output_dir, find_deps_tool, algorithm,
         'outputs': output_vars,
         'algorithm': algorithm
     }
-    find_deps_cli = 'timeout --signal=HUP {process_timeout} {find_deps_cli_path} --formula="{formula}" --input="{inputs}" --output="{outputs}" --algo={algorithm}'.format(
+    find_deps_cli = 'time timeout --signal=HUP {process_timeout} {find_deps_cli_path} --formula="{formula}" --input="{inputs}" --output="{outputs}" --algo={algorithm}'.format(
         **config)
 
     if dependents_type == 'input':
         find_deps_cli += ' --find-input-only'
 
     with Popen(find_deps_cli, stdout=PIPE, stderr=PIPE, shell=True, preexec_fn=os.setsid) as process:
-        result = process.communicate()[0].decode("utf-8")
+        process_communicate = process.communicate()
+        cli_stdout = process_communicate[0].decode("utf-8")
+        cli_stderr = process_communicate[1].decode("utf-8")
+        result = cli_stdout + cli_stderr
 
     print("Done Processing {}!".format(benchmark_name))
     with open(get_benchmark_output_path(benchmark_name, output_dir), "w+") as outfile:
