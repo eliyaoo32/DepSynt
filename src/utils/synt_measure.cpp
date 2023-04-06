@@ -116,13 +116,13 @@ void AutomatonFindDepsMeasure::end_prune_automaton(
 
 void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
     BaseMeasures::get_json_object(obj);
+    obj["algorithm_type"] = "automaton";
 
     json::object automaton_algo_obj;
 
     automaton_algo_obj["total_duration"] =
         this->m_total_find_deps_duration.get_duration(false);
     automaton_algo_obj["skipped_dependecies"] = this->m_skipped_dependency_check;
-    automaton_algo_obj["algorithm_type"] = "automaton";
     automaton_algo_obj["total_pair_state"] = this->m_total_pair_states;
     if (this->m_search_pair_states_time.has_started()) {
         automaton_algo_obj["search_pair_state_duration"] =
