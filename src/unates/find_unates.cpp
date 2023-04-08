@@ -1,5 +1,5 @@
 #include "find_unates.h"
-#include <spot/twaalgos/complement.hh>
+#include <spot/twaalgos/contains.hh>
 
 FindUnates::FindUnates(const spot::twa_graph_ptr& automaton) {
     // TODO: check if I can avoid clone the base automaton - and make sure I restore the original init state
@@ -32,7 +32,8 @@ bool FindUnates::is_unate_by_state(unsigned state, std::string var) {
     }
 
     // Check if prime is sub-language of base
-    auto automaton_base_complement = spot::complement(m_automaton_base);
-    bool is_unate = !m_automaton_prime->intersects(automaton_base_complement);
+//    auto automaton_base_complement = spot::complement(m_automaton_base);
+//    bool is_unate = !m_automaton_prime->intersects(automaton_base_complement);
+    bool is_unate = contains(m_automaton_base, m_automaton_prime);
     return is_unate;
 }
