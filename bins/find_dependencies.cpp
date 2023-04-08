@@ -6,6 +6,9 @@
 
 #include "find_deps_by_automaton.h"
 #include "find_deps_by_formula.h"
+#include "synt_instance.h"
+#include "synt_measure.h"
+#include "utils.h"
 
 namespace Options = boost::program_options;
 using namespace std;

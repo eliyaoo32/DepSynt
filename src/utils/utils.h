@@ -48,6 +48,8 @@ struct FindDependenciesCLIOptions : public BaseCLIOptions {
 bool parse_find_dependencies_cli(int argc, const char *argv[],
                                  FindDependenciesCLIOptions &options);
 
+bool parse_find_unates_cli(int argc, const char *argv[], FindUnatesCLIOptions &options);
+
 bool parse_synthesis_cli(int argc, const char *argv[], SynthesisCLIOptions &options);
 
 void extract_variables(const std::string &str, std::vector<std::string> &dst);
