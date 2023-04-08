@@ -37,6 +37,9 @@ struct SynthesisCLIOptions : public BaseCLIOptions {
     std::string model_name;
 };
 
+struct FindUnatesCLIOptions : public BaseCLIOptions {
+};
+
 struct FindDependenciesCLIOptions : public BaseCLIOptions {
     Algorithm algorithm;
     bool find_input_dependencies;
