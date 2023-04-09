@@ -20,7 +20,7 @@ bool FindUnates::is_unate_by_state(unsigned state, std::string var) {
 
     // Create common edge
     int var_num = m_automaton_base->register_ap(var);
-    bdd beta = bddtrue;
+    bdd beta = bddfalse;
     for(auto& x : m_automaton_base->out(state)) {
         beta |= bdd_restrict(x.cond, bdd_nithvar(var_num));
     }
