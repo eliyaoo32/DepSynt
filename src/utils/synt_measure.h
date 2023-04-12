@@ -74,7 +74,7 @@ public:
 
     void completed() { m_is_completed = true; }
 
-    friend ostream& operator<<(ostream& os, const BaseDependentsMeasures& sm);
+    friend ostream& operator<<(ostream& os, const BaseMeasures& sm);
 
 };
 

@@ -244,7 +244,7 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
     obj.emplace("synthesis", synthesis_process_obj);
 }
 
-ostream& operator<<(ostream& os, const BaseDependentsMeasures& sm) {
+ostream& operator<<(ostream& os, const BaseMeasures& sm) {
     json::object obj;
     sm.get_json_object(obj);
     os << json::serialize(obj);
