@@ -19,5 +19,4 @@ public:
     int removable_edges_by_state(unsigned state, std::string& var);
 };
 
-
 #endif

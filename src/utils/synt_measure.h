@@ -20,6 +20,14 @@ struct TestedVariable {
     vector<string> tested_dependency_set;
 };
 
+struct TestedUnateVariable {
+    string variable;
+    unsigned state;
+    Duration duration;
+    bool is_unate;
+    int total_removable_edges;
+};
+
 struct AigerDescription {
     int inputs = -1;
     int outputs = -1;
@@ -27,61 +35,94 @@ struct AigerDescription {
     int gates = -1;
 };
 
-class BaseMeasures;
+class BaseDependentsMeasures;
 
-void dump_measures(const BaseMeasures& sm, BaseCLIOptions& cli_options);
+void dump_measures(const BaseDependentsMeasures& sm, BaseCLIOptions& cli_options);
 
 void extract_aiger_description(AigerDescription& description_dst,
                                spot::aig_ptr& aiger);
 
 class BaseMeasures {
-   private:
+private:
     // Automaton data
     bool m_is_automaton_built;
     uint m_total_automaton_states;
     string m_automaton_state_based_status;
     TimeMeasure m_aut_construct_time;
 
-    // Variables data
-    TimeMeasure m_variable_test_time;
-    string* currently_testing_var;
-    vector<TestedVariable> m_tested_variables;
-
     // Generic data
     TimeMeasure m_total_time;
     SyntInstance& m_synt_instance;
     bool m_is_completed;
 
-   protected:
+
+protected:
     virtual void get_json_object(json::object& obj) const;
 
-   public:
+public:
     explicit BaseMeasures(SyntInstance& m_synt_instance)
         : m_is_automaton_built(false),
-          currently_testing_var(nullptr),
-          m_synt_instance(m_synt_instance),
-          m_total_automaton_states(-1),
-          m_is_completed(false) {
+            m_synt_instance(m_synt_instance),
+            m_total_automaton_states(-1),
+            m_is_completed(false) {
         m_total_time.start();
     }
-
-    ~BaseMeasures() { delete currently_testing_var; }
 
     void start_automaton_construct() { m_aut_construct_time.start(); }
 
     void end_automaton_construct(spot::twa_graph_ptr& automaton);
 
+    void completed() { m_is_completed = true; }
+
+    friend ostream& operator<<(ostream& os, const BaseDependentsMeasures& sm);
+
+};
+
+class FindUnatesMeasures: public BaseMeasures {
+private:
+    // Variables data
+    TimeMeasure m_variable_test_time;
+    string currently_testing_var;
+    unsigned currently_testing_state;
+    vector<TestedUnateVariable> m_tested_variables;
+
+protected:
+    void get_json_object(json::object& obj) const override;
+
+public:
+    explicit FindUnatesMeasures(SyntInstance& m_synt_instance)
+        : BaseMeasures(m_synt_instance),
+          currently_testing_var(nullptr) {}
+
+    void start_testing_variable(string& var, unsigned state);
+
+    void end_testing_variable(bool is_unate, int removable_edges);
+};
+
+class BaseDependentsMeasures: public BaseMeasures {
+private:
+    // Variables data
+    TimeMeasure m_variable_test_time;
+    string* currently_testing_var;
+    vector<TestedVariable> m_tested_variables;
+
+protected:
+    void get_json_object(json::object& obj) const override;
+
+   public:
+    explicit BaseDependentsMeasures(SyntInstance& m_synt_instance)
+        : BaseMeasures(m_synt_instance),
+          currently_testing_var(nullptr) {}
+
+    ~BaseDependentsMeasures() { delete currently_testing_var; }
+
     void start_testing_variable(string& var);
 
     void end_testing_variable(bool is_dependent,
                               vector<string>& tested_dependency_set);
-
-    void completed() { m_is_completed = true; }
-
-    friend ostream& operator<<(ostream& os, const BaseMeasures& sm);
 };
 
-class AutomatonFindDepsMeasure : public BaseMeasures {
+class AutomatonFindDepsMeasure : public BaseDependentsMeasures {
    private:
     TimeMeasure m_prune_automaton_time;
     string m_prune_automaton_state_based_status;
@@ -97,7 +138,7 @@ class AutomatonFindDepsMeasure : public BaseMeasures {
    public:
     explicit AutomatonFindDepsMeasure(SyntInstance& m_synt_instance,
                                       bool skipped_dependency_check)
-        : BaseMeasures(m_synt_instance),
+        : BaseDependentsMeasures(m_synt_instance),
           m_total_pair_states(-1),
           m_total_prune_automaton_states(-1),
           m_skipped_dependency_check(skipped_dependency_check) {}

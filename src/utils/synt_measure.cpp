@@ -28,13 +28,13 @@ void BaseMeasures::end_automaton_construct(spot::twa_graph_ptr& automaton) {
             : (automaton->prop_state_acc().is_false() ? "false" : "maybe");
 }
 
-void BaseMeasures::start_testing_variable(string& var) {
+void BaseDependentsMeasures::start_testing_variable(string& var) {
     m_variable_test_time.start();
     currently_testing_var = new string(var);
 }
 
-void BaseMeasures::end_testing_variable(bool is_dependent,
-                                        vector<string>& tested_dependency_set) {
+void BaseDependentsMeasures::end_testing_variable(bool is_dependent,
+                                                  vector<string>& tested_dependency_set) {
     m_variable_test_time.end();
 
     m_tested_variables.push_back({*currently_testing_var,
@@ -59,7 +59,6 @@ void BaseMeasures::get_json_object(json::object& obj) const {
 
     obj.emplace("is_completed", m_is_completed);
     obj.emplace("output_vars", output_vars);
-    obj.emplace("algorithm_type", "formula");
     obj.emplace("input_vars", input_vars);
     obj.emplace("formula", this->m_synt_instance.get_formula_str());
     obj["total_time"] = this->m_total_time.time_elapsed();
@@ -73,6 +72,42 @@ void BaseMeasures::get_json_object(json::object& obj) const {
         automaton["state_based_status"] = this->m_automaton_state_based_status;
     }
     obj.emplace("automaton", automaton);
+
+}
+
+void FindUnatesMeasures::start_testing_variable(string& var, unsigned state) {
+    this->currently_testing_var = var;
+    this->currently_testing_state = state;
+}
+
+void FindUnatesMeasures::end_testing_variable(bool is_unate, int total_removable_edges) {
+    this->m_tested_variables.push_back({this->currently_testing_var,
+                                        this->currently_testing_state,
+                                        this->m_variable_test_time.get_duration(),
+                                        is_unate,
+                                        total_removable_edges});
+}
+
+void FindUnatesMeasures::get_json_object(json::object& obj) const {
+    BaseMeasures::get_json_object(obj);
+
+    json::array tested_unates;
+    for (const auto& var : this->m_tested_variables) {
+        json::object var_obj;
+        var_obj["variable"] = var.variable;
+        var_obj["state"] = var.state;
+        var_obj["duration"] = var.duration;
+        var_obj["is_unate"] = var.is_unate;
+        var_obj["total_removable_edges"] = var.total_removable_edges;
+        tested_unates.emplace_back(var_obj);
+    }
+
+    obj.emplace("tested_unates", tested_unates);
+}
+
+void BaseDependentsMeasures::get_json_object(json::object& obj) const {
+    BaseMeasures::get_json_object(obj);
+    obj.emplace("algorithm_type", "formula");
 
     // Dependency information
     json::array tested_vars;
@@ -115,7 +150,7 @@ void AutomatonFindDepsMeasure::end_prune_automaton(
 }
 
 void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
-    BaseMeasures::get_json_object(obj);
+    BaseDependentsMeasures::get_json_object(obj);
     obj["algorithm_type"] = "automaton";
 
     json::object automaton_algo_obj;
@@ -209,7 +244,7 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
     obj.emplace("synthesis", synthesis_process_obj);
 }
 
-ostream& operator<<(ostream& os, const BaseMeasures& sm) {
+ostream& operator<<(ostream& os, const BaseDependentsMeasures& sm) {
     json::object obj;
     sm.get_json_object(obj);
     os << json::serialize(obj);
@@ -217,7 +252,7 @@ ostream& operator<<(ostream& os, const BaseMeasures& sm) {
     return os;
 }
 
-void dump_measures(const BaseMeasures& sm, BaseCLIOptions& cli_options) {
+void dump_measures(const BaseDependentsMeasures& sm, BaseCLIOptions& cli_options) {
     if (cli_options.measures_path.empty()) {
         cout << sm << endl;
         return;
