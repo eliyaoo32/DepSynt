@@ -78,9 +78,11 @@ void BaseMeasures::get_json_object(json::object& obj) const {
 void FindUnatesMeasures::start_testing_variable(string& var, unsigned state) {
     this->currently_testing_var = var;
     this->currently_testing_state = state;
+    m_variable_test_time.start();
 }
 
 void FindUnatesMeasures::end_testing_variable(bool is_unate, int total_removable_edges) {
+    m_variable_test_time.end();
     this->m_tested_variables.push_back({this->currently_testing_var,
                                         this->currently_testing_state,
                                         this->m_variable_test_time.get_duration(),

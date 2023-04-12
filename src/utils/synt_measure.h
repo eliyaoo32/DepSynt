@@ -92,7 +92,7 @@ protected:
 public:
     explicit FindUnatesMeasures(SyntInstance& m_synt_instance)
         : BaseMeasures(m_synt_instance),
-          currently_testing_var(nullptr) {}
+          currently_testing_var("") {}
 
     void start_testing_variable(string& var, unsigned state);
 
