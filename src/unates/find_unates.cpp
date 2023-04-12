@@ -1,5 +1,7 @@
 #include "find_unates.h"
+#include "bdd_var_cacher.h"
 #include <spot/twaalgos/contains.hh>
+#include <algorithm>
 #include <spot/twaalgos/complement.hh>
 
 FindUnates::FindUnates(const spot::twa_graph_ptr& automaton) {
@@ -30,5 +32,15 @@ bool FindUnates::is_unate_by_state(unsigned state, std::string& var) {
 
     bool is_unate = contains(m_automaton_base, m_automaton_prime);
     return is_unate;
+}
 
+int FindUnates::removable_edges_by_state(unsigned state, std::string& var) {
+    int varnum = m_automaton_base->register_ap(var);
+    auto edges = m_automaton_base->out(state);
+
+    long removable_edges = std::count_if(edges.begin(), edges.end(), [&](auto& edge) {
+        return can_restrict_variable(edge.cond, varnum, false);
+    });
+
+    return static_cast<int>(removable_edges);
 }

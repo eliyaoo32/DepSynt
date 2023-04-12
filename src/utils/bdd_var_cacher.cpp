@@ -30,3 +30,10 @@ int BDDVarsCacher::get_prime_variable_index(std::string& variable_name) {
 
     return m_prime_variable_index[variable_name];
 }
+
+
+bool can_restrict_variable(bdd& bd, int variable, bool restriction_value) {
+    bdd var_bdd = restriction_value ? bdd_ithvar(variable) : bdd_nithvar(variable);
+
+    return bdd_and(bd, var_bdd) != bddfalse;
+}

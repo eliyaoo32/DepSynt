@@ -14,6 +14,9 @@ public:
     FindUnates(const spot::twa_graph_ptr& automaton);
 
     bool is_unate_by_state(unsigned state, std::string& var);
+
+    /// \brief Test how many out edges of \a state can be removed if var is positive Unate in \a state.
+    int removable_edges_by_state(unsigned state, std::string& var);
 };
 
 

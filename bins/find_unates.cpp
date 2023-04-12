@@ -33,6 +33,7 @@ int main(int argc, const char* argv[]) {
             bool is_unate = find_unates.is_unate_by_state(state, candidate_variable);
             if(is_unate) {
                 cout << "[V] State " << state << " is Unate for variable " << candidate_variable << endl;
+                cout << "    Removable edges: " << find_unates.removable_edges_by_state(state, candidate_variable) << endl;
             } else {
                 cout << "[X] State " << state << " is NOT Unate for variable " << candidate_variable << endl;
             }

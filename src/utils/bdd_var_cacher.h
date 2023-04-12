@@ -24,4 +24,8 @@ class BDDVarsCacher {
     int get_prime_variable_index(std::string& variable_name);
 };
 
+/* Due to bug in BuDDY where restricting variable is not working if this is the only
+ * variable left, this workaround is used. */
+bool can_restrict_variable(bdd& bd, int variable, bool restriction_value);
+
 #endif
