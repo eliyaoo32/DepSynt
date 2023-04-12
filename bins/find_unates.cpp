@@ -52,6 +52,8 @@ int main(int argc, const char* argv[]) {
         auto automaton = construct_automaton(synt_instance);
         measures->end_automaton_construct(automaton);
 
+        unsigned init_state = automaton->get_init_state_number();
+
         // Init find unate code
         FindUnates find_unates(automaton);
         for(auto& candidate_variable : synt_instance.get_output_vars()) {
@@ -64,6 +66,8 @@ int main(int argc, const char* argv[]) {
                 measures->end_testing_variable(is_unate, removable_edges);
             }
         }
+
+        assert(init_state == automaton->get_init_state_number() && "Find Unate changed the automaton original state");
 
         measures->completed();
         cout << *measures << endl;

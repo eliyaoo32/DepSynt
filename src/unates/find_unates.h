@@ -10,6 +10,7 @@ class FindUnates {
 private:
     spot::twa_graph_ptr m_automaton_base, m_automaton_prime;
     unsigned m_prime_init_state;
+    unsigned m_original_init_state;
 public:
     FindUnates(const spot::twa_graph_ptr& automaton);
 

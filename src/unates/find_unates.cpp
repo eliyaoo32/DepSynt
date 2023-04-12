@@ -5,8 +5,8 @@
 #include <spot/twaalgos/complement.hh>
 
 FindUnates::FindUnates(const spot::twa_graph_ptr& automaton) {
-    // TODO: check if I can avoid clone the base automaton - and make sure I restore the original init state
-    m_automaton_base = clone_nba(automaton);
+    m_automaton_base = automaton;
+    m_original_init_state = automaton->get_init_state_number();
 
     // Create prime automaton
     m_automaton_prime = clone_nba(automaton);
@@ -31,6 +31,10 @@ bool FindUnates::is_unate_by_state(unsigned state, std::string& var) {
     }
 
     bool is_unate = contains(m_automaton_base, m_automaton_prime);
+
+    // Restore original base automaotn
+    m_automaton_base->set_init_state(m_original_init_state);
+
     return is_unate;
 }
 
