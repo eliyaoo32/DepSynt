@@ -143,3 +143,5 @@ src/cmake-build-debug/
 assets/
 config.h
 experiments/
+libs/abc/libabc.so
+/libs/abc/libabc.so

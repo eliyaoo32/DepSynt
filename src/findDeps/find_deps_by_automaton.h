@@ -17,9 +17,6 @@ using PairState = std::pair<unsigned, unsigned>;
 using PairEdges =
     std::pair<spot::twa_graph::edge_storage_t, spot::twa_graph::edge_storage_t>;
 
-/* Due to bug in BuDDY where restricting variable is not working if this is the only
- * variable left, this workaround is used. */
-bool can_restrict_variable(bdd& bd, int variable, bool restriction_value);
 
 /*
 Return all the states in automaton which are reachable by the same prefix.

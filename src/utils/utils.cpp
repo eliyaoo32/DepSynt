@@ -75,10 +75,35 @@ bool parse_synthesis_cli(int argc, const char *argv[],
     }
 }
 
+bool parse_find_unates_cli(int argc, const char *argv[],
+                                 FindUnatesCLIOptions &options) {
+    Options::options_description desc(
+            "Tool to unates in LTL specification");
+    parse_cli_common(options, desc);
+
+    try {
+        Options::command_line_parser parser{argc, argv};
+        parser.options(desc).allow_unregistered().style(
+                Options::command_line_style::default_style |
+                Options::command_line_style::allow_slash_for_short);
+        Options::parsed_options parsed_options = parser.run();
+
+        Options::variables_map vm;
+        Options::store(parsed_options, vm);
+        Options::notify(vm);
+
+        return true;
+    } catch (const Options::error &ex) {
+        cerr << ex.what() << '\n';
+        cout << desc << endl;
+        return false;
+    }
+}
+
 bool parse_find_dependencies_cli(int argc, const char *argv[],
                                  FindDependenciesCLIOptions &options) {
     Options::options_description desc(
-        "Tool to synthesis LTL specfication using dependencies concept");
+        "Tool to find dependencies in LTL specification");
     parse_cli_common(options, desc);
     desc.add_options()("algo,algorithm", Options::value<string>(),
                        "Which algorithm to use: formula, automaton")(

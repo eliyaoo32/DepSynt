@@ -5,6 +5,6 @@
 #include <spot/twa/twa.hh>
 #include <spot/twa/twagraph.hh>
 
-spot::twa_graph_ptr clone_nba(spot::twa_graph_ptr nba);
+spot::twa_graph_ptr clone_nba(const spot::twa_graph_ptr& nba);
 
 #endif

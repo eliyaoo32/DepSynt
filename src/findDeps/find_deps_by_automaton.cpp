@@ -212,9 +212,3 @@ bool are_edges_shares_variable(spot::twa_graph::edge_storage_t& e1,
 
     return x == y;
 }
-
-bool can_restrict_variable(bdd& bd, int variable, bool restriction_value) {
-    bdd var_bdd = restriction_value ? bdd_ithvar(variable) : bdd_nithvar(variable);
-
-    return bdd_and(bd, var_bdd) != bddfalse;
-}
