@@ -1,5 +1,6 @@
 #include "find_unates.h"
 #include <spot/twaalgos/contains.hh>
+#include <spot/twaalgos/complement.hh>
 
 FindUnates::FindUnates(const spot::twa_graph_ptr& automaton) {
     // TODO: check if I can avoid clone the base automaton - and make sure I restore the original init state
@@ -11,7 +12,7 @@ FindUnates::FindUnates(const spot::twa_graph_ptr& automaton) {
     m_automaton_prime->set_init_state(m_prime_init_state);
 }
 
-bool FindUnates::is_unate_by_state(unsigned state, std::string var) {
+bool FindUnates::is_unate_by_state(unsigned state, std::string& var) {
     // Set init state
     m_automaton_base->set_init_state(state);
 
@@ -20,20 +21,14 @@ bool FindUnates::is_unate_by_state(unsigned state, std::string var) {
 
     // Create common edge
     int var_num = m_automaton_base->register_ap(var);
-    bdd beta = bddfalse;
-    for(auto& x : m_automaton_base->out(state)) {
-        beta |= bdd_restrict(x.cond, bdd_nithvar(var_num));
-    }
-    beta &= bdd_ithvar(var_num);
-
-    // Add edges to prime state
-    for(auto& x : m_automaton_base->out(state)) {
-        m_automaton_prime->new_edge(m_prime_init_state, x.dst, x.cond & beta, x.acc);
+    for(auto& edge : m_automaton_base->out(state)) {
+        bdd cond = bdd_restrict(edge.cond, bdd_nithvar(var_num)) & bdd_ithvar(var_num);
+        if(cond != bddfalse) {
+            m_automaton_prime->new_edge(m_prime_init_state, edge.dst, cond, edge.acc);
+        }
     }
 
-    // Check if prime is sub-language of base
-//    auto automaton_base_complement = spot::complement(m_automaton_base);
-//    bool is_unate = !m_automaton_prime->intersects(automaton_base_complement);
     bool is_unate = contains(m_automaton_base, m_automaton_prime);
     return is_unate;
+
 }

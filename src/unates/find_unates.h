@@ -13,7 +13,7 @@ private:
 public:
     FindUnates(const spot::twa_graph_ptr& automaton);
 
-    bool is_unate_by_state(unsigned state, std::string var);
+    bool is_unate_by_state(unsigned state, std::string& var);
 };
 
 
