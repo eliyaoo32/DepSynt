@@ -1,10 +1,11 @@
 #include <algorithm>
 #include <vector>
-#include <spot/twaalgos/synthesis.hh>
 #include <spot/twaalgos/complement.hh>
 
 #include "nba_utils.h"
 #include "find_unates.h"
+
+using namespace std;
 
 
 FindUnates::FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance) : m_synt_instance(synt_instance) {
@@ -18,14 +19,14 @@ FindUnates::FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_
 }
 
 
-bool FindUnates::handle_unates_in_state(unsigned state) {
+bool FindUnates::resolve_unates_in_state(unsigned state) {
     // Update automaton init state
     m_automaton_base->set_init_state(state);
 
     // Find complement of the automaton
     spot::twa_graph_ptr complement;
     if(state == m_original_init_state) {
-        complement = construct_automaton_negation(m_synt_instance);
+        complement = construct_automaton_negation(m_synt_instance, m_automaton_base->get_dict());
     } else {
         // TODO: add timeout
         complement = spot::complement(m_automaton_base);

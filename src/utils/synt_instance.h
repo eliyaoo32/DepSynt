@@ -59,7 +59,7 @@ class SyntInstance {
 
 spot::twa_graph_ptr construct_automaton(SyntInstance& synt_instance);
 
-spot::twa_graph_ptr construct_automaton_negation(SyntInstance& synt_instance);
+spot::twa_graph_ptr construct_automaton_negation(SyntInstance& synt_instance, const spot::bdd_dict_ptr& dict);
 
 std::ostream& operator<<(std::ostream& out, SyntInstance& instance);
 

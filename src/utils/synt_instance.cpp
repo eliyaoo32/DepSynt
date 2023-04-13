@@ -91,8 +91,8 @@ spot::twa_graph_ptr construct_automaton(SyntInstance& synt_instance) {
     return automaton;
 }
 
-spot::twa_graph_ptr construct_automaton_negation(SyntInstance& synt_instance) {
-    spot::translator trans;
+spot::twa_graph_ptr construct_automaton_negation(SyntInstance& synt_instance, const spot::bdd_dict_ptr& dict) {
+    spot::translator trans(dict);
     trans.set_type(spot::postprocessor::Buchi);
     trans.set_pref(spot::postprocessor::SBAcc);
     auto automaton = trans.run(spot::formula::Not(synt_instance.get_formula_parsed()));

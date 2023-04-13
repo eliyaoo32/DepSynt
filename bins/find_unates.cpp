@@ -8,11 +8,11 @@
 
 using namespace std;
 
-static FindUnatesMeasures* measures = nullptr;
+//static FindUnatesMeasures* measures = nullptr;
 
 void on_sighup(int args) {
     try {
-        cout << *measures << endl;
+//        cout << *measures << endl;
     } catch (const std::runtime_error& re) {
         std::cerr << "Runtime error: " << re.what() << std::endl;
     } catch (const std::exception& ex) {
@@ -47,31 +47,24 @@ int main(int argc, const char* argv[]) {
     signal(SIGHUP, on_sighup);
 
     try {
-        measures = new FindUnatesMeasures(synt_instance);
-        measures->start_automaton_construct();
+//        measures = new FindUnatesMeasures(synt_instance);
+//        measures->start_automaton_construct();
         auto automaton = construct_automaton(synt_instance);
-        measures->end_automaton_construct(automaton);
+//        measures->end_automaton_construct(automaton);
 
         unsigned init_state = automaton->get_init_state_number();
 
         // Init find unate code
-        FindUnates find_unates(automaton);
-        for(auto& candidate_variable : synt_instance.get_output_vars()) {
-            for(unsigned state = 0; state < automaton->num_states(); state++) {
-                measures->start_testing_variable(candidate_variable, state);
-
-                bool is_unate = find_unates.is_unate_by_state(state, candidate_variable);
-                auto removable_edges = is_unate ? find_unates.removable_edges_by_state(state, candidate_variable) : -1;
-
-                measures->end_testing_variable(is_unate, removable_edges);
-            }
+        FindUnates find_unates(automaton, synt_instance);
+        for(unsigned state = 0; state < automaton->num_states(); state++) {
+            find_unates.resolve_unates_in_state(state);
         }
 
         assert(init_state == automaton->get_init_state_number() && "Find Unate changed the automaton original state");
 
-        measures->completed();
-        cout << *measures << endl;
-        delete measures;
+//        measures->completed();
+//        cout << *measures << endl;
+//        delete measures;
     } catch (const std::runtime_error& re) {
         std::cerr << "Runtime error: " << re.what() << std::endl;
     } catch (const std::exception& ex) {

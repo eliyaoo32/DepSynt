@@ -12,14 +12,15 @@ private:
 
     unsigned m_prime_init_state;
     unsigned m_original_init_state;
-public:
-    explicit FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance);
-
-    bool handle_unates_in_state(unsigned state);
-
+private:
     bool is_var_unate_in_state(unsigned state, int varnum, spot::twa_graph_ptr& base_automaton_complement);
 
     void handle_unate(unsigned state, int varnum);
-}
+
+public:
+    explicit FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance);
+
+    bool resolve_unates_in_state(unsigned state);
+};
 
 #endif
