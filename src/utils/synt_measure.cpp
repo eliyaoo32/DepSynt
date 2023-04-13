@@ -75,38 +75,6 @@ void BaseMeasures::get_json_object(json::object& obj) const {
 
 }
 
-void FindUnatesMeasures::start_testing_variable(string& var, unsigned state) {
-    this->currently_testing_var = var;
-    this->currently_testing_state = state;
-    m_variable_test_time.start();
-}
-
-void FindUnatesMeasures::end_testing_variable(bool is_unate, int total_removable_edges) {
-    m_variable_test_time.end();
-    this->m_tested_variables.push_back({this->currently_testing_var,
-                                        this->currently_testing_state,
-                                        this->m_variable_test_time.get_duration(),
-                                        is_unate,
-                                        total_removable_edges});
-}
-
-void FindUnatesMeasures::get_json_object(json::object& obj) const {
-    BaseMeasures::get_json_object(obj);
-
-    json::array tested_unates;
-    for (const auto& var : this->m_tested_variables) {
-        json::object var_obj;
-        var_obj["variable"] = var.variable;
-        var_obj["state"] = var.state;
-        var_obj["duration"] = var.duration;
-        var_obj["is_unate"] = var.is_unate;
-        var_obj["total_removable_edges"] = var.total_removable_edges;
-        tested_unates.emplace_back(var_obj);
-    }
-
-    obj.emplace("tested_unates", tested_unates);
-}
-
 void BaseDependentsMeasures::get_json_object(json::object& obj) const {
     BaseMeasures::get_json_object(obj);
     obj.emplace("algorithm_type", "formula");

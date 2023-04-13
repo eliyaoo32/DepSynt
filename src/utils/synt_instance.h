@@ -59,6 +59,8 @@ class SyntInstance {
 
 spot::twa_graph_ptr construct_automaton(SyntInstance& synt_instance);
 
+spot::twa_graph_ptr construct_automaton_negation(SyntInstance& synt_instance);
+
 std::ostream& operator<<(std::ostream& out, SyntInstance& instance);
 
 #endif  // REACTIVE_SYNTHESIS_BFSS_SYNT_INSTANCE_H

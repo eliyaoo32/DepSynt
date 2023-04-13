@@ -78,27 +78,6 @@ public:
 
 };
 
-class FindUnatesMeasures: public BaseMeasures {
-private:
-    // Variables data
-    TimeMeasure m_variable_test_time;
-    string currently_testing_var;
-    unsigned currently_testing_state;
-    vector<TestedUnateVariable> m_tested_variables;
-
-protected:
-    void get_json_object(json::object& obj) const override;
-
-public:
-    explicit FindUnatesMeasures(SyntInstance& m_synt_instance)
-        : BaseMeasures(m_synt_instance),
-          currently_testing_var("") {}
-
-    void start_testing_variable(string& var, unsigned state);
-
-    void end_testing_variable(bool is_unate, int removable_edges);
-};
-
 class BaseDependentsMeasures: public BaseMeasures {
 private:
     // Variables data
