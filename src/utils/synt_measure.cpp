@@ -1,6 +1,7 @@
 #include "synt_measure.h"
 
 #include <fstream>
+#include <boost/algorithm/string/join.hpp>
 
 void aiger_description_obj(json::object& obj, const AigerDescription& description) {
     obj.emplace("total_inputs", description.inputs);
@@ -93,6 +94,27 @@ void BaseDependentsMeasures::get_json_object(json::object& obj) const {
         tested_vars.emplace_back(var_obj);
     }
     obj.emplace("tested_variables", tested_vars);
+}
+
+
+void FindUnatesMeasures::get_json_object(json::object& obj) const {
+    BaseMeasures::get_json_object(obj);
+
+    json::array unate_states;
+    for(const auto& state : this->tested_states) {
+        json::object state_obj;
+        state_obj["state"] = state.state;
+        state_obj["total_duration"] = state.total_duration;
+        state_obj["removed_edges"] = state.removed_edges;
+        state_obj["impacted_edges"] = state.impacted_edges;
+        state_obj["complement_duration"] = state.complement_duration;
+        state_obj["negative_unate_variables"] = boost::algorithm::join(state.negative_unate_variables, ",");
+        state_obj["positive_unate_variables"] = boost::algorithm::join(state.positive_unate_variables, ",");
+        state_obj["not_unate_variables"] = boost::algorithm::join(state.not_unate_variables, ",");
+        unate_states.emplace_back(state_obj);
+    }
+
+    obj.emplace("unate_states", unate_states);
 }
 
 void AutomatonFindDepsMeasure::start_search_pair_states() {

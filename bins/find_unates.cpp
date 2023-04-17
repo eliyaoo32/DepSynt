@@ -4,15 +4,20 @@
 
 #include "synt_measure.h"
 #include "find_unates.h"
-#include "synt_instance.h"
+#include "unate_utils.h"
 
 using namespace std;
 
-//static FindUnatesMeasures* measures = nullptr;
+
+static FindUnatesMeasures* unate_measures = nullptr;
 
 void on_sighup(int args) {
     try {
-//        cout << *measures << endl;
+        if(unate_measures != nullptr) {
+            cout << *unate_measures << endl;
+        } else {
+            cerr << "No unate summary available" << endl;
+        }
     } catch (const std::runtime_error& re) {
         std::cerr << "Runtime error: " << re.what() << std::endl;
     } catch (const std::exception& ex) {
@@ -47,24 +52,25 @@ int main(int argc, const char* argv[]) {
     signal(SIGHUP, on_sighup);
 
     try {
-//        measures = new FindUnatesMeasures(synt_instance);
-//        measures->start_automaton_construct();
+        unate_measures = new FindUnatesMeasures( synt_instance );
+
+        unate_measures->start_automaton_construct();
         auto automaton = construct_automaton(synt_instance);
-//        measures->end_automaton_construct(automaton);
+        unate_measures->end_automaton_construct(automaton);
 
         unsigned init_state = automaton->get_init_state_number();
 
         // Init find unate code
-        FindUnates find_unates(automaton, synt_instance);
+        FindUnates find_unates(automaton, synt_instance, *unate_measures);
         for(unsigned state = 0; state < automaton->num_states(); state++) {
             find_unates.resolve_unates_in_state(state);
         }
 
         assert(init_state == automaton->get_init_state_number() && "Find Unate changed the automaton original state");
 
-//        measures->completed();
-//        cout << *measures << endl;
-//        delete measures;
+        unate_measures->completed();
+        cout << *unate_measures << endl;
+        delete unate_measures;
     } catch (const std::runtime_error& re) {
         std::cerr << "Runtime error: " << re.what() << std::endl;
     } catch (const std::exception& ex) {
