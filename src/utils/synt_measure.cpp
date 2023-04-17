@@ -1,6 +1,7 @@
 #include "synt_measure.h"
 
 #include <fstream>
+#include <boost/algorithm/string/join.hpp>
 
 void aiger_description_obj(json::object& obj, const AigerDescription& description) {
     obj.emplace("total_inputs", description.inputs);
@@ -75,38 +76,6 @@ void BaseMeasures::get_json_object(json::object& obj) const {
 
 }
 
-void FindUnatesMeasures::start_testing_variable(string& var, unsigned state) {
-    this->currently_testing_var = var;
-    this->currently_testing_state = state;
-    m_variable_test_time.start();
-}
-
-void FindUnatesMeasures::end_testing_variable(bool is_unate, int total_removable_edges) {
-    m_variable_test_time.end();
-    this->m_tested_variables.push_back({this->currently_testing_var,
-                                        this->currently_testing_state,
-                                        this->m_variable_test_time.get_duration(),
-                                        is_unate,
-                                        total_removable_edges});
-}
-
-void FindUnatesMeasures::get_json_object(json::object& obj) const {
-    BaseMeasures::get_json_object(obj);
-
-    json::array tested_unates;
-    for (const auto& var : this->m_tested_variables) {
-        json::object var_obj;
-        var_obj["variable"] = var.variable;
-        var_obj["state"] = var.state;
-        var_obj["duration"] = var.duration;
-        var_obj["is_unate"] = var.is_unate;
-        var_obj["total_removable_edges"] = var.total_removable_edges;
-        tested_unates.emplace_back(var_obj);
-    }
-
-    obj.emplace("tested_unates", tested_unates);
-}
-
 void BaseDependentsMeasures::get_json_object(json::object& obj) const {
     BaseMeasures::get_json_object(obj);
     obj.emplace("algorithm_type", "formula");
@@ -125,6 +94,27 @@ void BaseDependentsMeasures::get_json_object(json::object& obj) const {
         tested_vars.emplace_back(var_obj);
     }
     obj.emplace("tested_variables", tested_vars);
+}
+
+
+void FindUnatesMeasures::get_json_object(json::object& obj) const {
+    BaseMeasures::get_json_object(obj);
+
+    json::array unate_states;
+    for(const auto& state : this->tested_states) {
+        json::object state_obj;
+        state_obj["state"] = state.state;
+        state_obj["total_duration"] = state.total_duration;
+        state_obj["removed_edges"] = state.removed_edges;
+        state_obj["impacted_edges"] = state.impacted_edges;
+        state_obj["complement_duration"] = state.complement_duration;
+        state_obj["negative_unate_variables"] = boost::algorithm::join(state.negative_unate_variables, ",");
+        state_obj["positive_unate_variables"] = boost::algorithm::join(state.positive_unate_variables, ",");
+        state_obj["not_unate_variables"] = boost::algorithm::join(state.not_unate_variables, ",");
+        unate_states.emplace_back(state_obj);
+    }
+
+    obj.emplace("unate_states", unate_states);
 }
 
 void AutomatonFindDepsMeasure::start_search_pair_states() {

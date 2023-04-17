@@ -91,6 +91,15 @@ spot::twa_graph_ptr construct_automaton(SyntInstance& synt_instance) {
     return automaton;
 }
 
+spot::twa_graph_ptr construct_automaton_negation(SyntInstance& synt_instance, const spot::bdd_dict_ptr& dict) {
+    spot::translator trans(dict);
+    trans.set_type(spot::postprocessor::Buchi);
+    trans.set_pref(spot::postprocessor::SBAcc);
+    auto automaton = trans.run(spot::formula::Not(synt_instance.get_formula_parsed()));
+
+    return automaton;
+}
+
 std::ostream& operator<<(std::ostream& out, SyntInstance& instance) {
     out << "formula: " << instance.get_formula_str() << std::endl;
     out << "input vars: " << instance.get_input_vars() << std::endl;

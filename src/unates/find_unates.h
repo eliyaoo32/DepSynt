@@ -2,22 +2,34 @@
 #define REACTIVE_SYNTHESIS_BFSS_FIND_UNATES_H
 
 #include <string>
-#include <spot/twaalgos/synthesis.hh>
+#include <set>
+#include "synt_measure.h"
+#include "unate_utils.h"
+#include "synt_instance.h"
 
-#include "nba_utils.h"
+struct UnateEffectOnState {
+    set<void*> impacted_edges; // Storing the address of the changed edges
+    set<void*> removed_edges; // Storing the address of the changed edges
+};
 
 class FindUnates {
 private:
     spot::twa_graph_ptr m_automaton_base, m_automaton_prime;
+    SyntInstance& m_synt_instance;
+    FindUnatesMeasures& m_unate_measures;
+
     unsigned m_prime_init_state;
     unsigned m_original_init_state;
+
+    bool is_var_unate_in_state(unsigned state, int varnum, spot::twa_graph_ptr& base_automaton_complement, UnateType unate_type);
+
+    void handle_unate(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state);
+
 public:
-    FindUnates(const spot::twa_graph_ptr& automaton);
 
-    bool is_unate_by_state(unsigned state, std::string& var);
+    explicit FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, FindUnatesMeasures& unate_measures);
 
-    /// \brief Test how many out edges of \a state can be removed if var is positive Unate in \a state.
-    int removable_edges_by_state(unsigned state, std::string& var);
+    void resolve_unates_in_state(unsigned state);
 };
 
 #endif
