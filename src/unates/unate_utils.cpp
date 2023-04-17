@@ -6,8 +6,6 @@ std::string unateTypeToString(UnateType type) {
             return "Positive";
         case UnateType::Negative:
             return "Negative";
-        case UnateType::NotUnate:
-            return "Not Unate";
         default:
             return "Unknown";
     }
