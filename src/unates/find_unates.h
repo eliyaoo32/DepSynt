@@ -2,10 +2,15 @@
 #define REACTIVE_SYNTHESIS_BFSS_FIND_UNATES_H
 
 #include <string>
+#include <set>
 #include "synt_measure.h"
 #include "unate_utils.h"
 #include "synt_instance.h"
 
+struct UnateEffectOnState {
+    set<void*> impacted_edges; // Storing the address of the changed edges
+    set<void*> removed_edges; // Storing the address of the changed edges
+};
 
 class FindUnates {
 private:
@@ -18,7 +23,7 @@ private:
 
     bool is_var_unate_in_state(unsigned state, int varnum, spot::twa_graph_ptr& base_automaton_complement, UnateType unate_type);
 
-    void handle_unate(unsigned state, int varnum, UnateType unate_type);
+    void handle_unate(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state);
 
 public:
 

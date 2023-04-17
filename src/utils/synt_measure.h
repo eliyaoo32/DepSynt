@@ -111,7 +111,7 @@ public:
         m_state_test_time.start();
     }
 
-    void end_testing_state() {
+    void end_testing_state(int removed_edges, int impacted_edges) {
         m_state_test_time.end();
 
         tested_states.emplace_back(TestedState{
@@ -121,8 +121,8 @@ public:
                 .positive_unate_variables = positive_unate,
                 .negative_unate_variables = negative_unate,
                 .not_unate_variables = not_unate,
-                .removed_edges = 0,
-                .impacted_edges = 0
+                .removed_edges = removed_edges,
+                .impacted_edges = impacted_edges
         });
 
         positive_unate.clear();

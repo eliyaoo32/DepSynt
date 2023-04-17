@@ -3,10 +3,10 @@
 #include <spot/twaalgos/complement.hh>
 
 #include "nba_utils.h"
+#include "bdd_var_cacher.h"
 #include "find_unates.h"
 
 using namespace std;
-
 
 FindUnates::FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, FindUnatesMeasures& unate_measures)
     : m_synt_instance(synt_instance), m_unate_measures(unate_measures) {
@@ -42,6 +42,7 @@ void FindUnates::resolve_unates_in_state(unsigned state) {
     // Check for Unate in all variables
     vector<string> untested_vars( m_synt_instance.get_output_vars() );
     vector<string> not_unate_vars;
+    UnateEffectOnState unate_effect_on_state;
 
     while(!untested_vars.empty()) {
         string var = untested_vars.back();
@@ -51,7 +52,7 @@ void FindUnates::resolve_unates_in_state(unsigned state) {
         int varnum = m_automaton_base->register_ap(var);
 
         if(is_var_unate_in_state(state, varnum, complement, UnateType::Positive)) {
-            this->handle_unate(state, varnum, UnateType::Positive);
+            this->handle_unate(state, varnum, UnateType::Positive, unate_effect_on_state);
 
             // Retesting all the already tested variables
             untested_vars.insert(untested_vars.end(), not_unate_vars.begin(), not_unate_vars.end());
@@ -60,7 +61,7 @@ void FindUnates::resolve_unates_in_state(unsigned state) {
             // Report var result
             m_unate_measures.tested_var_unate(UnateType::Positive);
         } else if(is_var_unate_in_state(state, varnum, complement, UnateType::Negative)) {
-            this->handle_unate(state, varnum, UnateType::Negative);
+            this->handle_unate(state, varnum, UnateType::Negative, unate_effect_on_state);
 
             // Retesting all the already tested variables
             untested_vars.insert(untested_vars.end(), not_unate_vars.begin(), not_unate_vars.end());
@@ -82,7 +83,10 @@ void FindUnates::resolve_unates_in_state(unsigned state) {
     // Restore prime automaton
     m_automaton_prime->kill_state(m_prime_init_state);
 
-    m_unate_measures.end_testing_state();
+    m_unate_measures.end_testing_state(
+static_cast<int>(unate_effect_on_state.removed_edges.size()),
+static_cast<int>(unate_effect_on_state.impacted_edges.size())
+    );
 }
 
 bool FindUnates::is_var_unate_in_state(unsigned state, int varnum, spot::twa_graph_ptr& base_automaton_complement, UnateType unate_type) {
@@ -108,12 +112,21 @@ bool FindUnates::is_var_unate_in_state(unsigned state, int varnum, spot::twa_gra
     return is_unate;
 }
 
-void FindUnates::handle_unate(unsigned state, int varnum, UnateType unate_type) {
+void FindUnates::handle_unate(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state) {
     auto var_bdd = (unate_type == UnateType::Positive)
             ? bdd_ithvar(varnum)
             : bdd_nithvar(varnum);
 
     for(auto& edge : m_automaton_base->out(state)) {
+        bool is_impacted = can_restrict_variable(edge.cond, varnum, unate_type == UnateType::Positive ? false : true);
         edge.cond = bdd_restrict(edge.cond, var_bdd) & var_bdd;
+
+        if(edge.cond == bddfalse) { // I.e. the edge was removed
+            unate_effect_on_state.removed_edges.insert(&edge);
+        }
+        if(is_impacted) {
+            unate_effect_on_state.impacted_edges.insert(&edge);
+        }
     }
 }
+
