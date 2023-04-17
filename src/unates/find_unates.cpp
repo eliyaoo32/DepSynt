@@ -118,6 +118,7 @@ void FindUnates::handle_unate(unsigned state, int varnum, UnateType unate_type, 
             : bdd_nithvar(varnum);
 
     for(auto& edge : m_automaton_base->out(state)) {
+        // If variable is positive Unate, and the edge could have an assigment to false, then the edge is impacted (Negative Unate is effected correspondingly)
         bool is_impacted = can_restrict_variable(edge.cond, varnum, unate_type == UnateType::Positive ? false : true);
         edge.cond = bdd_restrict(edge.cond, var_bdd) & var_bdd;
 
