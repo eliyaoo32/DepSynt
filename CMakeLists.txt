@@ -9,6 +9,7 @@ FILE(GLOB aiger_lib_SRC ${PROJECT_SOURCE_DIR}/libs/aiger/*.c )
 add_executable(find_dependencies ${non_executable_SRC} ${aiger_lib_SRC} bins/find_dependencies.cpp )
 add_executable(find_unates ${non_executable_SRC} ${aiger_lib_SRC} bins/find_unates.cpp )
 add_executable(synthesis ${non_executable_SRC} ${aiger_lib_SRC} bins/synthesis.cpp)
+add_executable(synthesis_unate ${non_executable_SRC} ${aiger_lib_SRC} bins/synthesis_unate.cpp)
 
 list(APPEND CMAKE_PREFIX_PATH "/Users/eliyahub/spot/lib/" "./libs/abc")
 
