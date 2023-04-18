@@ -72,6 +72,15 @@ void BaseMeasures::get_json_object(json::object& obj) const {
         automaton["total_states"] = static_cast<int>(this->m_total_automaton_states);
         automaton["state_based_status"] = this->m_automaton_state_based_status;
     }
+    if (this->m_prune_automaton_time.has_started()) {
+        automaton["prune_automaton_duration"] =
+                this->m_prune_automaton_time.get_duration();
+    }
+    automaton["pruned_state_based_status"] =
+            this->m_prune_automaton_state_based_status;
+    automaton["prune_total_states"] =
+            static_cast<int>(this->m_total_prune_automaton_states);
+
     obj.emplace("automaton", automaton);
 
 }
@@ -126,11 +135,11 @@ void AutomatonFindDepsMeasure::end_search_pair_states(int total_pair_states) {
     m_total_pair_states = total_pair_states;
 }
 
-void AutomatonFindDepsMeasure::start_prune_automaton() {
+void BaseMeasures::start_prune_automaton() {
     m_prune_automaton_time.start();
 }
 
-void AutomatonFindDepsMeasure::end_prune_automaton(
+void BaseMeasures::end_prune_automaton(
     spot::twa_graph_ptr& pruned_automaton) {
     m_prune_automaton_time.end();
 
@@ -155,14 +164,6 @@ void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
         automaton_algo_obj["search_pair_state_duration"] =
             this->m_search_pair_states_time.get_duration();
     }
-    if (this->m_prune_automaton_time.has_started()) {
-        automaton_algo_obj["prune_automaton_duration"] =
-            this->m_prune_automaton_time.get_duration();
-    }
-    automaton_algo_obj["pruned_state_based_status"] =
-        this->m_prune_automaton_state_based_status;
-    automaton_algo_obj["prune_total_states"] =
-        static_cast<int>(this->m_total_prune_automaton_states);
 
     obj.emplace("dependencies", automaton_algo_obj);
 }

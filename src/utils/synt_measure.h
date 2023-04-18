@@ -57,6 +57,12 @@ private:
     string m_automaton_state_based_status;
     TimeMeasure m_aut_construct_time;
 
+    // Automaton prune
+    TimeMeasure m_prune_automaton_time;
+    string m_prune_automaton_state_based_status;
+    uint m_total_prune_automaton_states;
+
+
     // Generic data
     TimeMeasure m_total_time;
     SyntInstance &m_synt_instance;
@@ -70,6 +76,7 @@ public:
             : m_is_automaton_built(false),
               m_synt_instance(m_synt_instance),
               m_total_automaton_states(-1),
+              m_total_prune_automaton_states(-1),
               m_is_completed(false) {
         m_total_time.start();
     }
@@ -77,6 +84,10 @@ public:
     void start_automaton_construct() { m_aut_construct_time.start(); }
 
     void end_automaton_construct(spot::twa_graph_ptr &automaton);
+
+    void start_prune_automaton();
+
+    void end_prune_automaton(spot::twa_graph_ptr &pruned_automaton);
 
     void completed() { m_is_completed = true; }
 
@@ -188,9 +199,6 @@ public:
 
 class AutomatonFindDepsMeasure : public BaseDependentsMeasures {
 private:
-    TimeMeasure m_prune_automaton_time;
-    string m_prune_automaton_state_based_status;
-    uint m_total_prune_automaton_states;
     TimeMeasure m_search_pair_states_time;
     int m_total_pair_states;
     bool m_skipped_dependency_check;
@@ -204,7 +212,6 @@ public:
                                       bool skipped_dependency_check)
             : BaseDependentsMeasures(m_synt_instance),
               m_total_pair_states(-1),
-              m_total_prune_automaton_states(-1),
               m_skipped_dependency_check(skipped_dependency_check) {}
 
     void start_find_deps() { m_total_find_deps_duration.start(); }
@@ -214,10 +221,6 @@ public:
     void start_search_pair_states();
 
     void end_search_pair_states(int total_pair_states);
-
-    void start_prune_automaton();
-
-    void end_prune_automaton(spot::twa_graph_ptr &pruned_automaton);
 };
 
 class SynthesisMeasure : public AutomatonFindDepsMeasure {

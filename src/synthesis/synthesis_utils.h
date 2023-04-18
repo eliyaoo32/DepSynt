@@ -34,7 +34,7 @@ spot::twa_graph_ptr get_dpa_from_nba(spot::twa_graph_ptr nba,
 
 spot::twa_graph_ptr get_nba_for_synthesis(const spot::formula& formula,
                                           spot::synthesis_info& gi,
-                                          SynthesisMeasure& synt_measures,
+                                          BaseMeasures& synt_measures,
                                           std::ostream& verbose);
 
 // Return if realizable
