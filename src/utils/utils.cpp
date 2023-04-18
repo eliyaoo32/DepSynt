@@ -100,6 +100,35 @@ bool parse_find_unates_cli(int argc, const char *argv[],
     }
 }
 
+bool parse_synthesis_unates_cli(int argc, const char *argv[], SynthesisUnatesCLIOptions &options) {
+    Options::options_description desc(
+            "Tool to synthesis LTL specification using Unate");
+    parse_cli_common(options, desc);
+    desc.add_options()(
+            "skip-unates",
+            Options::bool_switch(&options.skip_unates)->default_value(false),
+            "Should skip unates in the synthesis"
+            );
+
+    try {
+        Options::command_line_parser parser{argc, argv};
+        parser.options(desc).allow_unregistered().style(
+                Options::command_line_style::default_style |
+                Options::command_line_style::allow_slash_for_short);
+        Options::parsed_options parsed_options = parser.run();
+
+        Options::variables_map vm;
+        Options::store(parsed_options, vm);
+        Options::notify(vm);
+
+        return true;
+    } catch (const Options::error &ex) {
+        cerr << ex.what() << '\n';
+        cout << desc << endl;
+        return false;
+    }
+}
+
 bool parse_find_dependencies_cli(int argc, const char *argv[],
                                  FindDependenciesCLIOptions &options) {
     Options::options_description desc(

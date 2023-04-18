@@ -36,9 +36,9 @@ void on_sighup(int args) {
 }
 
 int main(int argc, const char* argv[]) {
-    FindUnatesCLIOptions options;
+    SynthesisUnatesCLIOptions options;
 
-    int parsed_cli_status = parse_find_unates_cli(argc, argv, options);
+    int parsed_cli_status = parse_synthesis_unates_cli(argc, argv, options);
     if (!parsed_cli_status) {
         return EXIT_FAILURE;
     }
@@ -74,25 +74,39 @@ int main(int argc, const char* argv[]) {
          **************************************************************************/
         unsigned init_state = automaton->get_init_state_number();
 
-        // Init find unate code
-        FindUnates find_unates(automaton, synt_instance, *unate_measures);
-        for(unsigned state = 0; state < automaton->num_states(); state++) {
-            find_unates.resolve_unates_in_state(state);
+        if(options.skip_unates) {
+            cout << " => Skip Unates Handling" << endl;
+        } else {
+            cout << " => Apply Unates Handling" << endl;
+
+            FindUnates find_unates(automaton, synt_instance, *unate_measures);
+            for (unsigned state = 0; state < automaton->num_states(); state++) {
+                find_unates.resolve_unates_in_state(state);
+            }
         }
 
         assert(init_state == automaton->get_init_state_number() && "Find Unate changed the automaton original state");
 
-        /**************************************************************************
-         * Synthesis the reduced Unate
-         **************************************************************************/
-        spot::aig_ptr strategy = synthesis_nba_to_aiger(gi, automaton, synt_instance.get_output_vars(), input_vars, verbose_out);
-        if (strategy == nullptr) {
-            cout << "UNREALIZABLE" << endl;
-        }
-
         unate_measures->completed();
         cout << *unate_measures << endl;
         delete unate_measures;
+
+        /**************************************************************************
+         * Synthesis the reduced Unate
+         **************************************************************************/
+        TimeMeasure synthesis_measure;
+        synthesis_measure.start();
+
+        spot::aig_ptr strategy = synthesis_nba_to_aiger(gi, automaton, synt_instance.get_output_vars(), input_vars, verbose_out);
+        if (strategy == nullptr) {
+            cout << "UNREALIZABLE" << endl;
+        } else {
+            cout << "REALIZABLE" << endl;
+            spot::print_aiger(std::cout, strategy) << endl;
+        }
+
+        synthesis_measure.end();
+        cout << " => Synthesis Duration: " << synthesis_measure.get_duration() << endl;
     } catch (const std::runtime_error& re) {
         std::cerr << "Runtime error: " << re.what() << std::endl;
     } catch (const std::exception& ex) {
