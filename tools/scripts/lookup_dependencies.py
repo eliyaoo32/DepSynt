@@ -11,6 +11,7 @@ if file_path != "":
 
 BENCHMARK_OUTPUT_FILE_FORMAT = '{}.json'
 
+
 def get_benchmark_output_path(benchmark_name, output_dir):
     return os.path.join(output_dir, BENCHMARK_OUTPUT_FILE_FORMAT.format(benchmark_name))
 
@@ -129,13 +130,13 @@ def main():
         benchmarks_path=benchmarks_path
     )
     print("Found {} benchmarks.".format(len(benchmarks)))
-    shuffle(benchmarks)
 
     """
     Apply the algorithm
     """
     process_benchmark_args = [
-        (benchmark, benchmarks_timeout, output_dir, find_deps_tool, algorithm, dependents_type)
+        (benchmark, benchmarks_timeout, output_dir,
+         find_deps_tool, algorithm, dependents_type)
         for benchmark in benchmarks
     ]
     with Pool(workers) as pool:

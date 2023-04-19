@@ -45,7 +45,7 @@ def get_all_benchmarks(output_dir, benchmarks_path, ignore_if_output_exists=True
     return benchmarks
 
 
-def process_benchmark(benchmark, timeout, output_dir, find_unates_tool):
+def process_benchmark(benchmark, timeout, output_dir, synthesis_unates_tool, skip_unates):
     benchmark_name = benchmark['benchmark_name']
     input_vars = benchmark['input_vars']
     output_vars = benchmark['output_vars']
@@ -55,15 +55,17 @@ def process_benchmark(benchmark, timeout, output_dir, find_unates_tool):
 
     config = {
         'process_timeout': timeout,
-        'find_unates_cli_path': find_unates_tool,
+        'synthesis_unates_cli_path': synthesis_unates_tool,
         'formula': ltl_formula,
         'inputs': input_vars,
         'outputs': output_vars
     }
-    find_deps_cli = 'time timeout --signal=HUP {process_timeout} {find_unates_cli_path} --formula="{formula}" --input="{inputs}" --output="{outputs}"'.format(
+    cli_cmd = 'time timeout --signal=HUP {process_timeout} {synthesis_unates_cli_path} --formula="{formula}" --input="{inputs}" --output="{outputs}"'.format(
         **config)
+    if skip_unates:
+        cli_cmd += ' --skip-unates'
 
-    with Popen(find_deps_cli, stdout=PIPE, stderr=PIPE, shell=True, preexec_fn=os.setsid) as process:
+    with Popen(cli_cmd, stdout=PIPE, stderr=PIPE, shell=True, preexec_fn=os.setsid) as process:
         process_communicate = process.communicate()
         cli_stdout = process_communicate[0].decode("utf-8")
         cli_stderr = process_communicate[1].decode("utf-8")
@@ -92,11 +94,14 @@ def main():
     parser.add_argument(
         '--output_dir', help="Path to the directory which the output files are stored into", type=str, required=True)
     parser.add_argument(
-        '--find_unates_tool', help="Path to find Unates tool", type=str, required=True)
+        '--synthesis_unates_tool', help="Path to synthesis Unates tool", type=str, required=True)
     parser.add_argument(
         '--timeout', help="Timeout of each benchmark", type=str, default='40m')
     parser.add_argument(
         '--workers', help="Number of workers", type=int, default=16)
+    parser.add_argument('--skip_unates', help="Skip unates in synthesis process",
+                        default=False, action='store_true')
+
     args = parser.parse_args()
 
     workers = args.workers
@@ -104,7 +109,8 @@ def main():
     benchmarks_path = args.benchs_list
     benchmarks_timeout = args.timeout
     output_dir = args.output_dir
-    find_unates_tool = args.find_unates_tool
+    synthesis_unates_tool = args.synthesis_unates_tool
+    skip_unates = args.skip_unates
 
     """
     Search for benchmarks by configuration
@@ -122,7 +128,8 @@ def main():
     Apply the algorithm
     """
     process_benchmark_args = [
-        (benchmark, benchmarks_timeout, output_dir, find_unates_tool)
+        (benchmark, benchmarks_timeout, output_dir,
+         synthesis_unates_tool, skip_unates)
         for benchmark in benchmarks
     ]
     with Pool(workers) as pool:

@@ -117,7 +117,6 @@ def main():
         benchmarks_path=benchmarks_path
     )
     print("Found {} benchmarks.".format(len(benchmarks)))
-    shuffle(benchmarks)
 
     """
     Apply the algorithm
