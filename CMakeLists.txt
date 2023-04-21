@@ -9,7 +9,6 @@ FILE(GLOB aiger_lib_SRC ${PROJECT_SOURCE_DIR}/libs/aiger/*.c)
 add_executable(find_dependencies ${non_executable_SRC} ${aiger_lib_SRC} bins/find_dependencies.cpp)
 add_executable(find_unates ${non_executable_SRC} ${aiger_lib_SRC} bins/find_unates.cpp)
 add_executable(synthesis ${non_executable_SRC} ${aiger_lib_SRC} bins/synthesis.cpp)
-add_executable(synthesis_unate ${non_executable_SRC} ${aiger_lib_SRC} bins/synthesis_unate.cpp)
 
 list(APPEND CMAKE_PREFIX_PATH "/Users/eliyahub/spot/lib/" "./libs/abc")
 
@@ -67,7 +66,6 @@ set_target_properties(spot PROPERTIES IMPORTED_LOCATION ${spot_location})
 target_link_libraries(find_dependencies boost_options boost_json bddx spot abc)
 target_link_libraries(synthesis boost_options boost_json bddx spot abc)
 target_link_libraries(find_unates boost_options boost_json bddx spot abc)
-target_link_libraries(synthesis_unate boost_options boost_json bddx spot abc)
 
 # TODO: Import all libs and src folder automatically
 include_directories(./src/findDeps ./src/models ./src/synthesis ./src/utils ./src/unates ./libs/aiger ./libs/abc ./libs/abc/src)

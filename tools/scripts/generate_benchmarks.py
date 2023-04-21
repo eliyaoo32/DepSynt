@@ -7,7 +7,7 @@ import os
 
 
 TLSF_FILES_PATH = os.path.join(
-    Path(__file__).parent.resolve(), './benchmarks/tlsf')
+    Path(__file__).parent.resolve(), '../benchmarks/tlsf')
 OUTPUT_BENCHMARKS = os.path.join(
     Path(__file__).parent.resolve(), './benchmarks.csv')
 ERROR_BENCHMARKS_PATH = os.path.join(
@@ -52,21 +52,20 @@ def main():
         for tlsf_filepath in tqdm(all_tlsf_files)
     ]
 
-    benchmarks = [b for b in processed_benchmarks if b['has_error'] == False]
-    benchmarks_with_errors = [
-        b for b in processed_benchmarks if b['has_error'] == True]
+    benchmarks = [b for b in processed_benchmarks if b['has_error'] is False]
+    benchmarks_with_errors = [b for b in processed_benchmarks if b['has_error'] is True]
 
     if len(processed_benchmarks) == 0:
         print("No benchmarks found.")
         sys.exit(1)
 
-    with open(OUTPUT_BENCHMARKS, 'w', newline='', encoding='utf-8') as csvfile:
+    with open(OUTPUT_BENCHMARKS, 'w+', newline='', encoding='utf-8') as csvfile:
         dict_writer = csv.DictWriter(csvfile, benchmarks[0].keys())
         dict_writer.writeheader()
         dict_writer.writerows(benchmarks)
 
     if len(benchmarks_with_errors) > 0:
-        with open(ERROR_BENCHMARKS_PATH, 'w', newline='', encoding='utf-8') as csvfile:
+        with open(ERROR_BENCHMARKS_PATH, 'w+', newline='', encoding='utf-8') as csvfile:
             dict_writer = csv.DictWriter(
                 csvfile, benchmarks_with_errors[0].keys())
             dict_writer.writeheader()

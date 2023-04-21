@@ -15,6 +15,7 @@ void parse_cli_common(BaseCLIOptions &options, Options::options_description &des
                        Options::value<string>(&options.formula)->required(),
                        "LTL formula")(
         "output,o", Options::value<string>(&options.outputs)->required(),
+
         "Output variables")("input,i",
                             Options::value<string>(&options.inputs)->required(),
                             "Input variables")(
@@ -33,20 +34,25 @@ void parse_cli_common(BaseCLIOptions &options, Options::options_description &des
 bool parse_synthesis_cli(int argc, const char *argv[],
                          SynthesisCLIOptions &options) {
     Options::options_description desc(
-        "Tool to synthesis LTL specfication using dependencies concept");
+        "Tool to synthesis LTL specification using dependencies and Unates concept");
     parse_cli_common(options, desc);
     desc.add_options()(
-            "model-name", Options::value<string>(&options.model_name)->required(),
+            "model-name",
+            Options::value<string>(&options.model_name)->required(),
             "Unique model name of the specification"
-        )("skip-eject-deps",
-        Options::bool_switch(&options.skip_eject_dependencies)->default_value(false),
-        "Should skip finding and ejecting dependent variables")(
-        "skip-synt-deps",
-        Options::bool_switch(&options.skip_synt_dependencies)->default_value(false),
-        "Should skip synthesising a strategy with dependent variables")(
+        )(
+        "skip-dependencies",
+        Options::bool_switch(&options.skip_dependencies)->default_value(false),
+        "Should skip synthesising a strategy with dependent variables"
+        )(
+        "skip-unates",
+        Options::bool_switch(&options.skip_unates)->default_value(false),
+        "Should skip using unates to synthesise a strategy"
+        )(
         "model-checking",
         Options::bool_switch(&options.apply_model_checking)->default_value(false),
-        "Should apply model checking to the synthesized strategy");
+        "Should apply model checking to the synthesized strategy"
+        );
 
     try {
         Options::command_line_parser parser{argc, argv};
@@ -58,14 +64,6 @@ bool parse_synthesis_cli(int argc, const char *argv[],
         Options::variables_map vm;
         Options::store(parsed_options, vm);
         Options::notify(vm);
-
-        // Can synthesis dependencies only if eject dependencies
-        if (!options.skip_synt_dependencies && options.skip_eject_dependencies) {
-            cerr << "Synthesis dependencies is only possible if eject "
-                    "dependencies"
-                 << endl;
-            return false;
-        }
 
         return true;
     } catch (const Options::error &ex) {
@@ -80,35 +78,6 @@ bool parse_find_unates_cli(int argc, const char *argv[],
     Options::options_description desc(
             "Tool to unates in LTL specification");
     parse_cli_common(options, desc);
-
-    try {
-        Options::command_line_parser parser{argc, argv};
-        parser.options(desc).allow_unregistered().style(
-                Options::command_line_style::default_style |
-                Options::command_line_style::allow_slash_for_short);
-        Options::parsed_options parsed_options = parser.run();
-
-        Options::variables_map vm;
-        Options::store(parsed_options, vm);
-        Options::notify(vm);
-
-        return true;
-    } catch (const Options::error &ex) {
-        cerr << ex.what() << '\n';
-        cout << desc << endl;
-        return false;
-    }
-}
-
-bool parse_synthesis_unates_cli(int argc, const char *argv[], SynthesisUnatesCLIOptions &options) {
-    Options::options_description desc(
-            "Tool to synthesis LTL specification using Unate");
-    parse_cli_common(options, desc);
-    desc.add_options()(
-            "skip-unates",
-            Options::bool_switch(&options.skip_unates)->default_value(false),
-            "Should skip unates in the synthesis"
-            );
 
     try {
         Options::command_line_parser parser{argc, argv};
@@ -227,10 +196,8 @@ std::ostream &operator<<(std::ostream &out, const SynthesisCLIOptions &options) 
     out << " - Outputs: " << options.outputs << endl;
     out << " - Verbose: " << options.verbose << endl;
 
-    out << " - Skip ejects dependencies synthesis: "
-        << options.skip_eject_dependencies << endl;
     out << " - Skip synthesis dependencies synthesis: "
-        << options.skip_synt_dependencies << endl;
+        << options.skip_dependencies << endl;
 
     return out;
 }
@@ -269,7 +236,7 @@ void exec(const char* cmd, std::string &dst) {
     if (!pipe) throw runtime_error("popen() failed!");
 
     while (!feof(pipe)) {
-        if (fgets(buffer, 128, pipe) != NULL) {
+        if (fgets(buffer, 128, pipe) != nullptr) {
             dst += buffer;
         }
     }

@@ -62,11 +62,7 @@ int main(int argc, const char* argv[]) {
 
         // Init find unate code
         FindUnates find_unates(automaton, synt_instance, *unate_measures);
-        for(unsigned state = 0; state < automaton->num_states(); state++) {
-            find_unates.resolve_unates_in_state(state);
-        }
-
-        assert(init_state == automaton->get_init_state_number() && "Find Unate changed the automaton original state");
+        find_unates.run();
 
         unate_measures->completed();
         cout << *unate_measures << endl;

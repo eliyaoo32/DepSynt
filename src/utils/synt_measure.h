@@ -22,19 +22,6 @@ struct TestedVariable {
     vector<string> tested_dependency_set;
 };
 
-struct TestedState {
-    unsigned state;
-    Duration total_duration;
-    Duration complement_duration;
-
-    vector<string> positive_unate_variables;
-    vector<string> negative_unate_variables;
-    vector<string> not_unate_variables;
-
-    int removed_edges;
-    int impacted_edges;
-};
-
 struct AigerDescription {
     int inputs = -1;
     int outputs = -1;
@@ -61,7 +48,7 @@ private:
     TimeMeasure m_prune_automaton_time;
     string m_prune_automaton_state_based_status;
     uint m_total_prune_automaton_states;
-
+    int m_total_automaton_edges;
 
     // Generic data
     TimeMeasure m_total_time;
@@ -94,84 +81,13 @@ public:
     friend ostream &operator<<(ostream &os, const BaseMeasures &sm);
 };
 
-class FindUnatesMeasures : public BaseMeasures {
-private:
-    // Variables data
-    TimeMeasure m_variable_test_time;
-    TimeMeasure m_state_test_time;
-    TimeMeasure m_complement_time;
-
-    string currently_testing_var;
-    unsigned currently_testing_state;
-
-    vector<TestedState> tested_states;
-    vector<string> positive_unate;
-    vector<string> negative_unate;
-    vector<string> not_unate;
-
+class FindUnatesMeasures : public BaseMeasures, public UnatesHandlerMeasures {
 protected:
     void get_json_object(json::object &obj) const override;
 
 public:
     explicit FindUnatesMeasures(SyntInstance &m_synt_instance)
-            : BaseMeasures(m_synt_instance),
-              currently_testing_var("") {}
-
-    void start_testing_state(unsigned state) {
-        currently_testing_state = state;
-        m_state_test_time.start();
-    }
-
-    void end_testing_state(int removed_edges, int impacted_edges) {
-        m_state_test_time.end();
-
-        tested_states.emplace_back(TestedState{
-                .state = currently_testing_state,
-                .total_duration = m_state_test_time.get_duration(),
-                .complement_duration = m_complement_time.get_duration(),
-                .positive_unate_variables = positive_unate,
-                .negative_unate_variables = negative_unate,
-                .not_unate_variables = not_unate,
-                .removed_edges = removed_edges,
-                .impacted_edges = impacted_edges
-        });
-
-        positive_unate.clear();
-        negative_unate.clear();
-        not_unate.clear();
-        currently_testing_state = -1;
-    }
-
-    void start_testing_var(string &var) {
-        currently_testing_var = var;
-        m_variable_test_time.start();
-    }
-
-    void tested_var_unate(UnateType unate_type) {
-        if (unate_type == UnateType::Negative) {
-            negative_unate.push_back(currently_testing_var);
-        } else if (unate_type == UnateType::Positive) {
-            positive_unate.push_back(currently_testing_var);
-        }
-
-        currently_testing_var = "";
-        m_variable_test_time.start();
-    }
-
-    void tested_var_not_unate() {
-        not_unate.push_back(currently_testing_var);
-
-        currently_testing_var = "";
-        m_variable_test_time.start();
-    }
-
-    void start_automaton_complement() {
-        m_complement_time.start();
-    }
-
-    void end_automaton_complement() {
-        m_complement_time.end();
-    }
+            : BaseMeasures(m_synt_instance) {}
 };
 
 class BaseDependentsMeasures : public BaseMeasures {
@@ -223,7 +139,7 @@ public:
     void end_search_pair_states(int total_pair_states);
 };
 
-class SynthesisMeasure : public AutomatonFindDepsMeasure {
+class SynthesisMeasure : public AutomatonFindDepsMeasure, public UnatesHandlerMeasures {
 private:
     TimeMeasure m_remove_dependent_ap;
     TimeMeasure m_independents_total_duration;
@@ -240,13 +156,19 @@ private:
     string m_independents_realizable;
     string m_model_checking_status;
 
+    // Options
+    bool m_skipped_unate;
+
 protected:
     void get_json_object(json::object &obj) const override;
 
 public:
     explicit SynthesisMeasure(SyntInstance &m_synt_instance,
-                              bool skipped_dependency_check)
+                              bool skipped_dependency_check,
+                              bool skipped_unate)
             : AutomatonFindDepsMeasure(m_synt_instance, skipped_dependency_check),
+              UnatesHandlerMeasures(),
+              m_skipped_unate(skipped_unate),
               m_independents_realizable("UNKNOWN"),
               m_model_checking_status("UNKNOWN") {}
 

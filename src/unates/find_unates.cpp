@@ -8,16 +8,42 @@
 
 using namespace std;
 
-FindUnates::FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, FindUnatesMeasures& unate_measures)
+FindUnates::FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
     : m_synt_instance(synt_instance), m_unate_measures(unate_measures) {
-    m_automaton_base = automaton;
+    m_automaton_original = automaton;
+    m_automaton_base = clone_nba(automaton);
     m_original_init_state = automaton->get_init_state_number();
+    m_original_automaton_total_edges = count_edges(automaton);
 
     // Create prime automaton
     m_automaton_prime = clone_nba(automaton);
 
     m_prime_init_state = m_automaton_prime->new_state();
     m_automaton_prime->set_init_state(m_prime_init_state);
+}
+
+void FindUnates::run() {
+    m_unate_measures.start();
+
+    for(unsigned state = 0; state < m_automaton_original->num_states(); state++) {
+        this->resolve_unates_in_state(state);
+    }
+
+    // Clean the automaton after Unate
+    /**
+     * purge_dead_states
+     *  - (1) Remove all the states that cannot be part of an infinite run of the automaton
+     *  - (2) Transition labeled by bddfalse are also removed
+     */
+    m_unate_measures.start_postprocess_automaton();
+    m_automaton_original->purge_dead_states();
+    m_unate_measures.end_postprocess_automaton();
+
+    // Report automaton size
+    int total_states = static_cast<int>(m_automaton_original->num_states());
+    int total_edges = count_edges(m_automaton_original);
+
+    m_unate_measures.end(total_edges, total_states);
 }
 
 
@@ -27,19 +53,29 @@ void FindUnates::resolve_unates_in_state(unsigned state) {
     // Update automaton init state
     m_automaton_base->set_init_state(state);
 
-    // Find complement of the automaton
+    ////////////// Find complement of the automaton
     m_unate_measures.start_automaton_complement();
-    // TODO: extract it to a function
     spot::twa_graph_ptr complement;
     if(state == m_original_init_state) {
         complement = construct_automaton_negation(m_synt_instance, m_automaton_base->get_dict());
     } else {
-        // TODO: add timeout
-        complement = spot::complement(m_automaton_base);
+        spot::output_aborter complement_aborter(
+            m_automaton_base->num_states() * COMPLEMENT_MAXIMAL_MULTIPLIER,
+            m_original_automaton_total_edges * COMPLEMENT_MAXIMAL_MULTIPLIER
+        );
+        complement = spot::complement(m_automaton_base, &complement_aborter);
+
+        if(!complement) {
+            m_automaton_base->set_init_state(m_original_init_state);
+            m_automaton_prime->kill_state(m_prime_init_state);
+            m_unate_measures.end_automaton_complement();
+            m_unate_measures.failed_complement();
+            return;
+        }
     }
     m_unate_measures.end_automaton_complement();
 
-    // Check for Unate in all variables
+    ////////////// Check for Unate in all variables
     vector<string> untested_vars( m_synt_instance.get_output_vars() );
     vector<string> not_unate_vars;
     UnateEffectOnState unate_effect_on_state;
@@ -117,6 +153,7 @@ void FindUnates::handle_unate(unsigned state, int varnum, UnateType unate_type, 
             ? bdd_ithvar(varnum)
             : bdd_nithvar(varnum);
 
+    // Update the automaton base
     for(auto& edge : m_automaton_base->out(state)) {
         // If variable is positive Unate, and the edge could have an assigment to false, then the edge is impacted (Negative Unate is effected correspondingly)
         bool is_impacted = can_restrict_variable(edge.cond, varnum, unate_type == UnateType::Positive ? false : true);
@@ -128,6 +165,11 @@ void FindUnates::handle_unate(unsigned state, int varnum, UnateType unate_type, 
         if(is_impacted) {
             unate_effect_on_state.impacted_edges.insert(&edge);
         }
+    }
+
+    // Update the original automaton
+    for(auto& edge : m_automaton_original->out(state)) {
+        edge.cond = bdd_restrict(edge.cond, var_bdd) & var_bdd;
     }
 }
 
