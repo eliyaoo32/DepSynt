@@ -31,8 +31,8 @@ struct BaseCLIOptions {
 };
 
 struct SynthesisCLIOptions : public BaseCLIOptions {
-    bool skip_synt_dependencies;
-    bool skip_eject_dependencies;
+    bool skip_dependencies;
+    bool skip_unates;
     bool apply_model_checking;
     std::string model_name;
 };

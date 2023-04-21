@@ -40,7 +40,7 @@ int main(int argc, const char* argv[]) {
     vector<string> input_vars(synt_instance.get_input_vars());
 
     g_synt_measure =
-        new SynthesisMeasure(synt_instance, options.skip_eject_dependencies);
+        new SynthesisMeasure(synt_instance, options.skip_dependencies);
     SynthesisMeasure& synt_measure = *g_synt_measure;
 
     signal(SIGINT, on_sighup);
@@ -55,7 +55,7 @@ int main(int argc, const char* argv[]) {
         vector<string> dependent_variables, independent_variables;
         twa_graph_ptr nba_without_deps = nullptr, nba_with_deps = nullptr;
 
-        if (options.skip_eject_dependencies) {
+        if (options.skip_dependencies) {
             verbose << "=> Skipping finding and ejecting dependencies" << endl;
         } else {
             FindDepsByAutomaton automaton_dependencies(synt_instance, synt_measure,
@@ -67,10 +67,9 @@ int main(int argc, const char* argv[]) {
                     << " dependent variables" << endl;
         }
 
-        bool found_depedencies =
-            !options.skip_eject_dependencies && !dependent_variables.empty();
-        bool should_clone_nba_with_deps = found_depedencies;
-        bool should_clone_nba_without_deps = found_depedencies;
+        bool found_dependencies = !dependent_variables.empty();
+        bool should_clone_nba_with_deps = found_dependencies;
+        bool should_clone_nba_without_deps = found_dependencies;
 
         if (should_clone_nba_with_deps) {
             synt_measure.start_clone_nba_with_deps();
@@ -78,7 +77,7 @@ int main(int argc, const char* argv[]) {
             synt_measure.end_clone_nba_with_deps();
         }
 
-        if (found_depedencies) {
+        if (found_dependencies) {
             synt_measure.start_remove_dependent_ap();
             remove_ap_from_automaton(nba, dependent_variables);
             synt_measure.end_remove_dependent_ap();
@@ -91,7 +90,7 @@ int main(int argc, const char* argv[]) {
         }
 
         // Synthesis the independent variables
-        vector<string>& outs = options.skip_synt_dependencies
+        vector<string>& outs = options.skip_dependencies
                                    ? synt_instance.get_output_vars()
                                    : independent_variables;
 
@@ -113,7 +112,7 @@ int main(int argc, const char* argv[]) {
         // Synthesis the dependent variables
         spot::aig_ptr final_strategy, dependents_strategy;
 
-        if (found_depedencies && !options.skip_synt_dependencies) {
+        if (found_dependencies && !options.skip_dependencies) {
             synt_measure.start_dependents_synthesis();
             DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
                                                   input_vars, independent_variables,
@@ -129,7 +128,7 @@ int main(int argc, const char* argv[]) {
         } else {
             final_strategy = indep_strategy;
 
-            if (options.skip_synt_dependencies) {
+            if (options.skip_dependencies) {
                 verbose << "=> Skipping synthesis dependent variables" << endl;
             } else {
                 verbose << "=> No dependent variables found." << endl;
