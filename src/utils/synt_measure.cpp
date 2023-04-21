@@ -102,13 +102,10 @@ void BaseDependentsMeasures::get_json_object(json::object& obj) const {
 
         tested_vars.emplace_back(var_obj);
     }
-    obj.emplace("tested_variables", tested_vars);
+    obj.emplace("tested_dependencies", tested_vars);
 }
 
-
-void FindUnatesMeasures::get_json_object(json::object& obj) const {
-    BaseMeasures::get_json_object(obj);
-
+void UnatesHandlerMeasures::get_json_object(json::object& obj) const {
     json::array unate_states;
     for(const auto& state : this->tested_states) {
         json::object state_obj;
@@ -124,6 +121,11 @@ void FindUnatesMeasures::get_json_object(json::object& obj) const {
     }
 
     obj.emplace("unate_states", unate_states);
+}
+
+void FindUnatesMeasures::get_json_object(json::object& obj) const {
+    BaseMeasures::get_json_object(obj);
+    UnatesHandlerMeasures::get_json_object(obj);
 }
 
 void AutomatonFindDepsMeasure::start_search_pair_states() {
@@ -158,7 +160,7 @@ void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
 
     automaton_algo_obj["total_duration"] =
         this->m_total_find_deps_duration.get_duration(false);
-    automaton_algo_obj["skipped_dependecies"] = this->m_skipped_dependency_check;
+    automaton_algo_obj["skipped_dependencies"] = this->m_skipped_dependency_check;
     automaton_algo_obj["total_pair_state"] = this->m_total_pair_states;
     if (this->m_search_pair_states_time.has_started()) {
         automaton_algo_obj["search_pair_state_duration"] =
@@ -183,6 +185,16 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
     AutomatonFindDepsMeasure::get_json_object(obj);
     obj.emplace("algorithm_type", "aiger_synthesis");
 
+    // Unate
+    json::object unate_obj;
+    unate_obj.emplace("skipped_unate", m_skipped_unate);
+    if(!m_skipped_unate) {
+        UnatesHandlerMeasures::get_json_object(unate_obj);
+        unate_obj.emplace("total_unate_duration", m_unate_handler_duration.get_duration());
+    }
+    obj.emplace("unate", unate_obj);
+
+    // Synthesis process
     json::object synthesis_process_obj;
 
     // Report remove depenedents

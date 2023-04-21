@@ -8,6 +8,7 @@
 #include "dependents_synthesiser.h"
 #include "find_deps_by_automaton.h"
 #include "merge_strategies.h"
+#include "find_unates.h"
 #include "nba_utils.h"
 #include "synthesis_utils.h"
 
@@ -40,7 +41,7 @@ int main(int argc, const char* argv[]) {
     vector<string> input_vars(synt_instance.get_input_vars());
 
     g_synt_measure =
-        new SynthesisMeasure(synt_instance, options.skip_dependencies);
+        new SynthesisMeasure(synt_instance, options.skip_dependencies, options.skip_unates);
     SynthesisMeasure& synt_measure = *g_synt_measure;
 
     signal(SIGINT, on_sighup);
@@ -50,6 +51,24 @@ int main(int argc, const char* argv[]) {
         // Get NBA for synthesis
         spot::twa_graph_ptr nba = get_nba_for_synthesis(
             synt_instance.get_formula_parsed(), gi, synt_measure, verbose);
+
+        // Handle Unate
+        if(options.skip_unates) {
+            verbose << "=> Skipping finding and handling Unates" << endl;
+        } else {
+            verbose << "=> Finding and handling Unates" << endl;
+            synt_measure.start_handle_unate();
+            unsigned init_state = nba->get_init_state_number();
+
+            // Init find unate code
+            FindUnates find_unates(nba, synt_instance, synt_measure);
+            for(unsigned state = 0; state < nba->num_states(); state++) {
+                find_unates.resolve_unates_in_state(state);
+            }
+
+            assert(init_state == nba->get_init_state_number() && "Find Unate changed the automaton original state");
+            synt_measure.end_handle_unate();
+        }
 
         // Handle Dependent variables
         vector<string> dependent_variables, independent_variables;

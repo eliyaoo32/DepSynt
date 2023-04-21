@@ -16,7 +16,7 @@ class FindUnates {
 private:
     spot::twa_graph_ptr m_automaton_base, m_automaton_prime;
     SyntInstance& m_synt_instance;
-    FindUnatesMeasures& m_unate_measures;
+    UnatesHandlerMeasures& m_unate_measures;
 
     unsigned m_prime_init_state;
     unsigned m_original_init_state;
@@ -26,8 +26,7 @@ private:
     void handle_unate(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state);
 
 public:
-
-    explicit FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, FindUnatesMeasures& unate_measures);
+    explicit FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures);
 
     void resolve_unates_in_state(unsigned state);
 };

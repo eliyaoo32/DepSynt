@@ -94,7 +94,7 @@ public:
     friend ostream &operator<<(ostream &os, const BaseMeasures &sm);
 };
 
-class FindUnatesMeasures : public BaseMeasures {
+class UnatesHandlerMeasures {
 private:
     // Variables data
     TimeMeasure m_variable_test_time;
@@ -104,18 +104,18 @@ private:
     string currently_testing_var;
     unsigned currently_testing_state;
 
+    // Process Data
     vector<TestedState> tested_states;
     vector<string> positive_unate;
     vector<string> negative_unate;
     vector<string> not_unate;
 
 protected:
-    void get_json_object(json::object &obj) const override;
+    void get_json_object(json::object &obj) const;
 
 public:
-    explicit FindUnatesMeasures(SyntInstance &m_synt_instance)
-            : BaseMeasures(m_synt_instance),
-              currently_testing_var("") {}
+    UnatesHandlerMeasures() : currently_testing_var("") {
+    }
 
     void start_testing_state(unsigned state) {
         currently_testing_state = state;
@@ -174,6 +174,15 @@ public:
     }
 };
 
+class FindUnatesMeasures : public BaseMeasures, public UnatesHandlerMeasures {
+protected:
+    void get_json_object(json::object &obj) const override;
+
+public:
+    explicit FindUnatesMeasures(SyntInstance &m_synt_instance)
+            : BaseMeasures(m_synt_instance) {}
+};
+
 class BaseDependentsMeasures : public BaseMeasures {
 private:
     // Variables data
@@ -223,7 +232,7 @@ public:
     void end_search_pair_states(int total_pair_states);
 };
 
-class SynthesisMeasure : public AutomatonFindDepsMeasure {
+class SynthesisMeasure : public AutomatonFindDepsMeasure, public UnatesHandlerMeasures {
 private:
     TimeMeasure m_remove_dependent_ap;
     TimeMeasure m_independents_total_duration;
@@ -232,6 +241,7 @@ private:
     TimeMeasure m_clone_nba_without_deps;
     TimeMeasure m_model_checking;
     TimeMeasure m_merge_strategies;
+    TimeMeasure m_unate_handler_duration;
 
     AigerDescription m_independent_strategy;
     AigerDescription m_dependent_strategy;
@@ -240,13 +250,19 @@ private:
     string m_independents_realizable;
     string m_model_checking_status;
 
+    // Options
+    bool m_skipped_unate;
+
 protected:
     void get_json_object(json::object &obj) const override;
 
 public:
     explicit SynthesisMeasure(SyntInstance &m_synt_instance,
-                              bool skipped_dependency_check)
+                              bool skipped_dependency_check,
+                              bool skipped_unate)
             : AutomatonFindDepsMeasure(m_synt_instance, skipped_dependency_check),
+              UnatesHandlerMeasures(),
+              m_skipped_unate(skipped_unate),
               m_independents_realizable("UNKNOWN"),
               m_model_checking_status("UNKNOWN") {}
 
@@ -257,6 +273,10 @@ public:
     void start_clone_nba_with_deps() { m_clone_nba_with_deps.start(); }
 
     void end_clone_nba_with_deps() { m_clone_nba_with_deps.end(); }
+
+    void start_handle_unate() { m_unate_handler_duration.start(); }
+
+    void end_handle_unate() { m_unate_handler_duration.end(); }
 
     void start_clone_nba_without_deps() { m_clone_nba_without_deps.start(); }
 

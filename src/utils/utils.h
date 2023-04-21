@@ -40,21 +40,15 @@ struct SynthesisCLIOptions : public BaseCLIOptions {
 struct FindUnatesCLIOptions : public BaseCLIOptions {
 };
 
-struct SynthesisUnatesCLIOptions : public BaseCLIOptions {
-    bool skip_unates;
-};
-
 struct FindDependenciesCLIOptions : public BaseCLIOptions {
-    Algorithm algorithm;
-    bool find_input_dependencies;
+    Algorithm algorithm{UNKNOWN};
+    bool find_input_dependencies{};
 };
 
 bool parse_find_dependencies_cli(int argc, const char *argv[],
                                  FindDependenciesCLIOptions &options);
 
 bool parse_find_unates_cli(int argc, const char *argv[], FindUnatesCLIOptions &options);
-
-bool parse_synthesis_unates_cli(int argc, const char *argv[], SynthesisUnatesCLIOptions &options);
 
 bool parse_synthesis_cli(int argc, const char *argv[], SynthesisCLIOptions &options);
 

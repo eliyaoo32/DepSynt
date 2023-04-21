@@ -8,7 +8,7 @@
 
 using namespace std;
 
-FindUnates::FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, FindUnatesMeasures& unate_measures)
+FindUnates::FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
     : m_synt_instance(synt_instance), m_unate_measures(unate_measures) {
     m_automaton_base = automaton;
     m_original_init_state = automaton->get_init_state_number();
