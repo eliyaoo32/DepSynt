@@ -14,7 +14,6 @@ enum class UnateType {
     Negative,
 };
 
-
 struct TestedState {
     unsigned state;
     Duration total_duration;
@@ -26,6 +25,8 @@ struct TestedState {
 
     int removed_edges;
     int impacted_edges;
+
+    bool complement_succeeded;
 };
 
 class UnatesHandlerMeasures {
@@ -67,6 +68,8 @@ public:
     void start_testing_state(unsigned state);
 
     void end_testing_state(int removed_edges, int impacted_edges);
+
+    void failed_complement();
 
     void start_testing_var(string &var);
 

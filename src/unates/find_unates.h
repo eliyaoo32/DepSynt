@@ -7,6 +7,8 @@
 #include "unate_utils.h"
 #include "synt_instance.h"
 
+#define COMPLEMENT_MAXIMAL_MULTIPLIER 5
+
 struct UnateEffectOnState {
     set<void*> impacted_edges; // Storing the address of the changed edges
     set<void*> removed_edges; // Storing the address of the changed edges
@@ -26,6 +28,12 @@ private:
 
     unsigned m_prime_init_state;
     unsigned m_original_init_state;
+
+    /**
+     * TODO: create a struct called `AutomatonSize` which store how many states and edges there are.
+     * It can be used in various places, such as, here, in `FindUnates::run()`, in `FindUnates::resolve_unates_in_state()`, `BaseMeasures`
+     */
+    unsigned m_original_automaton_total_edges;
 
     bool is_var_unate_in_state(unsigned state, int varnum, spot::twa_graph_ptr& base_automaton_complement, UnateType unate_type);
 

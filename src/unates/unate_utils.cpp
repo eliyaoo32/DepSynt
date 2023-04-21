@@ -17,7 +17,8 @@ void UnatesHandlerMeasures::end_testing_state(int removed_edges, int impacted_ed
             .negative_unate_variables = negative_unate,
             .not_unate_variables = not_unate,
             .removed_edges = removed_edges,
-            .impacted_edges = impacted_edges
+            .impacted_edges = impacted_edges,
+            .complement_succeeded = true
     });
 
     positive_unate.clear();
@@ -25,6 +26,31 @@ void UnatesHandlerMeasures::end_testing_state(int removed_edges, int impacted_ed
     not_unate.clear();
     currently_testing_state = -1;
 }
+
+
+
+void UnatesHandlerMeasures::failed_complement() {
+    m_state_test_time.end();
+
+    tested_states.emplace_back(TestedState{
+            .state = currently_testing_state,
+            .total_duration = m_state_test_time.get_duration(),
+            .complement_duration = m_complement_time.get_duration(),
+            .positive_unate_variables = {},
+            .negative_unate_variables = {},
+            .not_unate_variables = {},
+            .removed_edges = 0,
+            .impacted_edges = 0,
+            .complement_succeeded = false
+    });
+
+    positive_unate.clear();
+    negative_unate.clear();
+    not_unate.clear();
+    currently_testing_state = -1;
+}
+
+
 
 void UnatesHandlerMeasures::start_testing_var(string &var) {
     currently_testing_var = var;
@@ -66,6 +92,7 @@ void UnatesHandlerMeasures::get_json_object(json::object& obj) const {
         state_obj["total_duration"] = state.total_duration;
         state_obj["removed_edges"] = state.removed_edges;
         state_obj["impacted_edges"] = state.impacted_edges;
+        state_obj["complement_succeeded"] = state.complement_succeeded;
         state_obj["complement_duration"] = state.complement_duration;
         state_obj["negative_unate_variables"] = boost::algorithm::join(state.negative_unate_variables, ",");
         state_obj["positive_unate_variables"] = boost::algorithm::join(state.positive_unate_variables, ",");
