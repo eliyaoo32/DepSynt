@@ -1,7 +1,7 @@
 #include "synt_measure.h"
+#include "nba_utils.h"
 
 #include <fstream>
-#include <boost/algorithm/string/join.hpp>
 
 void aiger_description_obj(json::object& obj, const AigerDescription& description) {
     obj.emplace("total_inputs", description.inputs);
@@ -80,6 +80,7 @@ void BaseMeasures::get_json_object(json::object& obj) const {
             this->m_prune_automaton_state_based_status;
     automaton["prune_total_states"] =
             static_cast<int>(this->m_total_prune_automaton_states);
+    automaton["total_edges"] = this->m_total_automaton_edges;
 
     obj.emplace("automaton", automaton);
 
@@ -103,24 +104,6 @@ void BaseDependentsMeasures::get_json_object(json::object& obj) const {
         tested_vars.emplace_back(var_obj);
     }
     obj.emplace("tested_dependencies", tested_vars);
-}
-
-void UnatesHandlerMeasures::get_json_object(json::object& obj) const {
-    json::array unate_states;
-    for(const auto& state : this->tested_states) {
-        json::object state_obj;
-        state_obj["state"] = state.state;
-        state_obj["total_duration"] = state.total_duration;
-        state_obj["removed_edges"] = state.removed_edges;
-        state_obj["impacted_edges"] = state.impacted_edges;
-        state_obj["complement_duration"] = state.complement_duration;
-        state_obj["negative_unate_variables"] = boost::algorithm::join(state.negative_unate_variables, ",");
-        state_obj["positive_unate_variables"] = boost::algorithm::join(state.positive_unate_variables, ",");
-        state_obj["not_unate_variables"] = boost::algorithm::join(state.not_unate_variables, ",");
-        unate_states.emplace_back(state_obj);
-    }
-
-    obj.emplace("unate_states", unate_states);
 }
 
 void FindUnatesMeasures::get_json_object(json::object& obj) const {
@@ -150,6 +133,8 @@ void BaseMeasures::end_prune_automaton(
         pruned_automaton->prop_state_acc().is_true()
             ? "true"
             : (pruned_automaton->prop_state_acc().is_false() ? "false" : "maybe");
+
+    m_total_automaton_edges = count_edges(pruned_automaton);
 }
 
 void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
@@ -190,7 +175,6 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
     unate_obj.emplace("skipped_unate", m_skipped_unate);
     if(!m_skipped_unate) {
         UnatesHandlerMeasures::get_json_object(unate_obj);
-        unate_obj.emplace("total_unate_duration", m_unate_handler_duration.get_duration());
     }
     obj.emplace("unate", unate_obj);
 

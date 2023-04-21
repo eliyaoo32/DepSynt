@@ -22,19 +22,6 @@ struct TestedVariable {
     vector<string> tested_dependency_set;
 };
 
-struct TestedState {
-    unsigned state;
-    Duration total_duration;
-    Duration complement_duration;
-
-    vector<string> positive_unate_variables;
-    vector<string> negative_unate_variables;
-    vector<string> not_unate_variables;
-
-    int removed_edges;
-    int impacted_edges;
-};
-
 struct AigerDescription {
     int inputs = -1;
     int outputs = -1;
@@ -61,7 +48,7 @@ private:
     TimeMeasure m_prune_automaton_time;
     string m_prune_automaton_state_based_status;
     uint m_total_prune_automaton_states;
-
+    int m_total_automaton_edges;
 
     // Generic data
     TimeMeasure m_total_time;
@@ -92,86 +79,6 @@ public:
     void completed() { m_is_completed = true; }
 
     friend ostream &operator<<(ostream &os, const BaseMeasures &sm);
-};
-
-class UnatesHandlerMeasures {
-private:
-    // Variables data
-    TimeMeasure m_variable_test_time;
-    TimeMeasure m_state_test_time;
-    TimeMeasure m_complement_time;
-
-    string currently_testing_var;
-    unsigned currently_testing_state;
-
-    // Process Data
-    vector<TestedState> tested_states;
-    vector<string> positive_unate;
-    vector<string> negative_unate;
-    vector<string> not_unate;
-
-protected:
-    void get_json_object(json::object &obj) const;
-
-public:
-    UnatesHandlerMeasures() : currently_testing_var("") {
-    }
-
-    void start_testing_state(unsigned state) {
-        currently_testing_state = state;
-        m_state_test_time.start();
-    }
-
-    void end_testing_state(int removed_edges, int impacted_edges) {
-        m_state_test_time.end();
-
-        tested_states.emplace_back(TestedState{
-                .state = currently_testing_state,
-                .total_duration = m_state_test_time.get_duration(),
-                .complement_duration = m_complement_time.get_duration(),
-                .positive_unate_variables = positive_unate,
-                .negative_unate_variables = negative_unate,
-                .not_unate_variables = not_unate,
-                .removed_edges = removed_edges,
-                .impacted_edges = impacted_edges
-        });
-
-        positive_unate.clear();
-        negative_unate.clear();
-        not_unate.clear();
-        currently_testing_state = -1;
-    }
-
-    void start_testing_var(string &var) {
-        currently_testing_var = var;
-        m_variable_test_time.start();
-    }
-
-    void tested_var_unate(UnateType unate_type) {
-        if (unate_type == UnateType::Negative) {
-            negative_unate.push_back(currently_testing_var);
-        } else if (unate_type == UnateType::Positive) {
-            positive_unate.push_back(currently_testing_var);
-        }
-
-        currently_testing_var = "";
-        m_variable_test_time.start();
-    }
-
-    void tested_var_not_unate() {
-        not_unate.push_back(currently_testing_var);
-
-        currently_testing_var = "";
-        m_variable_test_time.start();
-    }
-
-    void start_automaton_complement() {
-        m_complement_time.start();
-    }
-
-    void end_automaton_complement() {
-        m_complement_time.end();
-    }
 };
 
 class FindUnatesMeasures : public BaseMeasures, public UnatesHandlerMeasures {
@@ -241,7 +148,6 @@ private:
     TimeMeasure m_clone_nba_without_deps;
     TimeMeasure m_model_checking;
     TimeMeasure m_merge_strategies;
-    TimeMeasure m_unate_handler_duration;
 
     AigerDescription m_independent_strategy;
     AigerDescription m_dependent_strategy;
@@ -273,10 +179,6 @@ public:
     void start_clone_nba_with_deps() { m_clone_nba_with_deps.start(); }
 
     void end_clone_nba_with_deps() { m_clone_nba_with_deps.end(); }
-
-    void start_handle_unate() { m_unate_handler_duration.start(); }
-
-    void end_handle_unate() { m_unate_handler_duration.end(); }
 
     void start_clone_nba_without_deps() { m_clone_nba_without_deps.start(); }
 

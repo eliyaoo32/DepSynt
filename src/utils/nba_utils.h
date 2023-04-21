@@ -7,4 +7,6 @@
 
 spot::twa_graph_ptr clone_nba(const spot::twa_graph_ptr& nba);
 
+int count_edges(const spot::twa_graph_ptr& nba);
+
 #endif

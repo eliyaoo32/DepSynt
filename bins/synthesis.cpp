@@ -57,17 +57,13 @@ int main(int argc, const char* argv[]) {
             verbose << "=> Skipping finding and handling Unates" << endl;
         } else {
             verbose << "=> Finding and handling Unates" << endl;
-            synt_measure.start_handle_unate();
             unsigned init_state = nba->get_init_state_number();
 
             // Init find unate code
             FindUnates find_unates(nba, synt_instance, synt_measure);
-            for(unsigned state = 0; state < nba->num_states(); state++) {
-                find_unates.resolve_unates_in_state(state);
-            }
+            find_unates.run();
 
             assert(init_state == nba->get_init_state_number() && "Find Unate changed the automaton original state");
-            synt_measure.end_handle_unate();
         }
 
         // Handle Dependent variables
