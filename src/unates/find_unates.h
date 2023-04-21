@@ -14,7 +14,7 @@ struct UnateEffectOnState {
 
 class FindUnates {
 private:
-    spot::twa_graph_ptr m_automaton_base, m_automaton_prime;
+    spot::twa_graph_ptr m_automaton_original, m_automaton_base, m_automaton_prime;
     SyntInstance& m_synt_instance;
     UnatesHandlerMeasures& m_unate_measures;
 

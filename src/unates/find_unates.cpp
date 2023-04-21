@@ -10,7 +10,8 @@ using namespace std;
 
 FindUnates::FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
     : m_synt_instance(synt_instance), m_unate_measures(unate_measures) {
-    m_automaton_base = automaton;
+    m_automaton_original = automaton;
+    m_automaton_base = clone_nba(automaton);
     m_original_init_state = automaton->get_init_state_number();
 
     // Create prime automaton
@@ -117,6 +118,7 @@ void FindUnates::handle_unate(unsigned state, int varnum, UnateType unate_type, 
             ? bdd_ithvar(varnum)
             : bdd_nithvar(varnum);
 
+    // Update the automaton base
     for(auto& edge : m_automaton_base->out(state)) {
         // If variable is positive Unate, and the edge could have an assigment to false, then the edge is impacted (Negative Unate is effected correspondingly)
         bool is_impacted = can_restrict_variable(edge.cond, varnum, unate_type == UnateType::Positive ? false : true);
@@ -128,6 +130,11 @@ void FindUnates::handle_unate(unsigned state, int varnum, UnateType unate_type, 
         if(is_impacted) {
             unate_effect_on_state.impacted_edges.insert(&edge);
         }
+    }
+
+    // Update the original automaton
+    for(auto& edge : m_automaton_original->out(state)) {
+        edge.cond = bdd_restrict(edge.cond, var_bdd) & var_bdd;
     }
 }
 
