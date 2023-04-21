@@ -9,7 +9,7 @@ from lookup_dependencies import create_folder, get_all_benchmarks
 BENCHMARK_OUTPUT_FILE_FORMAT = '{}.hoa'
 BENCHMARK_MEASURES_FILE_FORMAT = '{}.json'
 TOOLS = ['ltlsynt-sd', 'ltlsynt-ds',
-         'ltlsynt-lar.old', 'ltlsynt-lar', 'ltlsynt-ps', 'bfss-synt', 'bfss-synt-eject-deps', 'bfss-synt-skip-deps']
+         'ltlsynt-lar.old', 'ltlsynt-lar', 'ltlsynt-ps', 'bfss-synt']
 
 
 def get_benchmark_output_path(tool_name, benchmark_name, output_dir):
