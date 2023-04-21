@@ -35,6 +35,7 @@ private:
     TimeMeasure m_variable_test_time;
     TimeMeasure m_state_test_time;
     TimeMeasure m_complement_time;
+    TimeMeasure m_postprocess_unate_time;
 
     string currently_testing_var;
     unsigned currently_testing_state;
@@ -68,6 +69,10 @@ public:
     void start_testing_state(unsigned state);
 
     void end_testing_state(int removed_edges, int impacted_edges);
+
+    void start_postprocess_automaton() {m_postprocess_unate_time.start();}
+
+    void end_postprocess_automaton() {m_postprocess_unate_time.end();}
 
     void failed_complement();
 

@@ -102,6 +102,7 @@ void UnatesHandlerMeasures::get_json_object(json::object& obj) const {
 
     obj.emplace("unate_states", unate_states);
     obj.emplace("total_unate_duration", m_unate_handler_duration.get_duration());
+    obj.emplace("automaton_postprocess_duration", m_postprocess_unate_time.get_duration());
     obj.emplace("total_edges_after_unate", m_total_edges_after_unate);
     obj.emplace("total_states_after_unate", m_total_states_after_unate);
 }
