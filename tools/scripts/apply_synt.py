@@ -20,7 +20,7 @@ def get_benchmark_measures_path(tool_name, benchmark_name, output_dir):
     return os.path.join(output_dir, BENCHMARK_MEASURES_FILE_FORMAT.format(tool_name + " - " + benchmark_name))
 
 
-def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, decompose, model_checking):
+def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, decompose, model_checking, skip_dependencies, skip_unates):
     benchmark_name = benchmark['benchmark_name']
     input_vars = benchmark['input_vars']
     output_vars = benchmark['output_vars']
@@ -46,12 +46,10 @@ def process_benchmark(benchmark, timeout, output_dir, synt_tool, tool_path, deco
             tool_path=tool_path if tool_path != '' else 'bfss-synt',
             measures_path=get_benchmark_measures_path(algorithm, benchmark_name, output_dir)
         )
-        if 'skip-deps' in synt_tool:
-            cli_cmd += ' --skip-eject-deps --skip-synt-deps'
-        elif 'eject-deps' in synt_tool:
-            cli_cmd += ' --skip-synt-deps'
-        if decompose:
-            cli_cmd += ' --decompose'
+        if skip_dependencies:
+            cli_cmd += " --skip-dependencies"
+        if skip_unates:
+            cli_cmd += " --skip-unates"
         if model_checking:
             cli_cmd += " --model-checking"
     else:
@@ -93,6 +91,8 @@ def main():
     parser.add_argument('--decompose', help="Apply the synthesis tool with decompose option",
                         default=False, action='store_true')
     parser.add_argument('--model_checking', help="Apply model checking on the tool", default=False, action='store_true')
+    parser.add_argument('--skip_dependencies', help="Should skip dependencies", default=False, action='store_true')
+    parser.add_argument('--skip_unates', help="Should skip unates", default=False, action='store_true')
     args = parser.parse_args()
 
     workers = args.workers
@@ -105,6 +105,8 @@ def main():
     tool_path = args.tool_path
     synt_tool = args.tool
     decompose = args.decompose
+    skip_dependencies = args.skip_dependencies
+    skip_unates = args.skip_unates
 
     """
     Search for benchmarks by configuration
@@ -123,7 +125,7 @@ def main():
     Apply the algorithm
     """
     process_benchmark_args = [
-        (benchmark, benchmarks_timeout, output_dir, synt_tool, tool_path, decompose, model_checking)
+        (benchmark, benchmarks_timeout, output_dir, synt_tool, tool_path, decompose, model_checking, skip_dependencies, skip_unates)
         for benchmark in benchmarks
     ]
     with Pool(workers) as pool:

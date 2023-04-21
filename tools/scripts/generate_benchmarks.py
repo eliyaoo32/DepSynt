@@ -7,7 +7,7 @@ import os
 
 
 TLSF_FILES_PATH = os.path.join(
-    Path(__file__).parent.resolve(), './benchmarks/tlsf')
+    Path(__file__).parent.resolve(), '../benchmarks/tlsf')
 OUTPUT_BENCHMARKS = os.path.join(
     Path(__file__).parent.resolve(), './benchmarks.csv')
 ERROR_BENCHMARKS_PATH = os.path.join(
