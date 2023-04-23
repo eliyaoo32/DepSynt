@@ -1,5 +1,5 @@
-#ifndef REACTIVE_SYNTHESIS_BFSS_FIND_UNATES_H
-#define REACTIVE_SYNTHESIS_BFSS_FIND_UNATES_H
+#ifndef REACTIVE_SYNTHESIS_BFSS_HANDLE_UNATES_H
+#define REACTIVE_SYNTHESIS_BFSS_HANDLE_UNATES_H
 
 #include <string>
 #include <set>
@@ -14,7 +14,7 @@ struct UnateEffectOnState {
     set<void*> removed_edges; // Storing the address of the changed edges
 };
 
-class FindUnates {
+class HandleUnates {
 private:
     // The original automaton which suppose to be effected from process
     spot::twa_graph_ptr m_automaton_original;
@@ -31,18 +31,18 @@ private:
 
     /**
      * TODO: create a struct called `AutomatonSize` which store how many states and edges there are.
-     * It can be used in various places, such as, here, in `FindUnates::run()`, in `FindUnates::resolve_unates_in_state()`, `BaseMeasures`
+     * It can be used in various places, such as, here, in `HandleUnates::run()`, in `HandleUnates::resolve_unates_in_state()`, `BaseMeasures`
      */
     unsigned m_original_automaton_total_edges;
 
     bool is_var_unate_in_state(unsigned state, int varnum, spot::twa_graph_ptr& base_automaton_complement, UnateType unate_type);
 
-    void handle_unate(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state);
+    void handle_unate_in_state(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state);
 
     void resolve_unates_in_state(unsigned state);
 
 public:
-    explicit FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures);
+    explicit HandleUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures);
 
     void run();
 };

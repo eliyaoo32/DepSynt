@@ -3,7 +3,7 @@
 #include "utils.h"
 
 #include "synt_measure.h"
-#include "find_unates.h"
+#include "handle_unates.h"
 #include "unate_utils.h"
 
 using namespace std;
@@ -61,7 +61,7 @@ int main(int argc, const char* argv[]) {
         unsigned init_state = automaton->get_init_state_number();
 
         // Init find unate code
-        FindUnates find_unates(automaton, synt_instance, *unate_measures);
+        HandleUnates find_unates(automaton, synt_instance, *unate_measures);
         find_unates.run();
 
         unate_measures->completed();

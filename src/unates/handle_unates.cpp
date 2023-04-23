@@ -4,11 +4,11 @@
 
 #include "nba_utils.h"
 #include "bdd_var_cacher.h"
-#include "find_unates.h"
+#include "handle_unates.h"
 
 using namespace std;
 
-FindUnates::FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
+HandleUnates::HandleUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
     : m_synt_instance(synt_instance), m_unate_measures(unate_measures) {
     m_automaton_original = automaton;
     m_automaton_base = clone_nba(automaton);
@@ -22,7 +22,7 @@ FindUnates::FindUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_
     m_automaton_prime->set_init_state(m_prime_init_state);
 }
 
-void FindUnates::run() {
+void HandleUnates::run() {
     m_unate_measures.start();
 
     for(unsigned state = 0; state < m_automaton_original->num_states(); state++) {
@@ -47,7 +47,7 @@ void FindUnates::run() {
 }
 
 
-void FindUnates::resolve_unates_in_state(unsigned state) {
+void HandleUnates::resolve_unates_in_state(unsigned state) {
     m_unate_measures.start_testing_state(state);
 
     // Update automaton init state
@@ -88,7 +88,7 @@ void FindUnates::resolve_unates_in_state(unsigned state) {
         int varnum = m_automaton_base->register_ap(var);
 
         if(is_var_unate_in_state(state, varnum, complement, UnateType::Positive)) {
-            this->handle_unate(state, varnum, UnateType::Positive, unate_effect_on_state);
+            this->handle_unate_in_state(state, varnum, UnateType::Positive, unate_effect_on_state);
 
             // Retesting all the already tested variables
             untested_vars.insert(untested_vars.end(), not_unate_vars.begin(), not_unate_vars.end());
@@ -97,7 +97,7 @@ void FindUnates::resolve_unates_in_state(unsigned state) {
             // Report var result
             m_unate_measures.tested_var_unate(UnateType::Positive);
         } else if(is_var_unate_in_state(state, varnum, complement, UnateType::Negative)) {
-            this->handle_unate(state, varnum, UnateType::Negative, unate_effect_on_state);
+            this->handle_unate_in_state(state, varnum, UnateType::Negative, unate_effect_on_state);
 
             // Retesting all the already tested variables
             untested_vars.insert(untested_vars.end(), not_unate_vars.begin(), not_unate_vars.end());
@@ -125,7 +125,7 @@ static_cast<int>(unate_effect_on_state.impacted_edges.size())
     );
 }
 
-bool FindUnates::is_var_unate_in_state(unsigned state, int varnum, spot::twa_graph_ptr& base_automaton_complement, UnateType unate_type) {
+bool HandleUnates::is_var_unate_in_state(unsigned state, int varnum, spot::twa_graph_ptr& base_automaton_complement, UnateType unate_type) {
     // Create the prime state in prime automaton
     m_automaton_prime->kill_state(m_prime_init_state);
 
@@ -148,7 +148,7 @@ bool FindUnates::is_var_unate_in_state(unsigned state, int varnum, spot::twa_gra
     return is_unate;
 }
 
-void FindUnates::handle_unate(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state) {
+void HandleUnates::handle_unate_in_state(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state) {
     auto var_bdd = (unate_type == UnateType::Positive)
             ? bdd_ithvar(varnum)
             : bdd_nithvar(varnum);

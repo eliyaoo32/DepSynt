@@ -8,7 +8,7 @@
 #include "dependents_synthesiser.h"
 #include "find_deps_by_automaton.h"
 #include "merge_strategies.h"
-#include "find_unates.h"
+#include "handle_unates.h"
 #include "nba_utils.h"
 #include "synthesis_utils.h"
 
@@ -60,7 +60,7 @@ int main(int argc, const char* argv[]) {
             unsigned init_state = nba->get_init_state_number();
 
             // Init find unate code
-            FindUnates find_unates(nba, synt_instance, synt_measure);
+            HandleUnates find_unates(nba, synt_instance, synt_measure);
             find_unates.run();
 
             assert(init_state == nba->get_init_state_number() && "Find Unate changed the automaton original state");
