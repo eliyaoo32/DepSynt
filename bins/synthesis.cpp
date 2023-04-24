@@ -4,6 +4,8 @@
 #include <vector>
 #include <memory>
 #include <stdexcept>
+#include <spot/misc/version.hh>
+
 
 #include "dependents_synthesiser.h"
 #include "find_deps_by_automaton.h"
@@ -25,6 +27,23 @@ static SynthesisCLIOptions options;
 void on_sighup(int args);
 
 int main(int argc, const char* argv[]) {
+    cout << "Spot version: " << spot::version() << endl;
+
+    translator my_trans;
+    my_trans.set_type(spot::postprocessor::Buchi);
+    my_trans.set_pref(spot::postprocessor::SBAcc);
+    auto my_formula = "((((G (F (p))) || (G (F (q)))) || (G (F (r)))) <-> (G (F (acc))))";
+    spot::parsed_formula pf = spot::parse_infix_psl(my_formula);
+    if (pf.format_errors(std::cerr))
+        return 1;
+
+    auto my_automaton = my_trans.run(pf.f);
+    cout << "my_formula: " << my_formula << endl;
+    custom_print(cout, my_automaton);
+    return EXIT_SUCCESS;
+}
+
+int main2(int argc, const char* argv[]) {
     int parsed_cli_status = parse_synthesis_cli(argc, argv, options);
     if (!parsed_cli_status) {
         return EXIT_FAILURE;
@@ -50,6 +69,21 @@ int main(int argc, const char* argv[]) {
     signal(SIGHUP, on_sighup);
 
     try {
+        translator my_trans;
+        my_trans.set_type(spot::postprocessor::Buchi);
+        my_trans.set_pref(spot::postprocessor::SBAcc);
+        auto my_formula = options.formula;
+        spot::parsed_formula pf = spot::parse_infix_psl(options.formula);
+        if (pf.format_errors(std::cerr))
+            return 1;
+
+        auto my_automaton = my_trans.run(pf.f);
+        cout << "my_formula: " << my_formula << endl;
+        cout << "Created automaton for fun print: " << endl;
+        custom_print(cout, my_automaton);
+        return EXIT_SUCCESS;
+
+
         // Get NBA for synthesis
         spot::twa_graph_ptr nba = get_nba_for_synthesis(
             synt_instance.get_formula_parsed(), gi, synt_measure, verbose);
