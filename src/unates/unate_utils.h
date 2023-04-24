@@ -14,6 +14,11 @@ enum class UnateType {
     Negative,
 };
 
+struct UnateEffectOnState {
+    set<void*> impacted_edges; // Storing the address of the changed edges
+    set<void*> removed_edges; // Storing the address of the changed edges
+};
+
 struct TestedState {
     unsigned state;
     Duration total_duration;
@@ -22,6 +27,7 @@ struct TestedState {
     vector<string> positive_unate_variables;
     vector<string> negative_unate_variables;
     vector<string> not_unate_variables;
+    vector<string> unknown_unate_variables;
 
     int removed_edges;
     int impacted_edges;
@@ -32,7 +38,6 @@ struct TestedState {
 class UnatesHandlerMeasures {
 private:
     // Variables data
-    TimeMeasure m_variable_test_time;
     TimeMeasure m_state_test_time;
     TimeMeasure m_complement_time;
     TimeMeasure m_postprocess_unate_time;
@@ -44,16 +49,19 @@ private:
     vector<TestedState> tested_states;
     vector<string> positive_unate;
     vector<string> negative_unate;
+    vector<string> unknown_unate;
     vector<string> not_unate;
     TimeMeasure m_unate_handler_duration;
     int m_total_edges_after_unate;
     int m_total_states_after_unate;
 
+    string m_algorithm_name;
+
 protected:
     void get_json_object(json::object &obj) const;
 
 public:
-    UnatesHandlerMeasures() : currently_testing_var(""), m_total_edges_after_unate(-1) {
+    UnatesHandlerMeasures() : currently_testing_var(""), m_total_edges_after_unate(-1), m_algorithm_name("UNKNOWN") {
     }
 
     void start() {
@@ -64,6 +72,10 @@ public:
         m_unate_handler_duration.end();
         m_total_edges_after_unate = total_edges_after_unate;
         m_total_states_after_unate = states_after_unate;
+    }
+
+    void set_algorithm_name(const char* algorithm_name) {
+        m_algorithm_name = algorithm_name;
     }
 
     void start_testing_state(unsigned state);
@@ -81,6 +93,8 @@ public:
     void tested_var_unate(UnateType unate_type);
 
     void tested_var_not_unate();
+
+    void tested_var_unknown();
 
     void start_automaton_complement();
 

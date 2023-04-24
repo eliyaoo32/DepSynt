@@ -8,13 +8,15 @@
 #include "dependents_synthesiser.h"
 #include "find_deps_by_automaton.h"
 #include "merge_strategies.h"
-#include "find_unates.h"
+#include "handle_unates_by_complement.h"
+#include "handle_unates_by_heuristic.h"
 #include "nba_utils.h"
 #include "synthesis_utils.h"
 
 using namespace std;
 using namespace spot;
 
+#define USE_UNATE_COMPLEMENT 0
 #define AIGER_MODE "ite"
 
 static SynthesisMeasure* g_synt_measure = nullptr;
@@ -60,7 +62,11 @@ int main(int argc, const char* argv[]) {
             unsigned init_state = nba->get_init_state_number();
 
             // Init find unate code
-            FindUnates find_unates(nba, synt_instance, synt_measure);
+#if USE_UNATE_COMPLEMENT
+            HandleUnatesByComplement find_unates(nba, synt_instance, synt_measure);
+#else
+            HandleUnatesByHeuristic find_unates(nba, synt_instance, synt_measure);
+#endif
             find_unates.run();
 
             assert(init_state == nba->get_init_state_number() && "Find Unate changed the automaton original state");
