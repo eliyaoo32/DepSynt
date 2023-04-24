@@ -8,7 +8,7 @@
 using namespace std;
 
 HandleUnatesByComplement::HandleUnatesByComplement(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
-    : HandleUnatesBase(automaton, synt_instance, unate_measures)
+    : HandleUnatesBase(automaton, synt_instance, unate_measures, "ByComplement")
 {
     m_automaton_clone = clone_nba(automaton);
     m_original_init_state = automaton->get_init_state_number();

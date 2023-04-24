@@ -55,11 +55,13 @@ private:
     int m_total_edges_after_unate;
     int m_total_states_after_unate;
 
+    string m_algorithm_name;
+
 protected:
     void get_json_object(json::object &obj) const;
 
 public:
-    UnatesHandlerMeasures() : currently_testing_var(""), m_total_edges_after_unate(-1) {
+    UnatesHandlerMeasures() : currently_testing_var(""), m_total_edges_after_unate(-1), m_algorithm_name("UNKNOWN") {
     }
 
     void start() {
@@ -70,6 +72,10 @@ public:
         m_unate_handler_duration.end();
         m_total_edges_after_unate = total_edges_after_unate;
         m_total_states_after_unate = states_after_unate;
+    }
+
+    void set_algorithm_name(const char* algorithm_name) {
+        m_algorithm_name = algorithm_name;
     }
 
     void start_testing_state(unsigned state);

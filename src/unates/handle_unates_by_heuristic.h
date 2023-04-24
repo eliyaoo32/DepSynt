@@ -9,7 +9,7 @@ protected:
 
 public:
     explicit HandleUnatesByHeuristic(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
-        : HandleUnatesBase(automaton, synt_instance, unate_measures) {};
+        : HandleUnatesBase(automaton, synt_instance, unate_measures, "BySufficientCondition") {};
 };
 
 

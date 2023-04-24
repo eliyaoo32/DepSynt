@@ -4,10 +4,13 @@
 
 #include "synt_measure.h"
 #include "handle_unates_by_complement.h"
+#include "handle_unates_by_heuristic.h"
 #include "unate_utils.h"
 
 using namespace std;
 
+
+#define USE_UNATE_COMPLEMENT 0
 
 static FindUnatesMeasures* unate_measures = nullptr;
 
@@ -61,9 +64,14 @@ int main(int argc, const char* argv[]) {
         unsigned init_state = automaton->get_init_state_number();
 
         // Init find unate code
+#if USE_UNATE_COMPLEMENT
         HandleUnatesByComplement find_unates(automaton, synt_instance, *unate_measures);
+#else
+        HandleUnatesByHeuristic find_unates(automaton, synt_instance, *unate_measures);
+#endif
         find_unates.run();
 
+        assert(init_state == automaton->get_init_state_number() && "Find Unate changed the automaton original state");
         unate_measures->completed();
         cout << *unate_measures << endl;
         delete unate_measures;

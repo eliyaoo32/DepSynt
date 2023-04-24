@@ -15,9 +15,10 @@ protected:
 
     virtual void handle_unate_in_state(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state);
 public:
-    explicit HandleUnatesBase(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
+    explicit HandleUnatesBase(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures, const char* algo_name)
     : m_synt_instance(synt_instance), m_unate_measures(unate_measures) {
         m_automaton = automaton;
+        m_unate_measures.set_algorithm_name(algo_name);
     }
 
     void run();
