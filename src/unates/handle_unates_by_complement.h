@@ -34,12 +34,11 @@ private:
 
     void handle_unate_in_state(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state);
 
-    void resolve_unates_in_state(unsigned state);
+protected:
+    void resolve_unates_in_state(unsigned state) override;
 
 public:
     explicit HandleUnatesByComplement(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures);
-
-    void run();
 };
 
 #endif

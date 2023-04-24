@@ -9,13 +9,16 @@ protected:
     spot::twa_graph_ptr m_automaton;
     SyntInstance& m_synt_instance;
     UnatesHandlerMeasures& m_unate_measures;
+
+protected:
+    virtual void resolve_unates_in_state(unsigned state) = 0;
 public:
     explicit HandleUnatesBase(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
     : m_synt_instance(synt_instance), m_unate_measures(unate_measures) {
         m_automaton = automaton;
     }
 
-    virtual void run() = 0;
+    void run();
 };
 
 #endif //REACTIVE_SYNTHESIS_BFSS_HANDLE_UNATES_BASE_H
