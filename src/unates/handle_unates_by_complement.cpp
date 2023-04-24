@@ -4,11 +4,11 @@
 
 #include "nba_utils.h"
 #include "bdd_var_cacher.h"
-#include "handle_unates.h"
+#include "handle_unates_by_complement.h"
 
 using namespace std;
 
-HandleUnates::HandleUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
+HandleUnatesByComplement::HandleUnatesByComplement(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
     : m_synt_instance(synt_instance), m_unate_measures(unate_measures) {
     m_automaton_original = automaton;
     m_automaton_base = clone_nba(automaton);
@@ -22,7 +22,7 @@ HandleUnates::HandleUnates(const spot::twa_graph_ptr& automaton, SyntInstance& s
     m_automaton_prime->set_init_state(m_prime_init_state);
 }
 
-void HandleUnates::run() {
+void HandleUnatesByComplement::run() {
     m_unate_measures.start();
 
     for(unsigned state = 0; state < m_automaton_original->num_states(); state++) {
@@ -47,7 +47,7 @@ void HandleUnates::run() {
 }
 
 
-void HandleUnates::resolve_unates_in_state(unsigned state) {
+void HandleUnatesByComplement::resolve_unates_in_state(unsigned state) {
     m_unate_measures.start_testing_state(state);
 
     // Update automaton init state
@@ -125,7 +125,7 @@ static_cast<int>(unate_effect_on_state.impacted_edges.size())
     );
 }
 
-bool HandleUnates::is_var_unate_in_state(unsigned state, int varnum, spot::twa_graph_ptr& base_automaton_complement, UnateType unate_type) {
+bool HandleUnatesByComplement::is_var_unate_in_state(unsigned state, int varnum, spot::twa_graph_ptr& base_automaton_complement, UnateType unate_type) {
     // Create the prime state in prime automaton
     m_automaton_prime->kill_state(m_prime_init_state);
 
@@ -148,7 +148,7 @@ bool HandleUnates::is_var_unate_in_state(unsigned state, int varnum, spot::twa_g
     return is_unate;
 }
 
-void HandleUnates::handle_unate_in_state(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state) {
+void HandleUnatesByComplement::handle_unate_in_state(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state) {
     auto var_bdd = (unate_type == UnateType::Positive)
             ? bdd_ithvar(varnum)
             : bdd_nithvar(varnum);

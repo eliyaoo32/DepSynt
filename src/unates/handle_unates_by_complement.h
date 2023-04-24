@@ -1,5 +1,5 @@
-#ifndef REACTIVE_SYNTHESIS_BFSS_HANDLE_UNATES_H
-#define REACTIVE_SYNTHESIS_BFSS_HANDLE_UNATES_H
+#ifndef REACTIVE_SYNTHESIS_BFSS_HANDLE_UNATES_BY_COMPLEMENT_H
+#define REACTIVE_SYNTHESIS_BFSS_HANDLE_UNATES_BY_COMPLEMENT_H
 
 #include <string>
 #include <set>
@@ -14,7 +14,7 @@ struct UnateEffectOnState {
     set<void*> removed_edges; // Storing the address of the changed edges
 };
 
-class HandleUnates {
+class HandleUnatesByComplement {
 private:
     // The original automaton which suppose to be effected from process
     spot::twa_graph_ptr m_automaton_original;
@@ -31,7 +31,7 @@ private:
 
     /**
      * TODO: create a struct called `AutomatonSize` which store how many states and edges there are.
-     * It can be used in various places, such as, here, in `HandleUnates::run()`, in `HandleUnates::resolve_unates_in_state()`, `BaseMeasures`
+     * It can be used in various places, such as, here, in `HandleUnatesByComplement::run()`, in `HandleUnatesByComplement::resolve_unates_in_state()`, `BaseMeasures`
      */
     unsigned m_original_automaton_total_edges;
 
@@ -42,7 +42,7 @@ private:
     void resolve_unates_in_state(unsigned state);
 
 public:
-    explicit HandleUnates(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures);
+    explicit HandleUnatesByComplement(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures);
 
     void run();
 };
