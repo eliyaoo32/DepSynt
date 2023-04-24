@@ -143,7 +143,7 @@ void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
 
     json::object automaton_algo_obj;
 
-    automaton_algo_obj["total_duration"] =
+    automaton_algo_obj["total_find_deps_duration"] =
         this->m_total_find_deps_duration.get_duration(false);
     automaton_algo_obj["skipped_dependencies"] = this->m_skipped_dependency_check;
     automaton_algo_obj["total_pair_state"] = this->m_total_pair_states;
