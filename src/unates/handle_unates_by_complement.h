@@ -9,15 +9,10 @@
 
 #define COMPLEMENT_MAXIMAL_MULTIPLIER 5
 
-struct UnateEffectOnState {
-    set<void*> impacted_edges; // Storing the address of the changed edges
-    set<void*> removed_edges; // Storing the address of the changed edges
-};
-
 class HandleUnatesByComplement: public HandleUnatesBase {
 private:
     // Clone of the original automaton, will be complemented many times on and its initial state will be changed
-    spot::twa_graph_ptr m_automaton_base;
+    spot::twa_graph_ptr m_automaton_clone;
     // A prime automaton as described in the algorithm
     spot::twa_graph_ptr m_automaton_prime;
 
@@ -32,7 +27,7 @@ private:
 
     bool is_var_unate_in_state(unsigned state, int varnum, spot::twa_graph_ptr& base_automaton_complement, UnateType unate_type);
 
-    void handle_unate_in_state(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state);
+    void handle_unate_in_state(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state) override;
 
 protected:
     void resolve_unates_in_state(unsigned state) override;

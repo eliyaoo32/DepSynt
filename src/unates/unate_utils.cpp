@@ -16,6 +16,7 @@ void UnatesHandlerMeasures::end_testing_state(int removed_edges, int impacted_ed
             .positive_unate_variables = positive_unate,
             .negative_unate_variables = negative_unate,
             .not_unate_variables = not_unate,
+            .unknown_unate_variables = unknown_unate,
             .removed_edges = removed_edges,
             .impacted_edges = impacted_edges,
             .complement_succeeded = true
@@ -24,6 +25,7 @@ void UnatesHandlerMeasures::end_testing_state(int removed_edges, int impacted_ed
     positive_unate.clear();
     negative_unate.clear();
     not_unate.clear();
+    unknown_unate.clear();
     currently_testing_state = -1;
 }
 
@@ -39,6 +41,7 @@ void UnatesHandlerMeasures::failed_complement() {
             .positive_unate_variables = {},
             .negative_unate_variables = {},
             .not_unate_variables = {},
+            .unknown_unate_variables = {},
             .removed_edges = 0,
             .impacted_edges = 0,
             .complement_succeeded = false
@@ -47,6 +50,7 @@ void UnatesHandlerMeasures::failed_complement() {
     positive_unate.clear();
     negative_unate.clear();
     not_unate.clear();
+    unknown_unate.clear();
     currently_testing_state = -1;
 }
 
@@ -54,7 +58,6 @@ void UnatesHandlerMeasures::failed_complement() {
 
 void UnatesHandlerMeasures::start_testing_var(string &var) {
     currently_testing_var = var;
-    m_variable_test_time.start();
 }
 
 void UnatesHandlerMeasures::tested_var_unate(UnateType unate_type) {
@@ -65,14 +68,18 @@ void UnatesHandlerMeasures::tested_var_unate(UnateType unate_type) {
     }
 
     currently_testing_var = "";
-    m_variable_test_time.start();
 }
 
 void UnatesHandlerMeasures::tested_var_not_unate() {
     not_unate.push_back(currently_testing_var);
 
     currently_testing_var = "";
-    m_variable_test_time.start();
+}
+
+void UnatesHandlerMeasures::tested_var_unknown() {
+    unknown_unate.push_back(currently_testing_var);
+
+    currently_testing_var = "";
 }
 
 void UnatesHandlerMeasures::start_automaton_complement() {
@@ -97,6 +104,7 @@ void UnatesHandlerMeasures::get_json_object(json::object& obj) const {
         state_obj["negative_unate_variables"] = boost::algorithm::join(state.negative_unate_variables, ",");
         state_obj["positive_unate_variables"] = boost::algorithm::join(state.positive_unate_variables, ",");
         state_obj["not_unate_variables"] = boost::algorithm::join(state.not_unate_variables, ",");
+        state_obj["unknown_unate_variables"] = boost::algorithm::join(state.unknown_unate_variables, ",");
         unate_states.emplace_back(state_obj);
     }
 

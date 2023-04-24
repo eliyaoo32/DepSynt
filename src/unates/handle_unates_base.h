@@ -12,6 +12,8 @@ protected:
 
 protected:
     virtual void resolve_unates_in_state(unsigned state) = 0;
+
+    virtual void handle_unate_in_state(unsigned state, int varnum, UnateType unate_type, UnateEffectOnState& unate_effect_on_state);
 public:
     explicit HandleUnatesBase(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
     : m_synt_instance(synt_instance), m_unate_measures(unate_measures) {
