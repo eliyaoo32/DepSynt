@@ -9,8 +9,8 @@
 using namespace std;
 
 HandleUnatesByComplement::HandleUnatesByComplement(const spot::twa_graph_ptr& automaton, SyntInstance& synt_instance, UnatesHandlerMeasures& unate_measures)
-    : m_synt_instance(synt_instance), m_unate_measures(unate_measures) {
-    m_automaton_original = automaton;
+    : HandleUnatesBase(automaton, synt_instance, unate_measures)
+{
     m_automaton_base = clone_nba(automaton);
     m_original_init_state = automaton->get_init_state_number();
     m_original_automaton_total_edges = count_edges(automaton);
@@ -25,7 +25,7 @@ HandleUnatesByComplement::HandleUnatesByComplement(const spot::twa_graph_ptr& au
 void HandleUnatesByComplement::run() {
     m_unate_measures.start();
 
-    for(unsigned state = 0; state < m_automaton_original->num_states(); state++) {
+    for(unsigned state = 0; state < m_automaton->num_states(); state++) {
         this->resolve_unates_in_state(state);
     }
 
@@ -36,12 +36,12 @@ void HandleUnatesByComplement::run() {
      *  - (2) Transition labeled by bddfalse are also removed
      */
     m_unate_measures.start_postprocess_automaton();
-    m_automaton_original->purge_dead_states();
+    m_automaton->purge_dead_states();
     m_unate_measures.end_postprocess_automaton();
 
     // Report automaton size
-    int total_states = static_cast<int>(m_automaton_original->num_states());
-    int total_edges = count_edges(m_automaton_original);
+    int total_states = static_cast<int>(m_automaton->num_states());
+    int total_edges = count_edges(m_automaton);
 
     m_unate_measures.end(total_edges, total_states);
 }
@@ -168,7 +168,7 @@ void HandleUnatesByComplement::handle_unate_in_state(unsigned state, int varnum,
     }
 
     // Update the original automaton
-    for(auto& edge : m_automaton_original->out(state)) {
+    for(auto& edge : m_automaton->out(state)) {
         edge.cond = bdd_restrict(edge.cond, var_bdd) & var_bdd;
     }
 }

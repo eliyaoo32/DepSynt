@@ -3,7 +3,7 @@
 
 #include <string>
 #include <set>
-#include "synt_measure.h"
+#include "handle_unates_base.h"
 #include "unate_utils.h"
 #include "synt_instance.h"
 
@@ -14,17 +14,12 @@ struct UnateEffectOnState {
     set<void*> removed_edges; // Storing the address of the changed edges
 };
 
-class HandleUnatesByComplement {
+class HandleUnatesByComplement: public HandleUnatesBase {
 private:
-    // The original automaton which suppose to be effected from process
-    spot::twa_graph_ptr m_automaton_original;
     // Clone of the original automaton, will be complemented many times on and its initial state will be changed
     spot::twa_graph_ptr m_automaton_base;
     // A prime automaton as described in the algorithm
     spot::twa_graph_ptr m_automaton_prime;
-
-    SyntInstance& m_synt_instance;
-    UnatesHandlerMeasures& m_unate_measures;
 
     unsigned m_prime_init_state;
     unsigned m_original_init_state;
