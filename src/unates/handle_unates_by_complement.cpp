@@ -132,7 +132,7 @@ void HandleUnatesByComplement::handle_unate_in_state(unsigned state, int varnum,
 
     // Update the automaton base
     for(auto& edge : m_automaton_clone->out(state)) {
-        edge.cond = bdd_restrict(edge.cond, var_bdd) & var_bdd;
+        edge.cond = bdd_exist(edge.cond, bdd_ithvar(varnum)) & var_bdd;
     }
 }
 

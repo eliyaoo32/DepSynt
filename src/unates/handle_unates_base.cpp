@@ -36,14 +36,11 @@ void HandleUnatesBase::handle_unate_in_state(unsigned state, int varnum, UnateTy
 
     // Update the original automaton
     for(auto& edge : m_automaton->out(state)) {
-        // If variable is positive Unate, and the edge could have an assigment to false, then the edge is impacted (Negative Unate is effected correspondingly)
-        bool is_impacted = can_restrict_variable(edge.cond, varnum, unate_type == UnateType::Positive ? false : true);
+        // If variable is positive Unate, we transform the edge e: [∃x(e) ^ x] (Negative Unate is [∃x(e) ^ ~x])
+        bdd cond_before = edge.cond;
+        edge.cond = bdd_exist(edge.cond, bdd_ithvar(varnum)) & var_bdd;
 
-        edge.cond = bdd_restrict(edge.cond, var_bdd) & var_bdd;
-
-        if(edge.cond == bddfalse) { // I.e. the edge was removed
-            unate_effect_on_state.removed_edges.insert(&edge);
-        }
+        bool is_impacted = edge.cond != cond_before;
         if(is_impacted) {
             unate_effect_on_state.impacted_edges.insert(&edge);
         }

@@ -88,7 +88,9 @@ void BaseMeasures::get_json_object(json::object& obj) const {
 
 void BaseDependentsMeasures::get_json_object(json::object& obj) const {
     BaseMeasures::get_json_object(obj);
-    obj.emplace("algorithm_type", "formula");
+
+    json::object dependency_obj;
+    dependency_obj.emplace("dependency_approach", "formula");
 
     // Dependency information
     json::array tested_vars;
@@ -103,7 +105,9 @@ void BaseDependentsMeasures::get_json_object(json::object& obj) const {
 
         tested_vars.emplace_back(var_obj);
     }
-    obj.emplace("tested_dependencies", tested_vars);
+    dependency_obj.emplace("tested_dependencies", tested_vars);
+
+    obj.emplace("dependency", dependency_obj);
 }
 
 void FindUnatesMeasures::get_json_object(json::object& obj) const {
@@ -139,20 +143,17 @@ void BaseMeasures::end_prune_automaton(
 
 void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
     BaseDependentsMeasures::get_json_object(obj);
-    obj["algorithm_type"] = "automaton";
+    json::object& dependency_obj = obj["dependency"].as_object();
 
-    json::object automaton_algo_obj;
-
-    automaton_algo_obj["total_duration"] =
+    dependency_obj["dependency_approach"] = "automaton";
+    dependency_obj["total_duration"] =
         this->m_total_find_deps_duration.get_duration(false);
-    automaton_algo_obj["skipped_dependencies"] = this->m_skipped_dependency_check;
-    automaton_algo_obj["total_pair_state"] = this->m_total_pair_states;
+    dependency_obj["skipped_dependencies"] = this->m_skipped_dependency_check;
+    dependency_obj["total_pair_state"] = this->m_total_pair_states;
     if (this->m_search_pair_states_time.has_started()) {
-        automaton_algo_obj["search_pair_state_duration"] =
+        dependency_obj["search_pair_state_duration"] =
             this->m_search_pair_states_time.get_duration();
     }
-
-    obj.emplace("dependencies", automaton_algo_obj);
 }
 
 void SynthesisMeasure::end_independents_synthesis(spot::aig_ptr& aiger_strat) {
@@ -168,7 +169,6 @@ void SynthesisMeasure::end_independents_synthesis(spot::aig_ptr& aiger_strat) {
 
 void SynthesisMeasure::get_json_object(json::object& obj) const {
     AutomatonFindDepsMeasure::get_json_object(obj);
-    obj.emplace("algorithm_type", "aiger_synthesis");
 
     // Unate
     json::object unate_obj;

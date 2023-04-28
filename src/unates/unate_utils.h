@@ -1,6 +1,7 @@
 #ifndef REACTIVE_SYNTHESIS_BFSS_UNATE_UTILS_H
 #define REACTIVE_SYNTHESIS_BFSS_UNATE_UTILS_H
 
+#include <unordered_set>
 #include <vector>
 #include <string>
 #include <boost/json.hpp>
@@ -15,8 +16,8 @@ enum class UnateType {
 };
 
 struct UnateEffectOnState {
-    set<void*> impacted_edges; // Storing the address of the changed edges
-    set<void*> removed_edges; // Storing the address of the changed edges
+    unordered_set<void*> impacted_edges; // Storing the address of the changed edges
+    unordered_set<void*> removed_edges; // Storing the address of the changed edges
 };
 
 struct TestedState {
