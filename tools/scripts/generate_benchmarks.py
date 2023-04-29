@@ -14,6 +14,11 @@ ERROR_BENCHMARKS_PATH = os.path.join(
     Path(__file__).parent.resolve(), './benchmarks-errors.csv')
 
 
+def create_folder(folder_name):
+    if not os.path.exists(folder_name):
+        os.makedirs(folder_name)
+
+
 def get_all_tlsf_files(all_tlsf_file_path):
     all_tlsf_files = glob(all_tlsf_file_path + "/**/*.tlsf")
     return all_tlsf_files
@@ -53,7 +58,8 @@ def main():
     ]
 
     benchmarks = [b for b in processed_benchmarks if b['has_error'] is False]
-    benchmarks_with_errors = [b for b in processed_benchmarks if b['has_error'] is True]
+    benchmarks_with_errors = [
+        b for b in processed_benchmarks if b['has_error'] is True]
 
     if len(processed_benchmarks) == 0:
         print("No benchmarks found.")
@@ -70,6 +76,18 @@ def main():
                 csvfile, benchmarks_with_errors[0].keys())
             dict_writer.writeheader()
             dict_writer.writerows(benchmarks_with_errors)
+
+    # Create a folder of benchmarks, for benchmark has its own file
+    create_folder('./benchmarks')
+    for idx, benchmark in enumerate(benchmarks):
+        file_content = "{benchmark_name}\r\n{input_vars}\r\n{output_vars}\r\n{ltl_formula}".format(
+            benchmark_name=benchmark['benchmark_name'],
+            input_vars=benchmark['input_vars'],
+            output_vars=benchmark['output_vars'],
+            ltl_formula=benchmark['ltl_formula'],
+        )
+        with open('./benchmarks/{}.txt'.format(idx+1), 'w+') as f:
+            f.write(file_content)
 
 
 if __name__ == '__main__':
