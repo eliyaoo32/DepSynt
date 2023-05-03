@@ -335,9 +335,9 @@ extern int aigtoblif(FILE* aig_src, FILE* file, const char* model_name)
       fputs (".end\n", file);
 
       /* close file */
-      if (dst)
-	fclose (file);
-    }
+//      if (dst)
+//	fclose (file);
+//    }
 
   aiger_reset (mgr);
 
