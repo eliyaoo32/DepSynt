@@ -11,37 +11,38 @@
 #include "BLIF.h"
 
 
-void BLIF::load_aig(spot::aig_ptr& aig) {
+void BLIF::load_aig(spot::aig_ptr &aig) {
     // AIG to String
     std::stringstream aiger_stream;
     spot::print_aiger(aiger_stream, aig) << endl;
     string aiger_str = aiger_stream.str();
 
     // Create In-Memory file of the AIG
-    char* aiger_buff = (char*)aiger_str.c_str();
-    FILE* aiger_file = fmemopen(aiger_buff, aiger_str.size(), "r+");
+    char *aiger_buff = (char *) aiger_str.c_str();
+    FILE *aiger_file = fmemopen(aiger_buff, aiger_str.size(), "r+");
 
     // Create In-Memory file to BLIF
-    char* blif_buff;
+    char *blif_buff;
     size_t blif_buff_size;
-    FILE* blif_file = open_memstream (&blif_buff, &blif_buff_size);
+    FILE *blif_file = open_memstream(&blif_buff, &blif_buff_size);
 
     // Convert AIG to BLIF
     int err = aigtoblif(aiger_file, blif_file, m_model_name.c_str());
-    if(err != 0) {
+    if (err != 0) {
         cerr << "Error converting aiger to blif" << endl;
         exit(1);
     }
 
+    fclose(aiger_file);
+    fclose(blif_file);
+
     m_blif_content = new std::string(blif_buff, blif_buff_size);
 
-     fclose(aiger_file);
-     fclose(blif_file);
-     free(blif_buff);
+    free(blif_buff);
 }
 
-void BLIF::init_latch_to_one(string& latch_name) {
-    string& blif = *m_blif_content;
+void BLIF::init_latch_to_one(string &latch_name) {
+    string &blif = *m_blif_content;
 
     // Remove .end
     std::size_t end_ind = blif.find(".end");
@@ -83,7 +84,7 @@ void BLIF::init_latch_to_one(string& latch_name) {
 }
 
 string BLIF::find_latch_name_by_num(unsigned int latch_num) {
-    string& blif = *m_blif_content;
+    string &blif = *m_blif_content;
     std::regex init_latch_pattern(".latch .* ([a-zA-Z]+" +
                                   std::to_string(latch_num) + ") .*");
     std::smatch match;
@@ -96,11 +97,11 @@ string BLIF::find_latch_name_by_num(unsigned int latch_num) {
     }
 }
 
-BLIF_ptr BLIF::merge_dependency_strategies(BLIF& indep_blif, BLIF& dep_blif,
-                                           const vector<string>& inputs,
-                                           const vector<string>& independent_vars,
-                                           const vector<string>& dependent_vars,
-                                           string& model_name) {
+BLIF_ptr BLIF::merge_dependency_strategies(BLIF &indep_blif, BLIF &dep_blif,
+                                           const vector<string> &inputs,
+                                           const vector<string> &independent_vars,
+                                           const vector<string> &dependent_vars,
+                                           string &model_name) {
     auto merged_blif = std::make_shared<BLIF>(model_name);
     std::stringstream out;
 
@@ -115,12 +116,12 @@ BLIF_ptr BLIF::merge_dependency_strategies(BLIF& indep_blif, BLIF& dep_blif,
         << endl;
 
     // Declare Wired Variables
-    for (const auto & independent_var : independent_vars) {
+    for (const auto &independent_var: independent_vars) {
         out << ".names " << blif_wired_var(independent_var) << " "
             << independent_var << endl;
         out << "1 1" << endl;
     }
-    for (const auto & dependent_var : dependent_vars) {
+    for (const auto &dependent_var: dependent_vars) {
         out << ".names " << blif_wired_var(dependent_var) << " "
             << dependent_var << endl;
         out << "1 1" << endl;
@@ -131,14 +132,14 @@ BLIF_ptr BLIF::merge_dependency_strategies(BLIF& indep_blif, BLIF& dep_blif,
     string indeps_wires = "";
     string deps_wires = "";
 
-    for (const auto & input : inputs) {
+    for (const auto &input: inputs) {
         input_wires += input + "=" + input + " ";
     }
-    for (const auto & independent_var : independent_vars) {
+    for (const auto &independent_var: independent_vars) {
         indeps_wires +=
                 independent_var + "=" + blif_wired_var(independent_var) + " ";
     }
-    for (const auto & dependent_var : dependent_vars) {
+    for (const auto &dependent_var: dependent_vars) {
         deps_wires +=
                 dependent_var + "=" + blif_wired_var(dependent_var) + " ";
     }
@@ -160,16 +161,16 @@ BLIF_ptr BLIF::merge_dependency_strategies(BLIF& indep_blif, BLIF& dep_blif,
     return merged_blif;
 }
 
-ostream& operator<<(ostream& os, const BLIF& sm) {
+ostream &operator<<(ostream &os, const BLIF &sm) {
     os << *(sm.m_blif_content);
     return os;
 }
 
-void BLIF::load_string(string& content) {
+void BLIF::load_string(string &content) {
     m_blif_content = new string(content);
 }
 
-spot::aig_ptr BLIF::to_aig(spot::bdd_dict_ptr& dict) {
+spot::aig_ptr BLIF::to_aig(spot::bdd_dict_ptr &dict) {
     // Write the blif to a file
     string blif_file_path = TEMP_DIRECTORY + this->m_model_name + ".blif";
     ofstream blif_file(blif_file_path);
@@ -185,11 +186,11 @@ spot::aig_ptr BLIF::to_aig(spot::bdd_dict_ptr& dict) {
     blif_file_to_binary_aig_file(blif_file_path, binary_aig_file_name);
 
     // Binary Aiger To ASCII Aiger
-    char* ascii_aig_buff;
+    char *ascii_aig_buff;
     size_t ascii_aig_size;
-    FILE* ascii_aig_file = open_memstream (&ascii_aig_buff, &ascii_aig_size);
-    FILE* binary_aig_file = fopen(binary_aig_file_name.c_str(), "rb");
-    if(binary_aig_file == NULL) {
+    FILE *ascii_aig_file = open_memstream(&ascii_aig_buff, &ascii_aig_size);
+    FILE *binary_aig_file = fopen(binary_aig_file_name.c_str(), "rb");
+    if (binary_aig_file == NULL) {
         cerr << "Failed to read binary aig file: " << binary_aig_file_name << endl;
         exit(1);
     }
