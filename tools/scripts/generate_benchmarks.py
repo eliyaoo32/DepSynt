@@ -20,7 +20,7 @@ def create_folder(folder_name):
 
 
 def get_all_tlsf_files(all_tlsf_file_path):
-    all_tlsf_files = glob(all_tlsf_file_path + "/**/*.tlsf")
+    all_tlsf_files = glob(all_tlsf_file_path + "/**/*.tlsf", recursive=True)
     return all_tlsf_files
 
 
@@ -40,8 +40,13 @@ def generate_benchmark_from_tlsf(tlsf_filepath):
         os.popen('syfco {} -outs'.format(tlsf_filepath)).read()).lower()
     ltl_formula = os.popen(
         'syfco -f ltlxba -m fully {}'.format(tlsf_filepath)).read().strip()
+    if Path(tlsf_filepath).parent.name != 'parametric':
+        group_name = Path(tlsf_filepath).parent.name
+    else:
+        group_name = Path(tlsf_filepath).parent.parent.name
 
     return {
+        'group_name': group_name,
         'benchmark_name': benchmark_name,
         'input_vars': input_vars,
         'output_vars': output_vars,
@@ -50,12 +55,22 @@ def generate_benchmark_from_tlsf(tlsf_filepath):
     }
 
 
+def verify_benchmarks(benchmarks):
+    # Check if there are 2 benchmark with same name
+    benchmark_names = [b['benchmark_name'] for b in benchmarks]
+    if len(benchmark_names) != len(set(benchmark_names)):
+        print("There are 2 benchmarks with same name.")
+        sys.exit(1)
+
+
 def main():
     all_tlsf_files = get_all_tlsf_files(TLSF_FILES_PATH)
+    print("Found {} benchmarks.".format(len(all_tlsf_files)))
     processed_benchmarks = [
         generate_benchmark_from_tlsf(tlsf_filepath)
         for tlsf_filepath in tqdm(all_tlsf_files)
     ]
+    verify_benchmarks(processed_benchmarks)
 
     benchmarks = [b for b in processed_benchmarks if b['has_error'] is False]
     benchmarks_with_errors = [
