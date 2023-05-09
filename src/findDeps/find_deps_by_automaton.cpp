@@ -13,17 +13,26 @@ void FindDepsByAutomaton::find_dependencies(vector<string>& dependent_variables,
                                             vector<string>& independent_variables) {
     m_measures.start_find_deps();
 
+    // Find Dependencies
+    std::vector<std::string> candidates;
+    this->find_dependencies_candidates(candidates);
+
     // Find PairStates
     m_measures.start_search_pair_states();
     vector<PairState> compatibleStates;
     get_all_compatible_states(compatibleStates, m_automaton);
     m_measures.end_search_pair_states(static_cast<int>(compatibleStates.size()));
 
-    // Find Dependencies
-    std::vector<std::string> candidates;
-    this->find_dependencies_candidates(candidates);
+    if(m_stop_flag.load()) {
+        // Add to independent variables all the candidates
+        independent_variables.insert(independent_variables.end(), candidates.begin(),
+                                     candidates.end());
+        m_measures.end_find_deps(false);
+        m_is_done.store(true);
+        return;
+    }
 
-    while (!candidates.empty()) {
+    while (!candidates.empty() && !m_stop_flag.load()) {
         std::string dependent_var = candidates.back();
         candidates.pop_back();
         m_measures.start_testing_variable(dependent_var);
@@ -43,7 +52,12 @@ void FindDepsByAutomaton::find_dependencies(vector<string>& dependent_variables,
         }
     }
 
-    m_measures.end_find_deps();
+    // Add to independent variables all the candidates that left
+    independent_variables.insert(independent_variables.end(), candidates.begin(),
+                                 candidates.end());
+
+    m_measures.end_find_deps(!m_stop_flag.load());
+    m_is_done.store(true);
 }
 
 void FindDepsByAutomaton::find_dependencies_candidates(
@@ -168,7 +182,7 @@ bool FindDepsByAutomaton::is_dependent_by_pair_edges(int dependent_var,
 
 // Return a list of pair-states, where each pair-state are states which can be
 // arrived in the automaton by the same prefix.
-void get_all_compatible_states(std::vector<PairState>& pairStates,
+bool FindDepsByAutomaton::get_all_compatible_states(std::vector<PairState>& pairStates,
                                const spot::twa_graph_ptr& aut) {
     unsigned init_state = aut->get_init_state_number();
     pairStates.emplace_back(init_state, init_state);
@@ -178,7 +192,7 @@ void get_all_compatible_states(std::vector<PairState>& pairStates,
     std::vector<PairState> untestedPairStates = {PairState(init_state, init_state)};
 
     // Testing all neighbours of pair-states that not tested yet.
-    while (!untestedPairStates.empty()) {
+    while (!untestedPairStates.empty() && !m_stop_flag.load()) {
         PairState pairState = untestedPairStates.back();
         untestedPairStates.pop_back();
 
@@ -202,6 +216,8 @@ void get_all_compatible_states(std::vector<PairState>& pairStates,
             }
         }
     }
+
+    return !m_stop_flag.load();
 }
 
 // Are the variables used in the edges are the same?

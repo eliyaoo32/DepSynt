@@ -65,6 +65,11 @@ bool parse_synthesis_cli(int argc, const char *argv[],
         Options::store(parsed_options, vm);
         Options::notify(vm);
 
+        if(!options.skip_unates) {
+            cerr << "Currently, unates are not supported. Please use --skip-unates option" << endl;
+            return false;
+        }
+
         return true;
     } catch (const Options::error &ex) {
         cerr << ex.what() << '\n';

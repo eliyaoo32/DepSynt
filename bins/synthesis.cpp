@@ -4,6 +4,9 @@
 #include <vector>
 #include <memory>
 #include <stdexcept>
+#include <future>
+#include <chrono>
+
 
 #include "dependents_synthesiser.h"
 #include "find_deps_by_automaton.h"
@@ -82,8 +85,18 @@ int main(int argc, const char* argv[]) {
         } else {
             FindDepsByAutomaton automaton_dependencies(synt_instance, synt_measure,
                                                        nba, false);
-            automaton_dependencies.find_dependencies(dependent_variables,
-                                                     independent_variables);
+
+            std::future<void> fut = std::async(std::launch::async, [&] {
+                automaton_dependencies.find_dependencies(dependent_variables,
+                                                         independent_variables);
+            });
+            // TODO: dependency limitation should be a parameter from CLI, and if it's set to 0 then we don't search for dependencies
+            if (fut.wait_for(std::chrono::milliseconds (6000)) == std::future_status::timeout) {
+                automaton_dependencies.stop();
+            }
+            while (!automaton_dependencies.is_done()) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(3));
+            }
 
             verbose << "Found " << dependent_variables.size()
                     << " dependent variables" << endl;

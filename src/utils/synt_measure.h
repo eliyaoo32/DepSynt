@@ -118,6 +118,7 @@ private:
     TimeMeasure m_search_pair_states_time;
     int m_total_pair_states;
     bool m_skipped_dependency_check;
+    bool m_is_search_dependencies_completed;
     TimeMeasure m_total_find_deps_duration;
 
 protected:
@@ -132,7 +133,7 @@ public:
 
     void start_find_deps() { m_total_find_deps_duration.start(); }
 
-    void end_find_deps() { m_total_find_deps_duration.end(); }
+    void end_find_deps(bool is_completed);
 
     void start_search_pair_states();
 
