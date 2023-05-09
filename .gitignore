@@ -41,6 +41,7 @@
 src/.idea/**
 tools/.idea/**
 .idea/**
+.idea
 
 # AWS User-specific
 .idea/**/aws.xml

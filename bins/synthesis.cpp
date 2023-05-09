@@ -47,6 +47,7 @@ int main(int argc, const char* argv[]) {
     SynthesisMeasure& synt_measure = *g_synt_measure;
 
     signal(SIGINT, on_sighup);
+    signal(SIGTERM, on_sighup);
     signal(SIGHUP, on_sighup);
 
     try {
