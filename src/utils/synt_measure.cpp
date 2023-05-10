@@ -86,6 +86,12 @@ void BaseMeasures::get_json_object(json::object& obj) const {
 
 }
 
+
+void AutomatonFindDepsMeasure::end_find_deps(bool is_completed) {
+    m_total_find_deps_duration.end();
+    m_is_search_dependencies_completed = is_completed;
+}
+
 void BaseDependentsMeasures::get_json_object(json::object& obj) const {
     BaseMeasures::get_json_object(obj);
 
@@ -148,6 +154,7 @@ void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
     dependency_obj["dependency_approach"] = "automaton";
     dependency_obj["total_duration"] =
         this->m_total_find_deps_duration.get_duration(false);
+    dependency_obj["is_completed"] = m_is_search_dependencies_completed;
     dependency_obj["skipped_dependencies"] = this->m_skipped_dependency_check;
     dependency_obj["total_pair_state"] = this->m_total_pair_states;
     if (this->m_search_pair_states_time.has_started()) {

@@ -7,6 +7,7 @@
 #include <spot/twaalgos/translate.hh>
 #include <string>
 #include <vector>
+#include <atomic>
 
 #include "bdd_var_cacher.h"
 #include "synt_instance.h"
@@ -17,12 +18,6 @@ using PairState = std::pair<unsigned, unsigned>;
 using PairEdges =
     std::pair<spot::twa_graph::edge_storage_t, spot::twa_graph::edge_storage_t>;
 
-
-/*
-Return all the states in automaton which are reachable by the same prefix.
-*/
-void get_all_compatible_states(std::vector<PairState>& pairStates,
-                               const spot::twa_graph_ptr& aut);
 
 bool are_edges_shares_variable(spot::twa_graph::edge_storage_t& e1,
                                spot::twa_graph::edge_storage_t& e2);
@@ -46,6 +41,9 @@ class FindDepsByAutomaton {
     spot::twa_graph_ptr m_automaton;
     BDDVarsCacher* m_bdd_cacher;
     DependentVariableType m_dependent_variable_type;
+    std::atomic<bool> m_stop_flag;
+    std::atomic<bool> m_is_done;
+
 
     bool is_variable_dependent(std::string dependent_var,
                                std::vector<std::string>& dependency_vars,
@@ -69,12 +67,21 @@ class FindDepsByAutomaton {
                                 std::vector<std::string>& current_candidates,
                                 std::vector<std::string>& current_independents);
 
+    /**
+     * @brief Extract all the states in automaton which are reachable by the same prefix.
+     * Return true if finished successfully and didn't stopped by the stop flag.
+     */
+    bool get_all_compatible_states(std::vector<PairState>& pairStates,
+                                   const spot::twa_graph_ptr& aut);
+
    public:
     explicit FindDepsByAutomaton(SyntInstance& synt_instance,
                                  AutomatonFindDepsMeasure& measure,
                                  spot::twa_graph_ptr aut, bool should_prune)
         : m_synt_instance(synt_instance),
           m_measures(measure),
+          m_stop_flag(false),
+          m_is_done(false),
           m_dependent_variable_type(DependentVariableType::Output) {
         m_automaton = aut;
 
@@ -100,6 +107,14 @@ class FindDepsByAutomaton {
 
     void find_dependencies(std::vector<std::string>& dependent_variables,
                            std::vector<std::string>& independent_variables);
+
+    void stop() {
+        return m_stop_flag.store(true);
+    }
+
+    bool is_done() {
+        return m_is_done.load();
+    }
 };
 
 #endif

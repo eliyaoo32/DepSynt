@@ -40,11 +40,12 @@ bool parse_synthesis_cli(int argc, const char *argv[],
             "model-name",
             Options::value<string>(&options.model_name)->required(),
             "Unique model name of the specification"
-        )(
-        "skip-dependencies",
-        Options::bool_switch(&options.skip_dependencies)->default_value(false),
-        "Should skip synthesising a strategy with dependent variables"
-        )(
+        )
+        ("dependency-timeout",
+         Options::value<int>(&options.dependency_timeout)->required(),
+         "Timeout for finding dependencies in milliseconds, if 0 then the process skips finding dependencies"
+         )
+        (
         "skip-unates",
         Options::bool_switch(&options.skip_unates)->default_value(false),
         "Should skip using unates to synthesise a strategy"
@@ -64,6 +65,11 @@ bool parse_synthesis_cli(int argc, const char *argv[],
         Options::variables_map vm;
         Options::store(parsed_options, vm);
         Options::notify(vm);
+
+        if(!options.skip_unates) {
+            cerr << "Currently, unates are not supported. Please use --skip-unates option" << endl;
+            return false;
+        }
 
         return true;
     } catch (const Options::error &ex) {
@@ -195,9 +201,10 @@ std::ostream &operator<<(std::ostream &out, const SynthesisCLIOptions &options) 
     out << " - Inputs: " << options.inputs << endl;
     out << " - Outputs: " << options.outputs << endl;
     out << " - Verbose: " << options.verbose << endl;
-
     out << " - Skip synthesis dependencies synthesis: "
-        << options.skip_dependencies << endl;
+        << (options.dependency_timeout <= 0) << endl;
+    out << " - Find dependency dependencies timeout: "
+        << options.dependency_timeout << endl;
 
     return out;
 }

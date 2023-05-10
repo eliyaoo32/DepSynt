@@ -4,6 +4,9 @@
 #include <vector>
 #include <memory>
 #include <stdexcept>
+#include <future>
+#include <chrono>
+
 
 #include "dependents_synthesiser.h"
 #include "find_deps_by_automaton.h"
@@ -42,11 +45,13 @@ int main(int argc, const char* argv[]) {
     SyntInstance synt_instance(options.inputs, options.outputs, options.formula);
     vector<string> input_vars(synt_instance.get_input_vars());
 
+    bool skip_dependencies = options.dependency_timeout <= 0;
     g_synt_measure =
-        new SynthesisMeasure(synt_instance, options.skip_dependencies, options.skip_unates);
+        new SynthesisMeasure(synt_instance, skip_dependencies, options.skip_unates);
     SynthesisMeasure& synt_measure = *g_synt_measure;
 
     signal(SIGINT, on_sighup);
+    signal(SIGTERM, on_sighup);
     signal(SIGHUP, on_sighup);
 
     try {
@@ -76,13 +81,23 @@ int main(int argc, const char* argv[]) {
         vector<string> dependent_variables, independent_variables;
         twa_graph_ptr nba_without_deps = nullptr, nba_with_deps = nullptr;
 
-        if (options.skip_dependencies) {
+        if (skip_dependencies) {
             verbose << "=> Skipping finding and ejecting dependencies" << endl;
         } else {
             FindDepsByAutomaton automaton_dependencies(synt_instance, synt_measure,
                                                        nba, false);
-            automaton_dependencies.find_dependencies(dependent_variables,
-                                                     independent_variables);
+
+            std::future<void> fut = std::async(std::launch::async, [&] {
+                automaton_dependencies.find_dependencies(dependent_variables,
+                                                         independent_variables);
+            });
+            // TODO: dependency limitation should be a parameter from CLI, and if it's set to 0 then we don't search for dependencies
+            if (fut.wait_for(std::chrono::milliseconds (options.dependency_timeout)) == std::future_status::timeout) {
+                automaton_dependencies.stop();
+            }
+            while (!automaton_dependencies.is_done()) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(3));
+            }
 
             verbose << "Found " << dependent_variables.size()
                     << " dependent variables" << endl;
@@ -111,7 +126,7 @@ int main(int argc, const char* argv[]) {
         }
 
         // Synthesis the independent variables
-        vector<string>& outs = options.skip_dependencies
+        vector<string>& outs = skip_dependencies
                                    ? synt_instance.get_output_vars()
                                    : independent_variables;
 
@@ -133,7 +148,7 @@ int main(int argc, const char* argv[]) {
         // Synthesis the dependent variables
         spot::aig_ptr final_strategy, dependents_strategy;
 
-        if (found_dependencies && !options.skip_dependencies) {
+        if (found_dependencies && !skip_dependencies) {
             synt_measure.start_dependents_synthesis();
             DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
                                                   input_vars, independent_variables,
@@ -149,7 +164,7 @@ int main(int argc, const char* argv[]) {
         } else {
             final_strategy = indep_strategy;
 
-            if (options.skip_dependencies) {
+            if (skip_dependencies) {
                 verbose << "=> Skipping synthesis dependent variables" << endl;
             } else {
                 verbose << "=> No dependent variables found." << endl;
