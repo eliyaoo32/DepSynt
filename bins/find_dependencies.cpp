@@ -49,6 +49,7 @@ int main(int argc, const char* argv[]) {
     verbose_out << "================================" << endl;
 
     signal(SIGINT, on_sighup);
+    signal(SIGTERM, on_sighup);
     signal(SIGHUP, on_sighup);
 
     try {
@@ -67,8 +68,7 @@ int main(int argc, const char* argv[]) {
 
             verbose_out << "Searching Dependencies By Formula Definition..." << endl;
 
-            vector<string> formula_dependent_variables,
-                formula_independent_variables;
+            vector<string> formula_dependent_variables, formula_independent_variables;
             FindDepsByFormula formula_dependencies(synt_instance, *formula_measures);
             formula_dependencies.find_dependencies(formula_dependent_variables,
                                                    formula_independent_variables);

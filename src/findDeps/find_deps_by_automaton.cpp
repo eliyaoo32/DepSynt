@@ -185,41 +185,52 @@ bool FindDepsByAutomaton::is_dependent_by_pair_edges(int dependent_var,
 bool FindDepsByAutomaton::get_all_compatible_states(std::vector<PairState>& pairStates,
                                const spot::twa_graph_ptr& aut) {
     unsigned init_state = aut->get_init_state_number();
-    pairStates.emplace_back(init_state, init_state);
+    std::vector<PairState> queue = {PairState(init_state, init_state)}; // Everything in the queue is compatible
+    std::unordered_set<std::pair<int, int>, pair_hash> tested_pairs;
 
-    // Storing all neighbours of pair-states that need to be tested
-    unordered_set<string> testedPairs;
-    std::vector<PairState> untestedPairStates = {PairState(init_state, init_state)};
+    while (!queue.empty() && !m_stop_flag.load()) {
+        PairState pairState = queue.back();
+        queue.pop_back();
 
-    // Testing all neighbours of pair-states that not tested yet.
-    while (!untestedPairStates.empty() && !m_stop_flag.load()) {
-        PairState pairState = untestedPairStates.back();
-        untestedPairStates.pop_back();
+        // Make sure the smaller state number comes first
+        if (pairState.first > pairState.second) {
+            std::swap(pairState.first, pairState.second);
+        }
+
+        // Check if the pair was already tested
+        if (tested_pairs.find(pairState) != tested_pairs.end()) {
+            continue;
+        }
+
+        tested_pairs.insert(pairState);
+        pairStates.emplace_back(pairState.first, pairState.second);
 
         for (auto& t1 : aut->out(pairState.first)) {
             for (auto& t2 : aut->out(pairState.second)) {
-                string key1 = std::to_string(t1.dst) + "#" + std::to_string(t2.dst);
-                string key2 = std::to_string(t2.dst) + "#" + std::to_string(t1.dst);
+                PairState newState(t1.dst, t2.dst);
 
-                bool isPairTested = testedPairs.find(key1) != testedPairs.end() ||
-                                    testedPairs.find(key2) != testedPairs.end();
-
-                if (isPairTested) {
+                // Make sure the smaller state number comes first
+                if (newState.first > newState.second) {
+                    std::swap(newState.first, newState.second);
+                }
+                // Check if the pair was already tested before adding it to the queue 6
+                if (tested_pairs.find(newState) != tested_pairs.end()) {
                     continue;
                 }
-                testedPairs.insert(key1);
 
-                if (are_edges_shares_variable(t1, t2)) {
-                    pairStates.emplace_back(t1.dst, t2.dst);
-                    untestedPairStates.emplace_back(t1.dst, t2.dst);
+                if(t1.dst == t2.dst) {
+                    queue.emplace_back(newState);
+                } else if(are_edges_shares_assignment(t1, t2)) {
+                    queue.emplace_back(newState);
                 }
             }
         }
     }
 
-    return !m_stop_flag.load();
+    return queue.empty() && !m_stop_flag.load();
 }
 
+// TODO: this is buggy to verify if variables are pair states, get back to it later (12/05/2023)
 // Are the variables used in the edges are the same?
 bool are_edges_shares_variable(spot::twa_graph::edge_storage_t& e1,
                                spot::twa_graph::edge_storage_t& e2) {
@@ -227,4 +238,10 @@ bool are_edges_shares_variable(spot::twa_graph::edge_storage_t& e1,
     auto y = bdd_support(e2.cond);
 
     return x == y;
+}
+
+// Are the variables used in the edges are the same?
+bool are_edges_shares_assignment(spot::twa_graph::edge_storage_t& e1,
+                               spot::twa_graph::edge_storage_t& e2) {
+    return (e1.cond & e2.cond) != bddfalse;
 }

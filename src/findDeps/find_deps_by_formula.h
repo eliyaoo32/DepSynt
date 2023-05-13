@@ -20,6 +20,7 @@ class FindDepsByFormula {
     SyntInstance &m_synt_instance;
     SyntInstance *m_prime_synt_instance;
     BaseDependentsMeasures &m_measures;
+    spot::bdd_dict_ptr m_dict;
 
     bool is_variable_dependent(string &dependent_var,
                                vector<string> &dependency_vars);
@@ -33,6 +34,7 @@ class FindDepsByFormula {
     explicit FindDepsByFormula(SyntInstance &synt_instance, BaseDependentsMeasures &measure)
         : m_synt_instance(synt_instance), m_measures(measure) {
         build_prime_synt_instance();
+        m_dict = spot::make_bdd_dict();
     }
 
     ~FindDepsByFormula() { delete m_prime_synt_instance; }

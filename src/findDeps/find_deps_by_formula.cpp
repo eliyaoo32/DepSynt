@@ -42,7 +42,7 @@ bool FindDepsByFormula::is_variable_dependent(string& dependent_var,
     spot::formula* dependency_formula =
         get_dependency_formula(dependent_var, dependency_vars);
 
-    spot::translator trans;  // TODO: find best options for this translator
+    spot::translator trans(m_dict);
     spot::twa_graph_ptr automaton = trans.run(dependency_formula);
     bool is_empty = automaton->is_empty();
 
@@ -60,16 +60,18 @@ spot::formula* FindDepsByFormula::get_dependency_formula(
 
     vector<string> dependent_vars = {dependent_var};
 
-    spot::formula dependencies_equals_to_prime_formula,
-        dependents_equals_to_prime_formula;
+    spot::formula dependencies_equals_to_prime_formula, dependents_equals_to_prime_formula;
     equal_to_primes_formula(dependencies_equals_to_prime_formula, dependency_vars);
     equal_to_primes_formula(dependents_equals_to_prime_formula, dependent_vars);
 
-    auto* dependency_formula = new spot::formula(spot::formula::And(
-        {m_synt_instance.get_formula_parsed(),
-         m_prime_synt_instance->get_formula_parsed(),
-         spot::formula::M(spot::formula::Not(dependents_equals_to_prime_formula),
-                          dependencies_equals_to_prime_formula)}));
+    auto* dependency_formula = new spot::formula(
+            spot::formula::And( {
+                m_synt_instance.get_formula_parsed(),
+                m_prime_synt_instance->get_formula_parsed(),
+                spot::formula::M(
+                    spot::formula::Not(dependents_equals_to_prime_formula),
+                    dependencies_equals_to_prime_formula)
+            }));
 
     return dependency_formula;
 }

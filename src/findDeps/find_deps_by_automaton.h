@@ -21,6 +21,8 @@ using PairEdges =
 
 bool are_edges_shares_variable(spot::twa_graph::edge_storage_t& e1,
                                spot::twa_graph::edge_storage_t& e2);
+bool are_edges_shares_assignment(spot::twa_graph::edge_storage_t& e1,
+                                 spot::twa_graph::edge_storage_t& e2);
 
 struct VarIndexer {
     int var_index{};
