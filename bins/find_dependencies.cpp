@@ -14,10 +14,11 @@ namespace Options = boost::program_options;
 using namespace std;
 
 static BaseDependentsMeasures* synt_measures = nullptr;
+static FindDependenciesCLIOptions options;
 
 void on_sighup(int args) {
     try {
-        cout << *synt_measures << endl;
+        dump_measures(*synt_measures, options);
     } catch (const std::runtime_error& re) {
         std::cerr << "Runtime error: " << re.what() << std::endl;
     } catch (const std::exception& ex) {
@@ -30,9 +31,8 @@ void on_sighup(int args) {
     exit(EXIT_SUCCESS);
 }
 
-int main(int argc, const char* argv[]) {
-    FindDependenciesCLIOptions options;
 
+int main(int argc, const char* argv[]) {
     int parsed_cli_status = parse_find_dependencies_cli(argc, argv, options);
     if (!parsed_cli_status) {
         return EXIT_FAILURE;
@@ -94,7 +94,7 @@ int main(int argc, const char* argv[]) {
             automaton = spot::scc_filter_states(automaton);  // Prune automaton
             automaton_measures->end_prune_automaton(automaton);
 
-            // Search for depedent variables
+            // Search for dependent variables
             vector<string> automaton_dependent_variables,
                 automaton_independent_variables;
             FindDepsByAutomaton automaton_dependencies(
@@ -121,7 +121,7 @@ int main(int argc, const char* argv[]) {
         }
 
         synt_measures->completed();
-        cout << *synt_measures << endl;
+        dump_measures(*synt_measures, options);
         delete synt_measures;
     } catch (const std::runtime_error& re) {
         std::cerr << "Runtime error: " << re.what() << std::endl;

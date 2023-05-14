@@ -76,7 +76,14 @@ spot::formula* FindDepsByFormula::get_dependency_formula(
     return dependency_formula;
 }
 
-void FindDepsByFormula::build_prime_synt_instance() {
+spot::formula replace_ap_with_prime(spot::formula i) {
+    if(i.is_leaf()) {
+        return spot::formula::ap(get_prime_variable(i.ap_name()));
+    }
+    return i.map(replace_ap_with_prime);
+};
+
+void FindDepsByFormula::build_prime_synt_instance(bool use_string_manipulation) {
     const vector<string>& input_vars = m_synt_instance.get_input_vars();
     const vector<string>& output_vars = m_synt_instance.get_output_vars();
 
@@ -92,17 +99,23 @@ void FindDepsByFormula::build_prime_synt_instance() {
                    m_synt_instance.get_output_vars().end(), prime_output_vars.begin(),
                    get_prime_variable);
 
-    // Build formula
-    string prime_formula = std::string(m_synt_instance.get_formula_str());
-    for (auto& var : input_vars) {
-        boost::replace_all(prime_formula, var, get_prime_variable(var));
+    if(use_string_manipulation) {
+        // TODO: be careful, it cause bugs sometimes, just use spot formula
+        string prime_formula = std::string(m_synt_instance.get_formula_str());
+        for (auto &var: input_vars) {
+            boost::replace_all(prime_formula, var, get_prime_variable(var));
+        }
+        for (auto &var: output_vars) {
+            boost::replace_all(prime_formula, var, get_prime_variable(var));
+        }
+        this->m_prime_synt_instance =
+                new SyntInstance(prime_input_vars, prime_output_vars, prime_formula);
+    } else {
+        spot::formula original_formula = m_synt_instance.get_formula_parsed();
+        spot::formula prime_formula = original_formula.map(replace_ap_with_prime);
+        this->m_prime_synt_instance =
+                new SyntInstance(prime_input_vars, prime_output_vars, prime_formula);
     }
-    for (auto& var : output_vars) {
-        boost::replace_all(prime_formula, var, get_prime_variable(var));
-    }
-
-    this->m_prime_synt_instance =
-        new SyntInstance(prime_input_vars, prime_output_vars, prime_formula);
 }
 
 void equal_to_primes_formula(spot::formula& dst, vector<string>& vars) {

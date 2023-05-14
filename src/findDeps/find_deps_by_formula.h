@@ -13,6 +13,8 @@ using namespace std;
 // We make a prime variable by adding the suffix "_pp" to variable's name
 inline std::string get_prime_variable(const std::string &var) { return var + "_pp"; }
 
+spot::formula replace_ap_with_prime(spot::formula i);
+
 void equal_to_primes_formula(spot::formula &formula, vector<string> &vars);
 
 class FindDepsByFormula {
@@ -28,7 +30,7 @@ class FindDepsByFormula {
     spot::formula *get_dependency_formula(string &dependent_var,
                                           vector<string> &dependency_vars);
 
-    void build_prime_synt_instance();
+    void build_prime_synt_instance(bool use_string_manipulation = false);
 
    public:
     explicit FindDepsByFormula(SyntInstance &synt_instance, BaseDependentsMeasures &measure)
