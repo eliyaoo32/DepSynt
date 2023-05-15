@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.21)
 project(reactive-synthesis-bfss)
 
 set(CMAKE_CXX_STANDARD 17)
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
 
 FILE(GLOB non_executable_SRC ${PROJECT_SOURCE_DIR}/src/**/*.cpp)
 FILE(GLOB aiger_lib_SRC ${PROJECT_SOURCE_DIR}/libs/aiger/*.c)
@@ -64,7 +66,7 @@ set_target_properties(spot PROPERTIES IMPORTED_LOCATION ${spot_location})
 
 # Linking exectuables to packages
 target_link_libraries(find_dependencies boost_options boost_json bddx spot abc)
-target_link_libraries(synthesis boost_options boost_json bddx spot abc)
+target_link_libraries(synthesis boost_options boost_json bddx spot abc Threads::Threads)
 target_link_libraries(find_unates boost_options boost_json bddx spot abc)
 
 # TODO: Import all libs and src folder automatically

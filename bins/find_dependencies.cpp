@@ -21,11 +21,14 @@ void on_sighup(int args) {
         dump_measures(*synt_measures, options);
     } catch (const std::runtime_error& re) {
         std::cerr << "Runtime error: " << re.what() << std::endl;
+        dump_measures(*synt_measures, options);
     } catch (const std::exception& ex) {
         std::cerr << "Error occurred: " << ex.what() << std::endl;
+        dump_measures(*synt_measures, options);
     } catch (...) {
         std::cerr << "Unknown failure occurred. Possible memory corruption"
                   << std::endl;
+        dump_measures(*synt_measures, options);
     }
 
     exit(EXIT_SUCCESS);
@@ -124,15 +127,15 @@ int main(int argc, const char* argv[]) {
         dump_measures(*synt_measures, options);
         delete synt_measures;
     } catch (const std::runtime_error& re) {
-        dump_measures(*synt_measures, options);
         std::cerr << "Runtime error: " << re.what() << std::endl;
+        dump_measures(*synt_measures, options);
     } catch (const std::exception& ex) {
-        dump_measures(*synt_measures, options);
         std::cerr << "Error occurred: " << ex.what() << std::endl;
-    } catch (...) {
         dump_measures(*synt_measures, options);
+    } catch (...) {
         std::cerr << "Unknown failure occurred. Possible memory corruption"
                   << std::endl;
+        dump_measures(*synt_measures, options);
     }
 
     return EXIT_SUCCESS;
