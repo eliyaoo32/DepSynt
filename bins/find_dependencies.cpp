@@ -124,10 +124,13 @@ int main(int argc, const char* argv[]) {
         dump_measures(*synt_measures, options);
         delete synt_measures;
     } catch (const std::runtime_error& re) {
+        dump_measures(*synt_measures, options);
         std::cerr << "Runtime error: " << re.what() << std::endl;
     } catch (const std::exception& ex) {
+        dump_measures(*synt_measures, options);
         std::cerr << "Error occurred: " << ex.what() << std::endl;
     } catch (...) {
+        dump_measures(*synt_measures, options);
         std::cerr << "Unknown failure occurred. Possible memory corruption"
                   << std::endl;
     }
