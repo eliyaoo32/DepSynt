@@ -64,6 +64,7 @@ public:
               m_synt_instance(m_synt_instance),
               m_total_automaton_states(-1),
               m_total_prune_automaton_states(-1),
+              m_total_automaton_edges(-1),
               m_is_completed(false) {
         m_total_time.start();
     }
