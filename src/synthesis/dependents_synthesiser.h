@@ -45,7 +45,6 @@ class DependentsSynthesiser {
                                unordered_map<int, Gate>& bdd_partial_impl);
 
     BDDVar ap_to_bdd_varnum(string& ap) {
-        // TODO: check that it returns the value of varnum and not nith_var
         return m_nba_with_deps->register_ap(ap);
     }
 
@@ -64,7 +63,7 @@ class DependentsSynthesiser {
     spot::aig_ptr synthesis() {
         assert(m_nba_with_deps->num_states() == m_nba_without_deps->num_states());
         assert(m_nba_with_deps->get_dict() == m_nba_without_deps->get_dict());
-        assert(m_dep_vars.size() > 0 && "Dep Vars must be non-empty");
+        assert(!m_dep_vars.empty() && "Dep Vars must be non-empty");
 
         init_aiger();
         define_next_latches();

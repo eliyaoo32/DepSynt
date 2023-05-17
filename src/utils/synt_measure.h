@@ -146,7 +146,6 @@ private:
     TimeMeasure m_independents_total_duration;
     TimeMeasure m_dependents_total_duration;
     TimeMeasure m_clone_nba_with_deps;
-    TimeMeasure m_clone_nba_without_deps;
     TimeMeasure m_model_checking;
     TimeMeasure m_merge_strategies;
 
@@ -180,10 +179,6 @@ public:
     void start_clone_nba_with_deps() { m_clone_nba_with_deps.start(); }
 
     void end_clone_nba_with_deps() { m_clone_nba_with_deps.end(); }
-
-    void start_clone_nba_without_deps() { m_clone_nba_without_deps.start(); }
-
-    void end_clone_nba_without_deps() { m_clone_nba_without_deps.end(); }
 
     void start_model_checking() { m_model_checking.start(); }
 

@@ -90,42 +90,9 @@ void DependentsSynthesiser::define_next_latches() {
 }
 
 void DependentsSynthesiser::define_output_gates() {
-    /**
-     * Create for each state which corresponds if any transiiton of the state is
-     * activate based on Input and Indep Vars
-     */
-    unordered_map<State, Gate> active_state_gate;
-    for (State state = 0; state < m_nba_without_deps->num_states(); state++) {
-        const auto& state_outs = m_nba_without_deps->out(state);
-        vector<Gate> state_trans_gates;
-
-        std::transform(state_outs.begin(), state_outs.end(),
-                       std::back_inserter(state_trans_gates),
-                       [this](auto& transition) {
-                           return m_aiger->bdd2INFvar(transition.cond);
-                       });
-
-        active_state_gate[state] = m_aiger->aig_and(
-            m_aiger->latch_var(state), m_aiger->aig_or(state_trans_gates));
-    }
-
-    /**
-     * Define output for the dependent variables
-     */
     for (unsigned dep_idx = 0; dep_idx < m_dep_vars.size(); dep_idx++) {
-        /**
-         * TODO: we can have small optimization here by removing the
-         * partial_impl_cache of current dependent varaible after finished
-         */
-        /** TODO: For the same BDD the process PartialImpl(BDD,d1) and
-         * PartialImpl(BDD, d2) shares the same construction except assignment of
-         * neg_n_v  */
-        /**
-         * TODO: optimization - BDD1 may be included in BDD2, so in the process
-         * BDD2 we can conver BDD1. */
-
         string& dep_var = m_dep_vars[dep_idx];
-        vector<Gate> dep_partial_impls;
+        vector<Gate> dependent_conds;
 
         // For all transitions (src, cond, dst)
         for (State state = 0; state < m_nba_with_deps->num_states(); state++) {
@@ -135,12 +102,16 @@ void DependentsSynthesiser::define_output_gates() {
 
                 Gate partial_impl = get_partial_impl(cond, dep_var);
 
-                dep_partial_impls.emplace_back(
-                    m_aiger->aig_and(active_state_gate[src], partial_impl));
+                std::vector<unsigned> dependent_edge_cond = {
+                        m_aiger->latch_var(src),
+//                        m_aiger->bdd2INFvar(transition.cond), // NEED TO BE with the existing operator
+                        partial_impl
+                };
+                dependent_conds.emplace_back(m_aiger->aig_and(dependent_edge_cond));
             }
         }
 
-        m_aiger->set_output(dep_idx, m_aiger->aig_or(dep_partial_impls));
+        m_aiger->set_output(dep_idx, m_aiger->aig_or(dependent_conds));
     }
 }
 

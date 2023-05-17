@@ -91,7 +91,6 @@ int main(int argc, const char* argv[]) {
                 automaton_dependencies.find_dependencies(dependent_variables,
                                                          independent_variables);
             });
-            // TODO: dependency limitation should be a parameter from CLI, and if it's set to 0 then we don't search for dependencies
             if (fut.wait_for(std::chrono::milliseconds (options.dependency_timeout)) == std::future_status::timeout) {
                 automaton_dependencies.stop();
             }
@@ -105,7 +104,6 @@ int main(int argc, const char* argv[]) {
 
         bool found_dependencies = !dependent_variables.empty();
         bool should_clone_nba_with_deps = found_dependencies;
-        bool should_clone_nba_without_deps = found_dependencies;
 
         if (should_clone_nba_with_deps) {
             synt_measure.start_clone_nba_with_deps();
@@ -116,23 +114,18 @@ int main(int argc, const char* argv[]) {
         if (found_dependencies) {
             synt_measure.start_remove_dependent_ap();
             remove_ap_from_automaton(nba, dependent_variables);
+            nba_without_deps = nba;
             synt_measure.end_remove_dependent_ap();
         }
 
-        if (should_clone_nba_without_deps) {
-            synt_measure.start_clone_nba_without_deps();
-            nba_without_deps = clone_nba(nba);
-            synt_measure.end_clone_nba_without_deps();
-        }
-
         // Synthesis the independent variables
-        vector<string>& outs = skip_dependencies
+        vector<string>& indep_outs = found_dependencies
                                    ? synt_instance.get_output_vars()
                                    : independent_variables;
 
         synt_measure.start_independents_synthesis();
         spot::aig_ptr indep_strategy =
-            synthesis_nba_to_aiger(gi, nba, outs, input_vars, verbose);
+            synthesis_nba_to_aiger(gi, nba_without_deps, indep_outs, input_vars, verbose);
         synt_measure.end_independents_synthesis(indep_strategy);
 
 
@@ -148,7 +141,7 @@ int main(int argc, const char* argv[]) {
         // Synthesis the dependent variables
         spot::aig_ptr final_strategy, dependents_strategy;
 
-        if (found_dependencies && !skip_dependencies) {
+        if (found_dependencies) {
             synt_measure.start_dependents_synthesis();
             DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
                                                   input_vars, independent_variables,
