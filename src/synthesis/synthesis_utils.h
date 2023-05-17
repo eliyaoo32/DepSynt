@@ -22,11 +22,11 @@
 
 #define AIGER_MODE "ite"
 
-// This code is taken from: spot/twaalgos/synthesis.cc
 spot::twa_graph_ptr ntgba2dpa(const spot::twa_graph_ptr& aut, bool force_sbacc);
 
 void remove_ap_from_automaton(const spot::twa_graph_ptr& automaton,
-                              std::vector<std::string>& variables);
+                              std::vector<std::string>& variables,
+                              unordered_map<int, bdd>& bdd_to_bdd_without_deps);
 
 spot::twa_graph_ptr get_dpa_from_nba(spot::twa_graph_ptr nba,
                                      spot::synthesis_info& gi,

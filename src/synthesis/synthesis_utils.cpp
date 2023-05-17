@@ -4,7 +4,7 @@ using namespace std;
 using namespace spot;
 
 void remove_ap_from_automaton(const twa_graph_ptr& automaton,
-                              vector<string>& variables) {
+                              vector<string>& variables, unordered_map<int, bdd>& bdd_to_bdd_without_deps) {
     bdd vars = bddtrue;
     for (string& ap_name : variables) {
         vars &= bdd_ithvar(automaton->register_ap(ap_name));
@@ -13,7 +13,11 @@ void remove_ap_from_automaton(const twa_graph_ptr& automaton,
     // Apply exists operator on all edges
     for (int i = 0; i < automaton->num_states(); i++) {
         for (auto& edge : automaton->out(i)) {
-            edge.cond = bdd_exist(edge.cond, vars);
+            if(bdd_to_bdd_without_deps.find(edge.cond.id()) == bdd_to_bdd_without_deps.end()) {
+                bdd_to_bdd_without_deps[edge.cond.id()] = bdd_exist(edge.cond, vars);
+            }
+
+            edge.cond = bdd_to_bdd_without_deps[edge.cond.id()];
         }
     }
 

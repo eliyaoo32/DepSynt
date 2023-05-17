@@ -32,6 +32,7 @@ class DependentsSynthesiser {
 
     unordered_set<BDDVar> deps_bdd_vars;
     unordered_map<string, Gate> partial_impl_cache;
+    unordered_map<int, bdd>& m_bdd_to_bdd_without_deps;
 
     void init_aiger();
 
@@ -45,7 +46,6 @@ class DependentsSynthesiser {
                                unordered_map<int, Gate>& bdd_partial_impl);
 
     BDDVar ap_to_bdd_varnum(string& ap) {
-        // TODO: check that it returns the value of varnum and not nith_var
         return m_nba_with_deps->register_ap(ap);
     }
 
@@ -54,17 +54,19 @@ class DependentsSynthesiser {
                           spot::twa_graph_ptr& nba_with_deps,
                           std::vector<std::string>& input_vars,
                           std::vector<std::string>& indep_vars,
-                          std::vector<std::string>& dep_vars)
+                          std::vector<std::string>& dep_vars,
+                          unordered_map<int, bdd>& bdd_to_bdd_without_deps)
         : m_nba_without_deps(nba_without_deps),
           m_nba_with_deps(nba_with_deps),
           m_input_vars(input_vars),
           m_indep_vars(indep_vars),
+          m_bdd_to_bdd_without_deps(bdd_to_bdd_without_deps),
           m_dep_vars(dep_vars){};
 
     spot::aig_ptr synthesis() {
         assert(m_nba_with_deps->num_states() == m_nba_without_deps->num_states());
         assert(m_nba_with_deps->get_dict() == m_nba_without_deps->get_dict());
-        assert(m_dep_vars.size() > 0 && "Dep Vars must be non-empty");
+        assert(!m_dep_vars.empty() && "Dep Vars must be non-empty");
 
         init_aiger();
         define_next_latches();

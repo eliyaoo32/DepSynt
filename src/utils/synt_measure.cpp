@@ -197,10 +197,6 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
         synthesis_process_obj.emplace("clone_nba_with_dep",
                                       m_clone_nba_with_deps.get_duration());
     }
-    if (m_clone_nba_without_deps.has_started()) {
-        synthesis_process_obj.emplace("clone_nba_without_dep",
-                                      m_clone_nba_without_deps.get_duration());
-    }
     if (m_dependents_total_duration.has_started()) {
         synthesis_process_obj.emplace("synthesis_dependents_duration",
                                       m_dependents_total_duration.get_duration());
