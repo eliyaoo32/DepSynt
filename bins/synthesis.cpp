@@ -104,6 +104,7 @@ int main(int argc, const char* argv[]) {
 
         bool found_dependencies = !dependent_variables.empty();
         bool should_clone_nba_with_deps = found_dependencies;
+        unordered_map<int, bdd> bdd_to_bdd_without_deps;
 
         if (should_clone_nba_with_deps) {
             synt_measure.start_clone_nba_with_deps();
@@ -113,7 +114,7 @@ int main(int argc, const char* argv[]) {
 
         if (found_dependencies) {
             synt_measure.start_remove_dependent_ap();
-            remove_ap_from_automaton(nba, dependent_variables);
+            remove_ap_from_automaton(nba, dependent_variables, bdd_to_bdd_without_deps);
             nba_without_deps = nba;
             synt_measure.end_remove_dependent_ap();
         }
@@ -145,7 +146,7 @@ int main(int argc, const char* argv[]) {
             synt_measure.start_dependents_synthesis();
             DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
                                                   input_vars, independent_variables,
-                                                  dependent_variables);
+                                                  dependent_variables, bdd_to_bdd_without_deps);
             dependents_strategy = dependents_synt.synthesis();
             synt_measure.end_dependents_synthesis(dependents_strategy);
 

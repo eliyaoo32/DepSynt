@@ -103,9 +103,9 @@ void DependentsSynthesiser::define_output_gates() {
                 Gate partial_impl = get_partial_impl(cond, dep_var);
 
                 std::vector<unsigned> dependent_edge_cond = {
-                        m_aiger->latch_var(src),
-//                        m_aiger->bdd2INFvar(transition.cond), // NEED TO BE with the existing operator
-                        partial_impl
+                    m_aiger->latch_var(src),
+                    m_aiger->bdd2INFvar(m_bdd_to_bdd_without_deps[transition.cond.id()]),
+                    partial_impl
                 };
                 dependent_conds.emplace_back(m_aiger->aig_and(dependent_edge_cond));
             }
