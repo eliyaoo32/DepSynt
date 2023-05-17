@@ -207,6 +207,10 @@ bool FindDepsByAutomaton::get_all_compatible_states(std::vector<PairState>& pair
 
         for (auto& t1 : aut->out(pairState.first)) {
             for (auto& t2 : aut->out(pairState.second)) {
+                if(m_stop_flag.load()) {
+                    return false;
+                }
+
                 PairState newState(t1.dst, t2.dst);
 
                 // Make sure the smaller state number comes first
