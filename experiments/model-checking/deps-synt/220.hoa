@@ -1,0 +1,22 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 10 1 3 4 6
+2
+4 1
+6 21
+8 10
+2
+0
+0
+16
+10 8 3
+12 7 4
+14 12 11
+16 15 3
+18 8 2
+20 19 12
+i0 p0b0timeout
+o0 u0system29start2new2timer0f1dmin25231b
+o1 u0system29start2new2timer0f1dhour241b
+o2 u0system29start2new2timer0f1dhour251b
+o3 u0system29start2new2timer0system29start2new2timer
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/model-checking/synthesis-with-deps/220.json

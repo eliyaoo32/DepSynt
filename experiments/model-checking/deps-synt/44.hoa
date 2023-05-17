@@ -1,0 +1,133 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 94 2 12 17 80
+2
+4
+6 175
+8 182
+10 189
+12 1
+14 97
+16 79
+18 107
+20 119
+22 113
+24 91
+26 135
+28 129
+33
+42
+43
+48
+63
+0
+141
+0
+0
+155
+157
+102
+114
+108
+84
+130
+126
+30 10 8
+32 30 6
+34 11 9
+36 35 31
+38 37 7
+40 10 6
+42 41 39
+44 43 3
+46 44 28
+48 46 32
+50 43 2
+52 50 32
+54 28 4
+56 54 52
+58 28 5
+60 58 52
+62 61 57
+64 15 12
+66 65 4
+68 66 33
+70 33 3
+72 70 42
+74 72 16
+76 75 69
+78 76 57
+80 33 2
+82 80 42
+84 82 22
+86 44 33
+88 86 24
+90 89 85
+92 65 5
+94 92 33
+96 95 61
+98 96 90
+100 98 78
+102 82 16
+104 72 18
+106 105 103
+108 82 20
+110 72 22
+112 111 109
+114 82 18
+116 72 20
+118 117 115
+120 118 112
+122 120 106
+124 50 33
+126 124 26
+128 127 47
+130 124 24
+132 86 26
+134 133 131
+136 134 128
+138 136 122
+140 138 100
+142 111 47
+144 142 133
+146 144 89
+148 117 105
+150 148 75
+152 150 96
+154 152 146
+156 69 57
+158 34 4
+160 159 7
+162 161 3
+164 35 7
+166 31 6
+168 167 4
+170 169 165
+172 171 2
+174 173 163
+176 6 2
+178 177 9
+180 176 8
+182 181 179
+184 177 10
+186 176 36
+188 187 185
+i0 p0p0spi2finished0spi2response
+i1 p0p0on0start2init
+o0 u0finished0f1dbot1b
+o1 u0sensor2type0f1dacc2gyr1b
+o2 u0sensor2type0f1dmag1b
+o3 u0finished0finished
+o4 u0finished0f1dtop1b
+o5 u0reg2manager2cmd0reg2manager2cmd
+o6 u0reg2manager2cmd0f1dno2command1b
+o7 u0sensor2type0sensor2type
+o8 u0spi2control0spi2control
+o9 u0spi2control0f1dwrite2cmd2none1b
+o10 u0spi2control0f1dwrite2cmd0f1dreg241b1b
+o11 u0spi2control0f1dwrite2cmd0f1dreg251b1b
+o12 u0spi2control0f1dwrite2cmd0f1dreg31b1b
+o13 u0spi2control0f1dwrite2cmd0f1dreg41b1b
+o14 u0spi2control0f1dwrite2cmd0f1dreg51b1b
+o15 u0spi2control0f1dwrite2cmd0f1dreg61b1b
+o16 u0spi2control0f1dwrite2cmd0f1dreg71b1b
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/model-checking/synthesis-with-deps/44.json

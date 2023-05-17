@@ -1,0 +1,29 @@
+aag 11 2 2 7 7
+2
+4
+6 1
+8 11
+12
+14
+0
+11
+18
+14
+22
+10 9 6
+12 11 3
+14 11 2
+16 5 3
+18 16 11
+20 4 3
+22 20 11
+i0 p0p0on0reset
+i1 p0p0on0clock
+o0 u0angle0angle
+o1 u0angle0resetangle
+o2 u0color0color
+o3 u0color0incolor
+o4 u0radius0radius
+o5 u0radius0f1dstartradius1b
+o6 u0radius0f1ddec0radius1b
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/model-checking/synthesis-with-deps/2.json

@@ -1,0 +1,45 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 32 2 7 4 23
+2
+4
+6 1
+8 0
+10 53
+12 56
+14 58
+16 63
+18 64
+5
+20
+37
+46
+20 5 2
+22 9 6
+24 22 15
+26 24 11
+28 27 4
+30 19 17
+32 4 3
+34 32 31
+36 35 29
+38 29 2
+40 12 5
+42 41 30
+44 42 26
+46 45 39
+48 4 2
+50 48 25
+52 51 11
+54 24 13
+56 55 5
+58 49 25
+60 49 23
+62 61 35
+64 31 5
+i0 p0b0c
+i1 p0b0a
+o0 u0out0f1db1b
+o1 u0out250f1dfun0p1db0a1b1b
+o2 u0out0out
+o3 u0out250out25
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/model-checking/synthesis-with-deps/368.json

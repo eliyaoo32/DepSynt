@@ -1,0 +1,16 @@
+aag 8 2 2 2 4
+2
+4
+6 1
+8 13
+14
+16
+10 4 2
+12 9 6
+14 13 11
+16 13 10
+i0 p0b0btn2sec
+i1 p0b0btn2min
+o0 u0time0time
+o1 u0time0f1dzero1b
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/model-checking/synthesis-with-deps/68.json

@@ -1,0 +1,140 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 103 4 11 15 88
+2
+4
+6
+8
+10 100
+12 108
+14 1
+16 0
+18 135
+20 136
+22 148
+24 166
+26 182
+28 199
+30 206
+49
+65
+74
+80
+49
+65
+74
+80
+49
+65
+74
+80
+94
+94
+94
+32 5 3
+34 32 7
+36 34 8
+38 7 5
+40 38 9
+42 13 3
+44 42 11
+46 44 40
+48 47 37
+50 12 11
+52 50 32
+54 4 2
+56 55 7
+58 56 53
+60 59 9
+62 35 8
+64 63 61
+66 13 10
+68 67 5
+70 7 3
+72 70 9
+74 72 69
+76 12 10
+78 77 3
+80 79 40
+82 81 64
+84 82 48
+86 17 14
+88 86 21
+90 88 19
+92 91 75
+94 92 84
+96 32 11
+98 56 9
+100 98 97
+102 32 6
+104 43 38
+106 105 103
+108 107 9
+110 83 49
+112 80 65
+114 113 75
+116 114 111
+118 84 74
+120 119 117
+122 121 18
+124 57 9
+126 124 103
+128 127 63
+130 121 89
+132 130 129
+134 133 123
+136 130 128
+138 116 85
+140 139 119
+142 86 23
+144 34 9
+146 144 143
+148 146 141
+150 80 64
+152 31 29
+154 152 27
+156 154 142
+158 157 2
+160 159 25
+162 75 48
+164 162 161
+166 164 150
+168 142 25
+170 168 152
+172 171 6
+174 173 27
+176 81 32
+178 176 60
+180 178 162
+182 180 175
+184 34 28
+186 184 75
+188 186 49
+190 188 82
+192 168 27
+194 192 31
+196 195 36
+198 197 191
+200 192 29
+202 201 4
+204 203 31
+206 205 118
+i0 p0p0on0start2mag
+i1 p0p0on0start2init
+i2 p0p0on0start2gyr
+i3 p0p0on0start2acc
+o0 u0reg2manager2cmd0reg2manager2cmd2acc
+o1 u0reg2manager2cmd0reg2manager2cmd2gyr
+o2 u0reg2manager2cmd0reg2manager2cmd2init
+o3 u0reg2manager2cmd0reg2manager2cmd2mag
+o4 u0sensor2type0sensor2type2acc
+o5 u0sensor2type0sensor2type2gyr
+o6 u0sensor2type0sensor2type2init
+o7 u0sensor2type0sensor2type2mag
+o8 u0spi2control0spi2control2acc
+o9 u0spi2control0spi2control2gyr
+o10 u0spi2control0spi2control2init
+o11 u0spi2control0spi2control2mag
+o12 u0reg2manager2cmd0reg2manager2cmd
+o13 u0sensor2type0sensor2type
+o14 u0spi2control0spi2control
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/model-checking/synthesis-with-deps/75.json
