@@ -115,9 +115,9 @@ int main(int argc, const char* argv[]) {
         if (found_dependencies) {
             synt_measure.start_remove_dependent_ap();
             remove_ap_from_automaton(nba, dependent_variables, bdd_to_bdd_without_deps);
-            nba_without_deps = nba;
             synt_measure.end_remove_dependent_ap();
         }
+        nba_without_deps = nba;
 
         // Synthesis the independent variables
         vector<string>& indep_outs = found_dependencies
