@@ -120,7 +120,7 @@ int main(int argc, const char* argv[]) {
         nba_without_deps = nba;
 
         // Synthesis the independent variables
-        vector<string>& indep_outs = found_dependencies
+        vector<string> indep_outs = !found_dependencies
                                    ? synt_instance.get_output_vars()
                                    : independent_variables;
 
