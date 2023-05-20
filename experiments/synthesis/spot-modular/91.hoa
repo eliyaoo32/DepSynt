@@ -1,0 +1,24 @@
+aag 12 4 1 3 7
+2
+4
+6
+8
+10 25
+12
+13
+0
+12 7 5
+14 4 3
+16 9 3
+18 16 5
+20 6 19
+22 7 15
+24 23 21
+i0 p0p0play2button0sys
+i1 p0p0pause2button0sys
+i2 p0p0leave2app0sys
+i3 p0p0resume2app0sys
+o0 u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b
+o1 u0ctrl0f1dpause0mp1b
+o2 u0ctrl0ctrl
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/91.json

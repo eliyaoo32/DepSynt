@@ -1,0 +1,86 @@
+aag 30 4 0 25 26
+2
+4
+6
+8
+0
+27
+26
+37
+36
+0
+46
+47
+37
+36
+48
+53
+59
+37
+36
+60
+0
+61
+37
+36
+60
+0
+61
+37
+36
+10 7 8
+12 7 9
+14 4 12
+16 5 10
+18 17 15
+20 5 12
+22 2 20
+24 3 19
+26 25 23
+28 6 8
+30 5 29
+32 31 15
+34 3 33
+36 35 23
+38 6 9
+40 11 39
+42 5 41
+44 43 15
+46 3 45
+48 3 14
+50 3 42
+52 51 23
+54 2 21
+56 3 44
+58 57 55
+60 3 16
+i0 p0p0is2alt0sensor2type
+i1 p0p0is2mag0sensor2type
+i2 p0p0is2acc2gyro0sensor2type
+i3 p0p0is2none0sensor2type
+o0 u0cs2a2g0cs2a2g
+o1 u0cs2a2g0f1dhigh1b
+o2 u0cs2a2g0cs2in
+o3 u0cs2a2g2out0cs2a2g
+o4 u0cs2a2g2out0cs2a2g2out
+o5 u0cs2alt0cs2alt
+o6 u0cs2alt0f1dhigh1b
+o7 u0cs2alt0cs2in
+o8 u0cs2alt2out0cs2alt
+o9 u0cs2alt2out0cs2alt2out
+o10 u0cs2mag0cs2in
+o11 u0cs2mag0f1dhigh1b
+o12 u0cs2mag0cs2mag
+o13 u0cs2mag2out0cs2mag
+o14 u0cs2mag2out0cs2mag2out
+o15 u0sdi0f1dhigh1b
+o16 u0sdi0sdi
+o17 u0sdi0sdi2in
+o18 u0sdi2out0sdi
+o19 u0sdi2out0sdi2out
+o20 u0spc0f1dhigh1b
+o21 u0spc0spc
+o22 u0spc0spc2in
+o23 u0spc2out0spc
+o24 u0spc2out0spc2out
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/29.json

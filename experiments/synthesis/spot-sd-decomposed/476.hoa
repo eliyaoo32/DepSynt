@@ -1,0 +1,48 @@
+there are 1 subformulas
+trying to create strategy directly for (GFidle & G((idle & X(!grant_0 & !grant_1)) -> Xidle) & G(X!grant_0 | X((!idle & !request_0) U (idle & !request_0)))) -> (G((request_0 -> grant_1) & X(!grant_0 | !grant_1) & (Xgrant_0 -> request_0) & (Xgrant_1 -> request_1) & (!idle -> X(!grant_0 & !grant_1)) & ((request_0 & Xrequest_1) -> F(grant_0 & grant_1))) & !FG(request_0 & X!grant_0) & !FG(request_1 & X!grant_1))
+direct strategy might exist but was not found.
+translating formula done in 0.00318578 seconds
+automaton has 14 states and 2 colors
+split inputs and outputs done in 0.000108757 seconds
+automaton has 51 states
+determinization done
+DPA has 66 states, 3 colors
+simplification done
+DPA has 59 states
+determinization and simplification took 0.00250625 seconds
+solving game with acceptance: parity min odd 3
+game solved in 8.8219e-05 seconds
+simplification took 9.453e-05 seconds
+REALIZABLE
+HOA: v1
+States: 3
+Start: 0
+AP: 5 "grant_0" "grant_1" "idle" "request_0" "request_1"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1
+--BODY--
+State: 0
+[!2&!3] 1
+[0&1&!2&3] 1
+[2&!3&!4] 1
+[2&!3&4] 2
+[0&1&2&3&!4] 1
+[0&1&2&3&4] 1
+State: 1
+[0&3] 1
+[!0&!1&2&!3&!4] 1
+[!0&!1&2&!3&4] 2
+[!0&!1&!2&!3] 1
+State: 2
+[!0&!1&!2&!3] 1
+[0&!2&3 | !1&!2&3] 1
+[0&2&3] 1
+[!0&2&!3&!4] 1
+[!0&1&2&!3&4] 2
+--END--
+
+real	0m0.016s
+user	0m0.008s
+sys	0m0.008s

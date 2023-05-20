@@ -1,0 +1,49 @@
+trying to create strategy directly for G!((!((!u0time0f1dinc2seconds0time1b & !((u0time0f1dcountup0time0dt1b & !u0time0f1dzero1b) <-> (!u0time0f1dcountup0time0dt1b & u0time0f1dzero1b))) <-> (u0time0f1dinc2seconds0time1b & !(u0time0f1dcountup0time0dt1b | u0time0f1dzero1b))) & !(u0time0f1dcountdown0time0dt1b | u0time0f1dinc2minutes0time1b | u0time0time)) <-> (!((!u0time0f1dinc2minutes0time1b & !((u0time0f1dcountdown0time0dt1b & !u0time0time) <-> (!u0time0f1dcountdown0time0dt1b & u0time0time))) <-> (u0time0f1dinc2minutes0time1b & !(u0time0f1dcountdown0time0dt1b | u0time0time))) & !(u0time0f1dcountup0time0dt1b | u0time0f1dinc2seconds0time1b | u0time0f1dzero1b))) & G(u0time0f1dzero1b <-> (p0b0btn2min & p0b0btn2sec)) & G(Xu0time0f1dinc2minutes0time1b <-> (!p0b0btn2min & !(u0time0f1dcountdown0time0dt1b | u0time0f1dcountup0time0dt1b) & Xp0b0btn2min & X!p0b0btn2sec)) & G(Xu0time0f1dinc2seconds0time1b <-> (!p0b0btn2sec & !(u0time0f1dcountdown0time0dt1b | u0time0f1dcountup0time0dt1b) & Xp0b0btn2sec & X!p0b0btn2min))
+direct strategy might exist but was not found.
+translating formula done in 0.00346716 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 8.0441e-05 seconds
+automaton has 15 states
+determinization done
+DPA has 15 states, 1 colors
+simplification done
+DPA has 14 states
+determinization and simplification took 9.2081e-05 seconds
+solving game with acceptance: Büchi
+game solved in 3.1743e-05 seconds
+simplification took 0.000102844 seconds
+REALIZABLE
+HOA: v1
+States: 4
+Start: 3
+AP: 8 "u0time0f1dcountup0time0dt1b" "u0time0f1dzero1b" "u0time0f1dinc2seconds0time1b" "u0time0f1dcountdown0time0dt1b" "u0time0time" "u0time0f1dinc2minutes0time1b" "p0b0btn2min" "p0b0btn2sec"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2 3 4 5
+--BODY--
+State: 0
+[!0&1&!2&!3&!4&!5&6&7] 3
+[!0&!1&!2&!3&4&!5&!6&!7] 0
+[!0&!1&2&!3&!4&!5&!6&7] 1
+[!0&!1&!2&!3&!4&5&6&!7] 2
+State: 1
+[!0&1&!2&!3&!4&!5&6&7] 3
+[!0&!1&!2&!3&4&!5&!6&!7] 0
+[!0&!1&!2&!3&4&!5&!6&7] 1
+[!0&!1&!2&!3&!4&5&6&!7] 2
+State: 2
+[!0&1&!2&!3&!4&!5&6&7] 3
+[!0&!1&!2&!3&4&!5&!6&!7] 0
+[!0&!1&!2&!3&4&!5&6&!7] 2
+[!0&!1&2&!3&!4&!5&!6&7] 1
+State: 3
+[!0&1&!2&!3&!4&!5&6&7] 3
+[!0&!1&!2&!3&4&!5&!6&!7] 0
+[!0&!1&!2&!3&4&!5&!6&7] 1
+[!0&!1&!2&!3&4&!5&6&!7] 2
+--END--
+
+real	0m0.015s
+user	0m0.005s
+sys	0m0.009s

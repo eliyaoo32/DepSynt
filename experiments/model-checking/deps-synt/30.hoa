@@ -5504,4 +5504,4 @@ aag 5619 4 305 6 5310
 10992 10990 10985
 10994 2724 1384
 10996 10994 8692
-10998 8690 8682srun: error: cn34: task 0: Segmentation fault
+10998 8690 8682srun: error: cn36: task 0: Segmentation fault

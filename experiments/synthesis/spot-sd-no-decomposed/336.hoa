@@ -1,0 +1,18 @@
+trying to create strategy directly for G(!((!u02device29plug29ctrl0f1d2device29on1b & !((u02device29plug29ctrl02device29plug29ctrl & !u02device29plug29ctrl0f1d2device29off1b) <-> (!u02device29plug29ctrl02device29plug29ctrl & u02device29plug29ctrl0f1d2device29off1b))) <-> (u02device29plug29ctrl0f1d2device29on1b & !(u02device29plug29ctrl02device29plug29ctrl | u02device29plug29ctrl0f1d2device29off1b))) & !((!u02device29lamp29ctrl0f1d2device29on1b & !((u02device29lamp29ctrl02device29lamp29ctrl & !u02device29lamp29ctrl0f1d2device29off1b) <-> (!u02device29lamp29ctrl02device29lamp29ctrl & u02device29lamp29ctrl0f1d2device29off1b))) <-> (u02device29lamp29ctrl0f1d2device29on1b & !(u02device29lamp29ctrl02device29lamp29ctrl | u02device29lamp29ctrl0f1d2device29off1b)))) & ((G!(p0b02device29plug29off <-> p0b02device29plug29on) & G(u02device29plug29ctrl0f1d2device29on1b -> XF((p0b02device29plug29on U u02device29plug29ctrl0f1d2device29off1b) | Gp0b02device29plug29on)) & G(u02device29plug29ctrl0f1d2device29off1b -> XF((p0b02device29plug29off U u02device29plug29ctrl0f1d2device29on1b) | Gp0b02device29plug29off)) & G!(p0b02device29lamp29off <-> p0b02device29lamp29on) & G(u02device29lamp29ctrl0f1d2device29on1b -> XF((p0b02device29lamp29on U (p0b02device29plug29off | u02device29lamp29ctrl0f1d2device29off1b)) | Gp0b02device29lamp29on)) & G(u02device29lamp29ctrl0f1d2device29off1b -> XF((p0b02device29lamp29off U (p0b02device29plug29off | u02device29lamp29ctrl0f1d2device29on1b)) | Gp0b02device29lamp29off)) & G(p0b02device29plug29off -> p0b02device29lamp29off) & G!(p0p0off02plug29intent <-> p0p0on02plug29intent) & G!(p0p0off02lamp29intent <-> p0p0on02lamp29intent) & G!(p0p0off02plug29intent & p0p0on02lamp29intent)) -> (G(p0p0on02plug29intent -> F((p0b02device292plug29on U !p0p0on02plug29intent) | Gp0b02device292plug29on)) & G(p0p0off02plug29intent -> F((p0b02device292plug29off U !p0p0off02plug29intent) | Gp0b02device292plug29off)) & G(p0p0on02lamp29intent -> F((p0b02device292lamp29on U !p0p0on02lamp29intent) | Gp0b02device292lamp29on)) & G(p0p0off02lamp29intent -> F((p0b02device292lamp29off U !p0p0off02lamp29intent) | Gp0b02device292lamp29off))))
+direct strategy might exist but was not found.
+translating formula done in 0.168142 seconds
+automaton has 22 states and 4 colors
+split inputs and outputs done in 0.163554 seconds
+automaton has 298 states
+determinization done
+DPA has 23661 states, 9 colors
+simplification done
+DPA has 17523 states
+determinization and simplification took 166.174 seconds
+solving game with acceptance: parity min even 9
+game solved in 0.0389601 seconds
+UNREALIZABLE
+
+real	2m46.558s
+user	2m45.756s
+sys	0m0.409s

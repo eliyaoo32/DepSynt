@@ -1,0 +1,22 @@
+aag 2 2 0 8 0
+2
+4
+3
+2
+5
+4
+0
+5
+4
+0
+i0 p0p0firsthalf0reg2manager2cmd
+i1 p0p0secondhalf0reg2manager2cmd
+o0 u0buffer0buffer
+o1 u0buffer0f1dextract2dat0reg2manager2cmd1b
+o2 u0reg2data0f1dzero1b
+o3 u0reg2data0f1dmerge2reg0f1dextract2dat0reg2manager2cmd1b0buffer1b
+o4 u0reg2data0reg2data
+o5 u0reg2type0f1dregnone1b
+o6 u0reg2type0f1dextract2reg0reg2manager2cmd1b
+o7 u0reg2type0reg2type
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/83.json

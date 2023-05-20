@@ -1,0 +1,18 @@
+trying to create strategy directly for (r_0 R !g_0) & (r_1 R !g_1) & G((!g_0 | !g_1) & ((g_0 & G!r_0) -> F!g_0) & ((g_0 & X(!g_0 & !r_0)) -> X(r_0 R !g_0)) & ((g_1 & G!r_1) -> F!g_1) & ((g_1 & X(!g_1 & !r_1)) -> X(r_1 R !g_1)) & ((r_0 & Xr_1) -> XX(g_0 & g_1))) & G(r_0 -> Fg_0) & G(r_1 -> Fg_1)
+direct strategy might exist but was not found.
+translating formula done in 0.00215117 seconds
+automaton has 13 states and 4 colors
+split inputs and outputs done in 8.7879e-05 seconds
+automaton has 39 states
+determinization done
+DPA has 54 states, 2 colors
+simplification done
+DPA has 46 states
+determinization and simplification took 0.000209045 seconds
+solving game with acceptance: Streett 1
+game solved in 3.4479e-05 seconds
+UNREALIZABLE
+
+real	0m0.011s
+user	0m0.006s
+sys	0m0.005s

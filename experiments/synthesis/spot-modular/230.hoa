@@ -1,0 +1,11 @@
+aag 3 2 1 2 0
+2
+4
+6 1
+7
+6
+i0 p0p0bright0outside29brightness
+i1 p0b0room29shades29closed
+o0 u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b
+o1 u0room29shades29ctrl0room29shades29ctrl
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/230.json

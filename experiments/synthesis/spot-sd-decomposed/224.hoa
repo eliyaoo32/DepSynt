@@ -1,0 +1,19 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u0room29shades29ctrl0f1dmove2to0f1dpercent2423231b1b & !((!u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b & u0room29shades29ctrl0room29shades29ctrl) <-> (u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b & !u0room29shades29ctrl0room29shades29ctrl))) <-> (u0room29shades29ctrl0f1dmove2to0f1dpercent2423231b1b & !(u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b | u0room29shades29ctrl0room29shades29ctrl))) & !(G!(p0b0room29shades29closed & p0b0room29shades29open) & G(u0room29shades29ctrl0f1dmove2to0f1dpercent2423231b1b -> F((!u0room29shades29ctrl0f1dmove2to0f1dpercent2423231b1b & !u0room29shades29ctrl0room29shades29ctrl) R p0b0room29shades29open)) & G(u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b -> F((!u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b & !u0room29shades29ctrl0room29shades29ctrl) R p0b0room29shades29closed)))
+direct strategy might exist but was not found.
+translating formula done in 0.00132061 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 5.4857e-05 seconds
+automaton has 11 states
+determinization done
+DPA has 19 states, 3 colors
+simplification done
+DPA has 19 states
+determinization and simplification took 0.000812487 seconds
+solving game with acceptance: parity min odd 3
+game solved in 5.6575e-05 seconds
+UNREALIZABLE
+
+real	0m0.012s
+user	0m0.005s
+sys	0m0.006s

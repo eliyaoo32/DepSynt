@@ -1,0 +1,34 @@
+trying to create strategy directly for G!((!u0counter0f1ddec0counter1b & !((u0counter0counter & !u0counter0f1dinc0counter1b) <-> (!u0counter0counter & u0counter0f1dinc0counter1b))) <-> (u0counter0f1ddec0counter1b & !(u0counter0counter | u0counter0f1dinc0counter1b))) & ((p0p0in2range0counter & G!(p0p0button2pressed0down & p0p0button2pressed0up) & G((p0p0in2range0counter & u0counter0counter) -> Xp0p0in2range0counter) & G((p0p0in2range0f1dinc0counter1b & u0counter0f1dinc0counter1b) -> Xp0p0in2range0counter) & G((p0p0in2range0f1ddec0counter1b & u0counter0f1ddec0counter1b) -> Xp0p0in2range0counter)) -> (G(u0counter0f1dinc0counter1b <-> (p0p0button2pressed0up & p0p0in2range0f1dinc0counter1b)) & G(u0counter0f1ddec0counter1b <-> (p0p0button2pressed0down & p0p0in2range0f1ddec0counter1b)) & Gp0p0in2range0counter))
+direct strategy might exist but was not found.
+translating formula done in 0.00399885 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 0.000160892 seconds
+automaton has 22 states
+determinization done
+DPA has 22 states, 2 colors
+simplification done
+DPA has 22 states
+determinization and simplification took 9.5986e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 4.3921e-05 seconds
+simplification took 7.9744e-05 seconds
+REALIZABLE
+HOA: v1
+States: 1
+Start: 0
+AP: 8 "u0counter0counter" "u0counter0f1dinc0counter1b" "u0counter0f1ddec0counter1b" "p0p0button2pressed0down" "p0p0button2pressed0up" "p0p0in2range0counter" "p0p0in2range0f1dinc0counter1b" "p0p0in2range0f1ddec0counter1b"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2
+--BODY--
+State: 0
+[!0&!1&2&3&4 | !0&!1&2&!5 | !0&1&!2&3&4 | !0&1&!2&!5 | 0&!1&!2&3&4 | 0&!1&!2&!5] 0
+[0&!1&!2&!3&!4&5 | 0&!1&!2&!3&5&!6 | 0&!1&!2&!4&5&!7] 0
+[!0&1&!2&!3&4&5&6] 0
+[!0&!1&2&3&!4&5&7] 0
+--END--
+
+real	0m0.015s
+user	0m0.011s
+sys	0m0.003s

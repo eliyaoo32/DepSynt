@@ -1,0 +1,48 @@
+there are 1 subformulas
+trying to create strategy directly for G(!g_0 | !g_1) & G(r_0 -> (g_0 | Xg_0)) & G(r_1 -> (g_1 | Xg_1)) & G((g_0 & !r_0) -> X!g_0) & G((g_1 & !r_1) -> X!g_1)
+direct strategy might exist but was not found.
+translating formula done in 0.00112258 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 7.5581e-05 seconds
+automaton has 21 states
+determinization done
+DPA has 21 states, 1 colors
+simplification done
+DPA has 21 states
+determinization and simplification took 6.9477e-05 seconds
+solving game with acceptance: Büchi
+game solved in 2.7985e-05 seconds
+simplification took 0.000151258 seconds
+REALIZABLE
+HOA: v1
+States: 4
+Start: 3
+AP: 4 "g_0" "g_1" "r_0" "r_1"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1
+--BODY--
+State: 0
+[!0&1&2] 1
+[!0&1&!2&!3] 2
+[!0&1&!2&3] 3
+State: 1
+[0&!1&3] 0
+[0&!1&!2&!3] 3
+[0&!1&2&!3] 3
+State: 2
+[!0&!1&!2&!3] 3
+[!1&!2&3] 0
+[0&!1&2&3] 0
+[!0&!1&2&!3] 1
+State: 3
+[!0&!1&!2&!3] 3
+[!0&2&!3] 1
+[!0&1&2&3] 1
+[!0&!1&!2&3] 0
+--END--
+
+real	0m0.010s
+user	0m0.004s
+sys	0m0.005s

@@ -1,0 +1,18 @@
+trying to create strategy directly for G(!(a1 & a2) & (r1 -> Fa1) & (r2 -> Fa2)) & ((a1 U r1) | Ga1) & ((a2 U r2) | Ga2)
+direct strategy might exist but was not found.
+translating formula done in 0.00101332 seconds
+automaton has 7 states and 2 colors
+split inputs and outputs done in 7.3691e-05 seconds
+automaton has 16 states
+determinization done
+DPA has 18 states, 2 colors
+simplification done
+DPA has 17 states
+determinization and simplification took 0.000120262 seconds
+solving game with acceptance: Streett 1
+game solved in 3.497e-05 seconds
+UNREALIZABLE
+
+real	0m0.009s
+user	0m0.003s
+sys	0m0.006s

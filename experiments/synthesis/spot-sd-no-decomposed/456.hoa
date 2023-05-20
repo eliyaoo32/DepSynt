@@ -1,0 +1,7 @@
+trying to create strategy directly for G(!((!((!u0coffeemachine0f1doff1b & u0coffeemachine0off) <-> (u0coffeemachine0f1doff1b & !u0coffeemachine0off)) & !(u0coffeemachine0coffeemachine | u0coffeemachine0f1don1b)) <-> (!((u0coffeemachine0coffeemachine & !u0coffeemachine0f1don1b) <-> (!u0coffeemachine0coffeemachine & u0coffeemachine0f1don1b)) & !(u0coffeemachine0f1doff1b | u0coffeemachine0off))) & !((!u0dish2washer0dish2washer & u0dish2washer0f1dstart1b) <-> (u0dish2washer0dish2washer & !u0dish2washer0f1dstart1b))) & G((p0b02person2in2office & p0p0work2time0time) -> u0coffeemachine0f1don1b) & G((p0p0isfull0dish2washer & !p0p0work2time0time) -> u0dish2washer0f1dstart1b) & G(p0p0is2clean2and2loaded0dish2washer -> u0coffeemachine0f1doff1b) & G!(p0b02person2in2office & u0coffeemachine0off)
+no strategy exists.
+UNREALIZABLE
+
+real	0m0.009s
+user	0m0.004s
+sys	0m0.004s

@@ -1,0 +1,7 @@
+trying to create strategy directly for G!((!u0room29warnlight29control0f1dturn2on1b & !((!u0room29warnlight29control0f1dturn2off1b & u0room29warnlight29control0room29warnlight29control) <-> (u0room29warnlight29control0f1dturn2off1b & !u0room29warnlight29control0room29warnlight29control))) <-> (u0room29warnlight29control0f1dturn2on1b & !(u0room29warnlight29control0f1dturn2off1b | u0room29warnlight29control0room29warnlight29control))) & G(!p0b0room29warnlight29off <-> p0b0room29warnlight29on) & G((u0room29warnlight29control0f1dturn2on1b -> u0room29warnlight29control0f1dturn2off1b) R p0b0room29warnlight29on) & G((u0room29warnlight29control0f1dturn2off1b -> u0room29warnlight29control0f1dturn2on1b) R p0b0room29warnlight29off)
+no strategy exists.
+UNREALIZABLE
+
+real	0m0.008s
+user	0m0.001s
+sys	0m0.007s

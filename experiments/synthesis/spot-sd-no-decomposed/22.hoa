@@ -1,0 +1,18 @@
+trying to create strategy directly for G!((!u0counter0f1ddec0counter1b & !((u0counter0counter & !u0counter0f1dinc0counter1b) <-> (!u0counter0counter & u0counter0f1dinc0counter1b))) <-> (u0counter0f1ddec0counter1b & !(u0counter0counter | u0counter0f1dinc0counter1b))) & ((p0p0in2range0counter & G!(p0p0button2pressed0down & p0p0button2pressed0up) & G((p0p0in2range0counter & u0counter0counter) -> Xp0p0in2range0counter)) -> (G(u0counter0f1dinc0counter1b <-> (p0p0button2pressed0up & p0p0in2range0f1dinc0counter1b)) & G(u0counter0f1ddec0counter1b <-> (p0p0button2pressed0down & p0p0in2range0f1ddec0counter1b)) & Gp0p0in2range0counter))
+direct strategy might exist but was not found.
+translating formula done in 0.00332003 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 0.00014808 seconds
+automaton has 13 states
+determinization done
+DPA has 13 states, 2 colors
+simplification done
+DPA has 12 states
+determinization and simplification took 8.2726e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 3.3028e-05 seconds
+UNREALIZABLE
+
+real	0m0.013s
+user	0m0.002s
+sys	0m0.011s

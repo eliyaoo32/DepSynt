@@ -1,0 +1,23 @@
+there are 2 subformulas
+trying to create strategy directly for G!((u0music29ctrl0f1dplay0f1doverture1b1b & !u0music29ctrl0music29ctrl) <-> (!u0music29ctrl0f1dplay0f1doverture1b1b & u0music29ctrl0music29ctrl)) & G(p0b0room29window29opened -> u0music29ctrl0f1dplay0f1doverture1b1b)
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 4.9275e-05 seconds
+trying to create strategy directly for G(p0b0room29window29opened -> F((p0b0room29heating29off U (p0b0room29window29closed & p0p0all2windows2closed0room)) | Gp0b0room29heating29off))
+direct strategy might exist but was not found.
+translating formula done in 0.000515342 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 9.2792e-05 seconds
+automaton has 9 states
+determinization done
+DPA has 7 states, 3 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 0.000545645 seconds
+solving game with acceptance: parity min even 3
+game solved in 4.1744e-05 seconds
+UNREALIZABLE
+
+real	0m0.010s
+user	0m0.003s
+sys	0m0.007s

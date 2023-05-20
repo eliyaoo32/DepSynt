@@ -1,0 +1,18 @@
+trying to create strategy directly for G((req -> X(grant | X(grant | Xgrant))) & (grant -> X!grant) & (cancel -> X(!grant U go)))
+direct strategy might exist but was not found.
+translating formula done in 0.00216139 seconds
+automaton has 14 states and 1 colors
+split inputs and outputs done in 0.000174711 seconds
+automaton has 45 states
+determinization done
+DPA has 45 states, 2 colors
+simplification done
+DPA has 43 states
+determinization and simplification took 0.000101444 seconds
+solving game with acceptance: Streett 1
+game solved in 3.2844e-05 seconds
+UNREALIZABLE
+
+real	0m0.013s
+user	0m0.005s
+sys	0m0.007s

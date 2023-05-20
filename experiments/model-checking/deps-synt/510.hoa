@@ -106,7 +106,7 @@ aag 485 2 39 4 444
 200 84 10
 202 200 8
 204 203 199
-srun: error: cn40: task 0: Segmentation fault
+srun: error: cn34: task 0: Segmentation fault
 206 205 6
 208 207 195
 210 5 2

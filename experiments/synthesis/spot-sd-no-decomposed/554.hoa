@@ -1,0 +1,18 @@
+trying to create strategy directly for !((GFp_0 & GFp_1) -> G(q -> Fr)) <-> GFacc
+direct strategy might exist but was not found.
+translating formula done in 0.00330033 seconds
+automaton has 13 states and 3 colors
+split inputs and outputs done in 0.000179035 seconds
+automaton has 45 states
+determinization done
+DPA has 334 states, 4 colors
+simplification done
+DPA has 236 states
+determinization and simplification took 0.00521719 seconds
+solving game with acceptance: parity min odd 4
+game solved in 0.000175803 seconds
+UNREALIZABLE
+
+real	0m0.018s
+user	0m0.010s
+sys	0m0.007s

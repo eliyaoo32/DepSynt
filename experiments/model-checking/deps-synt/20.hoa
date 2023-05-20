@@ -8169,4 +8169,4 @@ aag 8377 4 330 11 8043
 16312 16310 16304
 16314 16312 8687
 16316 16314 7698
-16318 16306 10srun: error: cn34: task 0: Segmentation fault
+16318 16306 10srun: error: cn36: task 0: Segmentation fault

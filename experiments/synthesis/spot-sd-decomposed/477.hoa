@@ -1,0 +1,71 @@
+there are 1 subformulas
+trying to create strategy directly for ((rx_0 | !rx_0) & (ry_0 | !ry_0)) -> ((((!(left & right) & !(down & up) & (!rx_0 -> !left) & (rx_0 -> !right) & (!ry_0 -> !down) & (ry_0 -> !up) & (serve -> ((rx_0 <-> tx_0) & (ry_0 <-> ty_0)))) U (!(left & right) & !(down & up) & (!rx_0 -> !left) & (rx_0 -> !right) & (!ry_0 -> !down) & (ry_0 -> !up) & (serve -> ((rx_0 <-> tx_0) & (ry_0 <-> ty_0))) & !(((right & rx_0) -> Xrx_0) & ((left & !rx_0) -> X!rx_0) & ((right & !rx_0) -> Xrx_0) & ((left & rx_0) -> X!rx_0) & ((!left & !right & !rx_0) -> X!rx_0) & ((!left & !right & rx_0) -> Xrx_0) & ((ry_0 & up) -> Xry_0) & ((down & !ry_0) -> X!ry_0) & ((!ry_0 & up) -> Xry_0) & ((down & ry_0) -> X!ry_0) & ((!down & !ry_0 & !up) -> X!ry_0) & ((!down & ry_0 & !up) -> Xry_0) & G((!tx_0 & !ty_0 & !(!rx_0 & !ry_0 & serve)) -> X(!tx_0 & !ty_0)) & G((!tx_0 & ty_0 & !(!rx_0 & ry_0 & serve)) -> X(!tx_0 & ty_0)) & G((tx_0 & !ty_0 & !(rx_0 & !ry_0 & serve)) -> X(tx_0 & !ty_0)) & G((tx_0 & ty_0 & !(rx_0 & ry_0 & serve)) -> X(tx_0 & ty_0))))) | G(!(left & right) & !(down & up) & (!rx_0 -> !left) & (rx_0 -> !right) & (!ry_0 -> !down) & (ry_0 -> !up) & (serve -> ((rx_0 <-> tx_0) & (ry_0 <-> ty_0))))) & (G(((right & rx_0) -> Xrx_0) & ((left & !rx_0) -> X!rx_0) & ((right & !rx_0) -> Xrx_0) & ((left & rx_0) -> X!rx_0) & ((!left & !right & !rx_0) -> X!rx_0) & ((!left & !right & rx_0) -> Xrx_0) & ((ry_0 & up) -> Xry_0) & ((down & !ry_0) -> X!ry_0) & ((!ry_0 & up) -> Xry_0) & ((down & ry_0) -> X!ry_0) & ((!down & !ry_0 & !up) -> X!ry_0) & ((!down & ry_0 & !up) -> Xry_0) & G((!tx_0 & !ty_0 & !(!rx_0 & !ry_0 & serve)) -> X(!tx_0 & !ty_0)) & G((!tx_0 & ty_0 & !(!rx_0 & ry_0 & serve)) -> X(!tx_0 & ty_0)) & G((tx_0 & !ty_0 & !(rx_0 & !ry_0 & serve)) -> X(tx_0 & !ty_0)) & G((tx_0 & ty_0 & !(rx_0 & ry_0 & serve)) -> X(tx_0 & ty_0))) -> (G((!tx_0 & !ty_0) -> F(!rx_0 & !ry_0 & serve)) & G((!tx_0 & ty_0) -> F(!rx_0 & ry_0 & serve)) & G((tx_0 & !ty_0) -> F(rx_0 & !ry_0 & serve)) & G((tx_0 & ty_0) -> F(rx_0 & ry_0 & serve)))))
+direct strategy might exist but was not found.
+translating formula done in 0.0332778 seconds
+automaton has 161 states and 4 colors
+split inputs and outputs done in 0.00255638 seconds
+automaton has 549 states
+determinization done
+DPA has 67 states, 2 colors
+simplification done
+DPA has 68 states
+determinization and simplification took 0.647142 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 0.000139792 seconds
+simplification took 0.000256244 seconds
+REALIZABLE
+HOA: v1
+States: 5
+Start: 0
+AP: 9 "rx_0" "tx_0" "ry_0" "ty_0" "serve" "left" "right" "down" "up"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 4 5 6 7 8
+--BODY--
+State: 0
+[!0&!1&!2&!3&!4&!5&!6&!7&!8] 1
+[!0&!1&!2&3&!4&!5&!6&!7&!8] 1
+[!0&!1&2&!3&!4&!5&!6&!7&!8] 2
+[!0&!1&2&3&!4&!5&!6&!7&!8] 2
+[!0&1&!2&!3&!4&!5&!6&!7&!8] 1
+[!0&1&!2&3&!4&!5&!6&!7&!8] 1
+[!0&1&2&!3&!4&!5&!6&!7&!8] 2
+[!0&1&2&3&!4&!5&!6&!7&!8] 2
+[0&!1&!2&!3&!4&!5&!6&!7&!8] 3
+[0&!1&!2&3&!4&!5&!6&!7&!8] 3
+[0&!1&2&!3&!4&!5&!6&!7&!8] 4
+[0&!1&2&3&!4&!5&!6&!7&!8] 4
+[0&1&!2&!3&!4&!5&!6&!7&!8] 3
+[0&1&!2&3&!4&!5&!6&!7&!8] 3
+[0&1&2&!3&!4&!5&!6&!7&!8] 4
+[0&1&2&3&!4&!5&!6&!7&!8] 4
+State: 1
+[0 | 2] 4
+[!0&1&!2&3&!4&!5&6&!7&8] 4
+[!0&1&!2&!3&!4&!5&6&!7&!8] 3
+[!0&!1&!2&3&!4&!5&!6&!7&8] 2
+[!0&!1&!2&!3&4&!5&!6&!7&!8] 1
+State: 2
+[0 | !2] 4
+[!0&1&2&3&!4&!5&6&!7&!8] 4
+[!0&1&2&!3&!4&!5&6&7&!8] 3
+[!0&!1&2&3&4&!5&!6&!7&!8] 2
+[!0&!1&2&!3&!4&!5&!6&7&!8] 1
+State: 3
+[!0 | 2] 4
+[0&1&!2&3&!4&!5&!6&!7&8] 4
+[0&1&!2&!3&4&!5&!6&!7&!8] 3
+[0&!1&!2&!3&!4&5&!6&!7&!8] 1
+[0&!1&!2&3&!4&5&!6&!7&8] 2
+State: 4
+[!0 | !2] 4
+[0&1&2&3&4&!5&!6&!7&!8] 4
+[0&!1&2&!3&!4&5&!6&7&!8] 1
+[0&!1&2&3&!4&5&!6&!7&!8] 2
+[0&1&2&!3&!4&!5&!6&7&!8] 3
+--END--
+
+real	0m0.695s
+user	0m0.682s
+sys	0m0.011s

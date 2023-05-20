@@ -1,0 +1,17 @@
+aag 6 1 2 4 3
+2
+4 1
+6 9
+10
+12
+0
+9
+8 7 4
+10 9 3
+12 9 2
+i0 p0p0event0click
+o0 u0count0count
+o1 u0count0f1dincrement0count1b
+o2 u0pic0pic
+o3 u0pic0f1drender2button0count1b
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/depsynt/53.json

@@ -1,0 +1,18 @@
+trying to create strategy directly for G!((!((!u02device29start2new2timer0f1d2device29hour251b & u02device29start2new2timer0f1d2device29min25231b) <-> (u02device29start2new2timer0f1d2device29hour251b & !u02device29start2new2timer0f1d2device29min25231b)) & !(u02device29start2new2timer02device29start2new2timer | u02device29start2new2timer0f1d2device29hour241b)) <-> (!((u02device29start2new2timer02device29start2new2timer & !u02device29start2new2timer0f1d2device29hour241b) <-> (!u02device29start2new2timer02device29start2new2timer & u02device29start2new2timer0f1d2device29hour241b)) & !(u02device29start2new2timer0f1d2device29hour251b | u02device29start2new2timer0f1d2device29min25231b))) & !(G(u02device29start2new2timer0f1d2device29min25231b -> Fp0b02device29timeout) & G(u02device29start2new2timer0f1d2device29hour241b -> Fp0b02device29timeout) & G(u02device29start2new2timer0f1d2device29hour251b -> Fp0b02device29timeout))
+direct strategy might exist but was not found.
+translating formula done in 0.000875842 seconds
+automaton has 2 states and 1 colors
+split inputs and outputs done in 3.7351e-05 seconds
+automaton has 7 states
+determinization done
+DPA has 5 states, 2 colors
+simplification done
+DPA has 5 states
+determinization and simplification took 0.000342741 seconds
+solving game with acceptance: Rabin 1
+game solved in 2.6762e-05 seconds
+UNREALIZABLE
+
+real	0m0.010s
+user	0m0.002s
+sys	0m0.007s

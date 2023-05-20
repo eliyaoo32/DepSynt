@@ -4391,4 +4391,4 @@ aag 4384 10 54 8 4320
 8762 8761 4034
 8764 8763 4040
 8766 8401 4034
-8768 1865 srun: error: cn40: task 0: Segmentation fault
+8768 1865 srun: error: cn34: task 0: Segmentation fault

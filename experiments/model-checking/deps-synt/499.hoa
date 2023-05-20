@@ -101,7 +101,7 @@ aag 873 3 39 3 831
 192 190 15
 194 118 14
 196 195 13
-srun: error: cn37: task 0: Segmentation fault
+srun: error: cn34: task 0: Segmentation fault
 198 196 193
 200 199 189
 202 201 11

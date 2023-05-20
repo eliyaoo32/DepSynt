@@ -1,0 +1,32 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u0room29warnlight29control0f1dturn2on1b & !((!u0room29warnlight29control0f1dturn2off1b & u0room29warnlight29control0room29warnlight29control) <-> (u0room29warnlight29control0f1dturn2off1b & !u0room29warnlight29control0room29warnlight29control))) <-> (u0room29warnlight29control0f1dturn2on1b & !(u0room29warnlight29control0f1dturn2off1b | u0room29warnlight29control0room29warnlight29control))) & !(G(!p0b0room29warnlight29off <-> p0b0room29warnlight29on) & G((u0room29warnlight29control0f1dturn2on1b -> u0room29warnlight29control0f1dturn2off1b) R p0b0room29warnlight29on) & G((u0room29warnlight29control0f1dturn2off1b -> u0room29warnlight29control0f1dturn2on1b) R p0b0room29warnlight29off))
+direct strategy might exist but was not found.
+translating formula done in 0.000516829 seconds
+automaton has 2 states and 1 colors
+split inputs and outputs done in 4.8567e-05 seconds
+automaton has 4 states
+determinization done
+DPA has 4 states, 1 colors
+simplification done
+DPA has 3 states
+determinization and simplification took 5.4608e-05 seconds
+solving game with acceptance: Büchi
+game solved in 2.5867e-05 seconds
+simplification took 4.4145e-05 seconds
+REALIZABLE
+HOA: v1
+States: 1
+Start: 0
+AP: 5 "u0room29warnlight29control0f1dturn2on1b" "u0room29warnlight29control0f1dturn2off1b" "u0room29warnlight29control0room29warnlight29control" "p0b0room29warnlight29off" "p0b0room29warnlight29on"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2
+--BODY--
+State: 0
+[!0&!1&2 | !0&1&!2 | 0&!1&!2] 0
+--END--
+
+real	0m0.012s
+user	0m0.001s
+sys	0m0.010s

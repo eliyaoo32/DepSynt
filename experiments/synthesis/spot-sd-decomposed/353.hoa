@@ -1,0 +1,19 @@
+there are 30 subformulas
+trying to create strategy directly for G((u0alarm29control0f1dturn2on1b -> u0alarm29control0f1dturn2off1b) R p0b0alarm) & G((u0alarm29control0f1dturn2off1b -> u0alarm29control0f1dturn2on1b) R !p0b0alarm) & G!((!u0alarm29control0f1dturn2on1b & !((u0alarm29control0alarm29control & !u0alarm29control0f1dturn2off1b) <-> (!u0alarm29control0alarm29control & u0alarm29control0f1dturn2off1b))) <-> (u0alarm29control0f1dturn2on1b & !(u0alarm29control0alarm29control | u0alarm29control0f1dturn2off1b)))
+direct strategy might exist but was not found.
+translating formula done in 0.00037742 seconds
+automaton has 1 states and 1 colors
+split inputs and outputs done in 3.356e-05 seconds
+automaton has 3 states
+determinization done
+DPA has 3 states, 1 colors
+simplification done
+DPA has 2 states
+determinization and simplification took 5.6834e-05 seconds
+solving game with acceptance: co-Büchi
+game solved in 1.9764e-05 seconds
+UNREALIZABLE
+
+real	0m0.011s
+user	0m0.007s
+sys	0m0.003s

@@ -1869,4 +1869,4 @@ aag 1961 6 38 7 1917
 3720 2203 562
 3722 3720 951
 3724 1548 941
-372srun: error: cn40: task 0: Segmentation fault
+372srun: error: cn34: task 0: Segmentation fault

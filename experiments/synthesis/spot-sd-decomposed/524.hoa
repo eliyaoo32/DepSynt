@@ -1,0 +1,54 @@
+there are 1 subformulas
+trying to create strategy directly for (p U (q & X(r & F(s & XF(u & XF(v & XFw)))))) <-> GFacc
+tanslating formula done in 0.00346504 seconds
+direct strategy was found.
+direct strat has 9 states, 23 edges and 0 colors
+simplification took 0.000144236 seconds
+REALIZABLE
+HOA: v1
+States: 9
+Start: 1
+AP: 8 "acc" "p" "q" "r" "s" "u" "v" "w"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+properties: terminal
+controllable-AP: 0
+--BODY--
+State: 0
+[0] 0
+State: 1
+[!0&1&!2] 1
+[!1&2] 2
+[!0&1&2] 3
+[!1&!2] 8
+State: 2
+[3&!4] 4
+[3&4] 5
+[!3] 8
+State: 3
+[!0&1&!2&!3] 1
+[!1&2&!3] 2
+[!0&1&2&!3] 3
+[3&!4] 4
+[3&4] 5
+[!1&!2&!3] 8
+State: 4
+[!0&!4] 4
+[4] 5
+State: 5
+[!0&!5] 5
+[5] 6
+State: 6
+[!0&!6] 6
+[6] 7
+State: 7
+[7] 0
+[!0&!7] 7
+State: 8
+[!0] 8
+--END--
+
+real	0m0.013s
+user	0m0.002s
+sys	0m0.010s

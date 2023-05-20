@@ -1,0 +1,36 @@
+trying to create strategy directly for G!(g0 & g1) & (GFr0 -> GFg0) & (GFr1 -> GFg1)
+direct strategy might exist but was not found.
+translating formula done in 0.00219455 seconds
+automaton has 9 states and 2 colors
+split inputs and outputs done in 7.2148e-05 seconds
+automaton has 27 states
+determinization done
+DPA has 49 states, 5 colors
+simplification done
+DPA has 49 states
+determinization and simplification took 0.00177496 seconds
+solving game with acceptance: parity min even 5
+game solved in 5.7804e-05 seconds
+simplification took 6.1349e-05 seconds
+REALIZABLE
+HOA: v1
+States: 2
+Start: 1
+AP: 4 "g0" "g1" "r0" "r1"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1
+--BODY--
+State: 0
+[!0&1&2 | !0&1&!3] 1
+[!0&1&!2&3] 1
+State: 1
+[0&!1&!2&3] 0
+[0&!1&2] 0
+[0&!1&!2&!3] 0
+--END--
+
+real	0m0.013s
+user	0m0.006s
+sys	0m0.006s

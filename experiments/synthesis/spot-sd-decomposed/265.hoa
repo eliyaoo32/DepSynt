@@ -1,0 +1,45 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u02warnlight29control0f1d2warnlight29turn2on1b & !((u02warnlight29control02warnlight29control & !u02warnlight29control0f1d2warnlight29turn2off1b) <-> (!u02warnlight29control02warnlight29control & u02warnlight29control0f1d2warnlight29turn2off1b))) <-> (u02warnlight29control0f1d2warnlight29turn2on1b & !(u02warnlight29control02warnlight29control | u02warnlight29control0f1d2warnlight29turn2off1b))) & ((G(!p0b02warnlight29off <-> p0b02warnlight29on) & G(((u02warnlight29control0f1d2warnlight29turn2on1b -> Xp0b02warnlight29on) U u02warnlight29control0f1d2warnlight29turn2off1b) | G(u02warnlight29control0f1d2warnlight29turn2on1b -> Xp0b02warnlight29on)) & G(((u02warnlight29control0f1d2warnlight29turn2off1b -> Xp0b02warnlight29off) U u02warnlight29control0f1d2warnlight29turn2on1b) | G(u02warnlight29control0f1d2warnlight29turn2off1b -> Xp0b02warnlight29off)) & G!(p0p0off02warnlight29intent <-> p0p0on02warnlight29intent)) -> (G(p0p0on02warnlight29intent -> F((p0b02warnlight29on U !p0p0on02warnlight29intent) | Gp0b02warnlight29on)) & G(p0p0off02warnlight29intent -> F((p0b02warnlight29off U !p0p0off02warnlight29intent) | Gp0b02warnlight29off))))
+direct strategy might exist but was not found.
+translating formula done in 0.00328378 seconds
+automaton has 8 states and 2 colors
+split inputs and outputs done in 0.000161784 seconds
+automaton has 31 states
+determinization done
+DPA has 38 states, 3 colors
+simplification done
+DPA has 30 states
+determinization and simplification took 0.00227602 seconds
+solving game with acceptance: parity min even 3
+game solved in 7.9735e-05 seconds
+simplification took 8.7727e-05 seconds
+REALIZABLE
+HOA: v1
+States: 4
+Start: 0
+AP: 7 "u02warnlight29control02warnlight29control" "u02warnlight29control0f1d2warnlight29turn2off1b" "u02warnlight29control0f1d2warnlight29turn2on1b" "p0p0off02warnlight29intent" "p0p0on02warnlight29intent" "p0b02warnlight29off" "p0b02warnlight29on"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2
+--BODY--
+State: 0
+[!0&!1&2&!3&4&!5&6] 1
+[!0&!1&2&!3&4&5&!6 | !0&!1&2&3&!4&!5&6 | !0&!1&2&3&!4&5&!6] 2
+[!0&!1&2&!3&!4 | !0&!1&2&3&4 | !0&!1&2&!5&!6 | !0&!1&2&5&6 | !0&1&!2&!3&!4 | !0&1&!2&3&4 | !0&1&!2&!5&!6 | !0&1&!2&5&6 | 0&!1&!2&!3&!4 | 0&!1&!2&3&4 | 0&!1&!2&!5&!6 | 0&!1&!2&5&6] 3
+State: 1
+[!0&!1&2&!3&!4 | !0&!1&2&3&4 | !0&!1&2&5 | !0&!1&2&!6 | !0&1&!2&!3&!4 | !0&1&!2&3&4 | !0&1&!2&5 | !0&1&!2&!6 | 0&!1&!2&!3&!4 | 0&!1&!2&3&4 | 0&!1&!2&5 | 0&!1&!2&!6] 3
+[!0&1&!2&!3&4&!5&6 | !0&1&!2&3&!4&!5&6] 3
+State: 2
+[!0&!1&2&!3&4&!5&6] 2
+[!0&!1&2&!3&!4 | !0&!1&2&3&4 | !0&!1&2&5 | !0&!1&2&!6 | !0&1&!2&!3&!4 | !0&1&!2&3&4 | !0&1&!2&5 | !0&1&!2&!6 | 0&!1&!2&!3&!4 | 0&!1&!2&3&4 | 0&!1&!2&5 | 0&!1&!2&!6] 3
+[!0&1&!2&3&!4&!5&6] 3
+State: 3
+[!0&!1&2&!3&4&5&!6] 2
+[!0&!1&2&!3&!4 | !0&!1&2&3&4 | !0&!1&2&!5 | !0&!1&2&6 | !0&1&!2&!3&!4 | !0&1&!2&3&4 | !0&1&!2&!5 | !0&1&!2&6 | 0&!1&!2&!3&!4 | 0&!1&!2&3&4 | 0&!1&!2&!5 | 0&!1&!2&6] 3
+[!0&1&!2&3&!4&5&!6] 3
+--END--
+
+real	0m0.016s
+user	0m0.008s
+sys	0m0.008s

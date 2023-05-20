@@ -1,0 +1,33 @@
+there are 1 subformulas
+trying to create strategy directly for ((!g_0 U r_0) | G!g_0) & G((g_0 & X(!g_0 & !r_0)) -> X((!g_0 U r_0) | G!g_0)) & G((g_0 & G!r_0) -> F!g_0) & G(r_0 -> Fg_0)
+direct strategy might exist but was not found.
+translating formula done in 0.000660032 seconds
+automaton has 3 states and 2 colors
+split inputs and outputs done in 3.6936e-05 seconds
+automaton has 7 states
+determinization done
+DPA has 7 states, 2 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 8.2938e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 4.0598e-05 seconds
+simplification took 4.9233e-05 seconds
+REALIZABLE
+HOA: v1
+States: 1
+Start: 0
+AP: 2 "g_0" "r_0"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0
+--BODY--
+State: 0
+[0&1] 0
+[!0&!1] 0
+--END--
+
+real	0m0.009s
+user	0m0.004s
+sys	0m0.005s

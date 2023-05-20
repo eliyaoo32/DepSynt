@@ -112,7 +112,6 @@ aag 1089 3 72 3 1014
 214 213 7
 216 154 8
 218 217 191
-srun: error: cn37: task 0: Segmentation fault
 220 219 6
 222 221 215
 224 223 2
@@ -1004,4 +1003,4 @@ srun: error: cn37: task 0: Segmentation fault
 1996 1995 1993
 1998 1996 1991
 2000 1998 1988
-2002 105
+2002 105srun: error: cn34: task 0: Segmentation fault

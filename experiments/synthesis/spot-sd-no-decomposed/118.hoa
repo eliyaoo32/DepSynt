@@ -1,0 +1,46 @@
+trying to create strategy directly for (g -> XXg) & X(g <-> r) & (Xg <-> XXg) & XXXG(r <-> XXg)
+direct strategy might exist but was not found.
+translating formula done in 0.000787718 seconds
+automaton has 12 states and 1 colors
+split inputs and outputs done in 5.4683e-05 seconds
+automaton has 33 states
+determinization done
+DPA has 33 states, 2 colors
+simplification done
+DPA has 33 states
+determinization and simplification took 6.6729e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 5.9259e-05 seconds
+simplification took 0.000198015 seconds
+REALIZABLE
+HOA: v1
+States: 6
+Start: 0
+AP: 2 "g" "r"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0
+--BODY--
+State: 0
+[!0] 1
+State: 1
+[!0&!1] 3
+[0&1] 5
+State: 2
+[!0&!1] 2
+[!0&1] 3
+State: 3
+[!0&!1] 4
+[!0&1] 5
+State: 4
+[0&!1] 2
+[0&1] 3
+State: 5
+[0&!1] 4
+[0&1] 5
+--END--
+
+real	0m0.010s
+user	0m0.004s
+sys	0m0.005s

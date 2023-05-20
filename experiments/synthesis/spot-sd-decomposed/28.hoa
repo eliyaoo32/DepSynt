@@ -1,0 +1,19 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!u0button2down0f1ddisable1b & !((u0button2down0button2down & !u0button2down0f1denable1b) <-> (!u0button2down0button2down & u0button2down0f1denable1b))) <-> (u0button2down0f1ddisable1b & !(u0button2down0button2down | u0button2down0f1denable1b))) & !((!u0button2up0f1ddisable1b & !((u0button2up0button2up & !u0button2up0f1denable1b) <-> (!u0button2up0button2up & u0button2up0f1denable1b))) <-> (u0button2up0f1ddisable1b & !(u0button2up0button2up | u0button2up0f1denable1b))) & !((!u0counter0f1ddec0counter1b & !((u0counter0counter & !u0counter0f1dinc0counter1b) <-> (!u0counter0counter & u0counter0f1dinc0counter1b))) <-> (u0counter0f1ddec0counter1b & !(u0counter0counter | u0counter0f1dinc0counter1b)))) & ((!p0p0button2pressed0down & !p0p0button2pressed0up & p0p0in2range0counter & G!(p0p0button2pressed0down & p0p0button2pressed0up) & G(u0button2up0f1ddisable1b -> X(u0button2up0f1denable1b R !p0p0button2pressed0up)) & G(u0button2down0f1ddisable1b -> X(u0button2down0f1denable1b R !p0p0button2pressed0down)) & G((p0p0in2range0counter & u0counter0counter) -> Xp0p0in2range0counter) & G((p0p0in2range0f1dinc0counter1b & u0counter0counter) -> Xp0p0in2range0f1dinc0counter1b) & G((p0p0in2range0f1ddec0counter1b & u0counter0counter) -> Xp0p0in2range0f1ddec0counter1b) & G((p0p0in2range0f1dinc0counter1b & u0counter0f1dinc0counter1b) -> Xp0p0in2range0counter) & G((p0p0in2range0f1ddec0counter1b & u0counter0f1ddec0counter1b) -> Xp0p0in2range0counter) & G((p0p0in2range0f1dinc0f1dinc0counter1b1b & u0counter0f1dinc0counter1b) -> Xp0p0in2range0f1dinc0counter1b) & G((p0p0in2range0f1ddec0f1dinc0counter1b1b & u0counter0f1ddec0counter1b) -> Xp0p0in2range0f1dinc0counter1b)) -> (G((p0p0in2range0f1ddec0f1dinc0counter1b1b & p0p0in2range0f1dinc0counter1b & p0p0in2range0f1dinc0f1dinc0counter1b1b) -> u0button2up0f1denable1b) & G((p0p0in2range0f1ddec0counter1b & p0p0in2range0f1ddec0f1ddec0counter1b1b & p0p0in2range0f1dinc0f1ddec0counter1b1b) -> u0button2down0f1denable1b) & G(p0p0button2pressed0up <-> u0counter0f1dinc0counter1b) & G(p0p0button2pressed0down <-> u0counter0f1ddec0counter1b) & Gp0p0in2range0counter))
+direct strategy might exist but was not found.
+translating formula done in 1.20853 seconds
+automaton has 9 states and 1 colors
+split inputs and outputs done in 0.00589356 seconds
+automaton has 83 states
+determinization done
+DPA has 415 states, 2 colors
+simplification done
+DPA has 404 states
+determinization and simplification took 0.0823046 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 0.000258313 seconds
+UNREALIZABLE
+
+real	0m1.309s
+user	0m1.261s
+sys	0m0.044s

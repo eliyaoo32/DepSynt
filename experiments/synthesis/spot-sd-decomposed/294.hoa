@@ -1,0 +1,19 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!((!u02roomlight29light0f1d2roomlight29turn2off1b & u02roomlight29light0f1d2roomlight29turn2on1b) <-> (u02roomlight29light0f1d2roomlight29turn2off1b & !u02roomlight29light0f1d2roomlight29turn2on1b)) & !(u02roomlight29light02roomlight29light | u02roomlight29light0f1d2roomlight29toggle1b)) <-> (!((u02roomlight29light02roomlight29light & !u02roomlight29light0f1d2roomlight29toggle1b) <-> (!u02roomlight29light02roomlight29light & u02roomlight29light0f1d2roomlight29toggle1b)) & !(u02roomlight29light0f1d2roomlight29turn2off1b | u02roomlight29light0f1d2roomlight29turn2on1b))) & ((G!(p0b02roomlight29off <-> p0b02roomlight29on) & G((u02roomlight29light0f1d2roomlight29turn2on1b | (p0b02roomlight29off & u02roomlight29light0f1d2roomlight29toggle1b)) -> XF((u02roomlight29light0f1d2roomlight29toggle1b | u02roomlight29light0f1d2roomlight29turn2off1b) R p0b02roomlight29on)) & G((u02roomlight29light0f1d2roomlight29turn2off1b | (p0b02roomlight29on & u02roomlight29light0f1d2roomlight29toggle1b)) -> XF((u02roomlight29light0f1d2roomlight29toggle1b | u02roomlight29light0f1d2roomlight29turn2on1b) R p0b02roomlight29off)) & G(p0p0off02roomlight29intent | p0p0on02roomlight29intent | p0p0toggle02roomlight29intent) & G(p0p0on02roomlight29intent -> !(p0p0off02roomlight29intent | p0p0toggle02roomlight29intent)) & G(p0p0off02roomlight29intent -> !(p0p0on02roomlight29intent | p0p0toggle02roomlight29intent)) & G(p0p0toggle02roomlight29intent -> !(p0p0off02roomlight29intent | p0p0on02roomlight29intent))) -> (G(p0p0on02roomlight29intent -> F((p0b02roomlight29on U !p0p0on02roomlight29intent) | Gp0b02roomlight29on)) & G(p0p0off02roomlight29intent -> F((!p0b02roomlight29on U !p0p0off02roomlight29intent) | G!p0b02roomlight29on)) & G((p0b02roomlight29on & p0p0toggle02roomlight29intent) -> F(G!p0b02roomlight29on | (!p0b02roomlight29on U !p0p0toggle02roomlight29intent))) & G((!p0b02roomlight29on & p0p0toggle02roomlight29intent) -> F(Gp0b02roomlight29on | (p0b02roomlight29on U !p0p0toggle02roomlight29intent)))))
+direct strategy might exist but was not found.
+translating formula done in 0.00634997 seconds
+automaton has 19 states and 4 colors
+split inputs and outputs done in 0.000600341 seconds
+automaton has 82 states
+determinization done
+DPA has 213 states, 4 colors
+simplification done
+DPA has 200 states
+determinization and simplification took 0.0144234 seconds
+solving game with acceptance: parity min even 4
+game solved in 0.000260844 seconds
+UNREALIZABLE
+
+real	0m0.031s
+user	0m0.021s
+sys	0m0.009s

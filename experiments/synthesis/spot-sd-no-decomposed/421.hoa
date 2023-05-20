@@ -1,0 +1,32 @@
+trying to create strategy directly for G(!((u0sitting2arrganent0f1dgenerate0calendar1b & !u0sitting2arrganent0sitting2arrganent) <-> (!u0sitting2arrganent0f1dgenerate0calendar1b & u0sitting2arrganent0sitting2arrganent)) & !((u0sitting2arragment0f1dsitting02arragment1b & !u0sitting2arragment0sitting2arragment) <-> (!u0sitting2arragment0f1dsitting02arragment1b & u0sitting2arragment0sitting2arragment))) & (GFp0p0new2day0time -> G(p0p0new2day0time -> (u0sitting2arrganent0f1dgenerate0calendar1b & X(u0sitting2arragment0f1dsitting02arragment1b U p0p0new2day0time))))
+direct strategy might exist but was not found.
+translating formula done in 0.00125403 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 5.7586e-05 seconds
+automaton has 16 states
+determinization done
+DPA has 16 states, 2 colors
+simplification done
+DPA has 11 states
+determinization and simplification took 0.00121124 seconds
+solving game with acceptance: Rabin 1
+game solved in 3.5991e-05 seconds
+simplification took 8.1538e-05 seconds
+REALIZABLE
+HOA: v1
+States: 1
+Start: 0
+AP: 5 "u0sitting2arrganent0f1dgenerate0calendar1b" "u0sitting2arrganent0sitting2arrganent" "u0sitting2arragment0f1dsitting02arragment1b" "u0sitting2arragment0sitting2arragment" "p0p0new2day0time"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2 3
+--BODY--
+State: 0
+[0&!1&!2&3&4 | 0&!1&2&!3&4] 0
+[!0&1&2&!3&!4 | 0&!1&2&!3&!4] 0
+--END--
+
+real	0m0.012s
+user	0m0.005s
+sys	0m0.007s

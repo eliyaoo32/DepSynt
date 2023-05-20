@@ -1,0 +1,39 @@
+there are 1 subformulas
+trying to create strategy directly for (!etc & G((!etc & !sts) -> X!etc) & G(etc -> F!etc) & G(sts -> Xetc)) -> G((sflr | shlr) & ((shlr & X!shlr) -> sts) & ((sflr & X!sflr) -> sts) & ((!sflr & (!ec | !etc)) -> Xsflr) & ((!shlr & (ec | !etc)) -> Xshlr) & (ec -> F!sflr) & F!shlr)
+direct strategy might exist but was not found.
+translating formula done in 0.00252404 seconds
+automaton has 14 states and 2 colors
+split inputs and outputs done in 0.000122841 seconds
+automaton has 37 states
+determinization done
+DPA has 68 states, 3 colors
+simplification done
+DPA has 57 states
+determinization and simplification took 0.00322466 seconds
+solving game with acceptance: parity min even 3
+game solved in 5.7105e-05 seconds
+simplification took 5.2427e-05 seconds
+REALIZABLE
+HOA: v1
+States: 3
+Start: 0
+AP: 5 "etc" "sts" "sflr" "ec" "shlr"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 1 2 4
+--BODY--
+State: 0
+[!0&!1&!2&!4] 1
+[0] 2
+State: 1
+[0] 2
+[!0&1] 2
+State: 2
+[!0] 2
+[0&1] 2
+--END--
+
+real	0m0.015s
+user	0m0.009s
+sys	0m0.005s

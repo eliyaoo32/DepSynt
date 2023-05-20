@@ -1,0 +1,36 @@
+there are 1 subformulas
+trying to create strategy directly for G((hready -> (locked <-> Xhmastlock)) & (!hready -> (hmastlock <-> Xhmastlock)))
+direct strategy might exist but was not found.
+translating formula done in 0.0010748 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 8.8753e-05 seconds
+automaton has 10 states
+determinization done
+DPA has 10 states, 1 colors
+simplification done
+DPA has 10 states
+determinization and simplification took 9.9587e-05 seconds
+solving game with acceptance: Büchi
+game solved in 6.4367e-05 seconds
+simplification took 0.000194433 seconds
+REALIZABLE
+HOA: v1
+States: 2
+Start: 0
+AP: 3 "hready" "locked" "hmastlock"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 2
+--BODY--
+State: 0
+[!0&!2 | !1&!2] 0
+[0&1&!2] 1
+State: 1
+[0&!1&2] 0
+[!0&2 | 1&2] 1
+--END--
+
+real	0m0.044s
+user	0m0.004s
+sys	0m0.014s

@@ -1,0 +1,22 @@
+there are 1 subformulas
+trying to create strategy directly for G!((u0wallserver0f1dcommit1b & !u0wallserver0wallserver) <-> (!u0wallserver0f1dcommit1b & u0wallserver0wallserver)) & G(p0p0gt0change0percentage -> u0wallserver0f1dcommit1b)
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 5.6711e-05 seconds
+REALIZABLE
+HOA: v1
+States: 1
+Start: 0
+AP: 3 "u0wallserver0wallserver" "u0wallserver0f1dcommit1b" "p0p0gt0change0percentage"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1
+--BODY--
+State: 0
+[!0&1 | 0&!1&!2] 0
+--END--
+
+real	0m0.010s
+user	0m0.005s
+sys	0m0.004s

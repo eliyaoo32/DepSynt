@@ -1751,7 +1751,7 @@ aag 1799 4 48 9 1747
 3480 2235 1751
 3482 1701 1151
 3484 3482 3480
-srun: error: cn34: task 0: Segmentation fault
+srun: error: cn36: task 0: Segmentation fault
 3486 3484 3478
 3488 3486 3472
 3490 802 738

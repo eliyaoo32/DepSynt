@@ -1,0 +1,8 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!u0window0f1dopen1b & !((!u0window0f1dclose1b & u0window0window) <-> (u0window0f1dclose1b & !u0window0window))) <-> (u0window0f1dopen1b & !(u0window0f1dclose1b | u0window0window))) & !((u0heater0f1don1b & !u0heater0heater) <-> (!u0heater0f1don1b & u0heater0heater))) & G(p0p0gt0co25level0val -> u0window0f1dopen1b) & G(p0b0fire -> u0window0f1dclose1b) & G(p0b0rain -> u0window0f1dclose1b) & G!(u0heater0f1don1b & u0window0f1dopen1b) & G((p0b02person2in2office & p0p0work2time0time) -> u0heater0f1don1b) & G(p0p0rushhour0time -> u0window0f1dclose1b)
+no strategy exists.
+UNREALIZABLE
+
+real	0m0.009s
+user	0m0.003s
+sys	0m0.005s

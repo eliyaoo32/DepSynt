@@ -3887,4 +3887,4 @@ aag 3987 4 190 6 3793
 7758 5278 128
 7760 5294 148
 7762 7761 7759
-7764 7762 srun: error: cn35: task 0: Segmentation fault
+7764 7762 srun: error: cn36: task 0: Segmentation fault

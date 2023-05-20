@@ -1,0 +1,34 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!u0accel0f1ddeaccel1b & !((u0accel0accel & !u0accel0f1dspeed2up1b) <-> (!u0accel0accel & u0accel0f1dspeed2up1b))) <-> (u0accel0f1ddeaccel1b & !(u0accel0accel | u0accel0f1dspeed2up1b))) & !((!u0brakes0f1dhit2brakes1b & !((u0brakes0brakes & !u0brakes0f1doff2brakes1b) <-> (!u0brakes0brakes & u0brakes0f1doff2brakes1b))) <-> (u0brakes0f1dhit2brakes1b & !(u0brakes0brakes | u0brakes0f1doff2brakes1b)))) & G(((u0accel0f1ddeaccel1b & u0brakes0f1dhit2brakes1b) U (p0p0clear2ahead0track | p0p0slow0speed)) | G(u0accel0f1ddeaccel1b & u0brakes0f1dhit2brakes1b)) & G(p0p0clear2ahead0track -> (u0accel0f1dspeed2up1b & u0brakes0f1doff2brakes1b))
+direct strategy might exist but was not found.
+translating formula done in 0.000981915 seconds
+automaton has 1 states and 1 colors
+split inputs and outputs done in 9.8668e-05 seconds
+automaton has 4 states
+determinization done
+DPA has 4 states, 1 colors
+simplification done
+DPA has 4 states
+determinization and simplification took 0.000121866 seconds
+solving game with acceptance: Büchi
+game solved in 4.4221e-05 seconds
+simplification took 0.000142305 seconds
+REALIZABLE
+HOA: v1
+States: 1
+Start: 0
+AP: 8 "u0accel0f1ddeaccel1b" "u0accel0accel" "u0accel0f1dspeed2up1b" "u0brakes0f1dhit2brakes1b" "u0brakes0brakes" "u0brakes0f1doff2brakes1b" "p0p0clear2ahead0track" "p0p0slow0speed"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2 3 4 5
+--BODY--
+State: 0
+[0&!1&!2&3&!4&!5&!6&!7] 0
+[!0&!1&2&!3&!4&5&!6&7 | !0&!1&2&!3&4&!5&!6&7 | !0&!1&2&3&!4&!5&!6&7 | !0&1&!2&!3&!4&5&!6&7 | !0&1&!2&!3&4&!5&!6&7 | !0&1&!2&3&!4&!5&!6&7 | 0&!1&!2&!3&!4&5&!6&7 | 0&!1&!2&!3&4&!5&!6&7 | 0&!1&!2&3&!4&!5&!6&7] 0
+[!0&!1&2&!3&!4&5&6] 0
+--END--
+
+real	0m0.043s
+user	0m0.009s
+sys	0m0.010s

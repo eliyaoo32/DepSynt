@@ -1,0 +1,33 @@
+aag 24 3 3 2 18
+2
+4
+6
+8 35
+10 47
+12 48
+16
+13
+14 11 12
+16 9 14
+18 11 13
+20 8 18
+22 17 21
+24 10 12
+26 9 25
+28 27 21
+30 4 29
+32 5 23
+34 33 31
+36 10 13
+38 15 37
+40 9 39
+42 2 29
+44 3 40
+46 45 43
+48 8 36
+i0 a
+i1 b
+i2 c
+o0 p0
+o1 p1
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/522.json

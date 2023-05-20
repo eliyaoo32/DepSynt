@@ -1,0 +1,42 @@
+trying to create strategy directly for G(p0 <-> !p1) & (GFp0 <-> (Fa & Fb))
+direct strategy might exist but was not found.
+translating formula done in 0.00178471 seconds
+automaton has 9 states and 1 colors
+split inputs and outputs done in 7.0061e-05 seconds
+automaton has 23 states
+determinization done
+DPA has 19 states, 3 colors
+simplification done
+DPA has 16 states
+determinization and simplification took 0.00112514 seconds
+solving game with acceptance: parity min odd 3
+game solved in 5.0413e-05 seconds
+simplification took 7.5583e-05 seconds
+REALIZABLE
+HOA: v1
+States: 4
+Start: 0
+AP: 4 "p0" "p1" "a" "b"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1
+--BODY--
+State: 0
+[!0&1&!2&!3] 0
+[!0&1&!2&3] 1
+[!0&1&2&!3] 2
+[!0&1&2&3 | 0&!1&2&3] 3
+State: 1
+[!0&1&!2] 1
+[!0&1&2 | 0&!1&2] 3
+State: 2
+[!0&1&!3] 2
+[!0&1&3 | 0&!1&3] 3
+State: 3
+[0&!1] 3
+--END--
+
+real	0m0.012s
+user	0m0.005s
+sys	0m0.006s

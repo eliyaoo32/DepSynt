@@ -1,1 +1,2 @@
-srun: error: cn39: task 0: Segmentation fault
+Runtime error: Too many acceptance sets used.  The limit is 32.
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/model-checking/synthesis-with-deps/187.json

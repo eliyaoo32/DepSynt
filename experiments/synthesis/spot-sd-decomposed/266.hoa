@@ -1,0 +1,64 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b & !((u02shades29ctrl02shades29ctrl & !u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b) <-> (!u02shades29ctrl02shades29ctrl & u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b))) <-> (u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b & !(u02shades29ctrl02shades29ctrl | u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b))) & ((G!(p0b02shades29closed & p0b02shades29open) & G(u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b -> F((!u02shades29ctrl02shades29ctrl & !u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b) R p0b02shades29open)) & G(u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b -> F((!u02shades29ctrl02shades29ctrl & !u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b) R p0b02shades29closed)) & G((p0b02shades29closed & !u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b) -> Xp0b02shades29closed) & G((p0b02shades29open & !u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b) -> Xp0b02shades29open) & G!(p0p0closed02shades29intent <-> p0p0opened02shades29intent)) -> (G(p0p0opened02shades29intent -> F((p0b02shades29open U !p0p0opened02shades29intent) | Gp0b02shades29open)) & G(p0p0closed02shades29intent -> F((p0b02shades29closed U !p0p0closed02shades29intent) | Gp0b02shades29closed))))
+direct strategy might exist but was not found.
+translating formula done in 0.00369151 seconds
+automaton has 10 states and 2 colors
+split inputs and outputs done in 0.00018432 seconds
+automaton has 39 states
+determinization done
+DPA has 159 states, 3 colors
+simplification done
+DPA has 134 states
+determinization and simplification took 0.00419746 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.000135756 seconds
+simplification took 0.000219369 seconds
+REALIZABLE
+HOA: v1
+States: 6
+Start: 0
+AP: 7 "u02shades29ctrl02shades29ctrl" "u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b" "u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b" "p0b02shades29open" "p0b02shades29closed" "p0p0closed02shades29intent" "p0p0opened02shades29intent"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2
+--BODY--
+State: 0
+[!0&!1&2&!3&!5&6 | !0&!1&2&!3&5&!6] 1
+[!0&!1&2&3&!4&!5&6 | !0&!1&2&3&!4&5&!6] 1
+[!0&!1&2&3&4 | !0&!1&2&!5&!6 | !0&!1&2&5&6 | !0&1&!2&3&4 | !0&1&!2&!5&!6 | !0&1&!2&5&6 | 0&!1&!2&3&4 | 0&!1&!2&!5&!6 | 0&!1&!2&5&6] 4
+State: 1
+[!0&!1&2&!3&4&!5&6 | !0&!1&2&!3&4&5&!6] 1
+[!0&!1&2&3&4 | !0&!1&2&!5&!6 | !0&!1&2&5&6 | !0&1&!2&3&4 | !0&1&!2&!5&!6 | !0&1&!2&5&6 | 0&!1&!2&3&4 | 0&!1&!2&!5&!6 | 0&!1&!2&5&6] 4
+[!0&1&!2&3&!4&5&!6] 2
+[!0&1&!2&3&!4&!5&6] 2
+[!0&1&!2&!3&!4&!5&6 | !0&1&!2&!3&!4&5&!6] 1
+State: 2
+[!0&!1&2&3&4 | !0&!1&2&!5&!6 | !0&!1&2&5&6 | !0&1&!2&3&4 | !0&1&!2&!5&!6 | !0&1&!2&5&6 | 0&!1&!2&3&4 | 0&!1&!2&!5&!6 | 0&!1&!2&5&6] 4
+[!0&!1&2&!3&!4&!5&6 | !0&!1&2&!3&!4&5&!6] 3
+[!0&1&!2&!3&4&5&!6 | 0&!1&!2&!3&4&5&!6] 4
+[!0&!1&2&3&!4&!5&6 | !0&!1&2&3&!4&5&!6] 5
+[!0&!1&2&!3&4&!5&6] 4
+State: 3
+[!0&!1&2&3&4 | !0&!1&2&!5&!6 | !0&!1&2&5&6 | !0&1&!2&3&4 | !0&1&!2&!5&!6 | !0&1&!2&5&6 | 0&!1&!2&3&4 | 0&!1&!2&!5&!6 | 0&!1&!2&5&6] 4
+[!0&!1&2&3&!4&!5&6 | !0&!1&2&3&!4&5&!6 | 0&!1&!2&3&!4&!5&6 | 0&!1&!2&3&!4&5&!6] 5
+[!0&!1&2&!3&!4&!5&6 | !0&!1&2&!3&!4&5&!6 | !0&1&!2&!3&!4&!5&6 | !0&1&!2&!3&!4&5&!6 | 0&!1&!2&!3&!4&!5&6 | 0&!1&!2&!3&!4&5&!6] 3
+[!0&1&!2&!3&4&!5&6 | !0&1&!2&!3&4&5&!6 | 0&!1&!2&!3&4&!5&6 | 0&!1&!2&!3&4&5&!6] 3
+State: 4
+[!0&!1&2&3&4 | !0&!1&2&!5&!6 | !0&!1&2&5&6 | !0&1&!2&3&4 | !0&1&!2&!5&!6 | !0&1&!2&5&6 | 0&!1&!2&3&4 | 0&!1&!2&!5&!6 | 0&!1&!2&5&6] 4
+[!0&1&!2&3&!4&5&!6] 2
+[!0&!1&2&!3&4&!5&6] 4
+[!0&1&!2&!3&!4&!5&6 | !0&1&!2&!3&!4&5&!6] 5
+[!0&1&!2&!3&4&5&!6] 4
+[!0&!1&2&3&!4&!5&6 | 0&!1&!2&3&!4&!5&6] 4
+State: 5
+[!0&!1&2&3&4 | !0&!1&2&!5&!6 | !0&!1&2&5&6 | !0&1&!2&3&4 | !0&1&!2&!5&!6 | !0&1&!2&5&6 | 0&!1&!2&3&4 | 0&!1&!2&!5&!6 | 0&!1&!2&5&6] 4
+[!0&!1&2&!3&4&!5&6] 4
+[!0&!1&2&!3&!4&!5&6 | !0&!1&2&!3&!4&5&!6 | !0&1&!2&!3&!4&!5&6 | !0&1&!2&!3&!4&5&!6 | 0&!1&!2&!3&!4&!5&6 | 0&!1&!2&!3&!4&5&!6] 5
+[!0&1&!2&!3&4&5&!6 | 0&!1&!2&!3&4&5&!6] 4
+[!0&!1&2&3&!4&!5&6 | !0&!1&2&3&!4&5&!6 | 0&!1&!2&3&!4&!5&6 | 0&!1&!2&3&!4&5&!6] 5
+--END--
+
+real	0m0.019s
+user	0m0.012s
+sys	0m0.006s

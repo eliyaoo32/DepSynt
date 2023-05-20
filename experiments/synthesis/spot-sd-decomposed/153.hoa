@@ -1,0 +1,38 @@
+there are 1 subformulas
+trying to create strategy directly for (G(!hgrant_0 | !hgrant_1) & G(hgrant_0 | hgrant_1)) -> G((hready -> (hgrant_0 <-> X!hmaster_0)) & (hready -> (hgrant_1 <-> Xhmaster_0)) & (!hready -> (hmaster_0 <-> Xhmaster_0)))
+direct strategy might exist but was not found.
+translating formula done in 0.00129384 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 5.9121e-05 seconds
+automaton has 15 states
+determinization done
+DPA has 15 states, 2 colors
+simplification done
+DPA has 15 states
+determinization and simplification took 6.7727e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 2.6328e-05 seconds
+simplification took 0.000133535 seconds
+REALIZABLE
+HOA: v1
+States: 2
+Start: 1
+AP: 4 "hgrant_0" "hgrant_1" "hready" "hmaster_0"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 3
+--BODY--
+State: 0
+[!0&!1 | 0&1] 1
+[!0&1&3 | 0&!1&!2&3] 0
+[0&!1&2&3] 1
+State: 1
+[!0&1&!2&!3 | 0&!1&!3] 1
+[!0&!1 | 0&1] 1
+[!0&1&2&!3] 0
+--END--
+
+real	0m0.010s
+user	0m0.001s
+sys	0m0.008s

@@ -1,1 +1,19 @@
-srun: error: cn39: task 0: Segmentation fault
+aag 12 3 2 1 7
+2
+4
+6
+8 23
+10 25
+12
+12 8 10
+14 9 10
+16 8 11
+18 2 17
+20 3 14
+22 21 19
+24 15 17
+i0 req
+i1 cancel
+i2 go
+o0 grant
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/model-checking/synthesis-with-deps/182.json

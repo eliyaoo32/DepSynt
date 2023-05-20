@@ -1,0 +1,102 @@
+aag 56 2 3 21 51
+2
+4
+6 83
+8 99
+10 113
+17
+20
+35
+1
+40
+46
+50
+24
+54
+57
+16
+20
+40
+50
+46
+54
+16
+0
+0
+0
+0
+12 8 10
+14 6 12
+16 4 14
+18 7 12
+20 4 18
+22 11 9
+24 6 22
+26 7 22
+28 27 15
+30 4 29
+32 5 25
+34 33 31
+36 8 11
+38 6 36
+40 4 38
+42 9 10
+44 7 42
+46 4 44
+48 6 42
+50 4 48
+52 7 36
+54 4 52
+56 4 23
+58 6 23
+60 27 59
+62 2 61
+64 3 58
+66 65 63
+68 7 23
+70 6 13
+72 2 71
+74 3 68
+76 75 73
+78 4 77
+80 5 67
+82 81 79
+84 6 43
+86 7 8
+88 87 85
+90 6 9
+92 87 91
+94 4 93
+96 5 89
+98 97 95
+100 43 37
+102 6 101
+104 7 10
+106 105 103
+108 4 107
+110 5 10
+112 111 109
+i0 p0p0on0start2mod
+i1 p0p0spi2finished0spi2response
+o0 u0finished0f1dbot1b
+o1 u0spi2control0f1dread2cmd0f1dreg61b1b
+o2 u0spi2control0f1dread2cmd2none1b
+o3 u0sensor2type0f1dmy2sensor2type1b
+o4 u0spi2control0f1dread2cmd0f1dreg31b1b
+o5 u0spi2control0f1dread2cmd0f1dreg41b1b
+o6 u0spi2control0f1dread2cmd0f1dreg51b1b
+o7 u0spi2control0f1dread2cmd0f1dreg241b1b
+o8 u0spi2control0f1dread2cmd0f1dreg251b1b
+o9 u0reg2manager2cmd0f1dno2command1b
+o10 u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b
+o11 u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b
+o12 u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b
+o13 u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b
+o14 u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b
+o15 u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b
+o16 u0finished0f1dtop1b
+o17 u0finished0finished
+o18 u0reg2manager2cmd0reg2manager2cmd
+o19 u0sensor2type0sensor2type
+o20 u0spi2control0spi2control
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/15.json

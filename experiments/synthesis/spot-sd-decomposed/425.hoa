@@ -1,0 +1,34 @@
+there are 1 subformulas
+trying to create strategy directly for G!((u0out0f1db1b & !u0out0out) <-> (!u0out0f1db1b & u0out0out)) & ((GFp0b0a & G!(p0b0a & p0b0c)) -> G(u0out0f1db1b U p0b0a))
+direct strategy might exist but was not found.
+translating formula done in 0.00095411 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 5.9052e-05 seconds
+automaton has 16 states
+determinization done
+DPA has 19 states, 2 colors
+simplification done
+DPA has 13 states
+determinization and simplification took 0.00127172 seconds
+solving game with acceptance: Rabin 1
+game solved in 4.072e-05 seconds
+simplification took 8.8197e-05 seconds
+REALIZABLE
+HOA: v1
+States: 1
+Start: 0
+AP: 4 "p0b0a" "p0b0c" "u0out0f1db1b" "u0out0out"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 2 3
+--BODY--
+State: 0
+[!0&2&!3] 0
+[0&!1&!2&3 | 0&!1&2&!3] 0
+[0&1&!2&3 | 0&1&2&!3] 0
+--END--
+
+real	0m0.012s
+user	0m0.005s
+sys	0m0.006s

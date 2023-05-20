@@ -1,0 +1,53 @@
+trying to create strategy directly for G((p0 & !p1 & !p2) | (!p0 & p1 & !p2) | (!p0 & !p1 & p2)) & ((GFp0 | (GFp2 & !GFp1)) <-> (!b | FG!a | (GFa & FGb)))
+direct strategy might exist but was not found.
+translating formula done in 0.00588732 seconds
+automaton has 28 states and 3 colors
+split inputs and outputs done in 0.000177333 seconds
+automaton has 74 states
+determinization done
+DPA has 318 states, 4 colors
+simplification done
+DPA has 301 states
+determinization and simplification took 0.00681736 seconds
+solving game with acceptance: parity min odd 4
+game solved in 0.00030831 seconds
+simplification took 9.4083e-05 seconds
+REALIZABLE
+HOA: v1
+States: 6
+Start: 0
+AP: 5 "p0" "p1" "p2" "b" "a"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2
+--BODY--
+State: 0
+[!0&1&!2&!3] 1
+[!0&!1&2&3&!4] 2
+[!0&!1&2&3&4] 3
+State: 1
+[0&!1&!2] 1
+State: 2
+[!0&!1&2&3&4] 3
+[!0&1&!2&!3&4] 3
+[!0&!1&2&!3&!4] 4
+[0&!1&!2&3&!4] 5
+State: 3
+[!0&!1&2&3] 3
+[!0&!1&2&!3&!4] 4
+[!0&1&!2&!3&4] 3
+State: 4
+[!0&1&!2&!3&4] 3
+[!0&1&!2&3&4] 3
+[!0&!1&2&!4] 4
+State: 5
+[!0&!1&2&3&4] 3
+[!0&!1&2&!3&4] 3
+[0&!1&!2&3&!4] 5
+[!0&!1&2&!3&!4] 3
+--END--
+
+real	0m0.024s
+user	0m0.015s
+sys	0m0.008s

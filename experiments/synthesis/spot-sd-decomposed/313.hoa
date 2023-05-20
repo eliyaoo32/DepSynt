@@ -1,0 +1,19 @@
+there are 11 subformulas
+trying to create strategy directly for G(p0b0room29somebody2enters -> F((p0b0cm29ready U (p0b0room29empty & p0b0room29somebody2leaves)) | Gp0b0cm29ready))
+direct strategy might exist but was not found.
+translating formula done in 0.0010147 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000190439 seconds
+automaton has 9 states
+determinization done
+DPA has 7 states, 3 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 0.000637741 seconds
+solving game with acceptance: parity min even 3
+game solved in 3.4528e-05 seconds
+UNREALIZABLE
+
+real	0m0.044s
+user	0m0.007s
+sys	0m0.012s

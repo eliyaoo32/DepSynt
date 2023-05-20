@@ -1,0 +1,63 @@
+aag 39 4 2 9 33
+2
+4
+6
+8
+10 75
+12 79
+25
+32
+54
+54
+55
+63
+66
+0
+56
+14 11 13
+16 10 13
+18 8 16
+20 9 14
+22 21 19
+24 22 7
+26 8 17
+28 9 12
+30 29 27
+32 7 31
+34 12 11
+36 10 12
+38 15 37
+40 8 39
+42 9 35
+44 43 41
+46 6 45
+48 7 19
+50 49 47
+52 4 51
+54 2 52
+56 51 5
+58 2 50
+60 3 57
+62 61 59
+64 9 16
+66 7 64
+68 11 9
+70 6 44
+72 7 69
+74 73 71
+76 6 40
+78 67 77
+i0 p0p0center0pos
+i1 p0p0clicked0button
+i2 p0p0left2most0pos
+i3 p0p0right2most0pos
+o0 u0pos0f1dadd0pos0vel1b
+o1 u0pos0f1dsub0pos0vel1b
+o2 u0score0f1dadd0score0f1done1b1b
+o3 u0vel0f1dadd0vel0f1done1b1b
+o4 u0score0f1dzero1b
+o5 u0vel0f1done1b
+o6 u0pos0pos
+o7 u0score0score
+o8 u0vel0vel
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/38.json

@@ -4819,4 +4819,4 @@ aag 4983 6 59 5 4918
 9624 1687 1263
 9626 9624 9623
 9628 2369 2347
-9630 2123 2srun: error: cn40: task 0: Segmentation fault
+9630 2123 2srun: error: cn34: task 0: Segmentation fault

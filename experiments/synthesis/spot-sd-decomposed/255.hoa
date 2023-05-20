@@ -1,0 +1,35 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!u0a0f1dval241b & !((u0a0a & !u0a0f1dval251b) <-> (!u0a0a & u0a0f1dval251b))) <-> (u0a0f1dval241b & !(u0a0a | u0a0f1dval251b))) & !((!u0b0f1dval241b & !((u0b0b & !u0b0f1dval251b) <-> (!u0b0b & u0b0f1dval251b))) <-> (u0b0f1dval241b & !(u0b0b | u0b0f1dval251b)))) & (G((u0a0f1dval241b & u0b0f1dval251b) -> Xp0b0in24) -> (GFp0b0in24 & GFu0a0f1dval251b & GFu0b0f1dval241b))
+direct strategy might exist but was not found.
+translating formula done in 0.00205733 seconds
+automaton has 4 states and 3 colors
+split inputs and outputs done in 7.0512e-05 seconds
+automaton has 11 states
+determinization done
+DPA has 28 states, 2 colors
+simplification done
+DPA has 26 states
+determinization and simplification took 0.00150645 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 5.2849e-05 seconds
+simplification took 0.000120974 seconds
+REALIZABLE
+HOA: v1
+States: 2
+Start: 0
+AP: 7 "u0a0a" "u0a0f1dval251b" "u0a0f1dval241b" "u0b0b" "u0b0f1dval251b" "u0b0f1dval241b" "p0b0in24"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2 3 4 5
+--BODY--
+State: 0
+[!0&!1&2&!3&4&!5] 1
+State: 1
+[!0&!1&2&!3&4&!5&!6] 1
+[!0&1&!2&!3&!4&5&6] 1
+--END--
+
+real	0m0.014s
+user	0m0.007s
+sys	0m0.006s

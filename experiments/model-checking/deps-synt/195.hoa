@@ -6620,4 +6620,4 @@ aag 6705 13 35 11 6657
 13214 13213 24
 13216 13215 12971
 13218 13217 10
-srun: error: cn39: task 0: Segmentation fault
+srun: error: cn34: task 0: Segmentation fault

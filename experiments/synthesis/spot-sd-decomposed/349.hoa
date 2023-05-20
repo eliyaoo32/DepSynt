@@ -1,0 +1,19 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!((!u0room29light0f1dturn2off1b & u0room29light0f1dturn2on1b) <-> (u0room29light0f1dturn2off1b & !u0room29light0f1dturn2on1b)) & !(u0room29light0f1dtoggle1b | u0room29light0room29light)) <-> (!((!u0room29light0f1dtoggle1b & u0room29light0room29light) <-> (u0room29light0f1dtoggle1b & !u0room29light0room29light)) & !(u0room29light0f1dturn2off1b | u0room29light0f1dturn2on1b))) & ((G!(p0b0room29light29off <-> p0b0room29light29on) & G((u0room29light0f1dturn2on1b | (p0b0room29light29off & u0room29light0f1dtoggle1b)) -> XF((u0room29light0f1dtoggle1b | u0room29light0f1dturn2off1b) R p0b0room29light29on)) & G((u0room29light0f1dturn2off1b | (p0b0room29light29on & u0room29light0f1dtoggle1b)) -> XF((u0room29light0f1dtoggle1b | u0room29light0f1dturn2on1b) R p0b0room29light29off))) -> (G(Xp0b0room29light29on -> !p0b0room29empty) & G(p0p0bright0outside29brightness -> ((p0b0room29light29off & p0b0switch29toggled) -> XF((p0b0room29light29on U p0b0switch29toggled) | Gp0b0room29light29on)))))
+direct strategy might exist but was not found.
+translating formula done in 0.00395694 seconds
+automaton has 11 states and 1 colors
+split inputs and outputs done in 0.000287383 seconds
+automaton has 37 states
+determinization done
+DPA has 151 states, 4 colors
+simplification done
+DPA has 122 states
+determinization and simplification took 0.00305764 seconds
+solving game with acceptance: parity min even 4
+game solved in 0.000182645 seconds
+UNREALIZABLE
+
+real	0m0.017s
+user	0m0.010s
+sys	0m0.006s

@@ -1,0 +1,59 @@
+there are 1 subformulas
+trying to create strategy directly for (!decide & GFhready & G(!ready2 -> X!decide)) -> (ready2 & G((decide -> XX((!(burst4 & locked) -> ready2) & ((burst4 & locked) -> (!ready2 U (hready & !ready2 & X(!ready2 U (hready & !ready2 & X(!ready2 U (hready & !ready2 & X(!ready2 U (hready & !ready2 & Xready2))))))))))) & ((ready2 & X!decide) -> Xready2) & ((ready2 & Xdecide) -> X(!ready2 & X!ready2))))
+direct strategy might exist but was not found.
+translating formula done in 0.00442156 seconds
+automaton has 62 states and 4 colors
+split inputs and outputs done in 0.00036763 seconds
+automaton has 183 states
+determinization done
+DPA has 56 states, 3 colors
+simplification done
+DPA has 48 states
+determinization and simplification took 0.0162139 seconds
+solving game with acceptance: parity min even 3
+game solved in 7.4448e-05 seconds
+simplification took 0.000132102 seconds
+REALIZABLE
+HOA: v1
+States: 7
+Start: 0
+AP: 5 "decide" "ready2" "burst4" "locked" "hready"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 1
+--BODY--
+State: 0
+[!0&1&!4] 0
+[!0&1&4] 0
+[0&!1&4] 1
+[0&!1&!4] 1
+State: 1
+[0] 6
+[!0&!1] 2
+State: 2
+[!0&1&!2 | !0&1&!3] 0
+[0] 6
+[!0&!1&2&3&!4] 3
+[!0&!1&2&3&4] 4
+State: 3
+[0] 6
+[!0&!1&!4] 3
+[!0&!1&4] 4
+State: 4
+[0] 6
+[!0&!1&!4] 4
+[!0&!1&4] 5
+State: 5
+[0] 6
+[!0&!1&!4] 5
+[!0&!1&4] 6
+State: 6
+[0] 6
+[!0&!1&!4] 6
+[!0&!1&4] 0
+--END--
+
+real	0m0.030s
+user	0m0.022s
+sys	0m0.008s

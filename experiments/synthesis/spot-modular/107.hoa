@@ -1,0 +1,105 @@
+aag 81 6 1 8 74
+2
+4
+6
+8
+10
+12
+14 163
+34
+46
+56
+75
+117
+35
+127
+149
+16 12 14
+18 13 15
+20 4 18
+22 5 17
+24 23 21
+26 9 25
+28 6 26
+30 7 25
+32 31 29
+34 2 33
+36 13 14
+38 5 36
+40 39 21
+42 11 41
+44 9 42
+46 6 44
+48 12 15
+50 5 48
+52 9 50
+54 6 52
+56 3 54
+58 8 51
+60 9 43
+62 61 59
+64 6 45
+66 7 63
+68 67 65
+70 2 45
+72 3 69
+74 73 71
+76 15 5
+78 10 24
+80 11 77
+82 81 79
+84 4 19
+86 5 12
+88 87 85
+90 8 89
+92 9 83
+94 93 91
+96 82 9
+98 6 97
+100 7 95
+102 101 99
+104 8 24
+106 93 105
+108 7 107
+110 109 99
+112 2 111
+114 3 103
+116 115 113
+118 7 62
+120 7 44
+122 2 120
+124 3 118
+126 125 123
+128 5 18
+130 10 88
+132 11 128
+134 133 131
+136 9 135
+138 6 136
+140 7 94
+142 141 139
+144 2 110
+146 3 143
+148 147 145
+150 5 49
+152 151 85
+154 152 9
+156 6 155
+158 7 153
+160 159 157
+162 160 3
+i0 p0p0button2pressed0switch
+i1 p0p0first0selected
+i2 p0p0button2pressed0up
+i3 p0p0button2pressed0down
+i4 p0p0botton2pressed0switch
+i5 p0p0second0selected
+o0 u0selected0f1dtoggle0selected1b
+o1 u0first2counter0f1dincrement0first2counter1b
+o2 u0second2counter0f1dincrement0second2counter1b
+o3 u0first2counter0f1ddecrement0first2counter1b
+o4 u0second2counter0f1ddecrement0second2counter1b
+o5 u0selected0selected
+o6 u0first2counter0first2counter
+o7 u0second2counter0second2counter
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/107.json

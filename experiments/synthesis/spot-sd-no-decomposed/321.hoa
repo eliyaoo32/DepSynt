@@ -1,0 +1,68 @@
+trying to create strategy directly for G!((!u02door29ctrl0f1dunlock1b & !((u02door29ctrl02door29ctrl & !u02door29ctrl0f1dlock1b) <-> (!u02door29ctrl02door29ctrl & u02door29ctrl0f1dlock1b))) <-> (u02door29ctrl0f1dunlock1b & !(u02door29ctrl02door29ctrl | u02door29ctrl0f1dlock1b))) & ((G(p0b02door29locked <-> !p0b02door29unlocked) & G(u02door29ctrl0f1dunlock1b -> X(p0b02door29reaching2unlocked U ((p0b02door29unlocked U u02door29ctrl0f1dlock1b) | Gp0b02door29unlocked))) & G(u02door29ctrl0f1dlock1b -> X(p0b02door29reaching2locked U ((p0b02door29locked U u02door29ctrl0f1dunlock1b) | Gp0b02door29locked)))) -> G(p0b02firesensor29fire -> X(p0b02door29reaching2unlocked U (Gp0b02door29unlocked | (p0b02door29unlocked U p0b02firesensor29fire2extinquished)))))
+direct strategy might exist but was not found.
+translating formula done in 0.00257736 seconds
+automaton has 10 states and 1 colors
+split inputs and outputs done in 0.000577385 seconds
+automaton has 30 states
+determinization done
+DPA has 132 states, 4 colors
+simplification done
+DPA has 106 states
+determinization and simplification took 0.00247952 seconds
+solving game with acceptance: parity min even 4
+game solved in 0.000147214 seconds
+simplification took 0.000153189 seconds
+REALIZABLE
+HOA: v1
+States: 6
+Start: 0
+AP: 9 "u02door29ctrl02door29ctrl" "u02door29ctrl0f1dlock1b" "u02door29ctrl0f1dunlock1b" "p0b02door29locked" "p0b02door29unlocked" "p0b02firesensor29fire" "p0b02firesensor29fire2extinquished" "p0b02door29reaching2unlocked" "p0b02door29reaching2locked"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2
+--BODY--
+State: 0
+[!0&!1&2&!3&4&!5 | !0&!1&2&3&!4&!5] 1
+[!0&!1&2&!3&4&5 | !0&!1&2&3&!4&5] 2
+[!0&!1&2&!3&!4 | !0&!1&2&3&4 | !0&1&!2&!3&!4 | !0&1&!2&3&4 | 0&!1&!2&!3&!4 | 0&!1&!2&3&4] 5
+State: 1
+[!0&!1&2&!3&!4 | !0&!1&2&3&4 | !0&1&!2&!3&!4 | !0&1&!2&3&4 | 0&!1&!2&!3&!4 | 0&!1&!2&3&4] 5
+[!0&1&!2&!3&4&!5&7 | !0&1&!2&3&!4&!5&7] 3
+[!0&!1&2&!3&4&!5&!7] 4
+[!0&!1&2&!3&4&5&!7] 5
+[!0&!1&2&3&!4&!7 | 0&!1&!2&3&!4&!7] 5
+[!0&!1&2&!3&4&5&7 | !0&!1&2&3&!4&5&7 | 0&!1&!2&!3&4&5&7 | 0&!1&!2&3&!4&5&7] 2
+State: 2
+[!0&!1&2&!3&!4 | !0&!1&2&3&4 | !0&1&!2&!3&!4 | !0&1&!2&3&4 | 0&!1&!2&!3&!4 | 0&!1&!2&3&4] 5
+[!0&1&!2&!3&4&!5&6&7 | !0&1&!2&3&!4&!5&6&7] 3
+[!0&!1&2&!3&4&5&7 | !0&!1&2&!3&4&!6&7 | !0&!1&2&3&!4&5&7 | !0&!1&2&3&!4&!6&7 | 0&!1&!2&!3&4&5&7 | 0&!1&!2&!3&4&!6&7 | 0&!1&!2&3&!4&5&7 | 0&!1&!2&3&!4&!6&7] 2
+[!0&!1&2&!3&4&!6&!7] 5
+[!0&!1&2&!3&4&!5&6&!7] 4
+[!0&!1&2&!3&4&5&6&!7] 5
+[!0&!1&2&3&!4&!7 | 0&!1&!2&3&!4&!7] 5
+State: 3
+[!0&!1&2&!3&4&!5&8 | !0&!1&2&3&!4&!5] 1
+[!0&!1&2&!3&!4 | !0&!1&2&3&4 | !0&1&!2&!3&!4 | !0&1&!2&3&4 | 0&!1&!2&!3&!4 | 0&!1&!2&3&4] 5
+[!0&1&!2&!3&4&!8 | 0&!1&!2&!3&4&!8] 5
+[!0&!1&2&!3&4&5&8 | !0&!1&2&3&!4&5] 2
+State: 4
+[!0&!1&2&!3&!4 | !0&!1&2&3&4 | !0&1&!2&!3&!4 | !0&1&!2&3&4 | 0&!1&!2&!3&!4 | 0&!1&!2&3&4] 5
+[!0&1&!2&!3&4&!5&7] 3
+[!0&!1&2&!3&4&!5&!7] 4
+[!0&!1&2&!3&4&5&!7] 5
+[!0&!1&2&3&!4 | 0&!1&!2&3&!4] 5
+[!0&!1&2&!3&4&5&7 | 0&!1&!2&!3&4&5&7] 5
+State: 5
+[!0&!1&2&!3&!4 | !0&!1&2&3&4 | !0&1&!2&!3&!4 | !0&1&!2&3&4 | 0&!1&!2&!3&!4 | 0&!1&!2&3&4] 5
+[!0&1&!2&!3&4&!5&6&7] 3
+[!0&!1&2&!3&4&!6&!7] 5
+[!0&!1&2&!3&4&!5&6&!7] 4
+[!0&!1&2&!3&4&5&6&!7] 5
+[!0&!1&2&3&!4 | 0&!1&!2&3&!4] 5
+[!0&!1&2&!3&4&5&7 | !0&!1&2&!3&4&!6&7 | 0&!1&!2&!3&4&5&7 | 0&!1&!2&!3&4&!6&7] 5
+--END--
+
+real	0m0.018s
+user	0m0.013s
+sys	0m0.005s

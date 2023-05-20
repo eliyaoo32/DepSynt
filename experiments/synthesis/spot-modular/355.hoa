@@ -1,0 +1,34 @@
+aag 24 2 2 3 20
+2
+4
+6 31
+8 49
+17
+20
+0
+10 6 8
+12 4 7
+14 5 11
+16 15 13
+18 6 9
+20 4 18
+22 5 18
+24 5 9
+26 2 24
+28 3 22
+30 29 27
+32 4 11
+34 5 7
+36 35 33
+38 7 8
+40 5 38
+42 41 33
+44 2 43
+46 3 37
+48 47 45
+i0 p0p0gt0outside29temperature0room29temperature
+i1 p0b0room29heating29off
+o0 u0room29heating29ctrl0f1dturn2off1b
+o1 u0room29heating29ctrl0f1dturn2on1b
+o2 u0room29heating29ctrl0room29heating29ctrl
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/355.json

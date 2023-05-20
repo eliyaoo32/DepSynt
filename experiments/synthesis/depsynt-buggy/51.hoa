@@ -1,0 +1,47 @@
+aag 16 5 2 12 9
+2
+4
+6
+8
+10
+12 1
+14 17
+0
+18
+26
+28
+0
+17
+0
+17
+0
+17
+30
+32
+16 15 12
+18 17 2
+20 9 5
+22 21 10
+24 17 3
+26 24 23
+28 24 22
+30 17 7
+32 17 6
+i0 p0p0lt0f1dcoordcount0xcoord0ycoord1b0score
+i1 p0p0eq0f1dadd0xcoord0ycoord1b0f1ddec0f1dsizex1b1b
+i2 p0p0eq0xcoord0f1ddec0f1dsizex1b1b
+i3 p0p0eq0xcoord0ycoord
+i4 p0p0on0gameover
+o0 u0actcolor0actcolor
+o1 u0actcolor0scorecolor
+o2 u0actcolor0f1dblackcolor1b
+o3 u0actcolor0f1dredcolor1b
+o4 u0bxcoord0bxcoord
+o5 u0bxcoord0xcoord
+o6 u0bycoord0bycoord
+o7 u0bycoord0ycoord
+o8 u0xcoord0xcoord
+o9 u0xcoord0f1dinc0xcoord1b
+o10 u0ycoord0ycoord
+o11 u0ycoord0f1dinc0ycoord1b
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/depsynt/51.json

@@ -1,0 +1,36 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!u02c2m29intent02c2m29intent & u02c2m29intent0f1dready1b) <-> (u02c2m29intent02c2m29intent & !u02c2m29intent0f1dready1b)) & !((!u02power29intent02power29intent & u02power29intent0f1don1b) <-> (u02power29intent02power29intent & !u02power29intent0f1don1b))) & ((G(p0b02power29failed -> p0b02c2m29failed) & G(p0b02power29failed -> p0b02door29failed)) -> (G(!p0b02c2m29failed -> (p0b02time298am -> X((u02c2m29intent0f1dready1b U (p0b02c2m29failed | p0b02time296pm)) | Gu02c2m29intent0f1dready1b))) & G(!p0b02c2m29failed -> (u02c2m29intent0f1dready1b -> u02power29intent0f1don1b))))
+direct strategy might exist but was not found.
+translating formula done in 0.00347101 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 0.000112467 seconds
+automaton has 11 states
+determinization done
+DPA has 11 states, 2 colors
+simplification done
+DPA has 11 states
+determinization and simplification took 6.4508e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 2.9477e-05 seconds
+simplification took 6.4958e-05 seconds
+REALIZABLE
+HOA: v1
+States: 1
+Start: 0
+AP: 9 "u02c2m29intent02c2m29intent" "u02c2m29intent0f1dready1b" "u02power29intent02power29intent" "u02power29intent0f1don1b" "p0b02c2m29failed" "p0b02time296pm" "p0b02time298am" "p0b02power29failed" "p0b02door29failed"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2 3
+--BODY--
+State: 0
+[!0&1&!2&3&!4&7 | !0&1&!2&3&7&!8 | !0&1&2&!3&!4&7 | !0&1&2&!3&7&!8 | 0&!1&!2&3&!4&7 | 0&!1&!2&3&7&!8 | 0&!1&2&!3&!4&7 | 0&!1&2&!3&7&!8] 0
+[!0&1&!2&3&!4&5&!6&!7 | 0&!1&!2&3&!4&5&!6&!7 | 0&!1&2&!3&!4&5&!6&!7] 0
+[!0&1&!2&3&!4&5&6&!7 | 0&!1&!2&3&!4&5&6&!7 | 0&!1&2&!3&!4&5&6&!7] 0
+[!0&1&!2&3&4&!7 | !0&1&!2&3&4&8 | !0&1&2&!3&4&!7 | !0&1&2&!3&4&8 | 0&!1&!2&3&4&!7 | 0&!1&!2&3&4&8 | 0&!1&2&!3&4&!7 | 0&!1&2&!3&4&8] 0
+[!0&1&!2&3&!4&!5&!7] 0
+--END--
+
+real	0m0.013s
+user	0m0.006s
+sys	0m0.006s

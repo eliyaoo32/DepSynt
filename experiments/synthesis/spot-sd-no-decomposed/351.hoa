@@ -1,0 +1,46 @@
+trying to create strategy directly for G!((!((!u0room29light0f1dturn2off1b & u0room29light0f1dturn2on1b) <-> (u0room29light0f1dturn2off1b & !u0room29light0f1dturn2on1b)) & !(u0room29light0f1dtoggle1b | u0room29light0room29light)) <-> (!((!u0room29light0f1dtoggle1b & u0room29light0room29light) <-> (u0room29light0f1dtoggle1b & !u0room29light0room29light)) & !(u0room29light0f1dturn2off1b | u0room29light0f1dturn2on1b))) & (G((u0room29light0f1dturn2on1b | (p0b0room29light29off & u0room29light0f1dtoggle1b)) -> XF((u0room29light0f1dtoggle1b | u0room29light0f1dturn2off1b) R p0b0room29light29on)) -> G(p0p0bright0outside29brightness -> ((p0b0room29light29off & p0b0switch29toggled) -> XF((p0b0room29light29on U (p0b0room29empty | p0b0switch29toggled)) | Gp0b0room29light29on))))
+direct strategy might exist but was not found.
+translating formula done in 0.00284549 seconds
+automaton has 6 states and 1 colors
+split inputs and outputs done in 0.000209871 seconds
+automaton has 20 states
+determinization done
+DPA has 34 states, 3 colors
+simplification done
+DPA has 31 states
+determinization and simplification took 0.00118311 seconds
+solving game with acceptance: parity min even 3
+game solved in 5.7869e-05 seconds
+simplification took 0.000137915 seconds
+REALIZABLE
+HOA: v1
+States: 3
+Start: 0
+AP: 9 "u0room29light0f1dturn2off1b" "u0room29light0f1dturn2on1b" "u0room29light0f1dtoggle1b" "u0room29light0room29light" "p0b0room29light29off" "p0b0room29light29on" "p0b0room29empty" "p0b0switch29toggled" "p0p0bright0outside29brightness"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2 3
+--BODY--
+State: 0
+[!0&1&!2&!3&!4] 1
+[!0&!1&2&!3&4&!7 | !0&!1&2&!3&4&!8 | !0&1&!2&!3&4&!7 | !0&1&!2&!3&4&!8] 1
+[!0&!1&2&!3&4&7&8 | !0&1&!2&!3&4&7&8] 1
+State: 1
+[!0&!1&!2&3&!4&!5&7 | !0&!1&!2&3&!5&6&!7 | !0&!1&!2&3&!5&7&!8 | !0&!1&2&!3&!4&!5&7 | !0&!1&2&!3&!5&6&!7 | !0&!1&2&!3&!5&7&!8 | !0&1&!2&!3&!4&!5&7 | !0&1&!2&!3&!5&6&!7 | !0&1&!2&!3&!5&7&!8 | 0&!1&!2&!3&!4&!5&7 | 0&!1&!2&!3&!5&6&!7 | 0&!1&!2&!3&!5&7&!8] 1
+[!0&!1&!2&3&!4&5&6 | !0&!1&!2&3&!4&5&7 | !0&1&!2&!3&!4&5&6 | !0&1&!2&!3&!4&5&7] 1
+[!0&!1&!2&3&4&!5&7&8 | !0&!1&!2&3&!5&!6&!7 | !0&!1&2&!3&4&!5&7&8 | !0&!1&2&!3&!5&!6&!7 | !0&1&!2&!3&4&!5&7&8 | !0&1&!2&!3&!5&!6&!7 | 0&!1&!2&!3&4&!5&7&8 | 0&!1&!2&!3&!5&!6&!7] 1
+[0&!1&!2&!3&4&5&7&8] 2
+[!0&!1&!2&3&4&5&6&!7 | !0&!1&!2&3&4&5&7&!8 | !0&!1&2&!3&4&5&6&!7 | !0&!1&2&!3&4&5&7&!8 | !0&1&!2&!3&4&5&6&!7 | !0&1&!2&!3&4&5&7&!8] 1
+[!0&!1&!2&3&5&!6&!7 | !0&1&!2&!3&5&!6&!7] 1
+State: 2
+[!0&1&!2&!3&!4&6 | !0&1&!2&!3&!4&7] 1
+[!0&!1&2&!3&4&6&!7 | !0&!1&2&!3&4&7&!8 | !0&1&!2&!3&4&6&!7 | !0&1&!2&!3&4&7&!8] 1
+[!0&!1&2&!3&4&!6&!7 | !0&1&!2&!3&4&!6&!7] 1
+[!0&!1&!2&3&4&7&8 | 0&!1&!2&!3&4&7&8] 2
+[!0&1&!2&!3&!4&!6&!7] 1
+--END--
+
+real	0m0.014s
+user	0m0.007s
+sys	0m0.007s

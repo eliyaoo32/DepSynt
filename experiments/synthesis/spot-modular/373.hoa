@@ -1,0 +1,20 @@
+aag 5 5 0 4 0
+2
+4
+6
+8
+10
+1
+1
+0
+0
+i0 p0b02c2m29failed
+i1 p0b02time298am
+i2 p0b02power29failed
+i3 p0b02door29failed
+i4 p0b02time296pm
+o0 u02c2m29intent0f1dready1b
+o1 u02power29intent0f1don1b
+o2 u02c2m29intent02c2m29intent
+o3 u02power29intent02power29intent
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/373.json

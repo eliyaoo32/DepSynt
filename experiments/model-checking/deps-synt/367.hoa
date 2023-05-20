@@ -1,1 +1,2 @@
-srun: error: cn37: task 0: Segmentation fault
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/model-checking/synthesis-with-deps/367.json
+srun: error: cn34: task 0: Exited with exit code 124

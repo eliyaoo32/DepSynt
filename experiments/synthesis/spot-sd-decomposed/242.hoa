@@ -1,0 +1,19 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u0alarm29control0f1dturn2on1b & !((u0alarm29control0alarm29control & !u0alarm29control0f1dturn2off1b) <-> (!u0alarm29control0alarm29control & u0alarm29control0f1dturn2off1b))) <-> (u0alarm29control0f1dturn2on1b & !(u0alarm29control0alarm29control | u0alarm29control0f1dturn2off1b))) & !(G(((u0alarm29control0f1dturn2on1b -> Xp0b0alarm) U u0alarm29control0f1dturn2off1b) | G(u0alarm29control0f1dturn2on1b -> Xp0b0alarm)) & G(((u0alarm29control0f1dturn2off1b -> X!p0b0alarm) U u0alarm29control0f1dturn2on1b) | G(u0alarm29control0f1dturn2off1b -> X!p0b0alarm)))
+direct strategy might exist but was not found.
+translating formula done in 0.00121272 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 3.9376e-05 seconds
+automaton has 7 states
+determinization done
+DPA has 7 states, 2 colors
+simplification done
+DPA has 7 states
+determinization and simplification took 5.9018e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 2.9027e-05 seconds
+UNREALIZABLE
+
+real	0m0.011s
+user	0m0.005s
+sys	0m0.005s

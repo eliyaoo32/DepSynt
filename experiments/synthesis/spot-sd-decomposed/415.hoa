@@ -1,0 +1,35 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u0coffe2machine0coffe2machine & u0coffe2machine0f1doff1b) <-> (u0coffe2machine0coffe2machine & !u0coffe2machine0f1doff1b)) & (GFp0p0new2day0time -> (G((((p0p0cleaned0dish2washer2status | p0p0full0dish2washerstatus | p0p0new2day0time) -> u0coffe2machine0f1doff1b) U p0p0empty0dish2washer2status) | G((p0p0cleaned0dish2washer2status | p0p0full0dish2washerstatus | p0p0new2day0time) -> u0coffe2machine0f1doff1b)) & G((p0p0is2meeting0calendar & p0p0is2presentation0calendar) -> u0coffe2machine0f1doff1b)))
+direct strategy might exist but was not found.
+translating formula done in 0.00162145 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 0.000565344 seconds
+automaton has 15 states
+determinization done
+DPA has 21 states, 2 colors
+simplification done
+DPA has 14 states
+determinization and simplification took 0.00105617 seconds
+solving game with acceptance: Rabin 1
+game solved in 3.8146e-05 seconds
+simplification took 6.6578e-05 seconds
+REALIZABLE
+HOA: v1
+States: 1
+Start: 0
+AP: 8 "u0coffe2machine0coffe2machine" "u0coffe2machine0f1doff1b" "p0p0new2day0time" "p0p0is2meeting0calendar" "p0p0is2presentation0calendar" "p0p0empty0dish2washer2status" "p0p0cleaned0dish2washer2status" "p0p0full0dish2washerstatus"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1
+--BODY--
+State: 0
+[!0&1&!2&!3&5 | !0&1&!2&!3&!6&!7 | !0&1&!2&!4&5 | !0&1&!2&!4&!6&!7 | 0&!1&!2&!3&5 | 0&!1&!2&!3&!6&!7 | 0&!1&!2&!4&5 | 0&!1&!2&!4&!6&!7] 0
+[!0&1&!2&3&4 | !0&1&!2&!5&6 | !0&1&!2&!5&7] 0
+[!0&1&2&!3&5 | !0&1&2&!4&5 | 0&!1&2&!3&5 | 0&!1&2&!4&5] 0
+[!0&1&2&3&4 | !0&1&2&!5] 0
+--END--
+
+real	0m0.013s
+user	0m0.005s
+sys	0m0.008s

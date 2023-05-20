@@ -1,0 +1,18 @@
+trying to create strategy directly for 0
+direct strategy might exist but was not found.
+translating formula done in 0.000170202 seconds
+automaton has 1 states and 0 colors
+split inputs and outputs done in 4.0237e-05 seconds
+automaton has 3 states
+determinization done
+DPA has 3 states, 1 colors
+simplification done
+DPA has 2 states
+determinization and simplification took 7.1549e-05 seconds
+solving game with acceptance: co-Büchi
+game solved in 3.2765e-05 seconds
+UNREALIZABLE
+
+real	0m0.010s
+user	0m0.004s
+sys	0m0.005s

@@ -1,0 +1,24 @@
+aag 11 5 0 3 6
+2
+4
+6
+8
+10
+23
+22
+0
+12 8 10
+14 13 7
+16 4 12
+18 5 15
+20 19 17
+22 20 3
+i0 p0p0eqz0counter
+i1 p0p0is2even0counter
+i2 p0p0lt0counter0f1dfourty1b
+i3 p0p0gt0counter0f1dsixteen1b
+i4 p0p0lt0counter0f1dtwentyfour1b
+o0 u0spc0f1dhigh1b
+o1 u0spc0f1dlow1b
+o2 u0spc0spc
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/31.json

@@ -1,0 +1,32 @@
+trying to create strategy directly for G(r_0 -> ((try_0 <-> Xack_0) U g_0))
+direct strategy might exist but was not found.
+translating formula done in 0.00070562 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 5.3787e-05 seconds
+automaton has 10 states
+determinization done
+DPA has 10 states, 2 colors
+simplification done
+DPA has 10 states
+determinization and simplification took 6.6175e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 3.7274e-05 seconds
+simplification took 5.0971e-05 seconds
+REALIZABLE
+HOA: v1
+States: 1
+Start: 0
+AP: 4 "r_0" "try_0" "g_0" "ack_0"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 2 3
+--BODY--
+State: 0
+[0&2] 0
+[!0] 0
+--END--
+
+real	0m0.011s
+user	0m0.004s
+sys	0m0.006s

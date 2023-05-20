@@ -1,0 +1,19 @@
+there are 1 subformulas
+trying to create strategy directly for G((req -> X(grant & X(grant & Xgrant))) & (grant -> X!grant) & (cancel -> X(!grant U go)))
+direct strategy might exist but was not found.
+translating formula done in 0.00108876 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 5.7227e-05 seconds
+automaton has 11 states
+determinization done
+DPA has 11 states, 2 colors
+simplification done
+DPA has 11 states
+determinization and simplification took 6.8688e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 3.8082e-05 seconds
+UNREALIZABLE
+
+real	0m0.010s
+user	0m0.005s
+sys	0m0.004s

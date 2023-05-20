@@ -1,0 +1,53 @@
+trying to create strategy directly for G(!(a0 & a1) & !(a0 & a2) & !(a0 & a3) & !(a1 & a2) & !(a1 & a3) & !(a2 & a3)) & (GFi0 -> GFa0) & (GFi1 -> GFa1) & (GFi2 -> GFa2) & GFa3
+direct strategy might exist but was not found.
+translating formula done in 0.00795172 seconds
+automaton has 27 states and 4 colors
+split inputs and outputs done in 0.000243585 seconds
+automaton has 93 states
+determinization done
+DPA has 589097 states, 8 colors
+simplification done
+DPA has 589097 states
+determinization and simplification took 26.171 seconds
+solving game with acceptance: parity min even 8
+game solved in 0.948212 seconds
+simplification took 0.000686069 seconds
+REALIZABLE
+HOA: v1
+States: 4
+Start: 3
+AP: 7 "a0" "a1" "a2" "a3" "i0" "i1" "i2"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1 2 3
+--BODY--
+State: 0
+[!0&!1&!2&3&4&5 | !0&!1&!2&3&!5&!6] 1
+[!0&!1&!2&3&!4&!5&6] 1
+[!0&!1&!2&3&!4&5&!6] 1
+[!0&!1&!2&3&!4&5&6] 1
+[!0&!1&!2&3&4&!5&6] 1
+State: 1
+[!0&!1&2&!3&4&5 | !0&!1&2&!3&!5&!6] 2
+[!0&!1&2&!3&!4&!5&6] 2
+[!0&!1&2&!3&!4&5&!6] 2
+[!0&!1&2&!3&!4&5&6] 2
+[!0&!1&2&!3&4&!5&6] 2
+State: 2
+[!0&1&!2&!3&4&5 | !0&1&!2&!3&!5&!6] 3
+[!0&1&!2&!3&!4&!5&6] 3
+[!0&1&!2&!3&!4&5&!6] 3
+[!0&1&!2&!3&!4&5&6] 3
+[!0&1&!2&!3&4&!5&6] 3
+State: 3
+[0&!1&!2&!3&4&5 | 0&!1&!2&!3&!5&!6] 0
+[0&!1&!2&!3&!4&!5&6] 0
+[0&!1&!2&!3&!4&5&!6] 0
+[0&!1&!2&!3&!4&5&6] 0
+[0&!1&!2&!3&4&!5&6] 0
+--END--
+
+real	0m27.157s
+user	0m26.911s
+sys	0m0.181s

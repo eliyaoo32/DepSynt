@@ -1,0 +1,14 @@
+aag 4 2 0 3 2
+2
+4
+6
+2
+8
+6 3 5
+8 3 4
+i0 hburst_0
+i1 hburst_1
+o0 single
+o1 burst4
+o2 incr
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/depsynt/151.json

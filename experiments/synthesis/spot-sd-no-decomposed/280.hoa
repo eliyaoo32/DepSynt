@@ -1,0 +1,18 @@
+trying to create strategy directly for G(!((!u02device29plug29ctrl0f1d2device29on1b & !((u02device29plug29ctrl02device29plug29ctrl & !u02device29plug29ctrl0f1d2device29off1b) <-> (!u02device29plug29ctrl02device29plug29ctrl & u02device29plug29ctrl0f1d2device29off1b))) <-> (u02device29plug29ctrl0f1d2device29on1b & !(u02device29plug29ctrl02device29plug29ctrl | u02device29plug29ctrl0f1d2device29off1b))) & !((!u02device29lamp29ctrl0f1d2device29on1b & !((u02device29lamp29ctrl02device29lamp29ctrl & !u02device29lamp29ctrl0f1d2device29off1b) <-> (!u02device29lamp29ctrl02device29lamp29ctrl & u02device29lamp29ctrl0f1d2device29off1b))) <-> (u02device29lamp29ctrl0f1d2device29on1b & !(u02device29lamp29ctrl02device29lamp29ctrl | u02device29lamp29ctrl0f1d2device29off1b)))) & !(G!(p0b02device29plug29off <-> p0b02device29plug29on) & G(u02device29plug29ctrl0f1d2device29on1b -> XF((p0b02device29plug29on U u02device29plug29ctrl0f1d2device29off1b) | Gp0b02device29plug29on)) & G(u02device29plug29ctrl0f1d2device29off1b -> XF((p0b02device29plug29off U u02device29plug29ctrl0f1d2device29on1b) | Gp0b02device29plug29off)) & G!(p0b02device29lamp29off <-> p0b02device29lamp29on) & G(u02device29lamp29ctrl0f1d2device29on1b -> XF((p0b02device29lamp29on U (p0b02device29plug29off | u02device29lamp29ctrl0f1d2device29off1b)) | Gp0b02device29lamp29on)) & G(u02device29lamp29ctrl0f1d2device29off1b -> XF((p0b02device29lamp29off U (p0b02device29plug29off | u02device29lamp29ctrl0f1d2device29on1b)) | Gp0b02device29lamp29off)) & G(p0b02device29plug29off -> p0b02device29lamp29off))
+direct strategy might exist but was not found.
+translating formula done in 0.00498152 seconds
+automaton has 6 states and 1 colors
+split inputs and outputs done in 0.000212059 seconds
+automaton has 19 states
+determinization done
+DPA has 53 states, 5 colors
+simplification done
+DPA has 39 states
+determinization and simplification took 0.00150324 seconds
+solving game with acceptance: parity min odd 5
+game solved in 7.9138e-05 seconds
+UNREALIZABLE
+
+real	0m0.019s
+user	0m0.012s
+sys	0m0.007s

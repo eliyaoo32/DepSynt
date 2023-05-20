@@ -1,0 +1,7 @@
+trying to create strategy directly for G(!((!((!u0light0f1dgreen1b & u0light0f1doff1b) <-> (u0light0f1dgreen1b & !u0light0f1doff1b)) & !(u0light0f1don1b | u0light0light)) <-> (!((!u0light0f1don1b & u0light0light) <-> (u0light0f1don1b & !u0light0light)) & !(u0light0f1dgreen1b | u0light0f1doff1b))) & !((!u0count0count & u0count0f1dup0count1b) <-> (u0count0count & !u0count0f1dup0count1b)) & !((!u0blinds0f1dclose1b & !((u0blinds0blinds & !u0blinds0f1dopen1b) <-> (!u0blinds0blinds & u0blinds0f1dopen1b))) <-> (u0blinds0f1dclose1b & !(u0blinds0blinds | u0blinds0f1dopen1b)))) & G(u0light0f1doff1b | u0light0f1don1b) & G(!p0p0has2person02printer2room2m2s -> u0light0f1doff1b) & G(p0p0has2person02printer2room2m2s -> u0light0f1don1b) & G(p0p0work2time0time -> u0light0f1don1b) & G(!p0p0work2time0time -> (p0b02person2in2office <-> u0light0f1don1b)) & G(p0b0person2in2front2of2screen <-> u0count0f1dup0count1b) & G(p0p0work2done0count <-> u0light0f1dgreen1b) & G(p0p0blinding0brightness -> u0blinds0f1dclose1b) & G(p0p0enough2light0brightness -> (u0blinds0f1dopen1b & u0light0f1doff1b))
+no strategy exists.
+UNREALIZABLE
+
+real	0m0.009s
+user	0m0.002s
+sys	0m0.006s

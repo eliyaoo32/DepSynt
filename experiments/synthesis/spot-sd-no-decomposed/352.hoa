@@ -1,0 +1,18 @@
+trying to create strategy directly for G!((!u0room29warnlight29control0f1dturn2on1b & !((!u0room29warnlight29control0f1dturn2off1b & u0room29warnlight29control0room29warnlight29control) <-> (u0room29warnlight29control0f1dturn2off1b & !u0room29warnlight29control0room29warnlight29control))) <-> (u0room29warnlight29control0f1dturn2on1b & !(u0room29warnlight29control0f1dturn2off1b | u0room29warnlight29control0room29warnlight29control))) & !(G(!p0b0room29warnlight29off <-> p0b0room29warnlight29on) & G(((u0room29warnlight29control0f1dturn2on1b -> Xp0b0room29warnlight29on) U u0room29warnlight29control0f1dturn2off1b) | G(u0room29warnlight29control0f1dturn2on1b -> Xp0b0room29warnlight29on)) & G(((u0room29warnlight29control0f1dturn2off1b -> Xp0b0room29warnlight29off) U u0room29warnlight29control0f1dturn2on1b) | G(u0room29warnlight29control0f1dturn2off1b -> Xp0b0room29warnlight29off)))
+direct strategy might exist but was not found.
+translating formula done in 0.00150005 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 4.8206e-05 seconds
+automaton has 7 states
+determinization done
+DPA has 7 states, 2 colors
+simplification done
+DPA has 7 states
+determinization and simplification took 6.1563e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 2.9235e-05 seconds
+UNREALIZABLE
+
+real	0m0.011s
+user	0m0.002s
+sys	0m0.008s

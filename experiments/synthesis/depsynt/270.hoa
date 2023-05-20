@@ -1,0 +1,66 @@
+aag 20 6 2 19 12
+2
+4
+6
+8
+10
+12
+14 1
+16 19
+0
+19
+20
+22
+26
+28
+32
+22
+34
+32
+22
+34
+38
+20
+40
+22
+20
+22
+20
+18 17 14
+20 19 13
+22 19 12
+24 12 10
+26 25 19
+28 24 19
+30 4 2
+32 31 20
+34 30 20
+36 8 6
+38 37 22
+40 36 22
+i0 p0p0hitcoord0xcoord0ycoord0f1dgetenemyradius0enemies0f1ddec0counter1b1b0f1dgetenemyangle0enemies0f1ddec0counter1b1b0rotation
+i1 p0p0lt0f1dgetenemyradius0enemies0f1ddec0counter1b1b0tmpdist
+i2 p0p0eq0ycoord0f1dhairliney1b
+i3 p0p0eq0xcoord0f1dhairlinex1b
+i4 p0p0eq0xcoord0f1ddec2size2x1b
+i5 p0p0eqz0counter
+o0 u0counter0counter
+o1 u0counter0f1dincmod0counter0f1dinc0f1denemycount1b1b1b
+o2 u0xcoord0xcoord
+o3 u0xcoord0f1dinc2coord0xcoord1b
+o4 u0ycoord0ycoord
+o5 u0ycoord0f1dinc2coord0ycoord1b
+o6 u0tmpdist0tmpdist
+o7 u0tmpdist0f1dstartradius1b
+o8 u0tmpdist0f1dgetenemyradius0enemies0f1ddec0counter1b1b
+o9 u0tmpcolor0tmpcolor
+o10 u0tmpcolor0f1dblackcolor1b
+o11 u0tmpcolor0f1dgetenemycolor0enemies0f1ddec0counter1b1b
+o12 u0color0tmpcolor
+o13 u0color0color
+o14 u0color0f1dwhitecolor1b
+o15 u0bxcoord0xcoord
+o16 u0bxcoord0bxcoord
+o17 u0bycoord0ycoord
+o18 u0bycoord0bycoord
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/depsynt/270.json

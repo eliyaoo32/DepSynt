@@ -1,0 +1,47 @@
+trying to create strategy directly for G(cancel -> X(go | X(go | Xgo))) -> G((req -> X(cancel | grant | X(cancel | grant | X(cancel | grant)))) & (grant -> X!grant) & (cancel -> X(!grant U go)))
+direct strategy might exist but was not found.
+translating formula done in 0.00198951 seconds
+automaton has 20 states and 1 colors
+split inputs and outputs done in 0.00018786 seconds
+automaton has 53 states
+determinization done
+DPA has 60 states, 2 colors
+simplification done
+DPA has 55 states
+determinization and simplification took 0.00308076 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 6.5153e-05 seconds
+simplification took 0.000180873 seconds
+REALIZABLE
+HOA: v1
+States: 4
+Start: 0
+AP: 4 "cancel" "grant" "req" "go"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 1
+--BODY--
+State: 0
+[!0&!1&!2] 0
+[!0&!1&2] 1
+[0&!1&!2] 0
+[0&!1&2] 1
+State: 1
+[0&!1&!2] 0
+[0&!1&2] 1
+[!0&!1] 2
+State: 2
+[0&!1&!2] 0
+[0&!1&2] 1
+[!0&!1] 3
+State: 3
+[0&!1&!2] 0
+[0&!1&2] 1
+[!0&1&!2] 0
+[!0&1&2] 1
+--END--
+
+real	0m0.015s
+user	0m0.008s
+sys	0m0.007s

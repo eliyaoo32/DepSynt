@@ -1,0 +1,54 @@
+trying to create strategy directly for G(!((!u0finished0f1dbot1b & !((!u0finished0f1dtop1b & u0finished0finished) <-> (u0finished0f1dtop1b & !u0finished0finished))) <-> (u0finished0f1dbot1b & !(u0finished0f1dtop1b | u0finished0finished))) & !((u0reg2manager2cmd0f1dno2command1b & !u0reg2manager2cmd0reg2manager2cmd) <-> (!u0reg2manager2cmd0f1dno2command1b & u0reg2manager2cmd0reg2manager2cmd)) & !((!u0sensor2type0f1dacc2gyr1b & !((!u0sensor2type0f1dmag1b & u0sensor2type0sensor2type) <-> (u0sensor2type0f1dmag1b & !u0sensor2type0sensor2type))) <-> (u0sensor2type0f1dacc2gyr1b & !(u0sensor2type0f1dmag1b | u0sensor2type0sensor2type))) & !((!((!((!u0spi2control0f1dwrite2cmd0f1dreg31b1b & !((!u0spi2control0f1dwrite2cmd0f1dreg71b1b & u0spi2control0spi2control) <-> (u0spi2control0f1dwrite2cmd0f1dreg71b1b & !u0spi2control0spi2control))) <-> (u0spi2control0f1dwrite2cmd0f1dreg31b1b & !(u0spi2control0f1dwrite2cmd0f1dreg71b1b | u0spi2control0spi2control))) & !(u0spi2control0f1dwrite2cmd0f1dreg51b1b | u0spi2control0f1dwrite2cmd0f1dreg241b1b)) <-> (!((u0spi2control0f1dwrite2cmd0f1dreg51b1b & !u0spi2control0f1dwrite2cmd0f1dreg241b1b) <-> (!u0spi2control0f1dwrite2cmd0f1dreg51b1b & u0spi2control0f1dwrite2cmd0f1dreg241b1b)) & !(u0spi2control0f1dwrite2cmd0f1dreg31b1b | u0spi2control0f1dwrite2cmd0f1dreg71b1b | u0spi2control0spi2control))) & !(u0spi2control0f1dwrite2cmd0f1dreg41b1b | u0spi2control0f1dwrite2cmd0f1dreg61b1b | u0spi2control0f1dwrite2cmd0f1dreg251b1b | u0spi2control0f1dwrite2cmd2none1b)) <-> (!((!((u0spi2control0f1dwrite2cmd0f1dreg41b1b & !u0spi2control0f1dwrite2cmd2none1b) <-> (!u0spi2control0f1dwrite2cmd0f1dreg41b1b & u0spi2control0f1dwrite2cmd2none1b)) & !(u0spi2control0f1dwrite2cmd0f1dreg61b1b | u0spi2control0f1dwrite2cmd0f1dreg251b1b)) <-> (!((u0spi2control0f1dwrite2cmd0f1dreg61b1b & !u0spi2control0f1dwrite2cmd0f1dreg251b1b) <-> (!u0spi2control0f1dwrite2cmd0f1dreg61b1b & u0spi2control0f1dwrite2cmd0f1dreg251b1b)) & !(u0spi2control0f1dwrite2cmd0f1dreg41b1b | u0spi2control0f1dwrite2cmd2none1b))) & !(u0spi2control0f1dwrite2cmd0f1dreg31b1b | u0spi2control0f1dwrite2cmd0f1dreg51b1b | u0spi2control0f1dwrite2cmd0f1dreg71b1b | u0spi2control0f1dwrite2cmd0f1dreg241b1b | u0spi2control0spi2control)))) & (p0p0on0start2init R (p0p0on0start2init -> u0spi2control0f1dwrite2cmd0f1dreg241b1b)) & ((u0spi2control0f1dwrite2cmd2none1b U p0p0on0start2init) | Gu0spi2control0f1dwrite2cmd2none1b) & (u0spi2control0f1dwrite2cmd0f1dreg71b1b R u0finished0f1dbot1b) & G(u0spi2control0f1dwrite2cmd0f1dreg31b1b | u0spi2control0f1dwrite2cmd0f1dreg41b1b | u0spi2control0f1dwrite2cmd0f1dreg51b1b | u0spi2control0f1dwrite2cmd0f1dreg61b1b | u0spi2control0f1dwrite2cmd0f1dreg71b1b | u0spi2control0f1dwrite2cmd0f1dreg241b1b | u0spi2control0f1dwrite2cmd0f1dreg251b1b | u0spi2control0f1dwrite2cmd2none1b) & G(u0spi2control0f1dwrite2cmd0f1dreg241b1b -> X(p0p0spi2finished0spi2response R ((p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd0f1dreg251b1b) & (!p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd2none1b)))) & G(u0spi2control0f1dwrite2cmd0f1dreg251b1b -> X(p0p0spi2finished0spi2response R ((!p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd2none1b) & (p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd0f1dreg31b1b)))) & G(u0spi2control0f1dwrite2cmd0f1dreg31b1b -> X(p0p0spi2finished0spi2response R ((!p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd2none1b) & (p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd0f1dreg41b1b)))) & G(u0spi2control0f1dwrite2cmd0f1dreg41b1b -> X(p0p0spi2finished0spi2response R ((!p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd2none1b) & (p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd0f1dreg51b1b)))) & G(u0spi2control0f1dwrite2cmd0f1dreg51b1b -> X(p0p0spi2finished0spi2response R ((!p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd2none1b) & (p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd0f1dreg61b1b)))) & G(u0spi2control0f1dwrite2cmd0f1dreg61b1b -> X(p0p0spi2finished0spi2response R ((!p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd2none1b) & (p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd0f1dreg71b1b)))) & G(u0spi2control0f1dwrite2cmd0f1dreg71b1b -> X(p0p0spi2finished0spi2response R ((!p0p0spi2finished0spi2response -> u0spi2control0f1dwrite2cmd2none1b) & (p0p0spi2finished0spi2response <-> u0finished0f1dtop1b) & (p0p0spi2finished0spi2response -> ((p0p0on0start2init R (p0p0on0start2init -> u0spi2control0f1dwrite2cmd0f1dreg241b1b)) & ((u0spi2control0f1dwrite2cmd2none1b U p0p0on0start2init) | Gu0spi2control0f1dwrite2cmd2none1b)))))) & G(u0finished0f1dtop1b -> X(u0spi2control0f1dwrite2cmd0f1dreg71b1b R u0finished0f1dbot1b)) & Gu0reg2manager2cmd0f1dno2command1b & G((u0spi2control0f1dwrite2cmd0f1dreg31b1b | u0spi2control0f1dwrite2cmd0f1dreg41b1b | u0spi2control0f1dwrite2cmd0f1dreg241b1b | u0spi2control0f1dwrite2cmd0f1dreg251b1b) -> X(p0p0spi2finished0spi2response R u0sensor2type0f1dacc2gyr1b)) & G((u0spi2control0f1dwrite2cmd0f1dreg51b1b | u0spi2control0f1dwrite2cmd0f1dreg61b1b | u0spi2control0f1dwrite2cmd0f1dreg71b1b) -> X(p0p0spi2finished0spi2response R u0sensor2type0f1dmag1b))
+direct strategy might exist but was not found.
+translating formula done in 0.00469368 seconds
+automaton has 8 states and 1 colors
+split inputs and outputs done in 8.5202e-05 seconds
+automaton has 25 states
+determinization done
+DPA has 25 states, 1 colors
+simplification done
+DPA has 25 states
+determinization and simplification took 6.0499e-05 seconds
+solving game with acceptance: Büchi
+game solved in 2.4105e-05 seconds
+simplification took 8.4291e-05 seconds
+REALIZABLE
+HOA: v1
+States: 8
+Start: 0
+AP: 19 "p0p0on0start2init" "u0spi2control0f1dwrite2cmd0f1dreg241b1b" "u0spi2control0f1dwrite2cmd0f1dreg31b1b" "u0spi2control0f1dwrite2cmd0f1dreg41b1b" "u0spi2control0f1dwrite2cmd0f1dreg51b1b" "u0spi2control0f1dwrite2cmd0f1dreg61b1b" "u0spi2control0f1dwrite2cmd0f1dreg71b1b" "u0spi2control0f1dwrite2cmd0f1dreg251b1b" "u0spi2control0f1dwrite2cmd2none1b" "u0finished0f1dtop1b" "u0finished0finished" "u0finished0f1dbot1b" "u0reg2manager2cmd0f1dno2command1b" "u0reg2manager2cmd0reg2manager2cmd" "u0sensor2type0f1dmag1b" "u0sensor2type0sensor2type" "u0sensor2type0f1dacc2gyr1b" "u0spi2control0spi2control" "p0p0spi2finished0spi2response"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+--BODY--
+State: 0
+[!0&!1&!2&!3&!4&!5&!6&!7&8&!9&!10&11&12&!13&!14&!15&16&!17 | !0&!1&!2&!3&!4&!5&!6&!7&8&!9&!10&11&12&!13&!14&15&!16&!17 | !0&!1&!2&!3&!4&!5&!6&!7&8&!9&!10&11&12&!13&14&!15&!16&!17] 0
+[0&1&!2&!3&!4&!5&!6&!7&!8&!9&!10&11&12&!13&!14&!15&16&!17 | 0&1&!2&!3&!4&!5&!6&!7&!8&!9&!10&11&12&!13&!14&15&!16&!17 | 0&1&!2&!3&!4&!5&!6&!7&!8&!9&!10&11&12&!13&14&!15&!16&!17] 1
+State: 1
+[!1&!2&!3&!4&!5&!6&!7&8&!9&!10&11&12&!13&!14&!15&16&!17&!18] 1
+[!1&!2&!3&!4&!5&!6&7&!8&!9&!10&11&12&!13&!14&!15&16&!17&18] 2
+State: 2
+[!1&!2&!3&!4&!5&!6&!7&8&!9&!10&11&12&!13&!14&!15&16&!17&!18] 2
+[!1&2&!3&!4&!5&!6&!7&!8&!9&!10&11&12&!13&!14&!15&16&!17&18] 3
+State: 3
+[!1&!2&!3&!4&!5&!6&!7&8&!9&!10&11&12&!13&!14&!15&16&!17&!18] 3
+[!1&!2&3&!4&!5&!6&!7&!8&!9&!10&11&12&!13&!14&!15&16&!17&18] 4
+State: 4
+[!1&!2&!3&!4&!5&!6&!7&8&!9&!10&11&12&!13&!14&!15&16&!17&!18] 4
+[!1&!2&!3&4&!5&!6&!7&!8&!9&!10&11&12&!13&!14&!15&16&!17&18] 5
+State: 5
+[!1&!2&!3&!4&!5&!6&!7&8&!9&!10&11&12&!13&14&!15&!16&!17&!18] 5
+[!1&!2&!3&!4&5&!6&!7&!8&!9&!10&11&12&!13&14&!15&!16&!17&18] 6
+State: 6
+[!1&!2&!3&!4&!5&!6&!7&8&!9&!10&11&12&!13&14&!15&!16&!17&!18] 6
+[!1&!2&!3&!4&!5&6&!7&!8&!9&!10&11&12&!13&14&!15&!16&!17&18] 7
+State: 7
+[!1&!2&!3&!4&!5&!6&!7&8&!9&!10&11&12&!13&14&!15&!16&!17&!18 | !1&!2&!3&!4&!5&!6&!7&8&!9&10&!11&12&!13&14&!15&!16&!17&!18] 7
+[!0&!1&!2&!3&!4&!5&!6&!7&8&9&!10&!11&12&!13&14&!15&!16&!17&18] 0
+[0&1&!2&!3&!4&!5&!6&!7&!8&9&!10&!11&12&!13&14&!15&!16&!17&18] 1
+--END--
+
+real	0m0.016s
+user	0m0.006s
+sys	0m0.010s

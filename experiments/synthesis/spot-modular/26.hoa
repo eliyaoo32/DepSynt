@@ -1,0 +1,28 @@
+aag 9 5 0 6 4
+2
+4
+6
+8
+10
+15
+14
+0
+19
+18
+0
+12 4 6
+14 2 12
+16 8 10
+18 6 16
+i0 p0p0gt0accz0f1dresetthreshhold1b
+i1 p0p0isscoremode0gamemode
+i2 p0p0norotation0gyrox0gyroy0gyroz
+i3 p0p0gt0f1dabs0accz1b0f1dshotthreshhold1b
+i4 p0p0iscockpitmode0gamemode
+o0 u0gamestart0f1dbot1b
+o1 u0gamestart0f1dtop1b
+o2 u0gamestart0gamestart
+o3 u0shot0f1dbot1b
+o4 u0shot0f1dtop1b
+o5 u0shot0shot
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/26.json

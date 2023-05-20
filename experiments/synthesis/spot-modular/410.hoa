@@ -1,0 +1,14 @@
+aag 2 2 0 4 0
+2
+4
+0
+0
+0
+1
+i0 p0b0room29light29off
+i1 p0b0room29light29on
+o0 u0room29light0f1dturn2off1b
+o1 u0room29light0f1dturn2on1b
+o2 u0room29light0f1dtoggle1b
+o3 u0room29light0room29light
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/410.json

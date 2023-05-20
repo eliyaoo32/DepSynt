@@ -1,0 +1,39 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u0light26ctrl0f1ddo26turn2on1b & !((!u0light26ctrl0f1ddo26turn2off1b & u0light26ctrl0light26ctrl) <-> (u0light26ctrl0f1ddo26turn2off1b & !u0light26ctrl0light26ctrl))) <-> (u0light26ctrl0f1ddo26turn2on1b & !(u0light26ctrl0f1ddo26turn2off1b | u0light26ctrl0light26ctrl))) & ((G(u0light26ctrl0f1ddo26turn2on1b -> Xp0p0is26on0light26input) & G(u0light26ctrl0f1ddo26turn2off1b -> Xp0p0is26off0light26input) & G(u0light26ctrl0light26ctrl -> ((p0p0is26on0light26input <-> Xp0p0is26on0light26input) & (p0p0is26off0light26input <-> Xp0p0is26off0light26input))) & G!(p0p0is26off0light26input & p0p0is26on0light26input)) -> G(p0b0env26outside26is26bright -> F!p0p0is26on0light26input))
+direct strategy might exist but was not found.
+translating formula done in 0.00242926 seconds
+automaton has 9 states and 1 colors
+split inputs and outputs done in 0.000114654 seconds
+automaton has 22 states
+determinization done
+DPA has 21 states, 2 colors
+simplification done
+DPA has 16 states
+determinization and simplification took 0.00160695 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 4.5566e-05 seconds
+simplification took 8.3384e-05 seconds
+REALIZABLE
+HOA: v1
+States: 2
+Start: 0
+AP: 6 "p0p0is26off0light26input" "p0p0is26on0light26input" "u0light26ctrl0f1ddo26turn2on1b" "u0light26ctrl0f1ddo26turn2off1b" "u0light26ctrl0light26ctrl" "p0b0env26outside26is26bright"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 2 3 4
+--BODY--
+State: 0
+[!0&!1&!2&!3&4] 1
+[!0&1&!2&!3&4&!5] 0
+[!0&1&!2&3&!4&5] 0
+[0&!1&!2&!3&4] 0
+[0&1&!2&!3&4 | 0&1&!2&3&!4 | 0&1&2&!3&!4] 0
+State: 1
+[!0&!1&!2&3&!4] 0
+[0&!2&!3&4 | 0&!2&3&!4 | 0&2&!3&!4 | 1&!2&!3&4 | 1&!2&3&!4 | 1&2&!3&!4] 0
+--END--
+
+real	0m0.014s
+user	0m0.004s
+sys	0m0.010s

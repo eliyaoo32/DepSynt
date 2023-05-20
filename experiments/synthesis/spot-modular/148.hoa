@@ -1,0 +1,36 @@
+aag 28 4 2 1 22
+2
+4
+6
+8
+10 49
+12 57
+24
+14 4 6
+16 3 15
+18 12 16
+20 13 3
+22 21 19
+24 11 23
+26 6 9
+28 4 26
+30 29 3
+32 12 31
+34 13 2
+36 35 33
+38 8 3
+40 12 39
+42 35 41
+44 10 43
+46 11 37
+48 47 45
+50 12 38
+52 10 51
+54 11 32
+56 55 53
+i0 decide
+i1 locked
+i2 single
+i3 hready
+o0 ready3
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/spot-modular/148.json

@@ -1,0 +1,35 @@
+there are 1 subformulas
+trying to create strategy directly for G!((u0dish2washer0dish2washer & !u0dish2washer0on) <-> (!u0dish2washer0dish2washer & u0dish2washer0on)) & (GFp0p0new2day0time -> G(u0dish2washer0on <-> (p0p0after2work0time & p0p0full0dish2washer2status)))
+direct strategy might exist but was not found.
+translating formula done in 0.00100626 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 7.3826e-05 seconds
+automaton has 15 states
+determinization done
+DPA has 21 states, 2 colors
+simplification done
+DPA has 14 states
+determinization and simplification took 0.00119761 seconds
+solving game with acceptance: Rabin 1
+game solved in 4.3626e-05 seconds
+simplification took 7.5736e-05 seconds
+REALIZABLE
+HOA: v1
+States: 1
+Start: 0
+AP: 5 "u0dish2washer0dish2washer" "u0dish2washer0on" "p0p0after2work0time" "p0p0full0dish2washer2status" "p0p0new2day0time"
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic
+controllable-AP: 0 1
+--BODY--
+State: 0
+[0&!1&!2&!4 | 0&!1&!3&!4] 0
+[0&!1&!2&4 | 0&!1&!3&4] 0
+[!0&1&2&3&!4] 0
+[!0&1&2&3&4] 0
+--END--
+
+real	0m0.012s
+user	0m0.004s
+sys	0m0.008s
