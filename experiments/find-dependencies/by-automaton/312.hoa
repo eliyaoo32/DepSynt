@@ -1,2 +1,2 @@
 Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments-local/find-deps-by-automaton/312.json
-srun: error: cn39: task 0: Exited with exit code 124
+srun: error: cn43: task 0: Exited with exit code 124
