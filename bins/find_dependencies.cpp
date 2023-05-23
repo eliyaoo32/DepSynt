@@ -7,6 +7,7 @@
 #include "find_deps_by_automaton.h"
 #include "find_deps_by_formula.h"
 #include "synt_instance.h"
+#include "synthesis_utils.h"
 #include "synt_measure.h"
 #include "utils.h"
 
@@ -45,6 +46,10 @@ int main(int argc, const char* argv[]) {
     ostream& verbose_out = options.verbose ? std::cout : nullout;
 
     // Build Synthesis synt_instance
+    spot::synthesis_info gi;
+    gi.s = spot::synthesis_info::algo::SPLIT_DET;
+    gi.minimize_lvl = 2;  // i.e, simplication level
+
     verbose_out << "Initialize Synthesis Instance..." << endl;
     SyntInstance synt_instance(options.inputs, options.outputs, options.formula);
     verbose_out << "Synthesis Problem: " << endl;
@@ -89,13 +94,8 @@ int main(int argc, const char* argv[]) {
                         << endl;
 
             // Building Instance Automaton
-            automaton_measures->start_automaton_construct();
-            auto automaton = construct_automaton(synt_instance);
-            automaton_measures->end_automaton_construct(automaton);
-
-            automaton_measures->start_prune_automaton();
-            automaton = spot::scc_filter_states(automaton);  // Prune automaton
-            automaton_measures->end_prune_automaton(automaton);
+            spot::twa_graph_ptr automaton = get_nba_for_synthesis(
+                    synt_instance.get_formula_parsed(), gi, *automaton_measures, verbose_out);
 
             // Search for dependent variables
             vector<string> automaton_dependent_variables,
