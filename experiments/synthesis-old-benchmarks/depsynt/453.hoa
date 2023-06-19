@@ -1,0 +1,14 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 5 2 2 2 1
+2
+4
+6 1
+8 11
+0
+11
+10 9 6
+i0 p0p0work2time0time
+i1 p0b02person2in2office
+o0 u0roomba0f1don1b
+o1 u0roomba0roomba
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/depsynt/453.json

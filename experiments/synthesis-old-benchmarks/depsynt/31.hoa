@@ -1,0 +1,27 @@
+aag 14 5 2 3 7
+2
+4
+6
+8
+10
+12 1
+14 17
+0
+26
+28
+16 15 12
+18 9 4
+20 6 2
+22 21 11
+24 22 19
+26 25 17
+28 24 17
+i0 p0p0lt0counter0f1dtwentyfour1b
+i1 p0p0lt0counter0f1dfourty1b
+i2 p0p0gt0counter0f1dsixteen1b
+i3 p0p0is2even0counter
+i4 p0p0eqz0counter
+o0 u0spc0spc
+o1 u0spc0f1dhigh1b
+o2 u0spc0f1dlow1b
+Measures written to file: /home/eliyahub/work/reactive-synthesis-bfss/experiments/synthesis/depsynt/31.json
