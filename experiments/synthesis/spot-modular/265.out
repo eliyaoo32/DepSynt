@@ -1,0 +1,106 @@
+aag 94 4 3 3 87
+2
+4
+6
+8
+10 113
+12 137
+14 189
+0
+36
+81
+16 12 15
+18 10 16
+20 8 18
+22 13 14
+24 11 22
+26 9 24
+28 6 26
+30 7 20
+32 31 29
+34 5 33
+36 2 34
+38 12 14
+40 10 15
+42 11 39
+44 43 41
+46 13 15
+48 10 46
+50 43 49
+52 8 51
+54 9 45
+56 55 53
+58 8 45
+60 9 15
+62 61 59
+64 6 63
+66 7 57
+68 67 65
+70 4 45
+72 5 69
+74 73 71
+76 2 75
+78 3 45
+80 79 77
+82 11 46
+84 8 82
+86 9 82
+88 6 86
+90 7 84
+92 91 89
+94 4 93
+96 11 15
+98 97 49
+100 8 99
+102 7 100
+104 103 89
+106 5 105
+108 2 106
+110 3 94
+112 111 109
+114 11 16
+116 115 41
+118 8 117
+120 7 118
+122 121 29
+124 4 123
+126 8 48
+128 7 126
+130 5 128
+132 2 130
+134 3 124
+136 135 133
+138 8 24
+140 55 139
+142 9 117
+144 143 59
+146 6 145
+148 7 141
+150 149 147
+152 4 151
+154 5 45
+156 155 153
+158 25 19
+160 8 159
+162 55 161
+164 23 17
+166 11 165
+168 167 41
+170 9 169
+172 171 59
+174 6 173
+176 7 163
+178 177 175
+180 5 179
+182 181 71
+184 2 183
+186 3 157
+188 187 185
+i0 p0p0off02warnlight29intent
+i1 p0p0on02warnlight29intent
+i2 p0b02warnlight29off
+i3 p0b02warnlight29on
+o0 u02warnlight29control02warnlight29control
+o1 u02warnlight29control0f1d2warnlight29turn2off1b
+o2 u02warnlight29control0f1d2warnlight29turn2on1b
+{"is_completed":true,"output_vars":["u02warnlight29control0f1d2warnlight29turn2off1b","u02warnlight29control0f1d2warnlight29turn2on1b","u02warnlight29control02warnlight29control"],"input_vars":["p0p0off02warnlight29intent","p0p0on02warnlight29intent","p0b02warnlight29off","p0b02warnlight29on"],"formula":"((G (! (((u02warnlight29control0f1d2warnlight29turn2on1b) && (! ((u02warnlight29control0f1d2warnlight29turn2off1b) || (u02warnlight29control02warnlight29control)))) <-> ((! (((u02warnlight29control0f1d2warnlight29turn2off1b) && (! (u02warnlight29control02warnlight29control))) <-> ((u02warnlight29control02warnlight29control) && (! (u02warnlight29control0f1d2warnlight29turn2off1b))))) && (! (u02warnlight29control0f1d2warnlight29turn2on1b)))))) && (((((G ((p0b02warnlight29on) <-> (! (p0b02warnlight29off)))) && (G ((((u02warnlight29control0f1d2warnlight29turn2on1b) -> (X (p0b02warnlight29on))) U (u02warnlight29control0f1d2warnlight29turn2off1b)) || (G ((u02warnlight29control0f1d2warnlight29turn2on1b) -> (X (p0b02warnlight29on))))))) && (G ((((u02warnlight29control0f1d2warnlight29turn2off1b) -> (X (p0b02warnlight29off))) U (u02warnlight29control0f1d2warnlight29turn2on1b)) || (G ((u02warnlight29control0f1d2warnlight29turn2off1b) -> (X (p0b02warnlight29off))))))) && (G (! ((p0p0on02warnlight29intent) <-> (p0p0off02warnlight29intent))))) -> ((G ((p0p0on02warnlight29intent) -> (F (((p0b02warnlight29on) U (! (p0p0on02warnlight29intent))) || (G (p0b02warnlight29on)))))) && (G ((p0p0off02warnlight29intent) -> (F (((p0b02warnlight29off) U (! (p0p0off02warnlight29intent))) || (G (p0b02warnlight29off)))))))))","total_time":9,"automaton":{"is_built":true,"build_duration":4,"total_states":12,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":12,"total_edges":60},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":4,"realizability":"REALIZABLE","total_inputs":4,"total_outputs":3,"total_latches":3,"total_gates":87},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

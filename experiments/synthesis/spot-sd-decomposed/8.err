@@ -1,0 +1,38 @@
+there are 8 subformulas
+trying to create strategy directly for Gu0counter0f1dincmod0counter0f1dinc0f1denemycount1b1b1b & G!((!u0counter0counter & u0counter0f1dincmod0counter0f1dinc0f1denemycount1b1b1b) <-> (u0counter0counter & !u0counter0f1dincmod0counter0f1dinc0f1denemycount1b1b1b))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 7.89e-05 seconds
+trying to create strategy directly for G(p0p0eqz0counter <-> u0xcoord0f1dinc2coord0xcoord1b) & G!((u0xcoord0f1dinc2coord0xcoord1b & !u0xcoord0xcoord) <-> (!u0xcoord0f1dinc2coord0xcoord1b & u0xcoord0xcoord))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 4.8364e-05 seconds
+trying to create strategy directly for G(u0ycoord0f1dinc2coord0ycoord1b <-> (p0p0eq0xcoord0f1ddec2size2x1b & p0p0eqz0counter)) & G!((u0ycoord0f1dinc2coord0ycoord1b & !u0ycoord0ycoord) <-> (!u0ycoord0f1dinc2coord0ycoord1b & u0ycoord0ycoord))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 6.5264e-05 seconds
+trying to create strategy directly for G(u0tmpcolor0f1dgetenemycolor0enemies0f1ddec0counter1b1b <-> (!p0p0eqz0counter & p0p0hitcoord0xcoord0ycoord0f1dgetenemyradius0enemies0f1ddec0counter1b1b0f1dgetenemyangle0enemies0f1ddec0counter1b1b0rotation & p0p0lt0f1dgetenemyradius0enemies0f1ddec0counter1b1b0tmpdist)) & G(p0p0eqz0counter <-> u0tmpcolor0f1dblackcolor1b) & G!((!u0tmpcolor0f1dblackcolor1b & !((!u0tmpcolor0f1dgetenemycolor0enemies0f1ddec0counter1b1b & u0tmpcolor0tmpcolor) <-> (u0tmpcolor0f1dgetenemycolor0enemies0f1ddec0counter1b1b & !u0tmpcolor0tmpcolor))) <-> (u0tmpcolor0f1dblackcolor1b & !(u0tmpcolor0f1dgetenemycolor0enemies0f1ddec0counter1b1b | u0tmpcolor0tmpcolor)))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 8.7925e-05 seconds
+trying to create strategy directly for G(u0tmpdist0f1dgetenemyradius0enemies0f1ddec0counter1b1b <-> (!p0p0eqz0counter & p0p0hitcoord0xcoord0ycoord0f1dgetenemyradius0enemies0f1ddec0counter1b1b0f1dgetenemyangle0enemies0f1ddec0counter1b1b0rotation & p0p0lt0f1dgetenemyradius0enemies0f1ddec0counter1b1b0tmpdist)) & G(p0p0eqz0counter <-> u0tmpdist0f1dstartradius1b) & G!((!u0tmpdist0f1dstartradius1b & !((!u0tmpdist0f1dgetenemyradius0enemies0f1ddec0counter1b1b & u0tmpdist0tmpdist) <-> (u0tmpdist0f1dgetenemyradius0enemies0f1ddec0counter1b1b & !u0tmpdist0tmpdist))) <-> (u0tmpdist0f1dstartradius1b & !(u0tmpdist0f1dgetenemyradius0enemies0f1ddec0counter1b1b | u0tmpdist0tmpdist)))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 6.5898e-05 seconds
+trying to create strategy directly for G(p0p0eqz0counter <-> (u0color0f1dwhitecolor1b | u0color0tmpcolor)) & G(u0color0tmpcolor -> !(p0p0eq0xcoord0f1dhairlinex1b & p0p0eq0ycoord0f1dhairliney1b)) & G!((!u0color0tmpcolor & !((u0color0color & !u0color0f1dwhitecolor1b) <-> (!u0color0color & u0color0f1dwhitecolor1b))) <-> (u0color0tmpcolor & !(u0color0color | u0color0f1dwhitecolor1b))) & G(u0color0f1dwhitecolor1b -> p0p0eq0xcoord0f1dhairlinex1b) & G(u0color0f1dwhitecolor1b -> p0p0eq0ycoord0f1dhairliney1b)
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 8.5574e-05 seconds
+trying to create strategy directly for G(p0p0eqz0counter <-> u0bxcoord0xcoord) & G!((!u0bxcoord0bxcoord & u0bxcoord0xcoord) <-> (u0bxcoord0bxcoord & !u0bxcoord0xcoord))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 4.0571e-05 seconds
+trying to create strategy directly for G(p0p0eqz0counter <-> u0bycoord0ycoord) & G!((!u0bycoord0bycoord & u0bycoord0ycoord) <-> (u0bycoord0bycoord & !u0bycoord0ycoord))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 3.9992e-05 seconds
+AIG circuit was created in 0.000458494 seconds and has 0 latches and 7 gates
+
+real	0m0.016s
+user	0m0.008s
+sys	0m0.008s

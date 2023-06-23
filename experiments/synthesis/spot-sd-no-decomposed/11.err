@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!u0gear0f1dshift2by2r2p2m0gear0rpm1b & !((!u0gear0f1dshift2by2speed0gear0speed1b & u0gear0gear) <-> (u0gear0f1dshift2by2speed0gear0speed1b & !u0gear0gear))) <-> (u0gear0f1dshift2by2r2p2m0gear0rpm1b & !(u0gear0f1dshift2by2speed0gear0speed1b | u0gear0gear))) & G(!p0p0acceling0accel0brakes -> u0gear0gear) & G((!p0p0acceling0accel0brakes & Xp0p0acceling0accel0brakes) -> Xu0gear0f1dshift2by2speed0gear0speed1b) & G((p0p0acceling0accel0brakes & Xp0p0acceling0accel0brakes) -> Xu0gear0f1dshift2by2r2p2m0gear0rpm1b)
+direct strategy might exist but was not found.
+translating formula done in 0.00458544 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000552987 seconds
+automaton has 8 states
+determinization done
+DPA has 8 states, 1 colors
+simplification done
+DPA has 7 states
+determinization and simplification took 4.8978e-05 seconds
+solving game with acceptance: Büchi
+game solved in 2.7275e-05 seconds
+simplification took 6.4693e-05 seconds
+AIG circuit was created in 7.9113e-05 seconds and has 1 latches and 2 gates
+
+real	0m0.302s
+user	0m0.009s
+sys	0m0.025s

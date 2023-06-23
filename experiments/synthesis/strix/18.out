@@ -1,0 +1,36 @@
+REALIZABLE
+aag 19 6 1 4 12
+2
+4
+6
+8
+10
+12
+14 38
+24
+34
+36
+0
+16 11 13
+18 5 6
+20 15 18
+22 16 20
+24 2 22
+26 8 17
+28 7 15
+30 27 28
+32 4 8
+34 30 32
+36 25 35
+38 23 31
+i0 p0p0lte0counter0f1dthirtynine1b
+i1 p0p0lte0counter0f1dseventeen1b
+i2 p0p0gte0counter0f1dtwentyfour1b
+i3 p0p0gte0counter0f1dfour1b
+i4 p0p0eq0counter0f1dtwo1b
+i5 p0p0eq0counter0f1dthree1b
+l0 l0
+o0 u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b
+o1 u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b
+o2 u0sdi0f1dlow1b
+o3 u0sdi0sdi

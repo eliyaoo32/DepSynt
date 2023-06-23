@@ -1,0 +1,24 @@
+REALIZABLE
+aag 11 3 2 3 6
+2
+4
+6
+8 23
+10 21
+21
+20
+0
+12 8 10
+14 7 11
+16 5 15
+18 7 13
+20 17 18
+22 13 16
+i0 p0p0bright0outside29brightness
+i1 p0b02shades29closed
+i2 p0b02shades29open
+l0 l0
+l1 l1
+o0 u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b
+o1 u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b
+o2 u02shades29ctrl02shades29ctrl

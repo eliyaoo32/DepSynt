@@ -1,0 +1,19 @@
+there are 2 subformulas
+srun: error: cn11: task 0: Exited with exit code 1
+trying to create strategy directly for G!((!u0light0f1doff1b & !((!u0light0f1don1b & u0light0light) <-> (u0light0f1don1b & !u0light0light))) <-> (u0light0f1doff1b & !(u0light0f1don1b | u0light0light))) & G!((!u0blinders0blinders & !((u0blinders0closed & !u0blinders0f1dclosed1b) <-> (!u0blinders0closed & u0blinders0f1dclosed1b))) <-> (u0blinders0blinders & !(u0blinders0closed | u0blinders0f1dclosed1b))) & (GFp0p0new2day0time -> G(u0light0f1doff1b | u0light0f1don1b)) & (GFp0p0new2day0time -> G(!p0p0has2person02printer2room2m2s -> u0light0f1doff1b)) & (GFp0p0new2day0time -> G(p0p0has2person02printer2room2m2s -> u0light0f1don1b)) & (GFp0p0new2day0time -> G(p0p0work2time0time -> u0light0f1don1b)) & (GFp0p0new2day0time -> G(!p0p0work2time0time -> (p0b02person2in2offic <-> u0light0f1don1b))) & (GFp0p0new2day0time -> G(p0p0sunlight0screenlightsensor -> u0blinders0closed)) & (GFp0p0new2day0time -> G(u0blinders0f1dclosed1b -> u0light0f1don1b))
+direct strategy might exist but was not found.
+translating formula done in 0.00430168 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 0.000159019 seconds
+automaton has 21 states
+determinization done
+DPA has 33 states, 2 colors
+simplification done
+DPA has 20 states
+determinization and simplification took 0.00123771 seconds
+solving game with acceptance: Rabin 1
+game solved in 3.2457e-05 seconds
+
+real	0m0.031s
+user	0m0.006s
+sys	0m0.011s

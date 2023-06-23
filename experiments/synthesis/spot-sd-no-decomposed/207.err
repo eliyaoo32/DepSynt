@@ -1,0 +1,7 @@
+trying to create strategy directly for G!((!((!u0room29light0f1dturn2off1b & u0room29light0f1dturn2on1b) <-> (u0room29light0f1dturn2off1b & !u0room29light0f1dturn2on1b)) & !(u0room29light0f1dtoggle1b | u0room29light0room29light)) <-> (!((!u0room29light0f1dtoggle1b & u0room29light0room29light) <-> (u0room29light0f1dtoggle1b & !u0room29light0room29light)) & !(u0room29light0f1dturn2off1b | u0room29light0f1dturn2on1b))) & G!(p0b0room29light29off <-> p0b0room29light29on) & G((u0room29light0f1dturn2on1b | (p0b0room29light29off & u0room29light0f1dtoggle1b)) -> XF((u0room29light0f1dtoggle1b | u0room29light0f1dturn2off1b) R p0b0room29light29on)) & G((u0room29light0f1dturn2off1b | (p0b0room29light29on & u0room29light0f1dtoggle1b)) -> XF((u0room29light0f1dtoggle1b | u0room29light0f1dturn2on1b) R p0b0room29light29off))
+srun: error: cn10: task 0: Exited with exit code 1
+no strategy exists.
+
+real	0m0.012s
+user	0m0.000s
+sys	0m0.011s

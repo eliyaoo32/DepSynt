@@ -1,0 +1,5 @@
+Runtime error: Too many acceptance sets used.  The limit is 32.
+
+real	0m0.134s
+user	0m0.111s
+sys	0m0.017s

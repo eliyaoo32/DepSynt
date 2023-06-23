@@ -1,0 +1,19 @@
+trying to create strategy directly for G(!((!u0light26ctrl0f1ddo26turn2on1b & !((!u0light26ctrl0f1ddo26turn2off1b & u0light26ctrl0light26ctrl) <-> (u0light26ctrl0f1ddo26turn2off1b & !u0light26ctrl0light26ctrl))) <-> (u0light26ctrl0f1ddo26turn2on1b & !(u0light26ctrl0f1ddo26turn2off1b | u0light26ctrl0light26ctrl))) & !((!((u0shutter26ctrl0f1ddo26close1b & !u0shutter26ctrl0f1ddo26stop1b) <-> (!u0shutter26ctrl0f1ddo26close1b & u0shutter26ctrl0f1ddo26stop1b)) & !(u0shutter26ctrl0f1ddo26open1b | u0shutter26ctrl0shutter26ctrl)) <-> (!((!u0shutter26ctrl0f1ddo26open1b & u0shutter26ctrl0shutter26ctrl) <-> (u0shutter26ctrl0f1ddo26open1b & !u0shutter26ctrl0shutter26ctrl)) & !(u0shutter26ctrl0f1ddo26close1b | u0shutter26ctrl0f1ddo26stop1b)))) & ((G(u0light26ctrl0f1ddo26turn2on1b -> Xp0p0is26on0light26input) & G(u0light26ctrl0f1ddo26turn2off1b -> Xp0p0is26off0light26input) & G(u0light26ctrl0light26ctrl -> ((p0p0is26on0light26input <-> Xp0p0is26on0light26input) & (p0p0is26off0light26input <-> Xp0p0is26off0light26input))) & G!(p0p0is26off0light26input & p0p0is26on0light26input) & G(GF(u0shutter26ctrl0f1ddo26close1b & ((!(u0shutter26ctrl0f1ddo26open1b | u0shutter26ctrl0f1ddo26stop1b) U p0p0is26closed0shutter26input) | G!(u0shutter26ctrl0f1ddo26open1b | u0shutter26ctrl0f1ddo26stop1b))) -> Fp0p0is26closed0shutter26input) & G(GF(u0shutter26ctrl0f1ddo26open1b & ((!(u0shutter26ctrl0f1ddo26close1b | u0shutter26ctrl0f1ddo26stop1b) U p0p0is26open0shutter26input) | G!(u0shutter26ctrl0f1ddo26close1b | u0shutter26ctrl0f1ddo26stop1b))) -> Fp0p0is26open0shutter26input) & G(u0shutter26ctrl0f1ddo26stop1b -> ((p0p0is26open0shutter26input <-> Xp0p0is26open0shutter26input) & (p0p0is26closed0shutter26input <-> Xp0p0is26closed0shutter26input))) & G(u0shutter26ctrl0shutter26ctrl -> ((p0p0is26open0shutter26input <-> Xp0p0is26open0shutter26input) & (p0p0is26closed0shutter26input <-> Xp0p0is26closed0shutter26input))) & G!(p0p0is26closed0shutter26input & p0p0is26open0shutter26input)) -> (G(p0b0env26outside26is26bright -> F!p0p0is26on0light26input) & G(p0b0user26is26sleeping -> F((p0p0is26closed0shutter26input U !p0b0user26is26sleeping) | Gp0p0is26closed0shutter26input)) & G((p0b0env26outside26is26bright & !p0b0user26is26sleeping) -> F((p0p0is26open0shutter26input U !(p0b0env26outside26is26bright & !p0b0user26is26sleeping)) | Gp0p0is26open0shutter26input))))
+direct strategy might exist but was not found.
+translating formula done in 0.0187589 seconds
+automaton has 25 states and 3 colors
+split inputs and outputs done in 0.00204824 seconds
+automaton has 81 states
+determinization done
+DPA has 1038 states, 6 colors
+simplification done
+DPA has 603 states
+determinization and simplification took 0.10607 seconds
+solving game with acceptance: parity min even 6
+game solved in 0.000794463 seconds
+simplification took 0.00147909 seconds
+AIG circuit was created in 0.0025659 seconds and has 5 latches and 1110 gates
+
+real	0m0.145s
+user	0m0.136s
+sys	0m0.008s

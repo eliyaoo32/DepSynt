@@ -1,0 +1,19 @@
+trying to create strategy directly for G(!((!((u0internal2rotation0f1daddrotation0internal2rotation0f1dgyrocorrection1b0gyrox1b & !u0internal2rotation0f1dsubrotation0internal2rotation0f1dgyrocorrection1b0gyroz1b) <-> (!u0internal2rotation0f1daddrotation0internal2rotation0f1dgyrocorrection1b0gyrox1b & u0internal2rotation0f1dsubrotation0internal2rotation0f1dgyrocorrection1b0gyroz1b)) & !(u0internal2rotation0f1daddrotation0internal2rotation0f1dgyrocorrection1b0gyroz1b | u0internal2rotation0internal2rotation)) <-> (!((!u0internal2rotation0f1daddrotation0internal2rotation0f1dgyrocorrection1b0gyroz1b & u0internal2rotation0internal2rotation) <-> (u0internal2rotation0f1daddrotation0internal2rotation0f1dgyrocorrection1b0gyroz1b & !u0internal2rotation0internal2rotation)) & !(u0internal2rotation0f1daddrotation0internal2rotation0f1dgyrocorrection1b0gyrox1b | u0internal2rotation0f1dsubrotation0internal2rotation0f1dgyrocorrection1b0gyroz1b))) & !((u0prescaler0f1dincmod0prescaler0f1droationcaluclatorprescaler1b1b & !u0prescaler0prescaler) <-> (!u0prescaler0f1dincmod0prescaler0f1droationcaluclatorprescaler1b1b & u0prescaler0prescaler)) & !((u0rotation0f1dscalerotation0internal2rotation1b & !u0rotation0rotation) <-> (!u0rotation0f1dscalerotation0internal2rotation1b & u0rotation0rotation))) & ((G!(p0p0isradarmode0gamemode & p0p0isscoremode0gamemode) & G!(p0p0iscockpitmode0gamemode & p0p0isradarmode0gamemode) & G!(p0p0iscockpitmode0gamemode & p0p0isscoremode0gamemode)) -> (Gu0prescaler0f1dincmod0prescaler0f1droationcaluclatorprescaler1b1b & G(u0internal2rotation0f1dsubrotation0internal2rotation0f1dgyrocorrection1b0gyroz1b <-> (p0p0eqz0prescaler & !p0p0gyronoise0gyroz & p0p0isscoremode0gamemode)) & G(u0internal2rotation0f1daddrotation0internal2rotation0f1dgyrocorrection1b0gyroz1b <-> (p0p0eqz0prescaler & !p0p0gyronoise0gyroz & p0p0isradarmode0gamemode)) & G(u0internal2rotation0f1daddrotation0internal2rotation0f1dgyrocorrection1b0gyrox1b <-> (p0p0eqz0prescaler & !p0p0gyronoise0gyrox & p0p0iscockpitmode0gamemode)) & Gu0rotation0f1dscalerotation0internal2rotation1b))
+direct strategy might exist but was not found.
+translating formula done in 0.0269271 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000337785 seconds
+automaton has 10 states
+determinization done
+DPA has 10 states, 2 colors
+simplification done
+DPA has 10 states
+determinization and simplification took 6.5424e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 3.6804e-05 seconds
+simplification took 6.8757e-05 seconds
+AIG circuit was created in 0.000113355 seconds and has 0 latches and 21 gates
+
+real	0m0.081s
+user	0m0.022s
+sys	0m0.020s

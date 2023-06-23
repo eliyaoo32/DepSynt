@@ -1,0 +1,14 @@
+there are 2 subformulas
+trying to create strategy directly for G(u0gamestart0f1dbot1b | u0gamestart0f1dtop1b) & G(u0gamestart0f1dtop1b <-> (p0p0gt0accz0f1dresetthreshhold1b & p0p0isscoremode0gamemode & p0p0norotation0gyrox0gyroy0gyroz)) & G!((!u0gamestart0f1dbot1b & !((!u0gamestart0f1dtop1b & u0gamestart0gamestart) <-> (u0gamestart0f1dtop1b & !u0gamestart0gamestart))) <-> (u0gamestart0f1dbot1b & !(u0gamestart0f1dtop1b | u0gamestart0gamestart)))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 0.000142921 seconds
+trying to create strategy directly for G(u0shot0f1dbot1b | u0shot0f1dtop1b) & G(u0shot0f1dtop1b <-> (p0p0gt0f1dabs0accz1b0f1dshotthreshhold1b & p0p0iscockpitmode0gamemode & p0p0norotation0gyrox0gyroy0gyroz)) & G!((!u0shot0f1dbot1b & !((!u0shot0f1dtop1b & u0shot0shot) <-> (u0shot0f1dtop1b & !u0shot0shot))) <-> (u0shot0f1dbot1b & !(u0shot0f1dtop1b | u0shot0shot)))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 0.000108149 seconds
+AIG circuit was created in 0.000164547 seconds and has 0 latches and 4 gates
+
+real	0m0.013s
+user	0m0.002s
+sys	0m0.011s

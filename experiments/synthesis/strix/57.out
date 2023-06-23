@@ -1,0 +1,76 @@
+REALIZABLE
+aag 42 2 4 13 36
+2
+4
+6 73
+8 79
+10 83
+12 85
+28
+36
+42
+46
+50
+52
+54
+56
+26
+0
+61
+64
+0
+14 7 9
+16 11 14
+18 3 13
+20 17 19
+22 3 12
+24 4 23
+26 16 24
+28 21 27
+30 2 13
+32 6 30
+34 8 32
+36 10 34
+38 7 30
+40 8 38
+42 10 40
+44 9 32
+46 10 44
+48 10 38
+50 9 48
+52 11 34
+54 11 40
+56 11 44
+58 16 22
+60 12 59
+62 2 12
+64 16 62
+66 6 18
+68 27 67
+70 41 49
+72 68 70
+74 13 35
+76 8 74
+78 45 77
+80 10 74
+82 53 81
+84 37 59
+i0 p0b0wait
+i1 p0b0start
+l0 l0
+l1 l1
+l2 l2
+l3 l3
+o0 u0out0f1dnone1b
+o1 u0out0f1dconst81b
+o2 u0out0f1dconst71b
+o3 u0out0f1dconst61b
+o4 u0out0f1dconst51b
+o5 u0out0f1dconst41b
+o6 u0out0f1dconst31b
+o7 u0out0f1dconst251b
+o8 u0out0f1dconst241b
+o9 u0out0out
+o10 u0finished0p1dbf1b
+o11 u0finished0p1dbt1b
+o12 u0finished0finished

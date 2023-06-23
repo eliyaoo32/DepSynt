@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!((!u02timer29start2new2timer0f1d2timer29hour251b & u02timer29start2new2timer0f1d2timer29min25231b) <-> (u02timer29start2new2timer0f1d2timer29hour251b & !u02timer29start2new2timer0f1d2timer29min25231b)) & !(u02timer29start2new2timer02timer29start2new2timer | u02timer29start2new2timer0f1d2timer29hour241b)) <-> (!((u02timer29start2new2timer02timer29start2new2timer & !u02timer29start2new2timer0f1d2timer29hour241b) <-> (!u02timer29start2new2timer02timer29start2new2timer & u02timer29start2new2timer0f1d2timer29hour241b)) & !(u02timer29start2new2timer0f1d2timer29hour251b | u02timer29start2new2timer0f1d2timer29min25231b))) & !((!u02warnlight29control0f1d2warnlight29turn2on1b & !((u02warnlight29control02warnlight29control & !u02warnlight29control0f1d2warnlight29turn2off1b) <-> (!u02warnlight29control02warnlight29control & u02warnlight29control0f1d2warnlight29turn2off1b))) <-> (u02warnlight29control0f1d2warnlight29turn2on1b & !(u02warnlight29control02warnlight29control | u02warnlight29control0f1d2warnlight29turn2off1b)))) & ((G(u02timer29start2new2timer0f1d2timer29min25231b -> Fp0b02timer29timeout) & G(u02timer29start2new2timer0f1d2timer29hour241b -> Fp0b02timer29timeout) & G(u02timer29start2new2timer0f1d2timer29hour251b -> Fp0b02timer29timeout) & G(!p0b02warnlight29off <-> p0b02warnlight29on) & G(((u02warnlight29control0f1d2warnlight29turn2on1b -> Xp0b02warnlight29on) U u02warnlight29control0f1d2warnlight29turn2off1b) | G(u02warnlight29control0f1d2warnlight29turn2on1b -> Xp0b02warnlight29on)) & G(((u02warnlight29control0f1d2warnlight29turn2off1b -> Xp0b02warnlight29off) U u02warnlight29control0f1d2warnlight29turn2on1b) | G(u02warnlight29control0f1d2warnlight29turn2off1b -> Xp0b02warnlight29off)) & G(p0b02window29opened -> ((!p0p02window29all2windows2closed02window29room U p0b02window29closed) | G!p0p02window29all2windows2closed02window29room))) -> G((p0b02window29closed & p0p02window29all2windows2closed02window29room) -> (u02timer29start2new2timer0f1d2timer29hour241b & F(p0b02window29opened | (p0b02timer29timeout & F((((p0p0too2high0room29co252level -> Xp0b02warnlight29on) & (!p0p0too2high0room29co252level -> Xp0b02warnlight29off)) U p0b02window29opened) | G((p0p0too2high0room29co252level -> Xp0b02warnlight29on) & (!p0p0too2high0room29co252level -> Xp0b02warnlight29off))))))))
+direct strategy might exist but was not found.
+translating formula done in 0.0184461 seconds
+automaton has 15 states and 2 colors
+split inputs and outputs done in 0.00232621 seconds
+automaton has 58 states
+determinization done
+DPA has 192 states, 3 colors
+simplification done
+DPA has 158 states
+determinization and simplification took 0.0203821 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.000278079 seconds
+simplification took 0.000628911 seconds
+AIG circuit was created in 0.000725438 seconds and has 3 latches and 247 gates
+
+real	0m0.060s
+user	0m0.045s
+sys	0m0.014s

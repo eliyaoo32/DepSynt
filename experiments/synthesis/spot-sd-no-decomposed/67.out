@@ -1,0 +1,54 @@
+REALIZABLE
+aag 35 3 2 7 30
+2
+4
+6
+8 64
+10 71
+12
+18
+35
+49
+52
+56
+63
+12 9 11
+14 9 10
+16 6 14
+18 3 16
+20 8 11
+22 15 21
+24 6 20
+26 7 23
+28 27 25
+30 2 26
+32 3 29
+34 33 31
+36 8 10
+38 6 37
+40 7 12
+42 41 39
+44 2 43
+46 3 12
+48 47 45
+50 5 23
+52 2 50
+54 4 23
+56 3 54
+58 2 54
+60 3 50
+62 61 59
+64 6 23
+66 6 12
+68 7 37
+70 69 67
+i0 p0p0enter2event0bottom
+i1 p0p0exit2event0top
+i2 p0p0zero0users
+o0 u0users0f1dreset2to2zero1b
+o1 u0steps0f1dstop1b
+o2 u0steps0steps
+o3 u0steps0f1dmove1b
+o4 u0users0f1dinc0users1b
+o5 u0users0f1ddec0users1b
+o6 u0users0users

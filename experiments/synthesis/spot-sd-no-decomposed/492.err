@@ -1,0 +1,19 @@
+trying to create strategy directly for (x0 & !x1 & !x2 & !x3 & G(X(x0 | x1 | x2 | x3) -> (!y1 & !y2)) & G((x0 | x1 | x2 | x3) -> X(!x0 & !x1 & !x2 & !x3)) & XG!(x0 & !x1 & !x2 & !x3)) -> (G(X(y0 | y1 | y2) -> (x0 | x1 | x2 | x3 | y0 | y1 | y2)) & G((y0 | y1 | y2) -> (!x0 & !x1 & !x2 & !x3)) & G((x0 | x1 | x2 | x3) -> X(y0 | y1 | y2)) & G((y0 | y1 | y2) -> (!(!y0 & !y1 & !y2) U (y0 & !y1 & !y2))) & G((y0 & !y1 & !y2) -> X(!y0 & !y1 & !y2)) & G((!x0 & !x1 & !x2 & x3) -> (!(y0 & !y1 & !y2) U (!y0 & y1 & !y2))) & G((!x0 & !x1 & !x2 & x3) -> (!(y0 & !y1 & !y2) U (y0 & y1 & !y2))) & G((!x0 & x1 & !x2 & !x3) -> (!(y0 & !y1 & !y2) U (!y0 & !y1 & y2))) & G((!x0 & x1 & !x2 & !x3) -> (!(y0 & !y1 & !y2) U (y0 & !y1 & y2))) & ((x0 & !x1 & !x2 & !x3) -> (!(y0 & !y1 & !y2) U (!y0 & y1 & !y2))) & ((x0 & !x1 & !x2 & !x3) -> (!(y0 & !y1 & !y2) U (y0 & y1 & !y2))))
+direct strategy might exist but was not found.
+translating formula done in 0.00660811 seconds
+automaton has 13 states and 5 colors
+split inputs and outputs done in 0.000174273 seconds
+automaton has 32 states
+determinization done
+DPA has 26 states, 2 colors
+simplification done
+DPA has 26 states
+determinization and simplification took 0.00232227 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 5.777e-05 seconds
+simplification took 0.000117831 seconds
+AIG circuit was created in 0.000339179 seconds and has 3 latches and 102 gates
+
+real	0m0.025s
+user	0m0.015s
+sys	0m0.009s

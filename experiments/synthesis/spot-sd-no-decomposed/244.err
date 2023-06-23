@@ -1,0 +1,18 @@
+trying to create strategy directly for G!((!u02device29control0f1d2device29turn2on1b & !((u02device29control02device29control & !u02device29control0f1d2device29turn2off1b) <-> (!u02device29control02device29control & u02device29control0f1d2device29turn2off1b))) <-> (u02device29control0f1d2device29turn2on1b & !(u02device29control02device29control | u02device29control0f1d2device29turn2off1b))) & !(G(!p0b02device29off <-> p0b02device29on) & G(((u02device29control0f1d2device29turn2on1b -> Xp0b02device29on) U u02device29control0f1d2device29turn2off1b) | G(u02device29control0f1d2device29turn2on1b -> Xp0b02device29on)) & G(((u02device29control0f1d2device29turn2off1b -> Xp0b02device29of) U u02device29control0f1d2device29turn2on1b) | G(u02device29control0f1d2device29turn2off1b -> Xp0b02device29of)))
+srun: error: cn08: task 0: Exited with exit code 1
+direct strategy might exist but was not found.
+translating formula done in 0.00280995 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 9.7707e-05 seconds
+automaton has 7 states
+determinization done
+DPA has 7 states, 2 colors
+simplification done
+DPA has 7 states
+determinization and simplification took 6.1756e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 3.8507e-05 seconds
+
+real	0m0.021s
+user	0m0.006s
+sys	0m0.015s

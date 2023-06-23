@@ -1,0 +1,50 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 35 4 5 4 26
+2
+4
+6
+8
+10 1
+12 0
+14 69
+16 70
+18 51
+0
+24
+33
+65
+20 5 3
+22 9 6
+24 22 20
+26 8 6
+28 9 7
+30 29 20
+32 30 27
+34 9 5
+36 35 6
+38 8 4
+40 39 37
+42 41 3
+44 43 18
+46 13 10
+48 47 40
+50 49 45
+52 32 7
+54 52 51
+56 46 17
+58 56 15
+60 32 25
+62 60 59
+64 63 55
+66 57 41
+68 67 15
+70 57 40
+i0 p0p0on0gameover
+i1 p0p0isscoremode0gamemode
+i2 p0p0isradarmode0gamemode
+i3 p0p0iscockpitmode0gamemode
+o0 u0outpoint0outpoint
+o1 u0outpoint0radarboardpoint
+o2 u0outpoint0scoreboardpoint
+o3 u0outpoint0cockpitboardpoint
+{"is_completed":true,"output_vars":["u0outpoint0scoreboardpoint","u0outpoint0radarboardpoint","u0outpoint0outpoint","u0outpoint0cockpitboardpoint"],"input_vars":["p0p0on0gameover","p0p0isscoremode0gamemode","p0p0isradarmode0gamemode","p0p0iscockpitmode0gamemode"],"formula":"((G (! (((! (((u0outpoint0radarboardpoint) && (! (u0outpoint0cockpitboardpoint))) <-> ((u0outpoint0cockpitboardpoint) && (! (u0outpoint0radarboardpoint))))) && (! ((u0outpoint0scoreboardpoint) || (u0outpoint0outpoint)))) <-> ((! (((u0outpoint0scoreboardpoint) && (! (u0outpoint0outpoint))) <-> ((u0outpoint0outpoint) && (! (u0outpoint0scoreboardpoint))))) && (! ((u0outpoint0radarboardpoint) || (u0outpoint0cockpitboardpoint))))))) && ((((G (! ((p0p0isscoremode0gamemode) && (p0p0isradarmode0gamemode)))) && (G (! ((p0p0isradarmode0gamemode) && (p0p0iscockpitmode0gamemode))))) && (G (! ((p0p0iscockpitmode0gamemode) && (p0p0isscoremode0gamemode))))) -> (((G ((p0p0on0gameover) -> (u0outpoint0scoreboardpoint))) && (G ((! (p0p0on0gameover)) -> ((((p0p0isscoremode0gamemode) -> (u0outpoint0scoreboardpoint)) && ((p0p0isradarmode0gamemode) -> (u0outpoint0radarboardpoint))) && ((p0p0iscockpitmode0gamemode) -> (u0outpoint0cockpitboardpoint)))))) && (G (((u0outpoint0scoreboardpoint) || (u0outpoint0radarboardpoint)) || (u0outpoint0cockpitboardpoint))))))","total_time":115,"automaton":{"is_built":true,"build_duration":4,"total_states":4,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":4,"total_edges":7},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u0outpoint0cockpitboardpoint","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0on0gameover","p0p0isscoremode0gamemode","p0p0isradarmode0gamemode","p0p0iscockpitmode0gamemode","u0outpoint0scoreboardpoint","u0outpoint0radarboardpoint","u0outpoint0outpoint"]},{"name":"u0outpoint0outpoint","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0on0gameover","p0p0isscoremode0gamemode","p0p0isradarmode0gamemode","p0p0iscockpitmode0gamemode","u0outpoint0scoreboardpoint","u0outpoint0radarboardpoint"]},{"name":"u0outpoint0radarboardpoint","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0on0gameover","p0p0isscoremode0gamemode","p0p0isradarmode0gamemode","p0p0iscockpitmode0gamemode","u0outpoint0scoreboardpoint","u0outpoint0outpoint"]},{"name":"u0outpoint0scoreboardpoint","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0on0gameover","p0p0isscoremode0gamemode","p0p0isradarmode0gamemode","p0p0iscockpitmode0gamemode","u0outpoint0outpoint","u0outpoint0radarboardpoint"]}],"total_duration":0,"is_completed":true,"skipped_dependencies":false,"total_pair_state":6,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":0,"model_checking_status":"UNKNOWN","merge_strategies_duration":107,"final_strategy":{"duration":0,"total_inputs":7,"total_outputs":1,"total_latches":4,"total_gates":89},"independent_strategy":{"duration":2,"realizability":"REALIZABLE","total_inputs":4,"total_outputs":3,"total_latches":0,"total_gates":8},"dependent_strategy":{"duration":0,"total_inputs":7,"total_outputs":1,"total_latches":4,"total_gates":89}}}

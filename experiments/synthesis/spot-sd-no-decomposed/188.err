@@ -1,0 +1,19 @@
+trying to create strategy directly for G(cancel -> X(go | Xgo)) -> G((req -> X(cancel | grant | X(cancel | grant | X(cancel | grant)))) & (grant -> X!grant) & (cancel -> X(!grant U go)))
+direct strategy might exist but was not found.
+translating formula done in 0.00233111 seconds
+automaton has 19 states and 1 colors
+split inputs and outputs done in 0.000315103 seconds
+automaton has 51 states
+determinization done
+DPA has 47 states, 2 colors
+simplification done
+DPA has 45 states
+determinization and simplification took 0.00364958 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 7.4563e-05 seconds
+simplification took 0.000235205 seconds
+AIG circuit was created in 0.000142293 seconds and has 2 latches and 12 gates
+
+real	0m0.020s
+user	0m0.008s
+sys	0m0.012s

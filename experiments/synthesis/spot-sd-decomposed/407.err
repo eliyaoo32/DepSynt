@@ -1,0 +1,19 @@
+there are 1 subformulas
+srun: error: cn08: task 0: Exited with exit code 1
+trying to create strategy directly for G!((!u0alarm29control0f1dturn2on1b & !((u0alarm29control0alarm29control & !u0alarm29control0f1dturn2off1b) <-> (!u0alarm29control0alarm29control & u0alarm29control0f1dturn2off1b))) <-> (u0alarm29control0f1dturn2on1b & !(u0alarm29control0alarm29control | u0alarm29control0f1dturn2off1b))) & G((u0alarm29control0f1dturn2on1b -> u0alarm29control0f1dturn2off1b) R p0b0alarm) & G((u0alarm29control0f1dturn2off1b -> u0alarm29control0f1dturn2on1b) R !p0b0alarm)
+direct strategy might exist but was not found.
+translating formula done in 0.000383517 seconds
+automaton has 1 states and 1 colors
+split inputs and outputs done in 2.7693e-05 seconds
+automaton has 3 states
+determinization done
+DPA has 3 states, 1 colors
+simplification done
+DPA has 2 states
+determinization and simplification took 4.5936e-05 seconds
+solving game with acceptance: co-Büchi
+game solved in 1.891e-05 seconds
+
+real	0m0.013s
+user	0m0.005s
+sys	0m0.008s

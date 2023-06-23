@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G((G!allfinished -> (G!finished_0 | G!finished_1 | G!finished_2)) & (allfinished -> X(G!allfinished | (!allfinished U finished_0))) & (allfinished -> X(G!allfinished | (!allfinished U finished_1))) & (allfinished -> X(G!allfinished | (!allfinished U finished_2))))
+direct strategy might exist but was not found.
+translating formula done in 0.00243765 seconds
+automaton has 25 states and 1 colors
+split inputs and outputs done in 0.000261031 seconds
+automaton has 74 states
+determinization done
+DPA has 87 states, 2 colors
+simplification done
+DPA has 66 states
+determinization and simplification took 0.00339608 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 8.7755e-05 seconds
+simplification took 0.000182021 seconds
+AIG circuit was created in 0.000512977 seconds and has 4 latches and 122 gates
+
+real	0m0.020s
+user	0m0.008s
+sys	0m0.012s

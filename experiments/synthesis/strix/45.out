@@ -1,0 +1,50 @@
+REALIZABLE
+aag 12 5 1 15 6
+2
+4
+6
+8
+10
+12 20
+14
+15
+0
+16
+17
+16
+17
+1
+0
+20
+21
+0
+22
+16
+24
+14 2 6
+16 8 10
+18 13 17
+20 5 19
+22 6 9
+24 17 23
+i0 p0p0eq0counter0f1dfourtyone1b
+i1 p0p0eq0counter0f1dfourty1b
+i2 p0p0eqzi0prescaler
+i3 p0p0eqz0counter
+i4 p0p0do2write0write2control
+l0 l0
+o0 u0write2response0f1dtop1b
+o1 u0write2response0f1dbot1b
+o2 u0write2response0write2response
+o3 u0write2data0f1dget2write2data0write2control1b
+o4 u0write2data0write2data
+o5 u0write2address0f1dget2write2address0write2control1b
+o6 u0write2address0write2address
+o7 u0prescaler0f1dinc0prescaler1b
+o8 u0prescaler0prescaler
+o9 u0cs0f1dlow1b
+o10 u0cs0f1dhigh1b
+o11 u0cs0cs
+o12 u0counter0f1dincmod0counter0f1dfourtytwo1b1b
+o13 u0counter0f1done1b
+o14 u0counter0counter

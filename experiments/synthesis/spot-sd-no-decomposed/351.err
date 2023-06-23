@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!((!u0room29light0f1dturn2off1b & u0room29light0f1dturn2on1b) <-> (u0room29light0f1dturn2off1b & !u0room29light0f1dturn2on1b)) & !(u0room29light0f1dtoggle1b | u0room29light0room29light)) <-> (!((!u0room29light0f1dtoggle1b & u0room29light0room29light) <-> (u0room29light0f1dtoggle1b & !u0room29light0room29light)) & !(u0room29light0f1dturn2off1b | u0room29light0f1dturn2on1b))) & (G((u0room29light0f1dturn2on1b | (p0b0room29light29off & u0room29light0f1dtoggle1b)) -> XF((u0room29light0f1dtoggle1b | u0room29light0f1dturn2off1b) R p0b0room29light29on)) -> G(p0p0bright0outside29brightness -> ((p0b0room29light29off & p0b0switch29toggled) -> XF((p0b0room29light29on U (p0b0room29empty | p0b0switch29toggled)) | Gp0b0room29light29on))))
+direct strategy might exist but was not found.
+translating formula done in 0.00337925 seconds
+automaton has 6 states and 1 colors
+split inputs and outputs done in 0.000232523 seconds
+automaton has 20 states
+determinization done
+DPA has 34 states, 3 colors
+simplification done
+DPA has 31 states
+determinization and simplification took 0.00129213 seconds
+solving game with acceptance: parity min even 3
+game solved in 6.0776e-05 seconds
+simplification took 0.000130496 seconds
+AIG circuit was created in 0.000216164 seconds and has 2 latches and 54 gates
+
+real	0m0.023s
+user	0m0.008s
+sys	0m0.015s

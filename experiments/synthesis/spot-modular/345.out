@@ -1,0 +1,41 @@
+aag 25 2 2 6 21
+2
+4
+6 45
+8 51
+23
+23
+39
+39
+0
+0
+10 9 5
+12 6 10
+14 7 8
+16 15 13
+18 2 12
+20 3 17
+22 21 19
+24 9 4
+26 6 24
+28 7 9
+30 29 27
+32 6 25
+34 2 33
+36 3 31
+38 37 35
+40 29 13
+42 3 41
+44 43 35
+46 15 27
+48 3 47
+50 49 19
+i0 p0b0in24
+i1 p0b0in25
+o0 u0a0f1dval241b
+o1 u0b0f1dval251b
+o2 u0a0f1dval251b
+o3 u0b0f1dval241b
+o4 u0a0a
+o5 u0b0b
+{"is_completed":true,"output_vars":["u0b0f1dval251b","u0b0f1dval241b","u0b0b","u0a0f1dval251b","u0a0f1dval241b","u0a0a"],"input_vars":["p0b0in25","p0b0in24"],"formula":"((G ((! (((u0a0f1dval241b) && (! ((u0a0f1dval251b) || (u0a0a)))) <-> ((! (((u0a0f1dval251b) && (! (u0a0a))) <-> ((u0a0a) && (! (u0a0f1dval251b))))) && (! (u0a0f1dval241b))))) && (! (((u0b0f1dval241b) && (! ((u0b0f1dval251b) || (u0b0b)))) <-> ((! (((u0b0f1dval251b) && (! (u0b0b))) <-> ((u0b0b) && (! (u0b0f1dval251b))))) && (! (u0b0f1dval241b))))))) && (((G (((u0a0f1dval241b) && (u0b0f1dval251b)) -> (X (p0b0in24)))) && (G ((p0b0in24) -> (X (p0b0in25))))) -> ((((G (F (p0b0in24))) && (G (F (p0b0in25)))) && (G (F (u0a0f1dval251b)))) && (G (F (u0b0f1dval241b))))))","total_time":10,"automaton":{"is_built":true,"build_duration":3,"total_states":9,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":9,"total_edges":26},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":false,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":6,"realizability":"REALIZABLE","total_inputs":2,"total_outputs":6,"total_latches":2,"total_gates":21},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

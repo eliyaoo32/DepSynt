@@ -1,0 +1,70 @@
+aag 57 5 2 3 50
+2
+4
+6
+8
+10
+12 102
+14 115
+49
+97
+0
+16 12 14
+18 8 15
+20 9 17
+22 21 19
+24 12 15
+26 9 24
+28 3 26
+30 4 28
+32 5 23
+34 33 31
+36 11 24
+38 9 36
+40 3 38
+42 5 40
+44 6 42
+46 7 35
+48 47 45
+50 13 14
+52 8 50
+54 8 17
+56 9 13
+58 57 55
+60 2 17
+62 3 59
+64 63 61
+66 4 65
+68 5 52
+70 69 67
+72 10 17
+74 11 13
+76 75 73
+78 9 77
+80 79 55
+82 3 81
+84 83 61
+86 4 17
+88 5 85
+90 89 87
+92 6 91
+94 7 71
+96 95 93
+98 57 19
+100 5 99
+102 7 100
+104 27 53
+106 5 105
+108 107 87
+110 6 17
+112 7 109
+114 113 111
+i0 p0p0play2button0sys
+i1 p0p0pause2button0sys
+i2 p0p0leave2app0sys
+i3 p0p0music2playing0mp
+i4 p0p0resume2app0sys
+o0 u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b
+o1 u0ctrl0f1dpause0mp1b
+o2 u0ctrl0ctrl
+{"is_completed":true,"output_vars":["u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b","u0ctrl0f1dpause0mp1b","u0ctrl0ctrl"],"input_vars":["p0p0resume2app0sys","p0p0play2button0sys","p0p0pause2button0sys","p0p0music2playing0mp","p0p0leave2app0sys"],"formula":"((G (! (((u0ctrl0f1dpause0mp1b) && (! ((u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) || (u0ctrl0ctrl)))) <-> ((! (((u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) && (! (u0ctrl0ctrl))) <-> ((u0ctrl0ctrl) && (! (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))))) && (! (u0ctrl0f1dpause0mp1b)))))) && ((((((G ((p0p0leave2app0sys) -> ((! (p0p0play2button0sys)) && (! (p0p0pause2button0sys))))) && (G (! ((p0p0play2button0sys) && (p0p0pause2button0sys))))) && (G (! ((p0p0leave2app0sys) && (p0p0resume2app0sys))))) && (G ((u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) -> (X (((p0p0music2playing0mp) U (u0ctrl0f1dpause0mp1b)) || (G (p0p0music2playing0mp))))))) && (G ((u0ctrl0f1dpause0mp1b) -> (X (((! (p0p0music2playing0mp)) U (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)) || (G (! (p0p0music2playing0mp)))))))) -> ((((((G ((p0p0play2button0sys) -> (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) && (G ((p0p0pause2button0sys) -> (u0ctrl0f1dpause0mp1b)))) && (G ((u0ctrl0f1dpause0mp1b) -> ((p0p0leave2app0sys) || (p0p0pause2button0sys))))) && (G ((u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) -> (! (p0p0leave2app0sys))))) && (G (((((u0ctrl0f1dpause0mp1b) && (p0p0pause2button0sys)) -> (! (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) U (p0p0play2button0sys)) || (G (((u0ctrl0f1dpause0mp1b) && (p0p0pause2button0sys)) -> (! (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))))))) && (G (((p0p0music2playing0mp) && (p0p0leave2app0sys)) -> (((! ((u0ctrl0f1dpause0mp1b) && (((! ((! (p0p0pause2button0sys)) -> (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) U (((! (p0p0pause2button0sys)) -> (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)) && (! (p0p0leave2app0sys)))) || (G (! ((! (p0p0pause2button0sys)) -> (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))))))) U (((u0ctrl0f1dpause0mp1b) && (((! ((! (p0p0pause2button0sys)) -> (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) U (((! (p0p0pause2button0sys)) -> (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)) && (! (p0p0leave2app0sys)))) || (G (! ((! (p0p0pause2button0sys)) -> (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)))))) && (p0p0leave2app0sys))) || (G (! ((u0ctrl0f1dpause0mp1b) && (((! ((! (p0p0pause2button0sys)) -> (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) U (((! (p0p0pause2button0sys)) -> (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)) && (! (p0p0leave2app0sys)))) || (G (! ((! (p0p0pause2button0sys)) -> (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))))))))))))))","total_time":10,"automaton":{"is_built":true,"build_duration":7,"total_states":10,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":10,"total_edges":32},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":2,"realizability":"REALIZABLE","total_inputs":5,"total_outputs":3,"total_latches":2,"total_gates":50},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

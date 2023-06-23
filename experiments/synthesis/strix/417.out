@@ -1,0 +1,13 @@
+REALIZABLE
+aag 4 3 0 2 1
+2
+4
+6
+9
+8
+8 2 4
+i0 p0p0full0dish2washer2status
+i1 p0p0after2work0time
+i2 p0p0new2day0time
+o0 u0dish2washer0dish2washer
+o1 u0dish2washer0on

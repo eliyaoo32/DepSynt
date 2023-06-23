@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b & !u0room29shades29ctrl0room29shades29ctrl) <-> (!u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b & u0room29shades29ctrl0room29shades29ctrl)) & (G(u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b -> F((!u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b & !u0room29shades29ctrl0room29shades29ctrl) R p0b0room29shades29closed)) -> G(p0p0bright0outside29brightness -> Fp0b0room29shades29closed))
+direct strategy might exist but was not found.
+translating formula done in 0.00128205 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 6.5607e-05 seconds
+automaton has 12 states
+determinization done
+DPA has 12 states, 2 colors
+simplification done
+DPA has 10 states
+determinization and simplification took 0.00102442 seconds
+solving game with acceptance: Streett 1
+game solved in 2.6362e-05 seconds
+simplification took 0.000158657 seconds
+AIG circuit was created in 9.2035e-05 seconds and has 1 latches and 4 gates
+
+real	0m0.015s
+user	0m0.007s
+sys	0m0.008s

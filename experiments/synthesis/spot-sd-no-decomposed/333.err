@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!((!u0cm29ctrl0f1dturn2off1b & u0cm29ctrl0f1dturn2on1b) <-> (u0cm29ctrl0f1dturn2off1b & !u0cm29ctrl0f1dturn2on1b)) & !(u0cm29ctrl0cm29ctrl | u0cm29ctrl0f1dmake2coffee1b)) <-> (!((u0cm29ctrl0cm29ctrl & !u0cm29ctrl0f1dmake2coffee1b) <-> (!u0cm29ctrl0cm29ctrl & u0cm29ctrl0f1dmake2coffee1b)) & !(u0cm29ctrl0f1dturn2off1b | u0cm29ctrl0f1dturn2on1b))) & !(G(p0b0cm29busy | p0b0cm29ready | p0b0cm29standby) & G(p0b0cm29ready -> (!p0b0cm29busy & !p0b0cm29standby)) & G(p0b0cm29standby -> (!p0b0cm29busy & !p0b0cm29ready)) & G(p0b0cm29busy -> (!p0b0cm29ready & !p0b0cm29standby)) & G(((p0b0cm29standby & u0cm29ctrl0f1dturn2on1b) -> Xp0b0cm29busy) U ((u0cm29ctrl0f1dmake2coffee1b | u0cm29ctrl0f1dturn2off1b) R p0b0cm29ready)) & G(((p0b0cm29ready & u0cm29ctrl0f1dturn2off1b) -> Xp0b0cm29busy) U (u0cm29ctrl0f1dturn2on1b R p0b0cm29standby)) & G(((p0b0cm29ready & u0cm29ctrl0f1dmake2coffee1b) -> Xp0b0cm29busy) U (p0b0cm29finished & ((u0cm29ctrl0f1dmake2coffee1b | u0cm29ctrl0f1dturn2off1b) R p0b0cm29ready))))
+direct strategy might exist but was not found.
+translating formula done in 0.00463862 seconds
+automaton has 11 states and 1 colors
+split inputs and outputs done in 0.000324899 seconds
+automaton has 32 states
+determinization done
+DPA has 84 states, 2 colors
+simplification done
+DPA has 50 states
+determinization and simplification took 0.00327468 seconds
+solving game with acceptance: Rabin 1
+game solved in 7.9939e-05 seconds
+simplification took 0.000205018 seconds
+AIG circuit was created in 0.000301692 seconds and has 2 latches and 45 gates
+
+real	0m0.023s
+user	0m0.010s
+sys	0m0.013s

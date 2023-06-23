@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b & !((u02shades29ctrl02shades29ctrl & !u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b) <-> (!u02shades29ctrl02shades29ctrl & u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b))) <-> (u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b & !(u02shades29ctrl02shades29ctrl | u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b))) & ((G!(p0b02shades29closed & p0b02shades29open) & G(u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b -> F((!u02shades29ctrl02shades29ctrl & !u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b) R p0b02shades29open)) & G(u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b -> F((!u02shades29ctrl02shades29ctrl & !u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b) R p0b02shades29closed))) -> G(p0p0bright0outside29brightness -> Fp0b02shades29closed))
+direct strategy might exist but was not found.
+translating formula done in 0.00379117 seconds
+automaton has 7 states and 1 colors
+split inputs and outputs done in 0.000159674 seconds
+automaton has 18 states
+determinization done
+DPA has 49 states, 2 colors
+simplification done
+DPA has 48 states
+determinization and simplification took 0.00242793 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 7.532e-05 seconds
+simplification took 0.00048557 seconds
+AIG circuit was created in 0.000706414 seconds and has 4 latches and 128 gates
+
+real	0m0.023s
+user	0m0.013s
+sys	0m0.009s

@@ -1,0 +1,7 @@
+trying to create strategy directly for G(!((!u0presence2timer0f1dzero1b & !((!u0presence2timer0f1dinc0presence2timer1b & u0presence2timer0presence2timer) <-> (u0presence2timer0f1dinc0presence2timer1b & !u0presence2timer0presence2timer))) <-> (u0presence2timer0f1dzero1b & !(u0presence2timer0f1dinc0presence2timer1b | u0presence2timer0presence2timer))) & !((!u0doorlock0f1dclose1b & !((u0doorlock0doorlock & !u0doorlock0f1dopen1b) <-> (!u0doorlock0doorlock & u0doorlock0f1dopen1b))) <-> (u0doorlock0f1dclose1b & !(u0doorlock0doorlock | u0doorlock0f1dopen1b)))) & G(p0p0is2empty0presence2sensor -> u0presence2timer0f1dinc0presence2timer1b) & G(!p0p0is2empty0presence2sensor -> u0presence2timer0f1dzero1b) & G((p0p0gt0presence2timer0fivemin & p0p0is2empty0presence2sensor) -> u0doorlock0f1dclose1b) & G(p0p0is2key2opened0keylock -> u0doorlock0f1dopen1b) & G(p0p0is2opende2insight0keylock -> u0doorlock0f1dopen1b)
+srun: error: cn10: task 0: Exited with exit code 1
+no strategy exists.
+
+real	0m0.012s
+user	0m0.002s
+sys	0m0.010s

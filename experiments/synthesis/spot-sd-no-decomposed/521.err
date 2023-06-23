@@ -1,0 +1,19 @@
+trying to create strategy directly for G(p0 <-> !p1) & (GFp0 <-> (Fb & (F(b & GFa) | F(c & GF!a)) & Fc))
+direct strategy might exist but was not found.
+translating formula done in 0.00520548 seconds
+automaton has 13 states and 2 colors
+split inputs and outputs done in 0.000191759 seconds
+automaton has 39 states
+determinization done
+DPA has 89 states, 3 colors
+simplification done
+DPA has 51 states
+determinization and simplification took 0.00183738 seconds
+solving game with acceptance: parity min odd 3
+game solved in 0.0001009 seconds
+simplification took 0.000102694 seconds
+AIG circuit was created in 0.000109604 seconds and has 2 latches and 3 gates
+
+real	0m0.033s
+user	0m0.009s
+sys	0m0.012s

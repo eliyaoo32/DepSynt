@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!((!u02roomlight29light0f1d2roomlight29turn2off1b & u02roomlight29light0f1d2roomlight29turn2on1b) <-> (u02roomlight29light0f1d2roomlight29turn2off1b & !u02roomlight29light0f1d2roomlight29turn2on1b)) & !(u02roomlight29light02roomlight29light | u02roomlight29light0f1d2roomlight29toggle1b)) <-> (!((u02roomlight29light02roomlight29light & !u02roomlight29light0f1d2roomlight29toggle1b) <-> (!u02roomlight29light02roomlight29light & u02roomlight29light0f1d2roomlight29toggle1b)) & !(u02roomlight29light0f1d2roomlight29turn2off1b | u02roomlight29light0f1d2roomlight29turn2on1b))) & ((G!(p0b02roomlight29off <-> p0b02roomlight29on) & G((u02roomlight29light0f1d2roomlight29turn2on1b | (p0b02roomlight29off & u02roomlight29light0f1d2roomlight29toggle1b)) -> XF((u02roomlight29light0f1d2roomlight29toggle1b | u02roomlight29light0f1d2roomlight29turn2off1b) R p0b02roomlight29on)) & G((u02roomlight29light0f1d2roomlight29turn2off1b | (p0b02roomlight29on & u02roomlight29light0f1d2roomlight29toggle1b)) -> XF((u02roomlight29light0f1d2roomlight29toggle1b | u02roomlight29light0f1d2roomlight29turn2on1b) R p0b02roomlight29off)) & G(p0b02room29empty -> !p0b02room29switch29toggled) & G(p0b02room29somebody2enters -> ((!p0b02room29empty U (p0b02room29empty & p0b02room29sombebody2leaves)) | G!p0b02room29empty)) & G((p0b02room29empty & p0b02room29somebody2leaves) -> ((p0b02room29empty U p0b02room29sombebody2enters) | Gp0b02room29empty)) & G(p0b02room29bed29occupied -> !p0b02room29empty) & ((!p0b02room29empty U (p0b02room29empty & p0b02room29sombebody2leaves)) | G!p0b02room29empty | (p0b02room29empty U p0b02room29sombebody2enters) | Gp0b02room29empty)) -> G(Xp0b02roomlight29on -> !p0b02room29empty))
+direct strategy might exist but was not found.
+translating formula done in 0.0175785 seconds
+automaton has 9 states and 1 colors
+split inputs and outputs done in 0.00276629 seconds
+automaton has 35 states
+determinization done
+DPA has 281 states, 3 colors
+simplification done
+DPA has 167 states
+determinization and simplification took 0.029655 seconds
+solving game with acceptance: parity min odd 3
+game solved in 0.000166168 seconds
+simplification took 0.000417038 seconds
+AIG circuit was created in 0.000342952 seconds and has 2 latches and 101 gates
+
+real	0m0.064s
+user	0m0.051s
+sys	0m0.013s

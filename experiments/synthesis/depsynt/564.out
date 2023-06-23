@@ -1,0 +1,108 @@
+aag 94 2 3 5 89
+2
+4
+6 143
+8 165
+10 189
+55
+60
+85
+101
+117
+12 9 11
+14 8 10
+16 6 14
+18 7 12
+20 19 17
+22 13 15
+24 6 23
+26 19 25
+28 2 27
+30 3 21
+32 31 29
+34 7 11
+36 35 17
+38 10 9
+40 6 39
+42 35 41
+44 2 43
+46 3 37
+48 47 45
+50 4 49
+52 5 33
+54 53 51
+56 8 11
+58 7 56
+60 4 58
+62 6 38
+64 7 14
+66 65 63
+68 2 67
+70 3 62
+72 71 69
+74 6 22
+76 65 75
+78 2 77
+80 4 78
+82 5 73
+84 83 81
+86 2 42
+88 3 38
+90 89 87
+92 3 74
+94 93 79
+96 4 95
+98 5 91
+100 99 97
+102 2 12
+104 6 11
+106 19 105
+108 2 107
+110 93 109
+112 4 111
+114 5 102
+116 115 113
+118 38 7
+120 2 119
+122 3 63
+124 123 121
+126 6 12
+128 7 13
+130 129 127
+132 2 26
+134 3 131
+136 135 133
+138 4 137
+140 5 125
+142 141 139
+144 7 9
+146 145 127
+148 2 147
+150 31 149
+152 6 13
+154 35 153
+156 2 155
+158 47 157
+160 4 159
+162 5 151
+164 163 161
+166 7 15
+168 167 105
+170 2 169
+172 123 171
+174 6 56
+176 119 175
+178 2 177
+180 3 36
+182 181 179
+184 4 183
+186 5 173
+188 187 185
+i0 b_0
+i1 b_1
+o0 f_0
+o1 up
+o2 down
+o3 f_1
+o4 serve
+{"is_completed":true,"output_vars":["serve","down","up","f_0","f_1"],"input_vars":["b_0","b_1"],"formula":"(((((((! (b_0)) && (! (b_1))) && (G (((b_0) && (! ((f_0) && (serve)))) -> (X (b_0))))) && (G (((b_1) && (! ((f_1) && (serve)))) -> (X (b_1))))) && (G (((b_0) && ((f_0) && (serve))) -> (X (! (b_0)))))) && (G (((b_1) && ((f_1) && (serve))) -> (X (! (b_1)))))) -> (((((G ((((((((((up) <-> ((f_0) && (X (f_1)))) && ((down) <-> ((f_1) && (X (f_0))))) && (! ((up) && (down)))) && ((f_0) -> (X ((f_0) || (f_1))))) && ((f_1) -> (X ((f_1) || (f_0))))) && (((f_0) && (up)) -> (b_1))) && (((f_1) && (down)) -> ((b_0) || ((! (b_0)) && (! (b_1)))))) && (((f_0) && (serve)) -> (b_0))) && (((f_1) && (serve)) -> (b_1)))) && (f_0)) && (G ((b_0) -> (F ((f_0) && (serve)))))) && (G ((b_1) -> (F ((f_1) && (serve)))))) && (! (F (G (((! (b_0)) && (! (b_1))) && (! (f_0))))))))","total_time":27,"automaton":{"is_built":true,"build_duration":5,"total_states":29,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":29,"total_edges":158},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"f_1","duration":0,"is_dependent":false,"tested_dependency_set":["b_0","b_1","serve","down","up","f_0"]},{"name":"f_0","duration":0,"is_dependent":false,"tested_dependency_set":["b_0","b_1","serve","down","up","f_1"]},{"name":"up","duration":0,"is_dependent":false,"tested_dependency_set":["b_0","b_1","serve","down","f_1","f_0"]},{"name":"down","duration":0,"is_dependent":false,"tested_dependency_set":["b_0","b_1","serve","f_1","f_0","up"]},{"name":"serve","duration":0,"is_dependent":false,"tested_dependency_set":["b_0","b_1","f_1","f_0","up","down"]}],"total_duration":0,"is_completed":true,"skipped_dependencies":false,"total_pair_state":120,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":10,"realizability":"REALIZABLE","total_inputs":2,"total_outputs":5,"total_latches":3,"total_gates":89},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

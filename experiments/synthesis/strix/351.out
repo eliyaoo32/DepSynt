@@ -1,0 +1,30 @@
+REALIZABLE
+aag 13 5 2 4 6
+2
+4
+6
+8
+10
+12 24
+14 26
+0
+0
+17
+0
+16 12 14
+18 7 15
+20 6 11
+22 19 21
+24 17 23
+26 17 22
+i0 p0p0bright0outside29brightness
+i1 p0b0room29empty
+i2 p0b0switch29toggled
+i3 p0b0room29light29on
+i4 p0b0room29light29off
+l0 l0
+l1 l1
+o0 u0room29light0f1dturn2off1b
+o1 u0room29light0f1dtoggle1b
+o2 u0room29light0f1dturn2on1b
+o3 u0room29light0room29light

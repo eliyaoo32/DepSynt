@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u0counter0f1ddec0counter1b & !((u0counter0counter & !u0counter0f1dinc0counter1b) <-> (!u0counter0counter & u0counter0f1dinc0counter1b))) <-> (u0counter0f1ddec0counter1b & !(u0counter0counter | u0counter0f1dinc0counter1b))) & ((p0p0in2range0counter & G!(p0p0button2pressed0down & p0p0button2pressed0up) & G((p0p0in2range0counter & u0counter0counter) -> Xp0p0in2range0counter) & G((p0p0in2range0f1dinc0counter1b & u0counter0f1dinc0counter1b) -> Xp0p0in2range0counter) & G((p0p0in2range0f1ddec0counter1b & u0counter0f1ddec0counter1b) -> Xp0p0in2range0counter)) -> (G(u0counter0f1dinc0counter1b <-> (p0p0button2pressed0up & p0p0in2range0f1dinc0counter1b)) & G(u0counter0f1ddec0counter1b <-> (p0p0button2pressed0down & p0p0in2range0f1ddec0counter1b)) & Gp0p0in2range0counter))
+direct strategy might exist but was not found.
+translating formula done in 0.00370949 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 0.000160038 seconds
+automaton has 22 states
+determinization done
+DPA has 22 states, 2 colors
+simplification done
+DPA has 22 states
+determinization and simplification took 7.0279e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 3.0093e-05 seconds
+simplification took 5.2881e-05 seconds
+AIG circuit was created in 7.9693e-05 seconds and has 0 latches and 15 gates
+
+real	0m0.014s
+user	0m0.006s
+sys	0m0.008s

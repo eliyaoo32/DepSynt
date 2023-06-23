@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!((!u0cm29ctrl0f1dturn2off1b & u0cm29ctrl0f1dturn2on1b) <-> (u0cm29ctrl0f1dturn2off1b & !u0cm29ctrl0f1dturn2on1b)) & !(u0cm29ctrl0cm29ctrl | u0cm29ctrl0f1dmake2coffee1b)) <-> (!((u0cm29ctrl0cm29ctrl & !u0cm29ctrl0f1dmake2coffee1b) <-> (!u0cm29ctrl0cm29ctrl & u0cm29ctrl0f1dmake2coffee1b)) & !(u0cm29ctrl0f1dturn2off1b | u0cm29ctrl0f1dturn2on1b))) & (G((p0b0cm29busy | p0b0cm29ready | p0b0cm29standby) & (p0b0cm29ready -> (!p0b0cm29busy & !p0b0cm29standby)) & (p0b0cm29standby -> (!p0b0cm29busy & !p0b0cm29ready)) & (p0b0cm29busy -> (!p0b0cm29ready & !p0b0cm29standby)) & (p0b0room29somebody2enters -> ((!p0b0room29empty U p0b0room29somebody2leaves) | G!p0b0room29empty)) & ((p0b0room29empty & p0b0room29somebody2leaves) -> ((p0b0room29empty U p0b0room29somebody2enters) | Gp0b0room29empty)) & (((p0b0cm29standby & u0cm29ctrl0f1dturn2on1b) -> Xp0b0cm29busy) U ((u0cm29ctrl0f1dmake2coffee1b | u0cm29ctrl0f1dturn2off1b) R p0b0cm29ready)) & (((p0b0cm29ready & u0cm29ctrl0f1dturn2off1b) -> Xp0b0cm29busy) U (u0cm29ctrl0f1dturn2on1b R p0b0cm29standby)) & (((p0b0cm29ready & u0cm29ctrl0f1dmake2coffee1b) -> Xp0b0cm29busy) U (p0b0cm29finished & ((u0cm29ctrl0f1dmake2coffee1b | u0cm29ctrl0f1dturn2off1b) R p0b0cm29ready)))) -> G(p0b0room29somebody2enters -> F((p0b0cm29ready U (p0b0room29empty & p0b0room29somebody2leaves)) | Gp0b0cm29ready)))
+direct strategy might exist but was not found.
+translating formula done in 0.00851761 seconds
+automaton has 17 states and 1 colors
+split inputs and outputs done in 0.00160327 seconds
+automaton has 68 states
+determinization done
+DPA has 1513 states, 3 colors
+simplification done
+DPA has 647 states
+determinization and simplification took 0.0805143 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.000650184 seconds
+simplification took 0.00478535 seconds
+AIG circuit was created in 0.0014024 seconds and has 4 latches and 459 gates
+
+real	0m0.113s
+user	0m0.095s
+sys	0m0.017s

@@ -1,0 +1,62 @@
+REALIZABLE
+aag 41 4 3 6 34
+2
+4
+6
+8
+10 78
+12 82
+14 70
+61
+60
+56
+39
+54
+48
+16 10 15
+18 6 17
+20 13 19
+22 3 11
+24 13 14
+26 22 24
+28 11 14
+30 19 29
+32 8 12
+34 3 32
+36 30 34
+38 27 37
+40 23 24
+42 2 32
+44 30 42
+46 41 45
+48 5 47
+50 38 49
+52 9 12
+54 30 52
+56 50 55
+58 6 21
+60 56 58
+62 19 35
+64 15 63
+66 12 19
+68 15 67
+70 55 69
+72 7 70
+74 49 72
+76 27 65
+78 75 76
+80 15 20
+82 50 81
+i0 p0p0straight0angle
+i1 p0p0close2to2bend0track
+i2 p0p0clear2road0track
+i3 p0p0at2side0track2pos
+l0 l0
+l1 l1
+l2 l2
+o0 u0x0f1dturning1b
+o1 u0x0x
+o2 u0steer0f1dturn2mod0track1b
+o3 u0steer0f1dstraighten0angle1b
+o4 u0steer0f1dsteer2side0track1b
+o5 u0steer0steer

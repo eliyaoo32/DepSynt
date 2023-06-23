@@ -1,0 +1,19 @@
+trying to create strategy directly for (G(!hgrant_0 | !hgrant_1) & G(hgrant_0 | hgrant_1)) -> G(((decide & Xhgrant_0) -> (Xlocked <-> Xhlock_0)) & ((decide & Xhgrant_1) -> (Xlocked <-> Xhlock_1)) & (!decide -> (locked <-> Xlocked)))
+direct strategy might exist but was not found.
+translating formula done in 0.00273475 seconds
+automaton has 6 states and 1 colors
+split inputs and outputs done in 0.000242278 seconds
+automaton has 15 states
+determinization done
+DPA has 15 states, 2 colors
+simplification done
+DPA has 15 states
+determinization and simplification took 7.4009e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 4.0218e-05 seconds
+simplification took 0.00018332 seconds
+AIG circuit was created in 0.000333851 seconds and has 2 latches and 41 gates
+
+real	0m0.016s
+user	0m0.010s
+sys	0m0.005s

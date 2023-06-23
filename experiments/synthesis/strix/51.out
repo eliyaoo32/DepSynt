@@ -1,0 +1,40 @@
+REALIZABLE
+aag 9 5 0 12 4
+2
+4
+6
+8
+10
+6
+7
+1
+0
+1
+0
+1
+0
+16
+18
+2
+0
+12 5 9
+14 10 13
+16 3 14
+18 3 15
+i0 p0p0lt0f1dcoordcount0xcoord0ycoord1b0score
+i1 p0p0eq0f1dadd0xcoord0ycoord1b0f1ddec0f1dsizex1b1b
+i2 p0p0eq0xcoord0f1ddec0f1dsizex1b1b
+i3 p0p0eq0xcoord0ycoord
+i4 p0p0on0gameover
+o0 u0ycoord0f1dinc0ycoord1b
+o1 u0ycoord0ycoord
+o2 u0xcoord0f1dinc0xcoord1b
+o3 u0xcoord0xcoord
+o4 u0bycoord0ycoord
+o5 u0bycoord0bycoord
+o6 u0bxcoord0xcoord
+o7 u0bxcoord0bxcoord
+o8 u0actcolor0f1dredcolor1b
+o9 u0actcolor0f1dblackcolor1b
+o10 u0actcolor0scorecolor
+o11 u0actcolor0actcolor

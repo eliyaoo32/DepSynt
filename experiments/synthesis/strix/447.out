@@ -1,0 +1,32 @@
+UNREALIZABLE
+aag 6 5 1 9 0
+2
+4
+6
+8
+10
+12 1
+1
+0
+1
+0
+1
+1
+1
+0
+0
+i0 u02door29intend0f1dunlocked1b
+i1 u02door29intend0f1dlocked1b
+i2 u02door29intend02door29intend
+i3 u02timer29start0f1dmin25231b
+i4 u02timer29start02timer29start
+l0 l0
+o0 p0b02system29blackout
+o1 p0b02firesensor29fire2off
+o2 p0b02firesensor29fire
+o3 p0b02time29become5am
+o4 p0b02time29become6pm
+o5 p0b02timer29timeout
+o6 p0b02room29somebody2leaves
+o7 p0b02room29empty
+o8 p0b02room29somebody2enters

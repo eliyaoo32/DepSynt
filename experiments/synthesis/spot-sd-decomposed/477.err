@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for ((rx_0 | !rx_0) & (ry_0 | !ry_0)) -> ((((!(left & right) & !(down & up) & (!rx_0 -> !left) & (rx_0 -> !right) & (!ry_0 -> !down) & (ry_0 -> !up) & (serve -> ((rx_0 <-> tx_0) & (ry_0 <-> ty_0)))) U (!(left & right) & !(down & up) & (!rx_0 -> !left) & (rx_0 -> !right) & (!ry_0 -> !down) & (ry_0 -> !up) & (serve -> ((rx_0 <-> tx_0) & (ry_0 <-> ty_0))) & !(((right & rx_0) -> Xrx_0) & ((left & !rx_0) -> X!rx_0) & ((right & !rx_0) -> Xrx_0) & ((left & rx_0) -> X!rx_0) & ((!left & !right & !rx_0) -> X!rx_0) & ((!left & !right & rx_0) -> Xrx_0) & ((ry_0 & up) -> Xry_0) & ((down & !ry_0) -> X!ry_0) & ((!ry_0 & up) -> Xry_0) & ((down & ry_0) -> X!ry_0) & ((!down & !ry_0 & !up) -> X!ry_0) & ((!down & ry_0 & !up) -> Xry_0) & G((!tx_0 & !ty_0 & !(!rx_0 & !ry_0 & serve)) -> X(!tx_0 & !ty_0)) & G((!tx_0 & ty_0 & !(!rx_0 & ry_0 & serve)) -> X(!tx_0 & ty_0)) & G((tx_0 & !ty_0 & !(rx_0 & !ry_0 & serve)) -> X(tx_0 & !ty_0)) & G((tx_0 & ty_0 & !(rx_0 & ry_0 & serve)) -> X(tx_0 & ty_0))))) | G(!(left & right) & !(down & up) & (!rx_0 -> !left) & (rx_0 -> !right) & (!ry_0 -> !down) & (ry_0 -> !up) & (serve -> ((rx_0 <-> tx_0) & (ry_0 <-> ty_0))))) & (G(((right & rx_0) -> Xrx_0) & ((left & !rx_0) -> X!rx_0) & ((right & !rx_0) -> Xrx_0) & ((left & rx_0) -> X!rx_0) & ((!left & !right & !rx_0) -> X!rx_0) & ((!left & !right & rx_0) -> Xrx_0) & ((ry_0 & up) -> Xry_0) & ((down & !ry_0) -> X!ry_0) & ((!ry_0 & up) -> Xry_0) & ((down & ry_0) -> X!ry_0) & ((!down & !ry_0 & !up) -> X!ry_0) & ((!down & ry_0 & !up) -> Xry_0) & G((!tx_0 & !ty_0 & !(!rx_0 & !ry_0 & serve)) -> X(!tx_0 & !ty_0)) & G((!tx_0 & ty_0 & !(!rx_0 & ry_0 & serve)) -> X(!tx_0 & ty_0)) & G((tx_0 & !ty_0 & !(rx_0 & !ry_0 & serve)) -> X(tx_0 & !ty_0)) & G((tx_0 & ty_0 & !(rx_0 & ry_0 & serve)) -> X(tx_0 & ty_0))) -> (G((!tx_0 & !ty_0) -> F(!rx_0 & !ry_0 & serve)) & G((!tx_0 & ty_0) -> F(!rx_0 & ry_0 & serve)) & G((tx_0 & !ty_0) -> F(rx_0 & !ry_0 & serve)) & G((tx_0 & ty_0) -> F(rx_0 & ry_0 & serve)))))
+direct strategy might exist but was not found.
+translating formula done in 0.0340699 seconds
+automaton has 161 states and 4 colors
+split inputs and outputs done in 0.00264251 seconds
+automaton has 549 states
+determinization done
+DPA has 67 states, 2 colors
+simplification done
+DPA has 68 states
+determinization and simplification took 0.727607 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 0.000178361 seconds
+simplification took 0.000331551 seconds
+AIG circuit was created in 0.000397581 seconds and has 3 latches and 124 gates
+
+real	0m0.779s
+user	0m0.765s
+sys	0m0.011s

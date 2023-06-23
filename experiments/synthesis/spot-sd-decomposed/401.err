@@ -1,0 +1,23 @@
+there are 2 subformulas
+srun: error: cn09: task 0: Exited with exit code 1
+trying to create strategy directly for G!((u0music29ctrl0f1dplay0f1doverture1b1b & !u0music29ctrl0music29ctrl) <-> (!u0music29ctrl0f1dplay0f1doverture1b1b & u0music29ctrl0music29ctrl)) & G(p0b0room29window29opened -> u0music29ctrl0f1dplay0f1doverture1b1b)
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 0.000101672 seconds
+trying to create strategy directly for G(p0b0room29window29opened -> F((p0b0room29heating29off U (p0b0room29window29closed & p0p0all2windows2closed0room)) | Gp0b0room29heating29off))
+direct strategy might exist but was not found.
+translating formula done in 0.000571088 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000135724 seconds
+automaton has 9 states
+determinization done
+DPA has 7 states, 3 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 0.000674834 seconds
+solving game with acceptance: parity min even 3
+game solved in 4.6518e-05 seconds
+
+real	0m0.015s
+user	0m0.004s
+sys	0m0.010s

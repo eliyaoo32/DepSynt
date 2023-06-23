@@ -1,0 +1,19 @@
+there are 1 subformulas
+srun: error: cn08: task 0: Exited with exit code 1
+trying to create strategy directly for GF!r_m -> (G(!(g_0 & g_m) & (!g_0 | !g_1) & !(g_1 & g_m) & ((r_0 & Xr_1) -> F(g_0 & g_1))) & G(r_0 -> Fg_0) & G(r_1 -> Fg_1) & G(r_m -> X((!g_0 & !g_1) U g_m)))
+direct strategy might exist but was not found.
+translating formula done in 0.00723847 seconds
+automaton has 19 states and 3 colors
+split inputs and outputs done in 0.000327075 seconds
+automaton has 56 states
+determinization done
+DPA has 114 states, 3 colors
+simplification done
+DPA has 103 states
+determinization and simplification took 0.00592851 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.000108341 seconds
+
+real	0m0.029s
+user	0m0.016s
+sys	0m0.013s

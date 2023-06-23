@@ -1,0 +1,43 @@
+REALIZABLE
+aag 20 6 3 6 11
+2
+4
+6
+8
+10
+12
+14 34
+16 36
+18 40
+21
+0
+0
+0
+21
+0
+20 16 18
+22 17 19
+24 15 23
+26 10 21
+28 9 17
+30 19 28
+32 27 31
+34 25 33
+36 8 21
+38 9 21
+40 23 38
+i0 p0b0room29somebody2enters
+i1 p0b0room29empty
+i2 p0b0room29somebody2leaves
+i3 p0b0timeout
+i4 p0b0room29light29off
+i5 p0b0room29light29on
+l0 l0
+l1 l1
+l2 l2
+o0 u0system29start2new2timer0f1dhour251b
+o1 u0system29start2new2timer0system29start2new2timer
+o2 u0room29light0f1dturn2on1b
+o3 u0room29light0f1dtoggle1b
+o4 u0room29light0f1dturn2off1b
+o5 u0room29light0room29light

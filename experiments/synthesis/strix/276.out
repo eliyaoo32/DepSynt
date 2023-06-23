@@ -1,0 +1,20 @@
+REALIZABLE
+aag 7 6 1 2 0
+2
+4
+6
+8
+10
+12
+14 1
+1
+0
+i0 p0p0between0t29pm70t29pm8
+i1 p0p0bright0outside29brightness
+i2 p0b0bed29exit
+i3 p0b0alarm
+i4 p0b0bed29enter
+i5 p0b0room29shades29closed
+l0 l0
+o0 u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b
+o1 u0room29shades29ctrl0room29shades29ctrl

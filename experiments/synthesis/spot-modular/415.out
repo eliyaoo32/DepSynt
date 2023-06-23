@@ -1,0 +1,18 @@
+aag 6 6 0 2 0
+2
+4
+6
+8
+10
+12
+0
+1
+i0 p0p0new2day0time
+i1 p0p0is2meeting0calendar
+i2 p0p0is2presentation0calendar
+i3 p0p0empty0dish2washer2status
+i4 p0p0cleaned0dish2washer2status
+i5 p0p0full0dish2washerstatus
+o0 u0coffe2machine0coffe2machine
+o1 u0coffe2machine0f1doff1b
+{"is_completed":true,"output_vars":["u0coffe2machine0f1doff1b","u0coffe2machine0coffe2machine"],"input_vars":["p0p0is2presentation0calendar","p0p0is2meeting0calendar","p0p0empty0dish2washer2status","p0p0cleaned0dish2washer2status","p0p0full0dish2washerstatus","p0p0new2day0time"],"formula":"((G (! (((u0coffe2machine0coffe2machine) && (! (u0coffe2machine0f1doff1b))) <-> ((u0coffe2machine0f1doff1b) && (! (u0coffe2machine0coffe2machine)))))) && ((G (G (F (p0p0new2day0time)))) -> ((G ((((((p0p0new2day0time) || (p0p0full0dish2washerstatus)) || (p0p0cleaned0dish2washer2status)) -> (u0coffe2machine0f1doff1b)) U (p0p0empty0dish2washer2status)) || (G ((((p0p0new2day0time) || (p0p0full0dish2washerstatus)) || (p0p0cleaned0dish2washer2status)) -> (u0coffe2machine0f1doff1b))))) && (G (((p0p0is2meeting0calendar) && (p0p0is2presentation0calendar)) -> (u0coffe2machine0f1doff1b))))))","total_time":4,"automaton":{"is_built":true,"build_duration":1,"total_states":4,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":4,"total_edges":7},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":false,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":2,"realizability":"REALIZABLE","total_inputs":6,"total_outputs":2,"total_latches":0,"total_gates":0},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

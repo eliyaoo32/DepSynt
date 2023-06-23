@@ -1,0 +1,27 @@
+aag 20 3 2 1 15
+2
+4
+6
+8 18
+10 41
+18
+12 9 11
+14 7 12
+16 5 14
+18 3 16
+20 9 10
+22 8 10
+24 6 23
+26 7 20
+28 27 25
+30 4 23
+32 5 29
+34 33 31
+36 2 23
+38 3 35
+40 39 37
+i0 r
+i1 p
+i2 q
+o0 acc
+{"is_completed":true,"output_vars":["acc"],"input_vars":["r","q","p"],"formula":"((((G (! (r))) && (G ((p) -> (F (q))))) && (G ((q) -> (F (r))))) <-> (G (F (acc))))","total_time":4,"automaton":{"is_built":true,"build_duration":2,"total_states":11,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":11,"total_edges":34},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":false,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":2,"realizability":"REALIZABLE","total_inputs":3,"total_outputs":1,"total_latches":2,"total_gates":15},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

@@ -1,0 +1,19 @@
+there are 1 subformulas
+srun: error: cn11: task 0: Exited with exit code 1
+trying to create strategy directly for FG!p <-> GFacc
+direct strategy might exist but was not found.
+translating formula done in 0.00134367 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 7.7623e-05 seconds
+automaton has 15 states
+determinization done
+DPA has 15 states, 3 colors
+simplification done
+DPA has 11 states
+determinization and simplification took 0.00161696 seconds
+solving game with acceptance: parity min odd 3
+game solved in 5.1242e-05 seconds
+
+real	0m0.036s
+user	0m0.007s
+sys	0m0.009s

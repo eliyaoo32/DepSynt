@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!u0c0c & u0c0f1dc31b) <-> (u0c0c & !u0c0f1dc31b)) & !((!u0a0f1dc241b & !((u0a0a & !u0a0f1dc251b) <-> (!u0a0a & u0a0f1dc251b))) <-> (u0a0f1dc241b & !(u0a0a | u0a0f1dc251b))) & !((!u0b0f1dc241b & !((u0b0b & !u0b0f1dc51b) <-> (!u0b0b & u0b0f1dc51b))) <-> (u0b0f1dc241b & !(u0b0b | u0b0f1dc51b))) & !((!u0d0d & u0d0f1dfun0p1db0in251b1b) <-> (u0d0d & !u0d0f1dfun0p1db0in251b1b)) & !((!u0e0e & u0e0f1dfun0p1db0in31b1b) <-> (u0e0e & !u0e0f1dfun0p1db0in31b1b)) & !((!u0f0f & u0f0f1dc61b) <-> (u0f0f & !u0f0f1dc61b)) & !((u0g0f1dc31b & !u0g0g) <-> (!u0g0f1dc31b & u0g0g))) & ((!p0b0in4 & p0b0in25 & G(u0c0f1dc31b -> Fp0b0in3)) -> (!(u0a0f1dc241b & u0b0f1dc241b) & G(p0b0in24 -> u0a0f1dc241b) & G(u0a0f1dc251b <-> u0c0f1dc31b) & G((p0b0in3 & p0b0in25) -> (u0d0f1dfun0p1db0in251b1b | u0e0e)) & G(u0e0f1dfun0p1db0in31b1b <-> (p0b0in4 | p0b0in25)) & G(u0a0f1dc251b | u0b0f1dc51b) & G(u0c0f1dc31b <-> u0f0f1dc61b) & G((p0b0in3 | p0b0in4 | p0b0in25) -> u0g0f1dc31b)))
+direct strategy might exist but was not found.
+translating formula done in 0.0130731 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 0.00101024 seconds
+automaton has 24 states
+determinization done
+DPA has 34 states, 2 colors
+simplification done
+DPA has 30 states
+determinization and simplification took 0.274678 seconds
+solving game with acceptance: Rabin 1
+game solved in 5.6055e-05 seconds
+simplification took 0.000270557 seconds
+AIG circuit was created in 0.000117839 seconds and has 0 latches and 2 gates
+
+real	0m0.301s
+user	0m0.287s
+sys	0m0.013s

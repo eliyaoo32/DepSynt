@@ -1,0 +1,14 @@
+REALIZABLE
+aag 4 2 0 3 2
+2
+4
+4
+6
+8
+6 2 5
+8 3 5
+i0 hburst_0
+i1 hburst_1
+o0 incr
+o1 burst4
+o2 single

@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!((!u0room29light0f1dturn2off1b & u0room29light0f1dturn2on1b) <-> (u0room29light0f1dturn2off1b & !u0room29light0f1dturn2on1b)) & !(u0room29light0f1dtoggle1b | u0room29light0room29light)) <-> (!((!u0room29light0f1dtoggle1b & u0room29light0room29light) <-> (u0room29light0f1dtoggle1b & !u0room29light0room29light)) & !(u0room29light0f1dturn2off1b | u0room29light0f1dturn2on1b))) & (G((p0b0room29empty -> !p0b0switch29toggled) & !(p0b0room29light29off <-> p0b0room29light29on) & (p0b0room29somebody2enters -> ((!p0b0room29empty U p0b0room29somebody2leaves) | G!p0b0room29empty)) & ((p0b0room29empty & p0b0room29somebody2leaves) -> ((p0b0room29empty U p0b0room29somebody2enters) | Gp0b0room29empty)) & ((u0room29light0f1dturn2on1b | (p0b0room29light29off & u0room29light0f1dtoggle1b)) -> XF((u0room29light0f1dtoggle1b | u0room29light0f1dturn2off1b) R p0b0room29light29on)) & ((u0room29light0f1dturn2off1b | (p0b0room29light29on & u0room29light0f1dtoggle1b)) -> XF((u0room29light0f1dtoggle1b | u0room29light0f1dturn2on1b) R p0b0room29light29off))) -> G(Xp0b0room29light29on -> !p0b0room29empty))
+direct strategy might exist but was not found.
+translating formula done in 0.00511904 seconds
+automaton has 9 states and 1 colors
+split inputs and outputs done in 0.000619949 seconds
+automaton has 35 states
+determinization done
+DPA has 201 states, 3 colors
+simplification done
+DPA has 117 states
+determinization and simplification took 0.00503185 seconds
+solving game with acceptance: parity min odd 3
+game solved in 0.00017015 seconds
+simplification took 0.000515512 seconds
+AIG circuit was created in 0.000348856 seconds and has 2 latches and 82 gates
+
+real	0m0.024s
+user	0m0.012s
+sys	0m0.012s

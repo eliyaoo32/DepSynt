@@ -1,0 +1,245 @@
+aag 221 4 4 9 213
+2
+4
+6
+8
+10 343
+12 383
+14 419
+16 442
+81
+110
+120
+167
+0
+225
+167
+247
+307
+18 15 17
+20 12 15
+22 13 18
+24 23 21
+26 13 15
+28 10 26
+30 11 25
+32 31 29
+34 14 17
+36 15 16
+38 12 36
+40 13 34
+42 41 39
+44 12 18
+46 13 36
+48 47 45
+50 10 49
+52 11 43
+54 53 51
+56 4 55
+58 5 33
+60 59 57
+62 14 16
+64 12 17
+66 13 63
+68 67 65
+70 10 69
+72 11 63
+74 73 71
+76 2 75
+78 3 61
+80 79 77
+82 12 34
+84 47 83
+86 10 34
+88 11 85
+90 89 87
+92 27 65
+94 13 17
+96 95 83
+98 10 97
+100 11 93
+102 101 99
+104 4 103
+106 5 91
+108 107 105
+110 3 109
+112 10 44
+114 11 40
+116 115 113
+118 5 117
+120 3 118
+122 37 35
+124 12 63
+126 13 123
+128 127 125
+130 11 129
+132 8 130
+134 47 65
+136 11 135
+138 8 136
+140 4 138
+142 5 132
+144 143 141
+146 127 39
+148 11 147
+150 8 148
+152 11 46
+154 8 152
+156 4 154
+158 5 150
+160 159 157
+162 2 161
+164 3 145
+166 165 163
+168 11 22
+170 169 71
+172 8 171
+174 9 75
+176 175 173
+178 95 39
+180 11 179
+182 181 71
+184 8 183
+186 175 185
+188 4 187
+190 5 177
+192 191 189
+194 23 65
+196 11 195
+198 197 71
+200 8 199
+202 175 201
+204 95 125
+206 11 205
+208 207 71
+210 8 209
+212 175 211
+214 4 213
+216 5 203
+218 217 215
+220 2 219
+222 3 193
+224 223 221
+226 4 98
+228 5 70
+230 229 227
+232 10 135
+234 10 82
+236 4 234
+238 5 232
+240 239 237
+242 2 241
+244 3 231
+246 245 243
+248 8 168
+250 9 72
+252 251 249
+254 73 51
+256 181 51
+258 8 257
+260 9 255
+262 261 259
+264 4 263
+266 5 253
+268 267 265
+270 10 94
+272 73 271
+274 197 271
+276 8 275
+278 9 273
+280 279 277
+282 67 45
+284 10 283
+286 73 285
+288 207 285
+290 8 289
+292 9 287
+294 293 291
+296 4 295
+298 5 281
+300 299 297
+302 2 301
+304 3 269
+306 305 303
+308 7 75
+310 7 103
+312 4 310
+314 5 308
+316 315 313
+318 67 39
+320 11 319
+322 321 233
+324 7 323
+326 11 26
+328 327 235
+330 7 329
+332 4 330
+334 5 324
+336 335 333
+338 2 337
+340 3 317
+342 341 339
+344 10 64
+346 11 126
+348 347 345
+350 23 125
+352 10 66
+354 11 351
+356 355 353
+358 6 357
+360 7 349
+362 361 359
+364 5 363
+366 365 313
+368 6 323
+370 6 329
+372 4 370
+374 5 368
+376 375 373
+378 2 377
+380 3 367
+382 381 379
+384 153 235
+386 6 385
+388 7 117
+390 389 387
+392 6 75
+394 7 55
+396 395 393
+398 4 397
+400 5 391
+402 401 399
+404 11 64
+406 405 271
+408 4 75
+410 5 407
+412 411 409
+414 2 413
+416 3 403
+418 417 415
+420 10 40
+422 11 82
+424 423 421
+426 41 45
+428 10 427
+430 11 34
+432 431 429
+434 6 433
+436 7 425
+438 437 435
+440 5 439
+442 3 440
+i0 p0p0left2most0pos
+i1 p0p0right2most0pos
+i2 p0p0clicked0button
+i3 p0p0center0pos
+o0 u0pos0f1dadd0pos0vel1b
+o1 u0pos0f1dsub0pos0vel1b
+o2 u0pos0pos
+o3 u0score0f1dadd0score0f1done1b1b
+o4 u0score0score
+o5 u0score0f1dzero1b
+o6 u0vel0f1dadd0vel0f1done1b1b
+o7 u0vel0vel
+o8 u0vel0f1done1b
+{"is_completed":true,"output_vars":["u0vel0f1dadd0vel0f1done1b1b","u0vel0f1done1b","u0vel0vel","u0score0f1dadd0score0f1done1b1b","u0score0f1dzero1b","u0score0score","u0pos0f1dsub0pos0vel1b","u0pos0f1dadd0pos0vel1b","u0pos0pos"],"input_vars":["p0p0right2most0pos","p0p0left2most0pos","p0p0clicked0button","p0p0center0pos"],"formula":"((G (((! (((u0pos0f1dadd0pos0vel1b) && (! ((u0pos0f1dsub0pos0vel1b) || (u0pos0pos)))) <-> ((! (((u0pos0f1dsub0pos0vel1b) && (! (u0pos0pos))) <-> ((u0pos0pos) && (! (u0pos0f1dsub0pos0vel1b))))) && (! (u0pos0f1dadd0pos0vel1b))))) && (! (((u0score0f1dzero1b) && (! ((u0score0f1dadd0score0f1done1b1b) || (u0score0score)))) <-> ((! (((u0score0f1dadd0score0f1done1b1b) && (! (u0score0score))) <-> ((u0score0score) && (! (u0score0f1dadd0score0f1done1b1b))))) && (! (u0score0f1dzero1b)))))) && (! (((u0vel0f1done1b) && (! ((u0vel0f1dadd0vel0f1done1b1b) || (u0vel0vel)))) <-> ((! (((u0vel0f1dadd0vel0f1done1b1b) && (! (u0vel0vel))) <-> ((u0vel0vel) && (! (u0vel0f1dadd0vel0f1done1b1b))))) && (! (u0vel0f1done1b))))))) && (((G ((u0pos0f1dadd0pos0vel1b) -> (X (! (p0p0left2most0pos))))) && (G ((u0pos0f1dsub0pos0vel1b) -> (X (! (p0p0right2most0pos)))))) -> (((((((G ((p0p0left2most0pos) -> (F (u0pos0f1dadd0pos0vel1b)))) && (G ((p0p0right2most0pos) -> (F (u0pos0f1dsub0pos0vel1b))))) && (G (((! (p0p0left2most0pos)) && (! (p0p0right2most0pos))) -> (F ((u0pos0f1dsub0pos0vel1b) || (u0pos0f1dadd0pos0vel1b)))))) && (G ((p0p0left2most0pos) -> (((! (u0pos0f1dsub0pos0vel1b)) U (p0p0right2most0pos)) || (G (! (u0pos0f1dsub0pos0vel1b))))))) && (G ((p0p0right2most0pos) -> (((! (u0pos0f1dadd0pos0vel1b)) U (p0p0left2most0pos)) || (G (! (u0pos0f1dadd0pos0vel1b))))))) && (G (((X (p0p0center0pos)) && (p0p0clicked0button)) <-> (X ((u0score0f1dadd0score0f1done1b1b) && (u0vel0f1dadd0vel0f1done1b1b)))))) && (G (((X (! (p0p0center0pos))) && (p0p0clicked0button)) <-> (X ((u0score0f1dzero1b) && (u0vel0f1done1b))))))))","total_time":140,"automaton":{"is_built":true,"build_duration":81,"total_states":122,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":122,"total_edges":2799},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":57,"realizability":"REALIZABLE","total_inputs":4,"total_outputs":9,"total_latches":4,"total_gates":213},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

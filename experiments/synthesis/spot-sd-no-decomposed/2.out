@@ -1,0 +1,22 @@
+REALIZABLE
+aag 4 2 0 7 2
+2
+4
+3
+2
+0
+1
+2
+6
+8
+6 3 4
+8 3 5
+i0 p0p0on0reset
+i1 p0p0on0clock
+o0 u0angle0angle
+o1 u0angle0resetangle
+o2 u0color0color
+o3 u0color0incolor
+o4 u0radius0f1dstartradius1b
+o5 u0radius0f1ddec0radius1b
+o6 u0radius0radius

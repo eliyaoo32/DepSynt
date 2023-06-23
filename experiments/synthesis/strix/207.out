@@ -1,0 +1,16 @@
+UNREALIZABLE
+aag 5 4 1 2 0
+2
+4
+6
+8
+10 1
+11
+11
+i0 u0room29light0f1dturn2off1b
+i1 u0room29light0f1dtoggle1b
+i2 u0room29light0f1dturn2on1b
+i3 u0room29light0room29light
+l0 l0
+o0 p0b0room29light29off
+o1 p0b0room29light29on

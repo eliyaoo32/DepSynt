@@ -1,0 +1,19 @@
+there are 1 subformulas
+srun: error: cn08: task 0: Exited with exit code 1
+trying to create strategy directly for (GFidle & G((idle & X(!grant_0 & !grant_1)) -> Xidle) & G(X!grant_0 | X((!idle & !request_0) U (idle & !request_0)))) -> (G((request_0 -> grant_1) & X(!grant_0 | !grant_1) & (Xgrant_0 -> request_0) & (Xgrant_1 -> request_1) & (!idle -> X(!grant_0 & !grant_1)) & ((request_0 & Xrequest_1) -> X(grant_0 & grant_1))) & !FG(request_0 & X!grant_0) & !FG(request_1 & X!grant_1))
+direct strategy might exist but was not found.
+translating formula done in 0.00328221 seconds
+automaton has 12 states and 2 colors
+split inputs and outputs done in 0.000159076 seconds
+automaton has 42 states
+determinization done
+DPA has 52 states, 3 colors
+simplification done
+DPA has 47 states
+determinization and simplification took 0.00250132 seconds
+solving game with acceptance: parity min odd 3
+game solved in 9.3599e-05 seconds
+
+real	0m0.041s
+user	0m0.008s
+sys	0m0.014s

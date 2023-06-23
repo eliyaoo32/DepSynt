@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for (!b_0 & !b_1) -> (!f_0 & ((G(((b_0 & !(!f_0 & open)) -> Xb_0) & ((b_1 & !(f_0 & open)) -> Xb_1) & ((b_0 & !f_0 & open) -> X!b_0) & ((b_1 & f_0 & open) -> X!b_1)) & (GFreq_pwr -> GFgrant_pwr) & GF!obstacle) -> (G(!(down & up) & (!grant_pwr -> (!down & !up)) & (open -> (!down & !up)) & ((!f_0 & up) -> b_1) & ((down & f_0) -> (b_0 | (!b_0 & !b_1))) & ((!f_0 & open) -> b_0) & ((f_0 & open) -> b_1) & (up <-> (!f_0 & Xf_0)) & (down <-> (f_0 & X!f_0)) & ((obstacle & open) -> Xopen) & (!f_0 -> X(f_0 | !f_0)) & (f_0 -> X(f_0 | !f_0))) & GF(b_0 -> (!f_0 & open)) & GF(b_1 -> (f_0 & open)) & !FG(!b_0 & !b_1 & f_0))))
+direct strategy might exist but was not found.
+translating formula done in 0.00597025 seconds
+automaton has 14 states and 3 colors
+split inputs and outputs done in 0.000295409 seconds
+automaton has 61 states
+determinization done
+DPA has 285 states, 5 colors
+simplification done
+DPA has 235 states
+determinization and simplification took 0.0096641 seconds
+solving game with acceptance: parity min even 5
+game solved in 0.000508059 seconds
+simplification took 0.00127662 seconds
+AIG circuit was created in 0.000633443 seconds and has 3 latches and 120 gates
+
+real	0m0.035s
+user	0m0.020s
+sys	0m0.012s

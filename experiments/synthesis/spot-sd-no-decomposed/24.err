@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!u0steer0f1dsteer2left1b & !((!u0steer0f1dsteer2right1b & u0steer0steer) <-> (u0steer0f1dsteer2right1b & !u0steer0steer))) <-> (u0steer0f1dsteer2left1b & !(u0steer0f1dsteer2right1b | u0steer0steer))) & ((G(p0p0right2of2center0track2pos -> !p0p0left2of2center0track2pos) & G(p0p0left2of2center0track2pos -> !p0p0right2of2center0track2pos) & G(p0p0turning2left0angle -> !p0p0turning2right0angle) & G(p0p0turning2right0angle -> !p0p0turning2left0angle)) -> (G(p0p0right2of2center0track2pos -> u0steer0f1dsteer2left1b) & G(p0p0left2of2center0track2pos -> u0steer0f1dsteer2right1b) & G((!p0p0left2of2center0track2pos & !p0p0right2of2center0track2pos) -> ((p0p0turning2left0angle <-> u0steer0f1dsteer2left1b) & (p0p0turning2right0angle <-> u0steer0f1dsteer2right1b)))))
+direct strategy might exist but was not found.
+translating formula done in 0.00583207 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 7.7386e-05 seconds
+automaton has 9 states
+determinization done
+DPA has 9 states, 2 colors
+simplification done
+DPA has 9 states
+determinization and simplification took 6.9092e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 3.5533e-05 seconds
+simplification took 9.4695e-05 seconds
+AIG circuit was created in 0.000116512 seconds and has 0 latches and 13 gates
+
+real	0m0.306s
+user	0m0.011s
+sys	0m0.022s

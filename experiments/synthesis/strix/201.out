@@ -1,0 +1,43 @@
+REALIZABLE
+aag 29 3 3 3 23
+2
+4
+6
+8 53
+10 54
+12 59
+31
+40
+0
+14 7 11
+16 5 15
+18 7 9
+20 17 18
+22 13 21
+24 9 12
+26 11 24
+28 17 26
+30 23 29
+32 4 6
+34 11 33
+36 24 34
+38 12 37
+40 30 39
+42 6 28
+44 8 34
+46 9 16
+48 13 45
+50 47 48
+52 43 51
+54 15 31
+56 14 22
+58 37 57
+i0 p0p0bright0outside29brightness
+i1 p0b0room29shades29closed
+i2 p0b0room29shades29open
+l0 l0
+l1 l1
+l2 l2
+o0 u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b
+o1 u0room29shades29ctrl0f1dmove2to0f1dpercent2423231b1b
+o2 u0room29shades29ctrl0room29shades29ctrl

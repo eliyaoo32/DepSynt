@@ -1,0 +1,91 @@
+aag 82 3 3 2 76
+2
+4
+6
+8 131
+10 155
+12 164
+59
+95
+14 10 12
+16 10 13
+18 8 16
+20 9 15
+22 21 19
+24 8 13
+26 6 24
+28 7 23
+30 29 27
+32 4 31
+34 5 23
+36 35 33
+38 11 12
+40 9 38
+42 41 19
+44 7 43
+46 45 27
+48 4 47
+50 5 43
+52 51 49
+54 2 53
+56 3 37
+58 57 55
+60 11 13
+62 8 60
+64 6 20
+66 7 62
+68 67 65
+70 4 69
+72 5 62
+74 73 71
+76 9 13
+78 77 63
+80 7 79
+82 81 65
+84 4 83
+86 5 79
+88 87 85
+90 2 89
+92 3 75
+94 93 91
+96 21 63
+98 39 17
+100 9 99
+102 6 100
+104 7 97
+106 105 103
+108 4 107
+110 5 97
+112 111 109
+114 101 63
+116 7 115
+118 117 103
+120 4 119
+122 5 115
+124 123 121
+126 2 125
+128 3 113
+130 129 127
+132 21 25
+134 6 133
+136 4 134
+138 77 19
+140 7 139
+142 141 135
+144 4 143
+146 5 139
+148 147 145
+150 2 149
+152 3 136
+154 153 151
+156 7 18
+158 4 156
+160 5 18
+162 161 159
+164 3 163
+i0 a
+i1 b
+i2 c
+o0 p0
+o1 p1
+{"is_completed":true,"output_vars":["p1","p0"],"input_vars":["c","b","a"],"formula":"((G ((p0) <-> (! (p1)))) && ((G ((a) || (F ((b) && (c))))) <-> (G (F (p0)))))","total_time":4,"automaton":{"is_built":true,"build_duration":1,"total_states":10,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":10,"total_edges":32},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":false,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":2,"realizability":"REALIZABLE","total_inputs":3,"total_outputs":2,"total_latches":3,"total_gates":76},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

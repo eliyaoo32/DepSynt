@@ -1,0 +1,19 @@
+there are 2 subformulas
+srun: error: cn08: task 0: Exited with exit code 1
+trying to create strategy directly for G!((!u0room29warnlight29control0f1dturn2on1b & !((!u0room29warnlight29control0f1dturn2off1b & u0room29warnlight29control0room29warnlight29control) <-> (u0room29warnlight29control0f1dturn2off1b & !u0room29warnlight29control0room29warnlight29control))) <-> (u0room29warnlight29control0f1dturn2on1b & !(u0room29warnlight29control0f1dturn2off1b | u0room29warnlight29control0room29warnlight29control))) & G((u0room29warnlight29control0f1dturn2on1b -> u0room29warnlight29control0f1dturn2off1b) R p0b0room29warnlight29on) & G((u0room29warnlight29control0f1dturn2off1b -> u0room29warnlight29control0f1dturn2on1b) R p0b0room29warnlight29off)
+direct strategy might exist but was not found.
+translating formula done in 0.000358108 seconds
+automaton has 1 states and 1 colors
+split inputs and outputs done in 4.1502e-05 seconds
+automaton has 4 states
+determinization done
+DPA has 4 states, 2 colors
+simplification done
+DPA has 4 states
+determinization and simplification took 4.8318e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 2.8512e-05 seconds
+
+real	0m0.013s
+user	0m0.003s
+sys	0m0.010s

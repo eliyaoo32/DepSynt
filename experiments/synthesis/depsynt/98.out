@@ -1,0 +1,318 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 304 5 18 3 281
+2
+4
+6
+8
+10
+12 278
+14 308
+16 325
+18 1
+20 0
+22 355
+24 364
+26 366
+28 413
+30 426
+32 437
+34 465
+36 521
+38 528
+40 563
+42 575
+44 599
+46 609
+98
+145
+240
+48 11 7
+50 5 3
+52 50 9
+54 17 15
+56 55 12
+58 16 15
+60 59 13
+62 61 57
+64 62 52
+66 16 14
+68 50 8
+70 68 67
+72 70 57
+74 73 65
+76 75 7
+78 13 9
+80 79 17
+82 81 14
+84 56 8
+86 16 3
+88 11 5
+90 88 87
+92 90 85
+94 92 83
+96 95 77
+98 97 49
+100 17 5
+102 14 9
+104 103 101
+106 105 13
+108 107 7
+110 67 4
+112 87 15
+114 113 111
+116 16 2
+118 117 15
+120 12 8
+122 120 119
+124 123 115
+126 124 108
+128 58 50
+130 129 111
+132 131 6
+134 133 127
+136 135 11
+138 50 7
+140 139 10
+142 140 67
+144 143 137
+146 9 2
+148 10 7
+150 148 146
+152 150 5
+154 7 5
+156 154 11
+158 157 153
+160 159 36
+162 47 45
+164 162 161
+166 148 52
+168 167 158
+170 169 165
+172 159 28
+174 43 41
+176 5 2
+178 176 7
+180 178 11
+182 181 153
+184 183 175
+186 185 173
+188 186 27
+190 10 8
+192 191 138
+194 193 182
+196 195 34
+198 37 29
+200 199 166
+202 192 30
+204 21 18
+206 32 3
+208 207 39
+210 208 23
+212 210 25
+214 212 204
+216 214 203
+218 216 201
+220 218 197
+222 220 188
+224 222 171
+226 225 99
+228 192 99
+230 228 175
+232 183 99
+234 232 30
+236 235 231
+238 236 227
+240 239 144
+242 15 4
+244 9 4
+246 245 14
+248 247 12
+250 249 243
+252 251 17
+254 4 3
+256 255 13
+258 257 147
+260 259 16
+262 13 8
+264 262 14
+266 265 261
+268 266 253
+270 269 48
+272 54 13
+274 272 166
+276 275 67
+278 276 271
+280 57 8
+282 16 9
+284 282 12
+286 285 281
+288 287 10
+290 15 13
+292 291 283
+294 293 11
+296 295 273
+298 296 289
+300 299 3
+302 272 11
+304 303 301
+306 305 154
+308 307 67
+310 58 12
+312 311 273
+314 313 52
+316 315 73
+318 317 148
+320 121 48
+322 320 128
+324 323 319
+326 144 8
+328 326 24
+330 145 98
+332 6 4
+334 333 141
+336 204 27
+338 337 335
+340 206 155
+342 341 23
+344 342 339
+346 345 331
+348 38 9
+350 348 99
+352 351 347
+354 352 329
+356 24 9
+358 337 334
+360 358 98
+362 361 357
+364 363 144
+366 358 331
+368 152 98
+370 369 233
+372 176 6
+374 372 98
+376 375 370
+378 144 40
+380 378 377
+382 88 6
+384 372 10
+386 385 383
+388 387 199
+390 382 205
+392 45 43
+394 47 35
+396 394 31
+398 396 392
+400 399 372
+402 401 391
+404 402 389
+406 405 98
+408 407 173
+410 409 144
+412 411 381
+414 204 37
+416 415 166
+418 166 98
+420 419 229
+422 421 30
+424 423 417
+426 425 144
+428 138 32
+430 428 331
+432 138 10
+434 432 337
+436 435 431
+438 432 98
+440 439 229
+442 441 144
+444 442 34
+446 166 99
+448 447 439
+450 449 144
+452 450 46
+454 438 326
+456 37 31
+458 456 204
+460 459 454
+462 461 453
+464 462 445
+466 371 144
+468 48 2
+470 469 151
+472 471 99
+474 472 145
+476 475 467
+478 477 30
+480 159 99
+482 481 369
+484 483 144
+486 151 49
+488 487 99
+490 488 145
+492 491 485
+494 493 36
+496 28 4
+498 496 490
+500 392 41
+502 501 4
+504 503 394
+506 505 474
+508 144 4
+510 205 48
+512 510 509
+514 513 507
+516 514 499
+518 516 495
+520 518 479
+522 358 145
+524 38 8
+526 525 523
+528 527 99
+530 52 10
+532 382 3
+534 533 531
+536 535 98
+538 537 229
+540 539 378
+542 530 98
+544 543 447
+546 545 28
+548 457 6
+550 548 530
+552 532 30
+554 553 551
+556 555 98
+558 557 547
+560 559 144
+562 561 541
+564 450 44
+566 442 42
+568 41 29
+570 569 454
+572 571 567
+574 572 565
+576 178 10
+578 576 98
+580 579 233
+582 581 144
+584 582 42
+586 579 481
+588 587 144
+590 588 44
+592 578 326
+594 592 569
+596 595 591
+598 596 585
+600 582 34
+602 588 46
+604 592 457
+606 605 603
+608 606 601
+i0 p0p0resume2app0sys
+i1 p0p0play2button0sys
+i2 p0p0pause2button0sys
+i3 p0p0music2playing0mp
+i4 p0p0leave2app0sys
+o0 u0ctrl0f1dpause0mp1b
+o1 u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b
+o2 u0ctrl0ctrl
+{"is_completed":true,"output_vars":["u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b","u0ctrl0f1dpause0mp1b","u0ctrl0ctrl"],"input_vars":["p0p0resume2app0sys","p0p0play2button0sys","p0p0pause2button0sys","p0p0music2playing0mp","p0p0leave2app0sys"],"formula":"((G (! (((u0ctrl0f1dpause0mp1b) && (! ((u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) || (u0ctrl0ctrl)))) <-> ((! (((u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) && (! (u0ctrl0ctrl))) <-> ((u0ctrl0ctrl) && (! (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))))) && (! (u0ctrl0f1dpause0mp1b)))))) && ((((((G ((p0p0leave2app0sys) -> ((((! (p0p0play2button0sys)) && (! (p0p0pause2button0sys))) U (p0p0resume2app0sys)) || (G ((! (p0p0play2button0sys)) && (! (p0p0pause2button0sys))))))) && (G (! ((p0p0play2button0sys) && (p0p0pause2button0sys))))) && (G (! ((p0p0leave2app0sys) && (p0p0resume2app0sys))))) && (G ((u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) -> (X (((p0p0music2playing0mp) U (u0ctrl0f1dpause0mp1b)) || (G (p0p0music2playing0mp))))))) && (G ((u0ctrl0f1dpause0mp1b) -> (X (((! (p0p0music2playing0mp)) U (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)) || (G (! (p0p0music2playing0mp)))))))) -> (((((((G ((p0p0play2button0sys) -> (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) && (G ((p0p0pause2button0sys) -> (u0ctrl0f1dpause0mp1b)))) && (G ((u0ctrl0f1dpause0mp1b) -> ((p0p0leave2app0sys) || (p0p0pause2button0sys))))) && (G ((p0p0leave2app0sys) -> (((! (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)) U (p0p0resume2app0sys)) || (G (! (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))))))) && (G ((p0p0pause2button0sys) -> (((! (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)) U (p0p0play2button0sys)) || (G (! (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))))))) && (G (((p0p0music2playing0mp) && (p0p0leave2app0sys)) -> (u0ctrl0f1dpause0mp1b)))) && (G (((p0p0music2playing0mp) && (p0p0leave2app0sys)) -> (((! ((p0p0pause2button0sys) || (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) U (((p0p0pause2button0sys) || (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)) && (p0p0resume2app0sys))) || (G (! ((p0p0pause2button0sys) || (u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))))))))))","total_time":166,"automaton":{"is_built":true,"build_duration":4,"total_states":14,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":14,"total_edges":59},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u0ctrl0ctrl","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0resume2app0sys","p0p0play2button0sys","p0p0pause2button0sys","p0p0music2playing0mp","p0p0leave2app0sys","u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b","u0ctrl0f1dpause0mp1b"]},{"name":"u0ctrl0f1dpause0mp1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0resume2app0sys","p0p0play2button0sys","p0p0pause2button0sys","p0p0music2playing0mp","p0p0leave2app0sys","u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b"]},{"name":"u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0resume2app0sys","p0p0play2button0sys","p0p0pause2button0sys","p0p0music2playing0mp","p0p0leave2app0sys","u0ctrl0f1dpause0mp1b"]}],"total_duration":1,"is_completed":true,"skipped_dependencies":false,"total_pair_state":52,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":1,"model_checking_status":"UNKNOWN","merge_strategies_duration":154,"final_strategy":{"duration":1,"total_inputs":7,"total_outputs":1,"total_latches":14,"total_gates":367},"independent_strategy":{"duration":4,"realizability":"REALIZABLE","total_inputs":5,"total_outputs":2,"total_latches":3,"total_gates":175},"dependent_strategy":{"duration":1,"total_inputs":7,"total_outputs":1,"total_latches":14,"total_gates":367}}}

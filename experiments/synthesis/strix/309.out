@@ -1,0 +1,27 @@
+REALIZABLE
+aag 14 3 2 3 9
+2
+4
+6
+8 23
+10 29
+23
+22
+0
+12 7 10
+14 8 13
+16 9 12
+18 15 17
+20 3 4
+22 18 20
+24 2 5
+26 18 24
+28 23 27
+i0 p0p0off02alarm29intent
+i1 p0p0on02alarm29intent
+i2 p0b02alarm29alarm
+l0 l0
+l1 l1
+o0 u02alarm29control0f1d2alarm29turn2off1b
+o1 u02alarm29control0f1d2alarm29turn2on1b
+o2 u02alarm29control02alarm29control

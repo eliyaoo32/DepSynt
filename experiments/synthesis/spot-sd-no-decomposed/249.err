@@ -1,0 +1,18 @@
+trying to create strategy directly for G!((!((!u0room29light0f1dturn2off1b & u0room29light0f1dturn2on1b) <-> (u0room29light0f1dturn2off1b & !u0room29light0f1dturn2on1b)) & !(u0room29light0f1dtoggle1b | u0room29light0room29light)) <-> (!((!u0room29light0f1dtoggle1b & u0room29light0room29light) <-> (u0room29light0f1dtoggle1b & !u0room29light0room29light)) & !(u0room29light0f1dturn2off1b | u0room29light0f1dturn2on1b))) & !(G!(p0b0room29light29off <-> p0b0room29light29on) & G((u0room29light0f1dturn2on1b | (p0b0room29light29off & u0room29light0f1dtoggle1b)) -> XF((u0room29light0f1dtoggle1b | u0room29light0f1dturn2off1b) R p0b0room29light29on)) & G((u0room29light0f1dturn2off1b | (p0b0room29light29on & u0room29light0f1dtoggle1b)) -> XF((u0room29light0f1dtoggle1b | u0room29light0f1dturn2on1b) R p0b0room29light29off)))
+srun: error: cn08: task 0: Exited with exit code 1
+direct strategy might exist but was not found.
+translating formula done in 0.00209019 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 6.0408e-05 seconds
+automaton has 12 states
+determinization done
+DPA has 22 states, 3 colors
+simplification done
+DPA has 18 states
+determinization and simplification took 0.00130733 seconds
+solving game with acceptance: parity min odd 3
+game solved in 4.8168e-05 seconds
+
+real	0m0.019s
+user	0m0.005s
+sys	0m0.014s

@@ -1,0 +1,24 @@
+there are 2 subformulas
+trying to create strategy directly for G(u0users0f1dinc0users1b <-> (p0p0enter2event0bottom & !p0p0exit2event0top)) & G(u0users0f1ddec0users1b <-> (!p0p0enter2event0bottom & p0p0exit2event0top)) & G!((!u0users0f1ddec0users1b & !((!u0users0f1dinc0users1b & u0users0users) <-> (u0users0f1dinc0users1b & !u0users0users))) <-> (u0users0f1ddec0users1b & !(u0users0f1dinc0users1b | u0users0users)))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 0.000100594 seconds
+trying to create strategy directly for G(u0steps0f1dmove1b <-> (p0p0enter2event0bottom & p0p0zero0users)) & G(Xu0steps0f1dstop1b <-> (!p0p0zero0users & Xp0p0zero0users & X!p0p0enter2event0bottom)) & G!((!u0steps0f1dmove1b & !((!u0steps0f1dstop1b & u0steps0steps) <-> (u0steps0f1dstop1b & !u0steps0steps))) <-> (u0steps0f1dmove1b & !(u0steps0f1dstop1b | u0steps0steps)))
+direct strategy might exist but was not found.
+translating formula done in 0.00144776 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 3.9479e-05 seconds
+automaton has 10 states
+determinization done
+DPA has 10 states, 1 colors
+simplification done
+DPA has 9 states
+determinization and simplification took 4.7712e-05 seconds
+solving game with acceptance: Büchi
+game solved in 2.465e-05 seconds
+simplification took 0.000125259 seconds
+AIG circuit was created in 0.000173937 seconds and has 1 latches and 11 gates
+
+real	0m0.014s
+user	0m0.006s
+sys	0m0.008s

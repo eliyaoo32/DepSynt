@@ -1,0 +1,18 @@
+trying to create strategy directly for G!((!u0y0x & u0y0y) <-> (u0y0x & !u0y0y)) & G(u0y0x | u0y0y) & (Fp0p0p0x -> Fp0p0p0y)
+direct strategy might exist but was not found.
+translating formula done in 0.0107202 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000114642 seconds
+automaton has 8 states
+determinization done
+DPA has 8 states, 2 colors
+simplification done
+DPA has 7 states
+determinization and simplification took 0.000137702 seconds
+solving game with acceptance: Streett 1
+game solved in 7.5214e-05 seconds
+
+real	0m0.049s
+user	0m0.007s
+sys	0m0.011s
+srun: error: cn10: task 0: Exited with exit code 1

@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!((u0outpoint0outpoint & !u0outpoint0scoreboardpoint) <-> (!u0outpoint0outpoint & u0outpoint0scoreboardpoint)) & !(u0outpoint0cockpitboardpoint | u0outpoint0radarboardpoint)) <-> (!((u0outpoint0cockpitboardpoint & !u0outpoint0radarboardpoint) <-> (!u0outpoint0cockpitboardpoint & u0outpoint0radarboardpoint)) & !(u0outpoint0outpoint | u0outpoint0scoreboardpoint))) & ((G!(p0p0isradarmode0gamemode & p0p0isscoremode0gamemode) & G!(p0p0iscockpitmode0gamemode & p0p0isradarmode0gamemode) & G!(p0p0iscockpitmode0gamemode & p0p0isscoremode0gamemode)) -> (G(p0p0on0gameover -> u0outpoint0scoreboardpoint) & G(!p0p0on0gameover -> ((p0p0isscoremode0gamemode -> u0outpoint0scoreboardpoint) & (p0p0isradarmode0gamemode -> u0outpoint0radarboardpoint) & (p0p0iscockpitmode0gamemode -> u0outpoint0cockpitboardpoint))) & G(u0outpoint0cockpitboardpoint | u0outpoint0radarboardpoint | u0outpoint0scoreboardpoint)))
+direct strategy might exist but was not found.
+translating formula done in 0.00335721 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000103541 seconds
+automaton has 10 states
+determinization done
+DPA has 10 states, 2 colors
+simplification done
+DPA has 10 states
+determinization and simplification took 0.000138698 seconds
+solving game with acceptance: Streett 1
+game solved in 3.9407e-05 seconds
+simplification took 0.000117314 seconds
+AIG circuit was created in 0.000155825 seconds and has 0 latches and 18 gates
+
+real	0m0.017s
+user	0m0.009s
+sys	0m0.007s

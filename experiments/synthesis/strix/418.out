@@ -1,0 +1,72 @@
+UNREALIZABLE
+aag 20 19 1 15 0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+26
+28
+30
+32
+34
+36
+38
+40 1
+0
+1
+1
+0
+0
+1
+0
+0
+1
+1
+1
+1
+0
+1
+1
+i0 u0window2control0f1duse1b
+i1 u0window2control0f1dignore1b
+i2 u0window2control0window2control
+i3 u0music0music
+i4 u0music0on
+i5 u0heating0f1dturn2up0heating1b
+i6 u0heating0f1dturn2down0heating1b
+i7 u0heating0f1dzero1b
+i8 u0heating0heating
+i9 u0window0f1dclose1b
+i10 u0window0f1dopen1b
+i11 u0window0close
+i12 u0window0window
+i13 u0light2color0f1d2normal1b
+i14 u0light2color0f1d2green1b
+i15 u0light2color0light2color
+i16 u0timer0f1dinc2timer0timer0time0date1b
+i17 u0timer0f1dreset0tenminutes1b
+i18 u0timer0timer
+l0 l0
+o0 p0p0lt0temperature0value
+o1 p0p0lt0temeprature0value
+o2 p0p0eq0temeperature0value
+o3 p0p0eq0temperature0value
+o4 p0p0gt0temperature0value
+o5 p0p0gt0temeprature0value
+o6 p0p0run2out0timer
+o7 p0p0is2opened0window
+o8 p0p0rush2hour0time
+o9 p0p0is2raining0weather
+o10 p0p0is2bad0air2quality
+o11 p0p0daily2workload2archieved0timer
+o12 p0p0see2person0webcame
+o13 p0p0new2day0time
+o14 p0b0fire

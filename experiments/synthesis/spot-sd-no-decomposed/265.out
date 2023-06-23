@@ -1,0 +1,53 @@
+REALIZABLE
+aag 41 4 2 3 35
+2
+4
+6
+8
+10 77
+12 83
+0
+45
+44
+14 10 13
+16 8 14
+18 7 16
+20 4 18
+22 11 12
+24 23 15
+26 8 25
+28 10 12
+30 9 28
+32 6 30
+34 7 26
+36 35 33
+38 5 37
+40 2 38
+42 3 20
+44 43 41
+46 8 22
+48 24 9
+50 6 49
+52 7 47
+54 53 51
+56 4 54
+58 13 11
+60 8 58
+62 58 9
+64 6 63
+66 7 61
+68 67 65
+70 68 5
+72 2 71
+74 3 57
+76 75 73
+78 60 7
+80 4 78
+82 80 3
+i0 p0p0off02warnlight29intent
+i1 p0p0on02warnlight29intent
+i2 p0b02warnlight29off
+i3 p0b02warnlight29on
+o0 u02warnlight29control02warnlight29control
+o1 u02warnlight29control0f1d2warnlight29turn2off1b
+o2 u02warnlight29control0f1d2warnlight29turn2on1b

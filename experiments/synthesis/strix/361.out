@@ -1,0 +1,42 @@
+UNREALIZABLE
+aag 17 5 2 8 10
+2
+4
+6
+8
+10
+12 34
+14 32
+13
+0
+0
+0
+17
+17
+0
+17
+16 12 14
+18 3 5
+20 2 4
+22 7 8
+24 11 13
+26 15 24
+28 19 22
+30 21 28
+32 26 30
+34 17 33
+i0 u02roomlight29intend0f1doff1b
+i1 u02roomlight29intend02roomlight29intend
+i2 u02shades29intend0f1dopen1b
+i3 u02shades29intend0f1dclosed1b
+i4 u02shades29intend02shades29intend
+l0 l0
+l1 l1
+o0 p0p0bright0outside29brightness
+o1 p0b02room29somebody2leaves
+o2 p0b02time29sunday
+o3 p0b02time29saturday
+o4 p0b02time29am6323
+o5 p0b0room29screen29lowered
+o6 p0b02room29empty
+o7 p0b0bed29occupied

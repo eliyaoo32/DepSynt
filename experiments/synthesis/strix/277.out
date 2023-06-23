@@ -1,0 +1,32 @@
+REALIZABLE
+aag 7 6 1 8 0
+2
+4
+6
+8
+10
+12
+14 11
+1
+0
+1
+0
+1
+0
+1
+0
+i0 p0b02maschine2b29failed
+i1 p0b02time296pm
+i2 p0b02time298am
+i3 p0b02door29failed
+i4 p0b02c2m29failed
+i5 p0b02power29failed
+l0 l0
+o0 u02maschine2a29intent0f1dstop1b
+o1 u02maschine2a29intent02maschine2a29intent
+o2 u02system0f1dnotify0f1d2c2m1b1b
+o3 u02system02system
+o4 u02power29intent0f1don1b
+o5 u02power29intent02power29intent
+o6 u02c2m29intent0f1dready1b
+o7 u02c2m29intent02c2m29intent

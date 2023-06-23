@@ -1,0 +1,382 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 366 7 22 3 337
+2
+4
+6
+8
+10
+12
+14
+16 357
+18 473
+20 585
+22 637
+24 1
+26 0
+28 642
+30 646
+32 651
+34 652
+36 639
+38 671
+40 677
+42 687
+44 703
+46 707
+48 711
+50 0
+52 715
+54 719
+56 727
+58 733
+197
+0
+310
+60 22 20
+62 18 16
+64 62 60
+66 6 4
+68 67 3
+70 68 64
+72 22 21
+74 73 19
+76 75 16
+78 61 18
+80 66 3
+82 80 79
+84 82 76
+86 85 71
+88 87 11
+90 10 3
+92 19 8
+94 92 66
+96 94 72
+98 72 18
+100 98 17
+102 101 65
+104 102 97
+106 105 90
+108 107 89
+110 109 13
+112 22 18
+114 112 16
+116 11 3
+118 116 114
+120 60 19
+122 121 99
+124 123 17
+126 125 115
+128 127 90
+130 129 119
+132 131 12
+134 133 111
+136 135 15
+138 60 16
+140 112 17
+142 140 10
+144 143 139
+146 13 3
+148 146 145
+150 23 20
+152 151 18
+154 153 121
+156 155 17
+158 23 21
+160 159 61
+162 160 19
+164 23 18
+166 165 16
+168 166 163
+170 169 157
+172 171 3
+174 172 10
+176 158 18
+178 176 17
+180 121 113
+182 181 16
+184 183 179
+186 185 116
+188 187 175
+190 189 12
+192 191 149
+194 193 14
+196 195 137
+198 8 3
+200 13 11
+202 200 15
+204 202 66
+206 205 198
+208 207 3
+210 209 44
+212 198 66
+214 212 202
+216 214 44
+218 15 13
+220 218 80
+222 27 24
+224 223 220
+226 42 3
+228 226 205
+230 229 225
+232 230 217
+234 39 37
+236 53 41
+238 236 234
+240 30 13
+242 241 222
+244 242 238
+246 9 3
+248 247 58
+250 90 54
+252 251 249
+254 252 244
+256 34 9
+258 32 11
+260 259 257
+262 36 11
+264 42 2
+266 265 263
+268 266 260
+270 28 15
+272 48 14
+274 273 271
+276 50 8
+278 46 12
+280 279 277
+282 280 274
+284 282 268
+286 284 254
+288 42 11
+290 288 220
+292 247 56
+294 223 14
+296 91 54
+298 297 295
+300 298 293
+302 300 291
+304 302 286
+306 304 232
+308 306 211
+310 309 196
+312 158 19
+314 313 16
+316 179 11
+318 316 315
+320 319 219
+322 177 17
+324 315 68
+326 324 323
+328 158 80
+330 329 10
+332 330 327
+334 312 66
+336 67 16
+338 337 335
+340 339 3
+342 159 16
+344 176 2
+346 345 343
+348 346 341
+350 349 11
+352 351 333
+354 353 218
+356 355 321
+358 181 17
+360 159 19
+362 361 16
+364 362 165
+366 365 359
+368 367 116
+370 369 129
+372 371 12
+374 22 17
+376 375 19
+378 377 141
+380 379 20
+382 381 66
+384 161 19
+386 385 79
+388 387 17
+390 389 363
+392 391 67
+394 393 383
+396 395 10
+398 67 18
+400 163 153
+402 401 17
+404 403 77
+406 405 66
+408 407 399
+410 409 11
+412 411 397
+414 413 3
+416 385 165
+418 417 17
+420 313 79
+422 421 16
+424 423 419
+426 425 2
+428 426 10
+430 11 2
+432 430 139
+434 61 19
+436 435 141
+438 436 432
+440 439 429
+442 440 415
+444 443 13
+446 445 373
+448 447 15
+450 361 17
+452 435 16
+454 453 451
+456 455 116
+458 163 90
+460 459 457
+462 460 427
+464 463 13
+466 172 12
+468 467 465
+470 469 14
+472 471 449
+474 418 66
+476 151 19
+478 477 322
+480 20 16
+482 481 67
+484 482 479
+486 485 475
+488 487 10
+490 422 66
+492 21 11
+494 492 67
+496 495 491
+498 496 489
+500 499 3
+502 63 2
+504 17 11
+506 505 503
+508 507 21
+510 161 18
+512 16 2
+514 512 510
+516 515 13
+518 516 509
+520 518 501
+522 23 19
+524 523 511
+526 525 17
+528 153 75
+530 529 16
+532 531 527
+534 533 116
+536 177 75
+538 537 16
+540 539 527
+542 541 2
+544 529 90
+546 545 543
+548 546 535
+550 549 12
+552 551 521
+554 553 15
+556 166 160
+558 557 116
+560 558 403
+562 159 18
+564 563 313
+566 565 17
+568 452 99
+570 569 567
+572 571 90
+574 573 561
+576 574 427
+578 577 13
+580 579 191
+582 581 14
+584 583 555
+586 563 477
+588 587 16
+590 523 17
+592 591 3
+594 592 589
+596 595 12
+598 596 543
+600 66 20
+602 601 23
+604 603 3
+606 63 21
+608 62 20
+610 609 607
+612 611 22
+614 613 605
+616 615 13
+618 617 599
+620 619 15
+622 361 153
+624 623 17
+626 167 3
+628 626 625
+630 629 427
+632 631 13
+634 633 14
+636 635 621
+638 222 37
+640 638 29
+642 641 15
+644 638 31
+646 645 13
+648 639 11
+650 649 259
+652 639 197
+654 45 43
+656 57 55
+658 59 41
+660 658 656
+662 660 654
+664 663 2
+666 222 39
+668 667 221
+670 669 665
+672 40 3
+674 667 220
+676 675 673
+678 674 10
+680 90 40
+682 681 251
+684 682 229
+686 684 679
+688 655 206
+690 218 10
+692 690 212
+694 692 667
+696 198 10
+698 696 661
+700 699 695
+702 700 689
+704 639 12
+706 705 279
+708 639 14
+710 709 273
+712 277 53
+714 712 257
+716 116 54
+718 717 291
+720 214 42
+722 198 11
+724 722 54
+726 725 721
+728 59 57
+730 729 722
+732 731 217
+i0 p0b0bed29exit
+i1 p0b0bed29occupied
+i2 p0b02time29am6323
+i3 p0b02alarm29alarm
+i4 p0b02time29am7
+i5 p0b02time29sunday
+i6 p0b02time29saturday
+o0 u02alarm29control0f1d2alarm29turn2on1b
+o1 u02alarm29control0f1d2alarm29turn2off1b
+o2 u02alarm29control02alarm29control
+{"is_completed":true,"output_vars":["u02alarm29control0f1d2alarm29turn2off1b","u02alarm29control0f1d2alarm29turn2on1b","u02alarm29control02alarm29control"],"input_vars":["p0b0bed29exit","p0b0bed29occupied","p0b02time29am6323","p0b02alarm29alarm","p0b02time29am7","p0b02time29sunday","p0b02time29saturday"],"formula":"((G (! (((u02alarm29control0f1d2alarm29turn2on1b) && (! ((u02alarm29control0f1d2alarm29turn2off1b) || (u02alarm29control02alarm29control)))) <-> ((! (((u02alarm29control0f1d2alarm29turn2off1b) && (! (u02alarm29control02alarm29control))) <-> ((u02alarm29control02alarm29control) && (! (u02alarm29control0f1d2alarm29turn2off1b))))) && (! (u02alarm29control0f1d2alarm29turn2on1b)))))) && ((((((((G (F (p0b02time29saturday))) && (G (F (! (p0b02time29saturday))))) && (G (F (p0b02time29sunday)))) && (G (F (! (p0b02time29sunday))))) && (G (F (p0b02time29am7)))) && (G ((((u02alarm29control0f1d2alarm29turn2on1b) -> (X (p0b02alarm29alarm))) U (u02alarm29control0f1d2alarm29turn2off1b)) || (G ((u02alarm29control0f1d2alarm29turn2on1b) -> (X (p0b02alarm29alarm))))))) && (G ((((u02alarm29control0f1d2alarm29turn2off1b) -> (X (! (p0b02alarm29alarm)))) U (u02alarm29control0f1d2alarm29turn2on1b)) || (G ((u02alarm29control0f1d2alarm29turn2off1b) -> (X (! (p0b02alarm29alarm)))))))) -> (G ((((p0b02time29am6323) && (! ((p0b02time29saturday) || (p0b02time29sunday)))) && (p0b0bed29occupied)) -> (F ((p0b0bed29exit) || ((p0b02time29am7) && (F (((p0b02alarm29alarm) U (p0b0bed29exit)) || (G (p0b02alarm29alarm)))))))))))","total_time":338,"automaton":{"is_built":true,"build_duration":15,"total_states":17,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":17,"total_edges":55},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u02alarm29control02alarm29control","duration":1,"is_dependent":true,"tested_dependency_set":["p0b0bed29exit","p0b0bed29occupied","p0b02time29am6323","p0b02alarm29alarm","p0b02time29am7","p0b02time29sunday","p0b02time29saturday","u02alarm29control0f1d2alarm29turn2off1b","u02alarm29control0f1d2alarm29turn2on1b"]},{"name":"u02alarm29control0f1d2alarm29turn2on1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b0bed29exit","p0b0bed29occupied","p0b02time29am6323","p0b02alarm29alarm","p0b02time29am7","p0b02time29sunday","p0b02time29saturday","u02alarm29control0f1d2alarm29turn2off1b"]},{"name":"u02alarm29control0f1d2alarm29turn2off1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b0bed29exit","p0b0bed29occupied","p0b02time29am6323","p0b02alarm29alarm","p0b02time29am7","p0b02time29sunday","p0b02time29saturday","u02alarm29control0f1d2alarm29turn2on1b"]}],"total_duration":1,"is_completed":true,"skipped_dependencies":false,"total_pair_state":122,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":1,"model_checking_status":"UNKNOWN","merge_strategies_duration":126,"final_strategy":{"duration":1,"total_inputs":9,"total_outputs":1,"total_latches":17,"total_gates":407},"independent_strategy":{"duration":191,"realizability":"REALIZABLE","total_inputs":7,"total_outputs":2,"total_latches":4,"total_gates":316},"dependent_strategy":{"duration":1,"total_inputs":9,"total_outputs":1,"total_latches":17,"total_gates":407}}}

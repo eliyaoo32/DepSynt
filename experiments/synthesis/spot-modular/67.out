@@ -1,0 +1,54 @@
+aag 35 3 2 7 30
+2
+4
+6
+8 64
+10 71
+12
+18
+35
+49
+52
+56
+63
+12 9 11
+14 9 10
+16 6 14
+18 3 16
+20 8 11
+22 15 21
+24 6 20
+26 7 23
+28 27 25
+30 2 26
+32 3 29
+34 33 31
+36 8 10
+38 6 37
+40 7 12
+42 41 39
+44 2 43
+46 3 12
+48 47 45
+50 5 23
+52 2 50
+54 4 23
+56 3 54
+58 2 54
+60 3 50
+62 61 59
+64 6 23
+66 6 12
+68 7 37
+70 69 67
+i0 p0p0enter2event0bottom
+i1 p0p0exit2event0top
+i2 p0p0zero0users
+o0 u0users0f1dreset2to2zero1b
+o1 u0steps0f1dstop1b
+o2 u0steps0steps
+o3 u0steps0f1dmove1b
+o4 u0users0f1dinc0users1b
+o5 u0users0f1ddec0users1b
+o6 u0users0users
+{"is_completed":true,"output_vars":["u0users0f1dinc0users1b","u0users0f1ddec0users1b","u0users0f1dreset2to2zero1b","u0users0users","u0steps0f1dstop1b","u0steps0f1dmove1b","u0steps0steps"],"input_vars":["p0p0zero0users","p0p0exit2event0top","p0p0enter2event0bottom"],"formula":"(((((((G ((! (((u0steps0f1dmove1b) && (! ((u0steps0f1dstop1b) || (u0steps0steps)))) <-> ((! (((u0steps0f1dstop1b) && (! (u0steps0steps))) <-> ((u0steps0steps) && (! (u0steps0f1dstop1b))))) && (! (u0steps0f1dmove1b))))) && (! (((! (((u0users0f1ddec0users1b) && (! (u0users0users))) <-> ((u0users0users) && (! (u0users0f1ddec0users1b))))) && (! ((u0users0f1dinc0users1b) || (u0users0f1dreset2to2zero1b)))) <-> ((! (((u0users0f1dinc0users1b) && (! (u0users0f1dreset2to2zero1b))) <-> ((u0users0f1dreset2to2zero1b) && (! (u0users0f1dinc0users1b))))) && (! ((u0users0f1ddec0users1b) || (u0users0users)))))))) && (u0users0f1dreset2to2zero1b)) && (X (G (! (u0users0f1dreset2to2zero1b))))) && (X (G (((p0p0enter2event0bottom) && (! (p0p0exit2event0top))) <-> (u0users0f1dinc0users1b))))) && (X (G (((p0p0exit2event0top) && (! (p0p0enter2event0bottom))) <-> (u0users0f1ddec0users1b))))) && (X (G (((p0p0zero0users) && (p0p0enter2event0bottom)) <-> (u0steps0f1dmove1b))))) && (X (G ((((! (p0p0zero0users)) && (X (p0p0zero0users))) && (X (! (p0p0enter2event0bottom)))) <-> (X (u0steps0f1dstop1b))))))","total_time":9,"automaton":{"is_built":true,"build_duration":4,"total_states":5,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":5,"total_edges":11},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":4,"realizability":"REALIZABLE","total_inputs":3,"total_outputs":7,"total_latches":2,"total_gates":30},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

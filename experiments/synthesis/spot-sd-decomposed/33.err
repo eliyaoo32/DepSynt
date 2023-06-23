@@ -1,0 +1,32 @@
+there are 4 subformulas
+trying to create strategy directly for u0resets0f1dtriggerresetall0newangle1b & ((u0gameover0f1dbot1b U p0p0isgameover0f1dgetenemyradius0enemies0counter1b) | Gu0gameover0f1dbot1b) & G(u0gameover0f1dbot1b | u0gameover0f1dtop1b) & G(p0p0on0gamestart -> ((u0gameover0f1dbot1b U p0p0isgameover0f1dgetenemyradius0enemies0counter1b) | Gu0gameover0f1dbot1b)) & GX(p0p0on0gamestart <-> u0resets0f1dtriggerresetall0newangle1b) & G(p0p0isgameover0f1dgetenemyradius0enemies0counter1b -> ((u0gameover0f1dtop1b U p0p0on0gamestart) | Gu0gameover0f1dtop1b)) & G(p0p0on0gamestart <-> u0score0f1dzero2score1b) & GX((!p0p0on0gamestart & u0gameover0f1dbot1b) -> ((p0p0gtz0shot2counter <-> u0shot2counter0f1ddec0shot2counter1b) & (u0score0f1dinc0score1b <-> (p0p0gtz0shot2counter & p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation)) & (u0resets0f1dtriggerreset0counter0newangle1b <-> (p0p0gtz0shot2counter & p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation)))) & G(u0shot2counter0f1denemycount1b <-> (!p0p0gtz0shot2counter & p0p0on0shot & u0gameover0f1dbot1b)) & G(u0gameover0f1dbot1b -> u0movementclock0f1dincmoveclock0movementclock0score1b) & G(u0gameover0f1dbot1b -> u0moveticks0f1dtickmove0movementclock1b) & G(u0gameover0f1dtop1b -> u0shot2counter0f1dzero1b) & G(u0gameover0f1dtop1b -> !u0moveticks0f1dtickmove0movementclock1b) & G((!p0p0on0gamestart & u0gameover0f1dtop1b) -> u0score0score) & G(u0gameover0f1dtop1b -> !u0resets0f1dtriggerreset0counter0newangle1b) & GX(u0gameover0f1dtop1b -> !u0resets0f1dtriggerresetall0newangle1b) & G(u0resets0f1dtriggerreset0counter0newangle1b | u0resets0f1dtriggerresetall0newangle1b | u0resets0f1dtriggerresetnone1b) & G(u0moveticks0f1dtickmove0movementclock1b | u0moveticks0f1dticknomove1b) & G!((!u0gameover0f1dbot1b & !((!u0gameover0f1dtop1b & u0gameover0gameover) <-> (u0gameover0f1dtop1b & !u0gameover0gameover))) <-> (u0gameover0f1dbot1b & !(u0gameover0f1dtop1b | u0gameover0gameover))) & G!((u0movementclock0f1dincmoveclock0movementclock0score1b & !u0movementclock0movementclock) <-> (!u0movementclock0f1dincmoveclock0movementclock0score1b & u0movementclock0movementclock)) & G!((!u0moveticks0f1dticknomove1b & !((!u0moveticks0f1dtickmove0movementclock1b & u0moveticks0moveticks) <-> (u0moveticks0f1dtickmove0movementclock1b & !u0moveticks0moveticks))) <-> (u0moveticks0f1dticknomove1b & !(u0moveticks0f1dtickmove0movementclock1b | u0moveticks0moveticks))) & G!((!((!u0resets0f1dtriggerreset0counter0newangle1b & u0resets0f1dtriggerresetnone1b) <-> (u0resets0f1dtriggerreset0counter0newangle1b & !u0resets0f1dtriggerresetnone1b)) & !(u0resets0f1dtriggerresetall0newangle1b | u0resets0resets)) <-> (!((!u0resets0f1dtriggerresetall0newangle1b & u0resets0resets) <-> (u0resets0f1dtriggerresetall0newangle1b & !u0resets0resets)) & !(u0resets0f1dtriggerreset0counter0newangle1b | u0resets0f1dtriggerresetnone1b))) & G!((!u0score0f1dzero2score1b & !((!u0score0f1dinc0score1b & u0score0score) <-> (u0score0f1dinc0score1b & !u0score0score))) <-> (u0score0f1dzero2score1b & !(u0score0f1dinc0score1b | u0score0score))) & G!((!((!u0shot2counter0f1ddec0shot2counter1b & u0shot2counter0f1denemycount1b) <-> (u0shot2counter0f1ddec0shot2counter1b & !u0shot2counter0f1denemycount1b)) & !(u0shot2counter0f1dzero1b | u0shot2counter0shot2counter)) <-> (!((!u0shot2counter0f1dzero1b & u0shot2counter0shot2counter) <-> (u0shot2counter0f1dzero1b & !u0shot2counter0shot2counter)) & !(u0shot2counter0f1ddec0shot2counter1b | u0shot2counter0f1denemycount1b)))
+direct strategy might exist but was not found.
+translating formula done in 0.00539371 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 0.00028926 seconds
+automaton has 24 states
+determinization done
+DPA has 24 states, 1 colors
+simplification done
+DPA has 22 states
+determinization and simplification took 0.000100542 seconds
+solving game with acceptance: Büchi
+game solved in 2.9505e-05 seconds
+simplification took 0.000248666 seconds
+trying to create strategy directly for Gu0counter0f1dincmod0counter0f1denemycount1b1b & G!((!u0counter0counter & u0counter0f1dincmod0counter0f1denemycount1b1b) <-> (u0counter0counter & !u0counter0f1dincmod0counter0f1denemycount1b1b))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 2.3849e-05 seconds
+trying to create strategy directly for Gu0newangle0f1dnewrand0newangle1b & G!((u0newangle0f1dnewrand0newangle1b & !u0newangle0newangle) <-> (!u0newangle0f1dnewrand0newangle1b & u0newangle0newangle))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 3.4892e-05 seconds
+trying to create strategy directly for Gu0scorecolor0f1dfastestenemycolor0enemies1b & G!((u0scorecolor0f1dfastestenemycolor0enemies1b & !u0scorecolor0scorecolor) <-> (!u0scorecolor0f1dfastestenemycolor0enemies1b & u0scorecolor0scorecolor))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 2.2316e-05 seconds
+AIG circuit was created in 0.000529534 seconds and has 2 latches and 65 gates
+
+real	0m0.021s
+user	0m0.011s
+sys	0m0.010s

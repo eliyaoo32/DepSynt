@@ -1,0 +1,19 @@
+trying to create strategy directly for G(!g_0 | !g_1) & G(r_0 -> (g_0 | Xg_0)) & G(r_1 -> (g_1 | Xg_1)) & G((g_0 & !r_0) -> X!g_0) & G((g_1 & !r_1) -> X!g_1)
+direct strategy might exist but was not found.
+translating formula done in 0.00752554 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 0.000299955 seconds
+automaton has 21 states
+determinization done
+DPA has 21 states, 1 colors
+simplification done
+DPA has 21 states
+determinization and simplification took 0.000180661 seconds
+solving game with acceptance: Büchi
+game solved in 5.4067e-05 seconds
+simplification took 0.000345184 seconds
+AIG circuit was created in 0.000512313 seconds and has 2 latches and 24 gates
+
+real	0m0.138s
+user	0m0.010s
+sys	0m0.012s

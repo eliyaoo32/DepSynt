@@ -1,0 +1,10 @@
+trying to create strategy directly for GF(p <-> XXq) <-> GFacc
+tanslating formula done in 0.000560314 seconds
+direct strategy was found.
+direct strat has 4 states, 16 edges and 0 colors
+simplification took 0.000219951 seconds
+AIG circuit was created in 0.000163132 seconds and has 2 latches and 3 gates
+
+real	0m0.017s
+user	0m0.005s
+sys	0m0.011s

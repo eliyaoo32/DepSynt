@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u0alarm29control0f1dturn2on1b & !((u0alarm29control0alarm29control & !u0alarm29control0f1dturn2off1b) <-> (!u0alarm29control0alarm29control & u0alarm29control0f1dturn2off1b))) <-> (u0alarm29control0f1dturn2on1b & !(u0alarm29control0alarm29control | u0alarm29control0f1dturn2off1b))) & !(G((u0alarm29control0f1dturn2on1b -> u0alarm29control0f1dturn2off1b) R p0b0alarm) & G((u0alarm29control0f1dturn2off1b -> u0alarm29control0f1dturn2on1b) R !p0b0alarm))
+direct strategy might exist but was not found.
+translating formula done in 0.000418643 seconds
+automaton has 2 states and 1 colors
+split inputs and outputs done in 3.6997e-05 seconds
+automaton has 4 states
+determinization done
+DPA has 4 states, 1 colors
+simplification done
+DPA has 3 states
+determinization and simplification took 4.1212e-05 seconds
+solving game with acceptance: Büchi
+game solved in 2.1084e-05 seconds
+simplification took 4.1714e-05 seconds
+AIG circuit was created in 5.9145e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.015s
+user	0m0.005s
+sys	0m0.010s

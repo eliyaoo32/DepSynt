@@ -1,0 +1,112 @@
+UNREALIZABLE
+aag 37 36 1 18 0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+26
+28
+30
+32
+34
+36
+38
+40
+42
+44
+46
+48
+50
+52
+54
+56
+58
+60
+62
+64
+66
+68
+70
+72
+74 1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+1
+1
+0
+0
+i0 u0roomba0f1don1b
+i1 u0roomba0roomba
+i2 u0email0f1dfacility2management1b
+i3 u0email0email
+i4 u0door0f1dunlock1b
+i5 u0door0f1dlock1b
+i6 u0door0door
+i7 u0timer0f1dstart1b
+i8 u0timer0timer
+i9 u0blinds0f1dclose1b
+i10 u0blinds0f1dopen1b
+i11 u0blinds0blinds
+i12 u0dish2washer0f1dstart1b
+i13 u0dish2washer0dish2washer
+i14 u0heater0f1don1b
+i15 u0heater0heater
+i16 u0window0f1dclose1b
+i17 u0window0f1dopen1b
+i18 u0window0window
+i19 u0wallserver0f1dcommit1b
+i20 u0wallserver0wallserver
+i21 u0screen0f1doff1b
+i22 u0screen0screen
+i23 u0sit0f1dup0f1dsit1b1b
+i24 u0sit0f1dzero1b
+i25 u0sit0sit
+i26 u0count0f1dup0count1b
+i27 u0count0count
+i28 u0coffeemachine0f1don1b
+i29 u0coffeemachine0f1doff1b
+i30 u0coffeemachine0coffeemachine
+i31 u0coffeemachine0off
+i32 u0light0f1dgreen1b
+i33 u0light0f1don1b
+i34 u0light0f1doff1b
+i35 u0light0light
+l0 l0
+o0 p0p0gt0co25level0val
+o1 p0p0gt0change0percentage
+o2 p0p0full0trashcan
+o3 p0p0rushhour0time
+o4 p0p0key0door
+o5 p0p0five2min2over0timer
+o6 p0p0enough2light0brightness
+o7 p0p0blinding0brightness
+o8 p0p0is2clean2and2loaded0dish2washer
+o9 p0p0isfull0dish2washer
+o10 p0p0toolong0sit
+o11 p0p0work2done0count
+o12 p0p0work2time0time
+o13 p0p0has2person02printer2room2m2s
+o14 p0b0rain
+o15 p0b0fire
+o16 p0b0person2in2front2of2screen
+o17 p0b02person2in2office

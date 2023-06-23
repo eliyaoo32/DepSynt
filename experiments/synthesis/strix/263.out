@@ -1,0 +1,28 @@
+UNREALIZABLE
+aag 15 3 2 3 10
+2
+4
+6
+8 30
+10 26
+13
+0
+9
+12 8 10
+14 3 7
+16 2 6
+18 5 9
+20 15 18
+22 17 20
+24 4 9
+26 14 24
+28 13 27
+30 23 28
+i0 u0room29warnlight29control0f1dturn2off1b
+i1 u0room29warnlight29control0f1dturn2on1b
+i2 u0room29warnlight29control0room29warnlight29control
+l0 l0
+l1 l1
+o0 p0b0room29warnlight29of
+o1 p0b0room29warnlight29off
+o2 p0b0room29warnlight29on

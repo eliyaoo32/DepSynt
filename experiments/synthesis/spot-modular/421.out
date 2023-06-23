@@ -1,0 +1,12 @@
+aag 1 1 0 4 0
+2
+2
+3
+3
+2
+i0 p0p0new2day0time
+o0 u0sitting2arrganent0f1dgenerate0calendar1b
+o1 u0sitting2arrganent0sitting2arrganent
+o2 u0sitting2arragment0f1dsitting02arragment1b
+o3 u0sitting2arragment0sitting2arragment
+{"is_completed":true,"output_vars":["u0sitting2arragment0f1dsitting02arragment1b","u0sitting2arragment0sitting2arragment","u0sitting2arrganent0f1dgenerate0calendar1b","u0sitting2arrganent0sitting2arrganent"],"input_vars":["p0p0new2day0time"],"formula":"((G ((! (((u0sitting2arrganent0sitting2arrganent) && (! (u0sitting2arrganent0f1dgenerate0calendar1b))) <-> ((u0sitting2arrganent0f1dgenerate0calendar1b) && (! (u0sitting2arrganent0sitting2arrganent))))) && (! (((u0sitting2arragment0sitting2arragment) && (! (u0sitting2arragment0f1dsitting02arragment1b))) <-> ((u0sitting2arragment0f1dsitting02arragment1b) && (! (u0sitting2arragment0sitting2arragment))))))) && ((G (G (F (p0p0new2day0time)))) -> (G ((p0p0new2day0time) -> ((u0sitting2arrganent0f1dgenerate0calendar1b) && (X ((u0sitting2arragment0f1dsitting02arragment1b) U (p0p0new2day0time))))))))","total_time":4,"automaton":{"is_built":true,"build_duration":1,"total_states":6,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":6,"total_edges":13},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":false,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":2,"realizability":"REALIZABLE","total_inputs":1,"total_outputs":4,"total_latches":0,"total_gates":0},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

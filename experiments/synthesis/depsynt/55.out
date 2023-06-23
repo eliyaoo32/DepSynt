@@ -1,0 +1,253 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 229 7 8 7 214
+2
+4
+6
+8
+10
+12
+14
+16 360
+18 1
+20 0
+22 366
+24 370
+26 389
+28 389
+30 459
+40
+50
+63
+72
+89
+285
+359
+32 6 4
+34 12 2
+36 15 9
+38 36 34
+40 38 33
+42 11 2
+44 42 14
+46 12 8
+48 47 33
+50 48 44
+52 14 10
+54 53 48
+56 15 2
+58 17 13
+60 58 56
+62 61 54
+64 10 5
+66 8 7
+68 67 65
+70 15 13
+72 70 69
+74 11 5
+76 75 9
+78 77 12
+80 9 7
+82 81 11
+84 83 14
+86 85 33
+88 86 79
+90 62 41
+92 88 51
+94 13 5
+96 42 15
+98 96 94
+100 13 4
+102 100 56
+104 103 99
+106 105 80
+108 105 6
+110 109 107
+112 111 73
+114 72 2
+116 115 113
+118 117 92
+120 10 2
+122 120 14
+124 94 81
+126 124 122
+128 126 72
+130 44 13
+132 122 12
+134 133 131
+136 135 5
+138 14 2
+140 138 4
+142 141 137
+144 81 73
+146 144 143
+148 147 129
+150 149 88
+152 89 73
+154 13 10
+156 154 5
+158 138 80
+160 158 157
+162 12 5
+164 162 81
+166 164 44
+168 167 161
+170 169 152
+172 171 151
+174 173 50
+176 175 119
+178 177 90
+180 14 9
+182 181 75
+184 15 8
+186 34 7
+188 186 185
+190 188 183
+192 162 42
+194 192 6
+196 195 191
+198 197 152
+200 185 181
+202 201 7
+204 75 34
+206 204 203
+208 88 73
+210 208 206
+212 211 199
+214 62 51
+216 214 40
+218 216 213
+220 219 179
+222 221 30
+224 118 90
+226 224 222
+228 12 11
+230 229 155
+232 231 5
+234 233 203
+236 235 73
+238 237 88
+240 80 14
+242 66 15
+244 243 74
+246 245 241
+248 247 12
+250 240 65
+252 251 249
+254 253 89
+256 255 239
+258 90 51
+260 258 3
+262 260 257
+264 262 28
+266 262 30
+268 267 265
+270 89 72
+272 21 18
+274 272 25
+276 274 23
+278 277 258
+280 278 271
+282 281 268
+284 282 227
+286 208 51
+288 286 62
+290 206 40
+292 290 288
+294 88 50
+296 294 146
+298 286 111
+300 299 297
+302 301 90
+304 303 293
+306 305 222
+308 174 90
+310 309 219
+312 311 28
+314 296 90
+316 315 293
+318 317 312
+320 41 3
+322 320 234
+324 322 288
+326 324 264
+328 63 50
+330 329 41
+332 331 215
+334 333 271
+336 277 208
+338 336 334
+340 339 327
+342 41 26
+344 342 63
+346 344 118
+348 346 298
+350 324 266
+352 351 349
+354 352 340
+356 354 319
+358 356 307
+360 54 2
+362 275 55
+364 363 23
+366 365 334
+368 275 54
+370 368 334
+372 74 12
+374 373 241
+376 375 153
+378 273 3
+380 378 41
+382 54 51
+384 382 380
+386 384 377
+388 387 268
+390 98 6
+392 391 107
+394 393 73
+396 395 115
+398 397 92
+400 81 33
+402 400 130
+404 402 208
+406 44 9
+408 163 6
+410 409 406
+412 410 152
+414 413 405
+416 62 50
+418 416 415
+420 419 399
+422 421 41
+424 7 4
+426 424 38
+428 120 36
+430 428 162
+432 431 427
+434 433 208
+436 192 9
+438 424 12
+440 438 406
+442 441 437
+444 443 152
+446 445 435
+448 447 216
+450 449 423
+452 451 273
+454 453 347
+456 454 313
+458 456 223
+i0 p0p0zero0users
+i1 p0p0moving2up0steps
+i2 p0p0moving2down0steps
+i3 p0p0exit2event0top
+i4 p0p0exit2event0bottom
+i5 p0p0enter2event0top
+i6 p0p0enter2event0bottom
+o0 u0steps0f1dmove2down1b
+o1 u0steps0f1dmove2up1b
+o2 u0steps0f1dstop1b
+o3 u0users0f1ddec0users1b
+o4 u0users0f1dinc0users1b
+o5 u0steps0steps
+o6 u0users0users
+{"is_completed":true,"output_vars":["u0users0f1dinc0users1b","u0users0f1ddec0users1b","u0users0users","u0steps0f1dstop1b","u0steps0f1dmove2up1b","u0steps0f1dmove2down1b","u0steps0steps"],"input_vars":["p0p0zero0users","p0p0moving2up0steps","p0p0moving2down0steps","p0p0exit2event0top","p0p0exit2event0bottom","p0p0enter2event0top","p0p0enter2event0bottom"],"formula":"((G ((! (((! (((u0steps0f1dmove2up1b) && (! (u0steps0steps))) <-> ((u0steps0steps) && (! (u0steps0f1dmove2up1b))))) && (! ((u0steps0f1dstop1b) || (u0steps0f1dmove2down1b)))) <-> ((! (((u0steps0f1dstop1b) && (! (u0steps0f1dmove2down1b))) <-> ((u0steps0f1dmove2down1b) && (! (u0steps0f1dstop1b))))) && (! ((u0steps0f1dmove2up1b) || (u0steps0steps)))))) && (! (((u0users0f1ddec0users1b) && (! ((u0users0f1dinc0users1b) || (u0users0users)))) <-> ((! (((u0users0f1dinc0users1b) && (! (u0users0users))) <-> ((u0users0users) && (! (u0users0f1dinc0users1b))))) && (! (u0users0f1ddec0users1b))))))) && ((((G (! ((p0p0moving2down0steps) && (p0p0moving2up0steps)))) && (G (! ((p0p0enter2event0top) && (p0p0exit2event0top))))) && (G (! ((p0p0enter2event0bottom) && (p0p0exit2event0bottom))))) -> ((((((((G (((((p0p0enter2event0bottom) && (! (p0p0exit2event0top))) && (! (p0p0moving2down0steps))) || (((p0p0enter2event0top) && (! (p0p0exit2event0bottom))) && (! (p0p0moving2up0steps)))) <-> (u0users0f1dinc0users1b))) && (G (((((p0p0exit2event0top) && (! (p0p0enter2event0bottom))) && (! (p0p0moving2down0steps))) || (((p0p0exit2event0bottom) && (! (p0p0enter2event0top))) && (! (p0p0moving2up0steps)))) <-> (u0users0f1ddec0users1b)))) && (G ((u0steps0f1dmove2up1b) -> ((p0p0zero0users) && (p0p0enter2event0bottom))))) && (G ((u0steps0f1dmove2down1b) -> ((p0p0zero0users) && (p0p0enter2event0top))))) && (G ((((p0p0zero0users) && (p0p0enter2event0bottom)) && (! (p0p0enter2event0top))) -> (u0steps0f1dmove2up1b)))) && (G ((((p0p0zero0users) && (p0p0enter2event0top)) && (! (p0p0enter2event0bottom))) -> (u0steps0f1dmove2down1b)))) && (G ((((p0p0zero0users) && (p0p0enter2event0bottom)) && (p0p0enter2event0top)) -> ((u0steps0f1dmove2up1b) || (u0steps0f1dmove2down1b))))) && (G (((((! (p0p0zero0users)) && (X (p0p0zero0users))) && (X (! (p0p0enter2event0top)))) && (X (! (p0p0enter2event0bottom)))) <-> (X (u0steps0f1dstop1b)))))))","total_time":158,"automaton":{"is_built":true,"build_duration":10,"total_states":6,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":6,"total_edges":15},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u0steps0steps","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0zero0users","p0p0moving2up0steps","p0p0moving2down0steps","p0p0exit2event0top","p0p0exit2event0bottom","p0p0enter2event0top","p0p0enter2event0bottom","u0users0f1dinc0users1b","u0users0f1ddec0users1b","u0users0users","u0steps0f1dstop1b","u0steps0f1dmove2up1b","u0steps0f1dmove2down1b"]},{"name":"u0steps0f1dmove2down1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0zero0users","p0p0moving2up0steps","p0p0moving2down0steps","p0p0exit2event0top","p0p0exit2event0bottom","p0p0enter2event0top","p0p0enter2event0bottom","u0users0f1dinc0users1b","u0users0f1ddec0users1b","u0users0users","u0steps0f1dstop1b","u0steps0f1dmove2up1b"]},{"name":"u0steps0f1dmove2up1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0zero0users","p0p0moving2up0steps","p0p0moving2down0steps","p0p0exit2event0top","p0p0exit2event0bottom","p0p0enter2event0top","p0p0enter2event0bottom","u0users0f1dinc0users1b","u0users0f1ddec0users1b","u0users0users","u0steps0f1dstop1b","u0steps0f1dmove2down1b"]},{"name":"u0steps0f1dstop1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0zero0users","p0p0moving2up0steps","p0p0moving2down0steps","p0p0exit2event0top","p0p0exit2event0bottom","p0p0enter2event0top","p0p0enter2event0bottom","u0users0f1dinc0users1b","u0users0f1ddec0users1b","u0users0users","u0steps0f1dmove2down1b","u0steps0f1dmove2up1b"]},{"name":"u0users0users","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0zero0users","p0p0moving2up0steps","p0p0moving2down0steps","p0p0exit2event0top","p0p0exit2event0bottom","p0p0enter2event0top","p0p0enter2event0bottom","u0users0f1dinc0users1b","u0users0f1ddec0users1b","u0steps0f1dmove2down1b","u0steps0f1dmove2up1b","u0steps0f1dstop1b"]},{"name":"u0users0f1ddec0users1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0zero0users","p0p0moving2up0steps","p0p0moving2down0steps","p0p0exit2event0top","p0p0exit2event0bottom","p0p0enter2event0top","p0p0enter2event0bottom","u0users0f1dinc0users1b","u0steps0f1dmove2down1b","u0steps0f1dmove2up1b","u0steps0f1dstop1b"]},{"name":"u0users0f1dinc0users1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0zero0users","p0p0moving2up0steps","p0p0moving2down0steps","p0p0exit2event0top","p0p0exit2event0bottom","p0p0enter2event0top","p0p0enter2event0bottom","u0steps0f1dmove2down1b","u0steps0f1dmove2up1b","u0steps0f1dstop1b","u0users0f1ddec0users1b"]}],"total_duration":1,"is_completed":true,"skipped_dependencies":false,"total_pair_state":13,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":2,"model_checking_status":"UNKNOWN","merge_strategies_duration":138,"final_strategy":{"duration":2,"total_inputs":12,"total_outputs":2,"total_latches":6,"total_gates":498},"independent_strategy":{"duration":4,"realizability":"REALIZABLE","total_inputs":7,"total_outputs":5,"total_latches":1,"total_gates":70},"dependent_strategy":{"duration":2,"total_inputs":12,"total_outputs":2,"total_latches":6,"total_gates":498}}}

@@ -1,0 +1,23 @@
+there are 2 subformulas
+srun: error: cn10: task 0: Exited with exit code 1
+trying to create strategy directly for G!((!u0y0x & u0y0y) <-> (u0y0x & !u0y0y)) & G(u0y0x | u0y0y)
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 7.9496e-05 seconds
+trying to create strategy directly for Fp0p0p0x -> Fp0p0p0y
+direct strategy might exist but was not found.
+translating formula done in 0.000326172 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 3.1537e-05 seconds
+automaton has 8 states
+determinization done
+DPA has 8 states, 2 colors
+simplification done
+DPA has 7 states
+determinization and simplification took 4.7929e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 3.3033e-05 seconds
+
+real	0m0.012s
+user	0m0.004s
+sys	0m0.008s

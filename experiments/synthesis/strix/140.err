@@ -1,0 +1,6 @@
+java.lang.OutOfMemoryError: Garbage-collected heap size exceeded.
+srun: error: cn10: task 0: Exited with exit code 255
+
+real	0m48.429s
+user	0m46.398s
+sys	0m1.858s

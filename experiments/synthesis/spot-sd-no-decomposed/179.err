@@ -1,0 +1,19 @@
+trying to create strategy directly for (!etc & G((!etc & !sts) -> X!etc) & G(etc -> F!etc) & G(sts -> Xetc)) -> G((sflr | shlr) & ((shlr & X!shlr) -> sts) & ((sflr & X!sflr) -> sts) & ((!sflr & (!ec | !etc)) -> Xsflr) & ((!shlr & (ec | !etc)) -> Xshlr) & (ec -> F!sflr) & F!shlr)
+direct strategy might exist but was not found.
+translating formula done in 0.0032163 seconds
+automaton has 14 states and 2 colors
+split inputs and outputs done in 0.000186395 seconds
+automaton has 37 states
+determinization done
+DPA has 68 states, 3 colors
+simplification done
+DPA has 57 states
+determinization and simplification took 0.00483306 seconds
+solving game with acceptance: parity min even 3
+game solved in 7.1801e-05 seconds
+simplification took 6.547e-05 seconds
+AIG circuit was created in 0.000135657 seconds and has 2 latches and 12 gates
+
+real	0m0.022s
+user	0m0.010s
+sys	0m0.012s

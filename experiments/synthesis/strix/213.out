@@ -1,0 +1,37 @@
+UNREALIZABLE
+aag 22 5 2 3 15
+2
+4
+6
+8
+10
+12 42
+14 45
+0
+1
+14
+16 3 7
+18 2 6
+20 5 19
+22 17 21
+24 5 16
+26 12 15
+28 25 27
+30 23 28
+32 9 10
+34 30 32
+36 8 11
+38 30 36
+40 14 38
+42 35 41
+44 35 39
+i0 u02lamp29intent0f1doff1b
+i1 u02lamp29intent0f1don1b
+i2 u02lamp29intent02lamp29intent
+i3 u02plug29intent0f1don1b
+i4 u02plug29intent02plug29intent
+l0 l0
+l1 l1
+o0 p0b0cond
+o1 p0b02lamp29on
+o2 p0b02plug29on

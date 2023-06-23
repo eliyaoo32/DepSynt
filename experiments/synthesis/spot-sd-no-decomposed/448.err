@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!u02roomlight29intend0f1don1b & !((u02roomlight29intend02roomlight29intend & !u02roomlight29intend0f1doff1b) <-> (!u02roomlight29intend02roomlight29intend & u02roomlight29intend0f1doff1b))) <-> (u02roomlight29intend0f1don1b & !(u02roomlight29intend02roomlight29intend | u02roomlight29intend0f1doff1b))) & ((G(p0b02room29somebody2enters -> !p0b02room29empty) & G(((p0b02room29somebody2enters -> !p0b02room29empty) U (p0b02room29empty & p0b02room29somebody2leaves)) | G(p0b02room29somebody2enters -> !p0b02room29empty))) -> (G(p0b02room29somebody2enters -> X((u02roomlight29intend0f1don1b U (p0b02room29empty & p0b02room29somebody2leaves)) | Gu02roomlight29intend0f1don1b)) & G((p0b02room29empty & p0b02room29somebody2leaves) -> X((u02roomlight29intend0f1doff1b U p0b02room29somebody2enters) | Gu02roomlight29intend0f1doff1b))))
+direct strategy might exist but was not found.
+translating formula done in 0.0027333 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 8.1051e-05 seconds
+automaton has 13 states
+determinization done
+DPA has 13 states, 2 colors
+simplification done
+DPA has 13 states
+determinization and simplification took 7.2283e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 3.1164e-05 seconds
+simplification took 0.000199218 seconds
+AIG circuit was created in 0.000110907 seconds and has 1 latches and 6 gates
+
+real	0m0.015s
+user	0m0.006s
+sys	0m0.009s

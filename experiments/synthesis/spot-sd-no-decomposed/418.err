@@ -1,0 +1,18 @@
+trying to create strategy directly for G(!((!u0timer0f1dreset0tenminutes1b & !((!u0timer0f1dinc2timer0timer0time0date1b & u0timer0timer) <-> (u0timer0f1dinc2timer0timer0time0date1b & !u0timer0timer))) <-> (u0timer0f1dreset0tenminutes1b & !(u0timer0f1dinc2timer0timer0time0date1b | u0timer0timer))) & !((!u0light2color0f1d2green1b & !((!u0light2color0f1d2normal1b & u0light2color0light2color) <-> (u0light2color0f1d2normal1b & !u0light2color0light2color))) <-> (u0light2color0f1d2green1b & !(u0light2color0f1d2normal1b | u0light2color0light2color))) & !((!((u0window0close & !u0window0f1dclose1b) <-> (!u0window0close & u0window0f1dclose1b)) & !(u0window0f1dopen1b | u0window0window)) <-> (!((!u0window0f1dopen1b & u0window0window) <-> (u0window0f1dopen1b & !u0window0window)) & !(u0window0close | u0window0f1dclose1b))) & !((!((!u0heating0f1dturn2up0heating1b & u0heating0f1dzero1b) <-> (u0heating0f1dturn2up0heating1b & !u0heating0f1dzero1b)) & !(u0heating0f1dturn2down0heating1b | u0heating0heating)) <-> (!((!u0heating0f1dturn2down0heating1b & u0heating0heating) <-> (u0heating0f1dturn2down0heating1b & !u0heating0heating)) & !(u0heating0f1dturn2up0heating1b | u0heating0f1dzero1b))) & !((u0music0music & !u0music0on) <-> (!u0music0music & u0music0on)) & !((!u0window2control0f1dignore1b & !((!u0window2control0f1duse1b & u0window2control0window2control) <-> (u0window2control0f1duse1b & !u0window2control0window2control))) <-> (u0window2control0f1dignore1b & !(u0window2control0f1duse1b | u0window2control0window2control)))) & (GFp0p0new2day0time -> (G(p0p0see2person0webcame <-> u0timer0f1dinc2timer0timer0time0date1b) & G(p0p0daily2workload2archieved0timer -> u0light2color0f1d2green1b) & G(u0light2color0f1d2green1b | u0light2color0f1d2normal1b) & G(u0window0f1dclose1b | u0window0f1dopen1b) & G(p0p0is2bad0air2quality -> u0window0f1dopen1b) & G((p0b0fire | p0p0is2raining0weather) -> !u0window0f1dopen1b) & G(((p0p0gt0temeprature0value -> u0heating0f1dturn2down0heating1b) U (p0p0eq0temperature0value | p0p0lt0temperature0value)) | G(p0p0gt0temeprature0value -> u0heating0f1dturn2down0heating1b)) & G(((p0p0lt0temeprature0value -> u0heating0f1dturn2up0heating1b) U (p0p0eq0temperature0value | p0p0gt0temperature0value)) | G(p0p0lt0temeprature0value -> u0heating0f1dturn2up0heating1b)) & G(p0p0eq0temeperature0value -> u0heating0heating) & G(u0window0f1dopen1b -> u0heating0f1dzero1b) & G((p0p0is2bad0air2quality & p0p0rush2hour0time) -> (u0music0on & u0window0close)) & G(((p0p0is2opened0window <-> u0window2control0f1dignore1b) U p0p0run2out0timer) | G(p0p0is2opened0window <-> u0window2control0f1dignore1b)) & G(p0p0is2opened0window <-> u0timer0f1dreset0tenminutes1b) & G(p0p0run2out0timer -> u0window2control0f1duse1b)))
+direct strategy might exist but was not found.
+translating formula done in 437.736 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 3.75992 seconds
+automaton has 225 states
+determinization done
+DPA has 441 states, 2 colors
+simplification done
+DPA has 224 states
+determinization and simplification took 28.6866 seconds
+solving game with acceptance: Rabin 1
+game solved in 0.000142002 seconds
+
+real	7m50.259s
+user	7m37.734s
+sys	0m10.998s
+srun: error: cn10: task 0: Exited with exit code 1

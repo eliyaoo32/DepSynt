@@ -1,0 +1,96 @@
+aag 75 3 2 8 70
+2
+4
+6
+8 137
+10 151
+29
+55
+77
+95
+100
+0
+115
+127
+12 9 11
+14 2 12
+16 3 11
+18 6 16
+20 7 14
+22 21 19
+24 4 20
+26 5 23
+28 27 25
+30 8 11
+32 2 30
+34 17 33
+36 8 10
+38 2 37
+40 6 38
+42 7 35
+44 43 41
+46 6 37
+48 43 47
+50 4 49
+52 5 45
+54 53 51
+56 3 37
+58 57 33
+60 2 11
+62 57 61
+64 6 63
+66 7 59
+68 67 65
+70 67 47
+72 4 71
+74 5 69
+76 75 73
+78 2 9
+80 9 10
+82 2 80
+84 6 82
+86 7 78
+88 87 85
+90 4 86
+92 5 89
+94 93 91
+96 17 79
+98 7 97
+100 4 98
+102 3 80
+104 6 102
+106 7 80
+108 107 105
+110 4 106
+112 5 109
+114 113 111
+116 103 33
+118 7 117
+120 119 47
+122 4 121
+124 5 37
+126 125 123
+128 7 16
+130 129 85
+132 4 128
+134 5 131
+136 135 133
+138 103 39
+140 7 139
+142 141 65
+144 141 47
+146 4 145
+148 5 143
+150 149 147
+i0 p0p0activated0toggle
+i1 p0p0clicked0counter2button
+i2 p0p0clicked0toggle2button
+o0 u0toggle0f1don1b
+o1 u0toggle0f1doff1b
+o2 u0counter2button0f1dset2label0counter2button0value1b
+o3 u0counter2button0f1dset2label0counter2button0f1dminus2one1b1b
+o4 u0value0f1dinc0value1b
+o5 u0counter2button0counter2button
+o6 u0toggle0toggle
+o7 u0value0value
+{"is_completed":true,"output_vars":["u0value0f1dinc0value1b","u0value0value","u0toggle0f1don1b","u0toggle0f1doff1b","u0toggle0toggle","u0counter2button0f1dset2label0counter2button0f1dminus2one1b1b","u0counter2button0f1dset2label0counter2button0value1b","u0counter2button0counter2button"],"input_vars":["p0p0clicked0toggle2button","p0p0clicked0counter2button","p0p0activated0toggle"],"formula":"((G (((! (((u0counter2button0f1dset2label0counter2button0value1b) && (! ((u0counter2button0f1dset2label0counter2button0f1dminus2one1b1b) || (u0counter2button0counter2button)))) <-> ((! (((u0counter2button0f1dset2label0counter2button0f1dminus2one1b1b) && (! (u0counter2button0counter2button))) <-> ((u0counter2button0counter2button) && (! (u0counter2button0f1dset2label0counter2button0f1dminus2one1b1b))))) && (! (u0counter2button0f1dset2label0counter2button0value1b))))) && (! (((u0toggle0f1doff1b) && (! ((u0toggle0f1don1b) || (u0toggle0toggle)))) <-> ((! (((u0toggle0f1don1b) && (! (u0toggle0toggle))) <-> ((u0toggle0toggle) && (! (u0toggle0f1don1b))))) && (! (u0toggle0f1doff1b)))))) && (! (((u0value0value) && (! (u0value0f1dinc0value1b))) <-> ((u0value0f1dinc0value1b) && (! (u0value0value))))))) && (((((((! (p0p0activated0toggle)) U (u0toggle0f1don1b)) || (G (! (p0p0activated0toggle)))) && (G (! ((p0p0clicked0toggle2button) && (p0p0clicked0counter2button))))) && (G ((u0toggle0f1don1b) -> (X (((p0p0activated0toggle) U (u0toggle0f1doff1b)) || (G (p0p0activated0toggle))))))) && (G ((u0toggle0f1doff1b) -> (X (((! (p0p0activated0toggle)) U (u0toggle0f1don1b)) || (G (! (p0p0activated0toggle)))))))) -> ((((G ((! (p0p0activated0toggle)) <-> (u0counter2button0f1dset2label0counter2button0value1b))) && (G ((p0p0activated0toggle) <-> (u0counter2button0f1dset2label0counter2button0f1dminus2one1b1b)))) && (G ((p0p0clicked0toggle2button) <-> ((p0p0activated0toggle) <-> (X (! (p0p0activated0toggle))))))) && (G ((p0p0clicked0counter2button) <-> (u0value0f1dinc0value1b))))))","total_time":9,"automaton":{"is_built":true,"build_duration":5,"total_states":7,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":7,"total_edges":19},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":4,"realizability":"REALIZABLE","total_inputs":3,"total_outputs":8,"total_latches":2,"total_gates":70},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

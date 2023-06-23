@@ -1,0 +1,28 @@
+there are 3 subformulas
+trying to create strategy directly for !(u0a0f1dc241b & u0b0f1dc241b) & G(p0b0in24 -> u0a0f1dc241b) & G(u0a0f1dc251b <-> u0c0f1dc31b) & G(u0a0f1dc251b | u0b0f1dc51b) & G(u0c0f1dc31b <-> u0f0f1dc61b) & G!((!u0a0f1dc241b & !((u0a0a & !u0a0f1dc251b) <-> (!u0a0a & u0a0f1dc251b))) <-> (u0a0f1dc241b & !(u0a0a | u0a0f1dc251b))) & G!((!u0b0f1dc241b & !((u0b0b & !u0b0f1dc51b) <-> (!u0b0b & u0b0f1dc51b))) <-> (u0b0f1dc241b & !(u0b0b | u0b0f1dc51b))) & G!((!u0c0c & u0c0f1dc31b) <-> (u0c0c & !u0c0f1dc31b)) & G!((!u0f0f & u0f0f1dc61b) <-> (u0f0f & !u0f0f1dc61b))
+direct strategy might exist but was not found.
+translating formula done in 0.00181543 seconds
+automaton has 1 states and 1 colors
+split inputs and outputs done in 3.0235e-05 seconds
+automaton has 3 states
+determinization done
+DPA has 3 states, 1 colors
+simplification done
+DPA has 3 states
+determinization and simplification took 2.3295e-05 seconds
+solving game with acceptance: Büchi
+game solved in 1.6093e-05 seconds
+simplification took 4.02e-05 seconds
+trying to create strategy directly for G((p0b0in3 & p0b0in25) -> (u0d0f1dfun0p1db0in251b1b | u0e0e)) & G(u0e0f1dfun0p1db0in31b1b <-> (p0b0in4 | p0b0in25)) & G!((!u0d0d & u0d0f1dfun0p1db0in251b1b) <-> (u0d0d & !u0d0f1dfun0p1db0in251b1b)) & G!((!u0e0e & u0e0f1dfun0p1db0in31b1b) <-> (u0e0e & !u0e0f1dfun0p1db0in31b1b))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 5.2934e-05 seconds
+trying to create strategy directly for G((p0b0in3 | p0b0in4 | p0b0in25) -> u0g0f1dc31b) & G!((u0g0f1dc31b & !u0g0g) <-> (!u0g0f1dc31b & u0g0g))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 3.1306e-05 seconds
+AIG circuit was created in 0.000136249 seconds and has 0 latches and 1 gates
+
+real	0m0.014s
+user	0m0.004s
+sys	0m0.009s

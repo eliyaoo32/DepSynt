@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for (!r2b_ack0 & G(!b2r_req0 -> X!r2b_ack0) & G(b2r_req0 -> XFr2b_ack0)) -> (!b2r_req0 & G((!b2r_req0 | !b2r_req1) & (r2b_ack0 -> X!b2r_req0) & ((b2r_req0 & !r2b_ack0) -> Xb2r_req0) & ((b2r_req0 & X!b2r_req0) -> X(!b2r_req0 U (!b2r_req0 & b2r_req1))) & ((s2b_req0 | s2b_req1) -> XF(b2r_req0 | b2r_req1))))
+direct strategy might exist but was not found.
+translating formula done in 0.0015808 seconds
+automaton has 12 states and 2 colors
+split inputs and outputs done in 0.000127333 seconds
+automaton has 47 states
+determinization done
+DPA has 39 states, 3 colors
+simplification done
+DPA has 40 states
+determinization and simplification took 0.00268519 seconds
+solving game with acceptance: parity min odd 3
+game solved in 5.7547e-05 seconds
+simplification took 4.1188e-05 seconds
+AIG circuit was created in 4.9697e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.015s
+user	0m0.007s
+sys	0m0.008s

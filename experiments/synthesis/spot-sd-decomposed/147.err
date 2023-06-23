@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for (!hbusreq_0 & !hbusreq_1 & !hlock_0 & !hlock_1 & !hready & G(!hburst_0 | !hburst_1) & G((!hburst_0 & !hburst_1 & hmastlock) -> XF!busreq) & GFhready & G(hlock_0 -> hbusreq_0) & G(hlock_1 -> hbusreq_1)) -> (decide & hgrant_0 & !hgrant_1 & !hmaster_0 & !hmastlock & start & G((!hmaster_0 -> (busreq <-> hbusreq_0)) & (hmaster_0 -> (busreq <-> hbusreq_1)) & (!hready -> X!start) & ((!hburst_0 & !hburst_1 & hmastlock & start) -> X((!start U (!busreq & !start)) | G!start)) & ((hburst_0 & !hburst_1 & hmastlock & hready & start) -> X(G!start | (!start U (hready & !start & X(G!start | (!start U (hready & !start & X(G!start | (!start U (hready & !start)))))))))) & ((hburst_0 & !hburst_1 & hmastlock & !hready & start) -> X(G!start | (!start U (hready & !start & X(G!start | (!start U (hready & !start & X(G!start | (!start U (hready & !start & X(G!start | (!start U (hready & !start))))))))))))) & (hready -> (hgrant_0 <-> X!hmaster_0)) & (hready -> (hgrant_1 <-> Xhmaster_0)) & (hready -> (locked <-> Xhmastlock)) & (X!start -> ((!hmaster_0 <-> X!hmaster_0) & (hmastlock <-> Xhmastlock))) & (X!start -> ((hmastlock <-> Xhmastlock) & (hmaster_0 <-> Xhmaster_0))) & ((decide & Xhgrant_0) -> (hlock_0 <-> Xlocked)) & ((decide & Xhgrant_1) -> (hlock_1 <-> Xlocked)) & (!decide -> ((hgrant_0 <-> Xhgrant_0) & (hgrant_1 <-> Xhgrant_1))) & (!decide -> (locked <-> Xlocked)) & (hbusreq_0 -> F(!hbusreq_0 | !hmaster_0)) & (hbusreq_1 -> F(!hbusreq_1 | hmaster_0)) & (!hgrant_1 -> ((!hgrant_1 U hbusreq_1) | G!hgrant_1)) & ((decide & !hbusreq_0 & !hbusreq_1) -> Xhgrant_0)))
+direct strategy might exist but was not found.
+translating formula done in 1.44065 seconds
+automaton has 435 states and 2 colors
+split inputs and outputs done in 0.132464 seconds
+automaton has 8335 states
+determinization done
+DPA has 14757 states, 3 colors
+simplification done
+DPA has 13980 states
+determinization and simplification took 25.5048 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.00888209 seconds
+simplification took 0.0109839 seconds
+AIG circuit was created in 0.0144704 seconds and has 7 latches and 3490 gates
+
+real	0m27.143s
+user	0m26.922s
+sys	0m0.118s

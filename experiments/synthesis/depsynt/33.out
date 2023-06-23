@@ -1,0 +1,170 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 112 5 6 25 101
+2
+4
+6
+8
+10
+12 26
+14 1
+16 0
+18 111
+20 67
+22 99
+27
+27
+32
+26
+39
+0
+115
+0
+127
+135
+145
+0
+135
+0
+115
+0
+159
+173
+178
+187
+195
+0
+115
+209
+225
+24 13 9
+26 25 7
+28 10 7
+30 28 24
+32 30 2
+34 11 4
+36 35 6
+38 37 31
+40 39 34
+42 27 9
+44 42 33
+46 44 41
+48 46 6
+50 24 7
+52 51 49
+54 53 20
+56 17 14
+58 57 53
+60 23 19
+62 61 48
+64 63 59
+66 64 55
+68 27 8
+70 68 33
+72 70 41
+74 72 6
+76 9 7
+78 77 75
+80 79 22
+82 26 8
+84 82 38
+86 85 73
+88 57 6
+90 88 87
+92 21 19
+94 93 74
+96 95 91
+98 96 81
+100 82 57
+102 26 18
+104 23 21
+106 105 82
+108 107 103
+110 108 101
+112 110 98
+114 112 66
+116 75 51
+118 117 80
+120 90 74
+122 121 95
+124 122 119
+126 124 66
+128 26 9
+130 128 38
+132 130 80
+134 133 110
+136 107 101
+138 136 91
+140 139 84
+142 133 103
+144 142 141
+146 54 13
+148 147 81
+150 10 2
+152 150 13
+154 153 76
+156 154 149
+158 157 108
+160 101 63
+162 160 96
+164 48 20
+166 74 22
+168 167 165
+170 168 59
+172 170 162
+174 81 55
+176 42 32
+178 176 175
+180 46 7
+182 180 58
+184 183 110
+186 184 157
+188 57 48
+190 189 63
+192 190 96
+194 192 168
+196 42 38
+198 196 35
+200 198 58
+202 11 5
+204 202 50
+206 204 175
+208 207 201
+210 34 6
+212 210 70
+214 212 99
+216 80 7
+218 217 66
+220 196 34
+222 220 219
+224 223 215
+i0 p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation
+i1 p0p0on0shot
+i2 p0p0on0gamestart
+i3 p0p0isgameover0f1dgetenemyradius0enemies0counter1b
+i4 p0p0gtz0shot2counter
+o0 u0movementclock0f1dincmoveclock0movementclock0score1b
+o1 u0moveticks0f1dtickmove0movementclock1b
+o2 u0score0f1dinc0score1b
+o3 u0shot2counter0f1dzero1b
+o4 u0shot2counter0f1ddec0shot2counter1b
+o5 u0counter0counter
+o6 u0counter0f1dincmod0counter0f1denemycount1b1b
+o7 u0gameover0gameover
+o8 u0gameover0f1dbot1b
+o9 u0gameover0f1dtop1b
+o10 u0movementclock0movementclock
+o11 u0moveticks0moveticks
+o12 u0moveticks0f1dticknomove1b
+o13 u0newangle0newangle
+o14 u0newangle0f1dnewrand0newangle1b
+o15 u0resets0resets
+o16 u0resets0f1dtriggerresetnone1b
+o17 u0resets0f1dtriggerresetall0newangle1b
+o18 u0resets0f1dtriggerreset0counter0newangle1b
+o19 u0score0score
+o20 u0score0f1dzero2score1b
+o21 u0scorecolor0scorecolor
+o22 u0scorecolor0f1dfastestenemycolor0enemies1b
+o23 u0shot2counter0shot2counter
+o24 u0shot2counter0f1denemycount1b
+{"is_completed":true,"output_vars":["u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0newangle0f1dnewrand0newangle1b","u0newangle0newangle","u0moveticks0f1dtickmove0movementclock1b","u0moveticks0f1dticknomove1b","u0moveticks0moveticks","u0movementclock0f1dincmoveclock0movementclock0score1b","u0movementclock0movementclock","u0gameover0f1dtop1b","u0gameover0f1dbot1b","u0gameover0gameover","u0counter0f1dincmod0counter0f1denemycount1b1b","u0counter0counter"],"input_vars":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter"],"formula":"((((((((((((((((((((((G (((((((((! (((u0counter0counter) && (! (u0counter0f1dincmod0counter0f1denemycount1b1b))) <-> ((u0counter0f1dincmod0counter0f1denemycount1b1b) && (! (u0counter0counter))))) && (! (((u0gameover0f1dbot1b) && (! ((u0gameover0f1dtop1b) || (u0gameover0gameover)))) <-> ((! (((u0gameover0f1dtop1b) && (! (u0gameover0gameover))) <-> ((u0gameover0gameover) && (! (u0gameover0f1dtop1b))))) && (! (u0gameover0f1dbot1b)))))) && (! (((u0movementclock0movementclock) && (! (u0movementclock0f1dincmoveclock0movementclock0score1b))) <-> ((u0movementclock0f1dincmoveclock0movementclock0score1b) && (! (u0movementclock0movementclock)))))) && (! (((u0moveticks0f1dticknomove1b) && (! ((u0moveticks0f1dtickmove0movementclock1b) || (u0moveticks0moveticks)))) <-> ((! (((u0moveticks0f1dtickmove0movementclock1b) && (! (u0moveticks0moveticks))) <-> ((u0moveticks0moveticks) && (! (u0moveticks0f1dtickmove0movementclock1b))))) && (! (u0moveticks0f1dticknomove1b)))))) && (! (((u0newangle0newangle) && (! (u0newangle0f1dnewrand0newangle1b))) <-> ((u0newangle0f1dnewrand0newangle1b) && (! (u0newangle0newangle)))))) && (! (((! (((u0resets0f1dtriggerresetall0newangle1b) && (! (u0resets0resets))) <-> ((u0resets0resets) && (! (u0resets0f1dtriggerresetall0newangle1b))))) && (! ((u0resets0f1dtriggerreset0counter0newangle1b) || (u0resets0f1dtriggerresetnone1b)))) <-> ((! (((u0resets0f1dtriggerreset0counter0newangle1b) && (! (u0resets0f1dtriggerresetnone1b))) <-> ((u0resets0f1dtriggerresetnone1b) && (! (u0resets0f1dtriggerreset0counter0newangle1b))))) && (! ((u0resets0f1dtriggerresetall0newangle1b) || (u0resets0resets))))))) && (! (((u0score0f1dzero2score1b) && (! ((u0score0f1dinc0score1b) || (u0score0score)))) <-> ((! (((u0score0f1dinc0score1b) && (! (u0score0score))) <-> ((u0score0score) && (! (u0score0f1dinc0score1b))))) && (! (u0score0f1dzero2score1b)))))) && (! (((u0scorecolor0scorecolor) && (! (u0scorecolor0f1dfastestenemycolor0enemies1b))) <-> ((u0scorecolor0f1dfastestenemycolor0enemies1b) && (! (u0scorecolor0scorecolor)))))) && (! (((! (((u0shot2counter0f1dzero1b) && (! (u0shot2counter0shot2counter))) <-> ((u0shot2counter0shot2counter) && (! (u0shot2counter0f1dzero1b))))) && (! ((u0shot2counter0f1ddec0shot2counter1b) || (u0shot2counter0f1denemycount1b)))) <-> ((! (((u0shot2counter0f1ddec0shot2counter1b) && (! (u0shot2counter0f1denemycount1b))) <-> ((u0shot2counter0f1denemycount1b) && (! (u0shot2counter0f1ddec0shot2counter1b))))) && (! ((u0shot2counter0f1dzero1b) || (u0shot2counter0shot2counter)))))))) && (u0resets0f1dtriggerresetall0newangle1b)) && (((u0gameover0f1dbot1b) U (p0p0isgameover0f1dgetenemyradius0enemies0counter1b)) || (G (u0gameover0f1dbot1b)))) && (G ((u0gameover0f1dbot1b) || (u0gameover0f1dtop1b)))) && (G ((p0p0on0gamestart) -> (((u0gameover0f1dbot1b) U (p0p0isgameover0f1dgetenemyradius0enemies0counter1b)) || (G (u0gameover0f1dbot1b)))))) && (G (X ((p0p0on0gamestart) <-> (u0resets0f1dtriggerresetall0newangle1b))))) && (G ((p0p0isgameover0f1dgetenemyradius0enemies0counter1b) -> (((u0gameover0f1dtop1b) U (p0p0on0gamestart)) || (G (u0gameover0f1dtop1b)))))) && (G ((p0p0on0gamestart) <-> (u0score0f1dzero2score1b)))) && (G (X (((! (p0p0on0gamestart)) && (u0gameover0f1dbot1b)) -> ((((p0p0gtz0shot2counter) <-> (u0shot2counter0f1ddec0shot2counter1b)) && (((p0p0gtz0shot2counter) && (p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation)) <-> (u0score0f1dinc0score1b))) && (((p0p0gtz0shot2counter) && (p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation)) <-> (u0resets0f1dtriggerreset0counter0newangle1b))))))) && (G ((((u0gameover0f1dbot1b) && (p0p0on0shot)) && (! (p0p0gtz0shot2counter))) <-> (u0shot2counter0f1denemycount1b)))) && (G (u0counter0f1dincmod0counter0f1denemycount1b1b))) && (G ((u0gameover0f1dbot1b) -> (u0movementclock0f1dincmoveclock0movementclock0score1b)))) && (G ((u0gameover0f1dbot1b) -> (u0moveticks0f1dtickmove0movementclock1b)))) && (G (u0newangle0f1dnewrand0newangle1b))) && (G ((u0gameover0f1dtop1b) -> (u0shot2counter0f1dzero1b)))) && (G ((u0gameover0f1dtop1b) -> (! (u0moveticks0f1dtickmove0movementclock1b))))) && (G (((u0gameover0f1dtop1b) && (! (p0p0on0gamestart))) -> (u0score0score)))) && (G ((u0gameover0f1dtop1b) -> (! (u0resets0f1dtriggerreset0counter0newangle1b))))) && (G (X ((u0gameover0f1dtop1b) -> (! (u0resets0f1dtriggerresetall0newangle1b)))))) && (G (((u0resets0f1dtriggerreset0counter0newangle1b) || (u0resets0f1dtriggerresetall0newangle1b)) || (u0resets0f1dtriggerresetnone1b)))) && (G ((u0moveticks0f1dtickmove0movementclock1b) || (u0moveticks0f1dticknomove1b)))) && (G (u0scorecolor0f1dfastestenemycolor0enemies1b)))","total_time":176,"automaton":{"is_built":true,"build_duration":10,"total_states":4,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":4,"total_edges":12},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u0counter0counter","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0newangle0f1dnewrand0newangle1b","u0newangle0newangle","u0moveticks0f1dtickmove0movementclock1b","u0moveticks0f1dticknomove1b","u0moveticks0moveticks","u0movementclock0f1dincmoveclock0movementclock0score1b","u0movementclock0movementclock","u0gameover0f1dtop1b","u0gameover0f1dbot1b","u0gameover0gameover","u0counter0f1dincmod0counter0f1denemycount1b1b"]},{"name":"u0counter0f1dincmod0counter0f1denemycount1b1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0newangle0f1dnewrand0newangle1b","u0newangle0newangle","u0moveticks0f1dtickmove0movementclock1b","u0moveticks0f1dticknomove1b","u0moveticks0moveticks","u0movementclock0f1dincmoveclock0movementclock0score1b","u0movementclock0movementclock","u0gameover0f1dtop1b","u0gameover0f1dbot1b","u0gameover0gameover"]},{"name":"u0gameover0gameover","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0newangle0f1dnewrand0newangle1b","u0newangle0newangle","u0moveticks0f1dtickmove0movementclock1b","u0moveticks0f1dticknomove1b","u0moveticks0moveticks","u0movementclock0f1dincmoveclock0movementclock0score1b","u0movementclock0movementclock","u0gameover0f1dtop1b","u0gameover0f1dbot1b"]},{"name":"u0gameover0f1dbot1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0newangle0f1dnewrand0newangle1b","u0newangle0newangle","u0moveticks0f1dtickmove0movementclock1b","u0moveticks0f1dticknomove1b","u0moveticks0moveticks","u0movementclock0f1dincmoveclock0movementclock0score1b","u0movementclock0movementclock","u0gameover0f1dtop1b"]},{"name":"u0gameover0f1dtop1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0newangle0f1dnewrand0newangle1b","u0newangle0newangle","u0moveticks0f1dtickmove0movementclock1b","u0moveticks0f1dticknomove1b","u0moveticks0moveticks","u0movementclock0f1dincmoveclock0movementclock0score1b","u0movementclock0movementclock"]},{"name":"u0movementclock0movementclock","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0newangle0f1dnewrand0newangle1b","u0newangle0newangle","u0moveticks0f1dtickmove0movementclock1b","u0moveticks0f1dticknomove1b","u0moveticks0moveticks","u0movementclock0f1dincmoveclock0movementclock0score1b"]},{"name":"u0movementclock0f1dincmoveclock0movementclock0score1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0newangle0f1dnewrand0newangle1b","u0newangle0newangle","u0moveticks0f1dtickmove0movementclock1b","u0moveticks0f1dticknomove1b","u0moveticks0moveticks"]},{"name":"u0moveticks0moveticks","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0newangle0f1dnewrand0newangle1b","u0newangle0newangle","u0moveticks0f1dtickmove0movementclock1b","u0moveticks0f1dticknomove1b","u0movementclock0f1dincmoveclock0movementclock0score1b"]},{"name":"u0moveticks0f1dticknomove1b","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0newangle0f1dnewrand0newangle1b","u0newangle0newangle","u0moveticks0f1dtickmove0movementclock1b","u0movementclock0f1dincmoveclock0movementclock0score1b"]},{"name":"u0moveticks0f1dtickmove0movementclock1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0newangle0f1dnewrand0newangle1b","u0newangle0newangle","u0movementclock0f1dincmoveclock0movementclock0score1b"]},{"name":"u0newangle0newangle","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0newangle0f1dnewrand0newangle1b","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b"]},{"name":"u0newangle0f1dnewrand0newangle1b","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0resets0resets","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b"]},{"name":"u0resets0resets","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0resets0f1dtriggerresetnone1b","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b"]},{"name":"u0resets0f1dtriggerresetnone1b","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0resets0f1dtriggerresetall0newangle1b","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b"]},{"name":"u0resets0f1dtriggerresetall0newangle1b","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0resets0f1dtriggerreset0counter0newangle1b","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b"]},{"name":"u0resets0f1dtriggerreset0counter0newangle1b","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0score0score","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b"]},{"name":"u0score0score","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0score0f1dzero2score1b","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b"]},{"name":"u0score0f1dzero2score1b","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0score0f1dinc0score1b","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b"]},{"name":"u0score0f1dinc0score1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0scorecolor0scorecolor","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b"]},{"name":"u0scorecolor0scorecolor","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0scorecolor0f1dfastestenemycolor0enemies1b","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b","u0score0f1dinc0score1b"]},{"name":"u0scorecolor0f1dfastestenemycolor0enemies1b","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0shot2counter0shot2counter","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b","u0score0f1dinc0score1b"]},{"name":"u0shot2counter0shot2counter","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0shot2counter0f1denemycount1b","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b","u0score0f1dinc0score1b"]},{"name":"u0shot2counter0f1denemycount1b","duration":1,"is_dependent":true,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0shot2counter0f1dzero1b","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b","u0score0f1dinc0score1b"]},{"name":"u0shot2counter0f1dzero1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0shot2counter0f1ddec0shot2counter1b","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b","u0score0f1dinc0score1b"]},{"name":"u0shot2counter0f1ddec0shot2counter1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation","p0p0on0shot","p0p0on0gamestart","p0p0isgameover0f1dgetenemyradius0enemies0counter1b","p0p0gtz0shot2counter","u0movementclock0f1dincmoveclock0movementclock0score1b","u0moveticks0f1dtickmove0movementclock1b","u0score0f1dinc0score1b","u0shot2counter0f1dzero1b"]}],"total_duration":26,"is_completed":true,"skipped_dependencies":false,"total_pair_state":4,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":27,"model_checking_status":"UNKNOWN","merge_strategies_duration":109,"final_strategy":{"duration":27,"total_inputs":10,"total_outputs":20,"total_latches":4,"total_gates":311},"independent_strategy":{"duration":0,"realizability":"REALIZABLE","total_inputs":5,"total_outputs":5,"total_latches":1,"total_gates":10},"dependent_strategy":{"duration":27,"total_inputs":10,"total_outputs":20,"total_latches":4,"total_gates":311}}}

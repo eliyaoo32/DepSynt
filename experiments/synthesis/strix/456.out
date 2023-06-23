@@ -1,0 +1,24 @@
+UNREALIZABLE
+aag 7 6 1 4 0
+2
+4
+6
+8
+10
+12
+14 1
+1
+1
+15
+1
+i0 u0dish2washer0f1dstart1b
+i1 u0dish2washer0dish2washer
+i2 u0coffeemachine0f1doff1b
+i3 u0coffeemachine0f1don1b
+i4 u0coffeemachine0off
+i5 u0coffeemachine0coffeemachine
+l0 l0
+o0 p0p0is2clean2and2loaded0dish2washer
+o1 p0p0isfull0dish2washer
+o2 p0p0work2time0time
+o3 p0b02person2in2office

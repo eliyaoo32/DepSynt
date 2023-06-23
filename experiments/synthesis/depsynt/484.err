@@ -1,0 +1,5 @@
+srun: error: cn03: task 0: Exited with exit code 124
+
+real	15m0.011s
+user	14m56.929s
+sys	0m0.093s

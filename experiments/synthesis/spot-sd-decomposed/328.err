@@ -1,0 +1,19 @@
+there are 1 subformulas
+srun: error: cn11: task 0: Exited with exit code 1
+trying to create strategy directly for G!((!u0room29heating29ctrl0f1dturn2on1b & !((!u0room29heating29ctrl0f1dturn2off1b & u0room29heating29ctrl0room29heating29ctrl) <-> (u0room29heating29ctrl0f1dturn2off1b & !u0room29heating29ctrl0room29heating29ctrl))) <-> (u0room29heating29ctrl0f1dturn2on1b & !(u0room29heating29ctrl0f1dturn2off1b | u0room29heating29ctrl0room29heating29ctrl))) & !(G!(p0b0room29heating29off <-> p0b0room29heating29on) & G(u0room29heating29ctrl0f1dturn2on1b -> F(u0room29heating29ctrl0f1dturn2off1b R p0b0room29heating29on)) & G(u0room29heating29ctrl0f1dturn2off1b -> F(u0room29heating29ctrl0f1dturn2on1b R p0b0room29heating29off)))
+direct strategy might exist but was not found.
+translating formula done in 0.00124378 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 5.6327e-05 seconds
+automaton has 11 states
+determinization done
+DPA has 21 states, 3 colors
+simplification done
+DPA has 17 states
+determinization and simplification took 0.000815568 seconds
+solving game with acceptance: parity min odd 3
+game solved in 5.0308e-05 seconds
+
+real	0m0.012s
+user	0m0.006s
+sys	0m0.006s

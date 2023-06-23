@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((u0out0f1db1b & !u0out0out) <-> (!u0out0f1db1b & u0out0out)) & ((GFp0b0a & G!(p0b0a & p0b0c)) -> G(u0out0f1db1b U p0b0a))
+direct strategy might exist but was not found.
+translating formula done in 0.00114246 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 7.2421e-05 seconds
+automaton has 16 states
+determinization done
+DPA has 19 states, 2 colors
+simplification done
+DPA has 13 states
+determinization and simplification took 0.00170463 seconds
+solving game with acceptance: Rabin 1
+game solved in 5.0469e-05 seconds
+simplification took 0.000116811 seconds
+AIG circuit was created in 7.3691e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.017s
+user	0m0.009s
+sys	0m0.008s

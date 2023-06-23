@@ -1,0 +1,19 @@
+there are 1 subformulas
+srun: error: cn10: task 0: Exited with exit code 1
+trying to create strategy directly for G(!((!u0a0a & u0a0f1dval241b) <-> (u0a0a & !u0a0f1dval241b)) & !((!u0b0b & u0b0f1dval251b) <-> (u0b0b & !u0b0f1dval251b)) & !((!u0c0c & u0c0f1dval31b) <-> (u0c0c & !u0c0f1dval31b))) & ((G((u0a0f1dval241b & u0b0f1dval251b) -> Xp0b0in24) & G(u0c0f1dval31b -> Xp0b0in25) & GF!p0b0in3) -> (GFp0b0in24 & GFp0b0in25 & G(p0b0in3 -> X!p0b0in24) & G(p0b0in3 -> X!p0b0in25)))
+direct strategy might exist but was not found.
+translating formula done in 0.00386163 seconds
+automaton has 8 states and 2 colors
+split inputs and outputs done in 0.000197338 seconds
+automaton has 25 states
+determinization done
+DPA has 34 states, 3 colors
+simplification done
+DPA has 29 states
+determinization and simplification took 0.00290921 seconds
+solving game with acceptance: parity min even 3
+game solved in 6.3447e-05 seconds
+
+real	0m0.019s
+user	0m0.015s
+sys	0m0.004s

@@ -1,0 +1,92 @@
+aag 76 6 3 4 67
+2
+4
+6
+8
+10
+12
+14 113
+16 137
+18 152
+0
+51
+73
+95
+20 2 7
+22 19 20
+24 16 22
+26 17 20
+28 27 25
+30 10 12
+32 8 31
+34 6 33
+36 2 35
+38 19 36
+40 16 38
+42 17 22
+44 43 41
+46 14 45
+48 15 29
+50 49 47
+52 19 6
+54 17 52
+56 2 34
+58 3 6
+60 59 57
+62 19 61
+64 16 62
+66 55 65
+68 14 67
+70 15 54
+72 71 69
+74 3 7
+76 18 21
+78 19 74
+80 79 77
+82 19 21
+84 16 82
+86 17 81
+88 87 85
+90 14 78
+92 15 89
+94 93 91
+96 18 6
+98 19 32
+100 99 97
+102 16 52
+104 17 101
+106 105 103
+108 14 19
+110 15 107
+112 111 109
+114 18 30
+116 19 33
+118 117 115
+120 16 116
+122 17 119
+124 123 121
+126 19 30
+128 17 126
+130 129 121
+132 14 131
+134 15 125
+136 135 133
+138 7 31
+140 18 138
+142 7 32
+144 19 142
+146 16 144
+148 17 140
+150 149 147
+152 15 151
+i0 p0b0cm29standby
+i1 p0b0cm29busy
+i2 p0b0cm29ready
+i3 p0b0room29somebody2enters
+i4 p0b0room29empty
+i5 p0b0room29somebody2leaves
+o0 u0cm29ctrl0f1dturn2off1b
+o1 u0cm29ctrl0f1dturn2on1b
+o2 u0cm29ctrl0cm29ctrl
+o3 u0cm29ctrl0f1dmake2coffee1b
+{"is_completed":true,"output_vars":["u0cm29ctrl0f1dturn2off1b","u0cm29ctrl0f1dmake2coffee1b","u0cm29ctrl0f1dturn2on1b","u0cm29ctrl0cm29ctrl"],"input_vars":["p0b0room29empty","p0b0room29somebody2leaves","p0b0room29somebody2enters","p0b0cm29ready","p0b0cm29busy","p0b0cm29standby"],"formula":"((G (! (((! (((u0cm29ctrl0f1dmake2coffee1b) && (! (u0cm29ctrl0cm29ctrl))) <-> ((u0cm29ctrl0cm29ctrl) && (! (u0cm29ctrl0f1dmake2coffee1b))))) && (! ((u0cm29ctrl0f1dturn2off1b) || (u0cm29ctrl0f1dturn2on1b)))) <-> ((! (((u0cm29ctrl0f1dturn2off1b) && (! (u0cm29ctrl0f1dturn2on1b))) <-> ((u0cm29ctrl0f1dturn2on1b) && (! (u0cm29ctrl0f1dturn2off1b))))) && (! ((u0cm29ctrl0f1dmake2coffee1b) || (u0cm29ctrl0cm29ctrl))))))) && ((G ((((u0cm29ctrl0f1dturn2on1b) && (p0b0cm29standby)) -> (X (p0b0cm29busy))) U (((u0cm29ctrl0f1dmake2coffee1b) || (u0cm29ctrl0f1dturn2off1b)) R (p0b0cm29ready)))) -> (G ((p0b0room29somebody2enters) -> (F (((p0b0cm29ready) U ((p0b0room29somebody2leaves) && (p0b0room29empty))) || (G (p0b0cm29ready))))))))","total_time":10,"automaton":{"is_built":true,"build_duration":4,"total_states":11,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":11,"total_edges":33},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":false,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":6,"realizability":"REALIZABLE","total_inputs":6,"total_outputs":4,"total_latches":3,"total_gates":67},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

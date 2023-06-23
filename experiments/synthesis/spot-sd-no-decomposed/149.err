@@ -1,0 +1,19 @@
+trying to create strategy directly for (!decide & GFhready & !FGbusreq & G(!ready1 -> X!decide)) -> (ready1 & G((decide -> XX((!(incr & locked) -> ready1) & ((incr & locked) -> ((!ready1 U (!busreq & hready)) | G!ready1)))) & ((ready1 & X!decide) -> Xready1) & ((ready1 & Xdecide) -> X(!ready1 & X!ready1))))
+direct strategy might exist but was not found.
+translating formula done in 0.00268427 seconds
+automaton has 21 states and 1 colors
+split inputs and outputs done in 0.000683643 seconds
+automaton has 52 states
+determinization done
+DPA has 187 states, 2 colors
+simplification done
+DPA has 106 states
+determinization and simplification took 0.00409003 seconds
+solving game with acceptance: Rabin 1
+game solved in 0.000104032 seconds
+simplification took 0.000251198 seconds
+AIG circuit was created in 0.000149273 seconds and has 2 latches and 11 gates
+
+real	0m0.021s
+user	0m0.008s
+sys	0m0.013s

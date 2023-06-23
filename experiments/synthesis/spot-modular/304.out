@@ -1,0 +1,178 @@
+aag 164 6 3 3 155
+2
+4
+6
+8
+10
+12
+14 161
+16 279
+18 329
+0
+61
+123
+20 16 19
+22 17 18
+24 23 21
+26 17 19
+28 14 26
+30 15 25
+32 31 29
+34 5 33
+36 10 34
+38 9 28
+40 15 20
+42 41 29
+44 9 43
+46 6 44
+48 7 38
+50 49 47
+52 5 51
+54 10 52
+56 2 54
+58 3 36
+60 59 57
+62 16 18
+64 14 19
+66 15 63
+68 67 65
+70 14 20
+72 15 26
+74 73 71
+76 4 69
+78 5 75
+80 79 77
+82 10 81
+84 11 69
+86 85 83
+88 67 71
+90 8 69
+92 9 89
+94 93 91
+96 15 17
+98 97 71
+100 9 99
+102 101 91
+104 6 103
+106 7 95
+108 107 105
+110 5 109
+112 111 77
+114 10 113
+116 85 115
+118 2 117
+120 3 87
+122 121 119
+124 9 72
+126 9 26
+128 15 19
+130 129 29
+132 9 131
+134 6 132
+136 7 126
+138 137 135
+140 10 139
+142 11 124
+144 143 141
+146 5 124
+148 5 139
+150 10 148
+152 11 146
+154 153 151
+156 2 155
+158 3 145
+160 159 157
+162 31 65
+164 9 163
+166 165 91
+168 67 29
+170 8 169
+172 9 33
+174 173 171
+176 12 175
+178 13 167
+180 179 177
+182 4 175
+184 5 181
+186 185 183
+188 8 19
+190 9 20
+192 191 189
+194 9 70
+196 195 189
+198 6 197
+200 7 193
+202 201 199
+204 8 131
+206 9 40
+208 207 205
+210 6 204
+212 7 209
+214 213 211
+216 12 215
+218 13 203
+220 219 217
+222 4 215
+224 5 221
+226 225 223
+228 10 227
+230 11 187
+232 231 229
+234 8 75
+236 195 235
+238 8 72
+240 12 238
+242 13 237
+244 243 241
+246 5 245
+248 247 77
+250 41 65
+252 9 251
+254 253 189
+256 45 205
+258 12 257
+260 13 255
+262 261 259
+264 5 263
+266 265 77
+268 10 267
+270 11 249
+272 271 269
+274 2 273
+276 3 233
+278 277 275
+280 12 70
+282 4 70
+284 5 280
+286 285 283
+288 15 22
+290 289 71
+292 12 291
+294 13 288
+296 295 293
+298 4 291
+300 5 297
+302 301 299
+304 10 303
+306 11 287
+308 307 305
+310 12 163
+312 13 33
+314 313 311
+316 5 315
+318 10 300
+320 11 316
+322 321 319
+324 2 323
+326 3 309
+328 327 325
+i0 p0b0open
+i1 p0b0closed
+i2 p0b02time292423pm
+i3 p0b02time296am
+i4 p0b0reaching2open
+i5 p0b0reaching2closed
+o0 u0ctrl0ctrl
+o1 u0ctrl0f1dmove2to0f1dpercent231b1b
+o2 u0ctrl0f1dmove2to0f1dpercent2423231b1b
+{"is_completed":true,"output_vars":["u0ctrl0f1dmove2to0f1dpercent231b1b","u0ctrl0f1dmove2to0f1dpercent2423231b1b","u0ctrl0ctrl"],"input_vars":["p0b02time296am","p0b02time292423pm","p0b0reaching2closed","p0b0reaching2open","p0b0closed","p0b0open"],"formula":"((G (! (((u0ctrl0f1dmove2to0f1dpercent2423231b1b) && (! ((u0ctrl0f1dmove2to0f1dpercent231b1b) || (u0ctrl0ctrl)))) <-> ((! (((u0ctrl0f1dmove2to0f1dpercent231b1b) && (! (u0ctrl0ctrl))) <-> ((u0ctrl0ctrl) && (! (u0ctrl0f1dmove2to0f1dpercent231b1b))))) && (! (u0ctrl0f1dmove2to0f1dpercent2423231b1b)))))) && (((((((G (! ((p0b0open) && (p0b0closed)))) && (G ((u0ctrl0f1dmove2to0f1dpercent2423231b1b) -> (X ((p0b0reaching2open) U (((! (u0ctrl0f1dmove2to0f1dpercent2423231b1b)) && (! (u0ctrl0ctrl))) R (p0b0open))))))) && (G ((u0ctrl0f1dmove2to0f1dpercent231b1b) -> (X ((p0b0reaching2closed) U (((! (u0ctrl0f1dmove2to0f1dpercent231b1b)) && (! (u0ctrl0ctrl))) R (p0b0closed))))))) && (G (((p0b0closed) && (! (u0ctrl0f1dmove2to0f1dpercent2423231b1b))) -> (X (p0b0closed))))) && (G (((p0b0open) && (! (u0ctrl0f1dmove2to0f1dpercent231b1b))) -> (X (p0b0open))))) && (G (F (p0b02time292423pm)))) -> ((G ((p0b02time296am) -> (X (F (((p0b0open) U (p0b02time292423pm)) || (G (p0b0open))))))) && (G ((p0b02time296am) -> (X ((p0b0reaching2open) U (((p0b0open) U (p0b02time292423pm)) || (G (p0b0open))))))))))","total_time":69,"automaton":{"is_built":true,"build_duration":4,"total_states":16,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":16,"total_edges":53},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":64,"realizability":"REALIZABLE","total_inputs":6,"total_outputs":3,"total_latches":3,"total_gates":155},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!((u0shutter26ctrl0f1ddo26close1b & !u0shutter26ctrl0f1ddo26stop1b) <-> (!u0shutter26ctrl0f1ddo26close1b & u0shutter26ctrl0f1ddo26stop1b)) & !(u0shutter26ctrl0f1ddo26open1b | u0shutter26ctrl0shutter26ctrl)) <-> (!((!u0shutter26ctrl0f1ddo26open1b & u0shutter26ctrl0shutter26ctrl) <-> (u0shutter26ctrl0f1ddo26open1b & !u0shutter26ctrl0shutter26ctrl)) & !(u0shutter26ctrl0f1ddo26close1b | u0shutter26ctrl0f1ddo26stop1b))) & ((G(GF(u0shutter26ctrl0f1ddo26close1b & ((!(u0shutter26ctrl0f1ddo26open1b | u0shutter26ctrl0f1ddo26stop1b) U p0p0is26closed0shutter26input) | G!(u0shutter26ctrl0f1ddo26open1b | u0shutter26ctrl0f1ddo26stop1b))) -> Fp0p0is26closed0shutter26input) & G(GF(u0shutter26ctrl0f1ddo26open1b & ((!(u0shutter26ctrl0f1ddo26close1b | u0shutter26ctrl0f1ddo26stop1b) U p0p0is26open0shutter26input) | G!(u0shutter26ctrl0f1ddo26close1b | u0shutter26ctrl0f1ddo26stop1b))) -> Fp0p0is26open0shutter26input) & G(u0shutter26ctrl0f1ddo26stop1b -> ((p0p0is26open0shutter26input <-> Xp0p0is26open0shutter26input) & (p0p0is26closed0shutter26input <-> Xp0p0is26closed0shutter26input))) & G(u0shutter26ctrl0shutter26ctrl -> ((p0p0is26open0shutter26input <-> Xp0p0is26open0shutter26input) & (p0p0is26closed0shutter26input <-> Xp0p0is26closed0shutter26input))) & G!(p0p0is26closed0shutter26input & p0p0is26open0shutter26input)) -> (G(p0b0user26is26sleeping -> F((p0p0is26closed0shutter26input U !p0b0user26is26sleeping) | Gp0p0is26closed0shutter26input)) & G((p0b0env26outside26is26bright & !p0b0user26is26sleeping) -> F((p0p0is26open0shutter26input U !(p0b0env26outside26is26bright & !p0b0user26is26sleeping)) | Gp0p0is26open0shutter26input))))
+direct strategy might exist but was not found.
+translating formula done in 0.0059055 seconds
+automaton has 17 states and 2 colors
+split inputs and outputs done in 0.00034891 seconds
+automaton has 43 states
+determinization done
+DPA has 278 states, 4 colors
+simplification done
+DPA has 266 states
+determinization and simplification took 0.00698131 seconds
+solving game with acceptance: parity min even 4
+game solved in 0.000422909 seconds
+simplification took 0.00102341 seconds
+AIG circuit was created in 0.00115478 seconds and has 4 latches and 285 gates
+
+real	0m0.029s
+user	0m0.018s
+sys	0m0.011s

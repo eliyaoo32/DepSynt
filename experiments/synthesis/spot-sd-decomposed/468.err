@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!u0room29heating29ctrl0f1dturn2on1b & !((!u0room29heating29ctrl0f1dturn2off1b & u0room29heating29ctrl0room29heating29ctrl) <-> (u0room29heating29ctrl0f1dturn2off1b & !u0room29heating29ctrl0room29heating29ctrl))) <-> (u0room29heating29ctrl0f1dturn2on1b & !(u0room29heating29ctrl0f1dturn2off1b | u0room29heating29ctrl0room29heating29ctrl))) & !((u0music29ctrl0f1dplay0f1doverture1b1b & !u0music29ctrl0music29ctrl) <-> (!u0music29ctrl0f1dplay0f1doverture1b1b & u0music29ctrl0music29ctrl))) & ((G(p0b0room29window29opened -> ((!p0p0all2windows2closed0room U p0b0room29window29closed) | G!p0p0all2windows2closed0room)) & G!(p0b0room29heating29off <-> p0b0room29heating29on) & G(u0room29heating29ctrl0f1dturn2on1b -> F(u0room29heating29ctrl0f1dturn2off1b R p0b0room29heating29on)) & G(u0room29heating29ctrl0f1dturn2off1b -> F(u0room29heating29ctrl0f1dturn2on1b R p0b0room29heating29off))) -> (G(p0b0room29window29opened -> (u0music29ctrl0f1dplay0f1doverture1b1b & F((p0b0room29heating29off U (p0b0room29window29closed & p0p0all2windows2closed0room)) | Gp0b0room29heating29off))) & G(p0p0gt0outside29temperature0room29temperature -> Fp0b0room29heating29off)))
+direct strategy might exist but was not found.
+translating formula done in 0.0119582 seconds
+automaton has 11 states and 2 colors
+split inputs and outputs done in 0.000780907 seconds
+automaton has 44 states
+determinization done
+DPA has 482 states, 4 colors
+simplification done
+DPA has 391 states
+determinization and simplification took 0.013653 seconds
+solving game with acceptance: parity min even 4
+game solved in 0.000415931 seconds
+simplification took 0.000689855 seconds
+AIG circuit was created in 0.00105996 seconds and has 3 latches and 251 gates
+
+real	0m0.075s
+user	0m0.030s
+sys	0m0.014s

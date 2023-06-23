@@ -1,0 +1,122 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 105 6 15 4 84
+2
+4
+6
+8
+10
+12
+14 135
+16 145
+18 152
+20 1
+22 0
+24 164
+26 170
+28 172
+30 182
+32 190
+34 196
+36 200
+38 202
+40 209
+42 210
+65
+72
+0
+120
+44 17 15
+46 45 18
+48 47 9
+50 4 2
+52 51 6
+54 19 16
+56 12 8
+58 56 14
+60 58 54
+62 60 52
+64 63 49
+66 18 17
+68 67 55
+70 69 15
+72 70 8
+74 39 27
+76 23 20
+78 76 29
+80 78 74
+82 51 9
+84 83 24
+86 52 30
+88 87 85
+90 88 80
+92 33 31
+94 30 7
+96 95 82
+98 97 93
+100 51 24
+102 34 11
+104 103 41
+106 36 11
+108 107 43
+110 108 104
+112 110 101
+114 112 99
+116 114 90
+118 73 64
+120 118 117
+122 44 18
+124 123 55
+126 125 8
+128 52 17
+130 129 15
+132 131 19
+134 133 127
+136 50 47
+138 17 14
+140 19 7
+142 140 139
+144 143 137
+146 54 6
+148 147 67
+150 82 15
+152 150 149
+154 72 65
+156 76 31
+158 157 6
+160 159 25
+162 161 51
+164 162 155
+166 75 9
+168 167 78
+170 169 73
+172 155 79
+174 33 25
+176 175 50
+178 177 156
+180 179 53
+182 180 155
+184 174 159
+186 51 8
+188 186 185
+190 188 155
+192 81 12
+194 192 65
+196 194 9
+198 71 8
+200 198 194
+202 198 75
+204 109 9
+206 155 105
+208 207 205
+210 198 109
+i0 p0b0room29empty
+i1 p0b0room29somebody2leaves
+i2 p0b0room29somebody2enters
+i3 p0b0cm29ready
+i4 p0b0cm29busy
+i5 p0b0cm29standby
+o0 u0cm29ctrl0f1dturn2on1b
+o1 u0cm29ctrl0f1dmake2coffee1b
+o2 u0cm29ctrl0f1dturn2off1b
+o3 u0cm29ctrl0cm29ctrl
+{"is_completed":true,"output_vars":["u0cm29ctrl0f1dturn2off1b","u0cm29ctrl0f1dmake2coffee1b","u0cm29ctrl0f1dturn2on1b","u0cm29ctrl0cm29ctrl"],"input_vars":["p0b0room29empty","p0b0room29somebody2leaves","p0b0room29somebody2enters","p0b0cm29ready","p0b0cm29busy","p0b0cm29standby"],"formula":"((G (! (((! (((u0cm29ctrl0f1dmake2coffee1b) && (! (u0cm29ctrl0cm29ctrl))) <-> ((u0cm29ctrl0cm29ctrl) && (! (u0cm29ctrl0f1dmake2coffee1b))))) && (! ((u0cm29ctrl0f1dturn2off1b) || (u0cm29ctrl0f1dturn2on1b)))) <-> ((! (((u0cm29ctrl0f1dturn2off1b) && (! (u0cm29ctrl0f1dturn2on1b))) <-> ((u0cm29ctrl0f1dturn2on1b) && (! (u0cm29ctrl0f1dturn2off1b))))) && (! ((u0cm29ctrl0f1dmake2coffee1b) || (u0cm29ctrl0cm29ctrl))))))) && ((G ((((u0cm29ctrl0f1dturn2on1b) && (p0b0cm29standby)) -> (X (p0b0cm29busy))) U (((u0cm29ctrl0f1dmake2coffee1b) || (u0cm29ctrl0f1dturn2off1b)) R (p0b0cm29ready)))) -> (G ((p0b0room29somebody2enters) -> (F (((p0b0cm29ready) U ((p0b0room29somebody2leaves) && (p0b0room29empty))) || (G (p0b0cm29ready))))))))","total_time":105,"automaton":{"is_built":true,"build_duration":4,"total_states":11,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":11,"total_edges":33},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u0cm29ctrl0cm29ctrl","duration":0,"is_dependent":true,"tested_dependency_set":["p0b0room29empty","p0b0room29somebody2leaves","p0b0room29somebody2enters","p0b0cm29ready","p0b0cm29busy","p0b0cm29standby","u0cm29ctrl0f1dturn2off1b","u0cm29ctrl0f1dmake2coffee1b","u0cm29ctrl0f1dturn2on1b"]},{"name":"u0cm29ctrl0f1dturn2on1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b0room29empty","p0b0room29somebody2leaves","p0b0room29somebody2enters","p0b0cm29ready","p0b0cm29busy","p0b0cm29standby","u0cm29ctrl0f1dturn2off1b","u0cm29ctrl0f1dmake2coffee1b"]},{"name":"u0cm29ctrl0f1dmake2coffee1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b0room29empty","p0b0room29somebody2leaves","p0b0room29somebody2enters","p0b0cm29ready","p0b0cm29busy","p0b0cm29standby","u0cm29ctrl0f1dturn2off1b","u0cm29ctrl0f1dturn2on1b"]},{"name":"u0cm29ctrl0f1dturn2off1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b0room29empty","p0b0room29somebody2leaves","p0b0room29somebody2enters","p0b0cm29ready","p0b0cm29busy","p0b0cm29standby","u0cm29ctrl0f1dturn2on1b","u0cm29ctrl0f1dmake2coffee1b"]}],"total_duration":1,"is_completed":true,"skipped_dependencies":false,"total_pair_state":50,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":0,"model_checking_status":"UNKNOWN","merge_strategies_duration":92,"final_strategy":{"duration":0,"total_inputs":9,"total_outputs":1,"total_latches":11,"total_gates":225},"independent_strategy":{"duration":6,"realizability":"REALIZABLE","total_inputs":6,"total_outputs":3,"total_latches":3,"total_gates":71},"dependent_strategy":{"duration":0,"total_inputs":9,"total_outputs":1,"total_latches":11,"total_gates":225}}}

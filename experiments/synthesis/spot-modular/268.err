@@ -1,0 +1,5 @@
+
+real	15m0.049s
+user	14m51.249s
+sys	0m6.297s
+srun: error: cn05: task 0: Exited with exit code 124

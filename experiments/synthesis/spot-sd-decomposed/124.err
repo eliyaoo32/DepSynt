@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for (r_0 R !g_0) & (r_1 R !g_1) & (r_2 R !g_2) & (r_3 R !g_3) & (r_4 R !g_4) & (r_5 R !g_5) & (r_6 R !g_6) & (r_7 R !g_7) & G(((!g_0 & !g_1 & !g_2 & !g_3 & ((!g_4 & !g_5 & (!g_6 | !g_7)) | (!g_6 & !g_7 & (!g_4 | !g_5)))) | (!g_4 & !g_5 & !g_6 & !g_7 & ((!g_0 & !g_1 & (!g_2 | !g_3)) | (!g_2 & !g_3 & (!g_0 | !g_1))))) & ((g_0 & G!r_0) -> F!g_0) & ((g_0 & X(!g_0 & !r_0)) -> X(r_0 R !g_0)) & ((g_1 & G!r_1) -> F!g_1) & ((g_1 & X(!g_1 & !r_1)) -> X(r_1 R !g_1)) & ((g_2 & G!r_2) -> F!g_2) & ((g_2 & X(!g_2 & !r_2)) -> X(r_2 R !g_2)) & ((g_3 & G!r_3) -> F!g_3) & ((g_3 & X(!g_3 & !r_3)) -> X(r_3 R !g_3)) & ((g_4 & G!r_4) -> F!g_4) & ((g_4 & X(!g_4 & !r_4)) -> X(r_4 R !g_4)) & ((g_5 & G!r_5) -> F!g_5) & ((g_5 & X(!g_5 & !r_5)) -> X(r_5 R !g_5)) & ((g_6 & G!r_6) -> F!g_6) & ((g_6 & X(!g_6 & !r_6)) -> X(r_6 R !g_6)) & ((g_7 & G!r_7) -> F!g_7) & ((g_7 & X(!g_7 & !r_7)) -> X(r_7 R !g_7))) & G(r_0 -> Fg_0) & G(r_1 -> Fg_1) & G(r_2 -> Fg_2) & G(r_3 -> Fg_3) & G(r_4 -> Fg_4) & G(r_5 -> Fg_5) & G(r_6 -> Fg_6) & G(r_7 -> Fg_7)
+direct strategy might exist but was not found.
+translating formula done in 7.34064 seconds
+automaton has 1280 states and 16 colors
+split inputs and outputs done in 2.82814 seconds
+automaton has 197888 states
+determinization done
+DPA has 917875 states, 2 colors
+simplification done
+DPA has 164581 states
+determinization and simplification took 7.1809 seconds
+solving game with acceptance: Streett 1
+game solved in 0.248293 seconds
+simplification took 0.458943 seconds
+AIG circuit was created in 0.966161 seconds and has 10 latches and 154229 gates
+
+real	0m19.378s
+user	0m18.970s
+sys	0m0.263s

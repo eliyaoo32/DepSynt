@@ -1,0 +1,18 @@
+trying to create strategy directly for G((req -> X(grant | X(grant | Xgrant))) & (grant -> X!grant) & (cancel -> X(!grant U go)))
+srun: error: cn09: task 0: Exited with exit code 1
+direct strategy might exist but was not found.
+translating formula done in 0.00163118 seconds
+automaton has 14 states and 1 colors
+split inputs and outputs done in 0.000169825 seconds
+automaton has 45 states
+determinization done
+DPA has 45 states, 2 colors
+simplification done
+DPA has 43 states
+determinization and simplification took 0.000127067 seconds
+solving game with acceptance: Streett 1
+game solved in 3.7909e-05 seconds
+
+real	0m0.014s
+user	0m0.003s
+sys	0m0.011s

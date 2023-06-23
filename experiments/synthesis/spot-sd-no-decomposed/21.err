@@ -1,0 +1,19 @@
+trying to create strategy directly for G(!((!((u0mode0f1dcentering1b & !u0mode0f1dstraighten1b) <-> (!u0mode0f1dcentering1b & u0mode0f1dstraighten1b)) & !(u0mode0f1dkeep1b | u0mode0mode)) <-> (!((!u0mode0f1dkeep1b & u0mode0mode) <-> (u0mode0f1dkeep1b & !u0mode0mode)) & !(u0mode0f1dcentering1b | u0mode0f1dstraighten1b))) & !((!((!u0steer0f1dsteer2right0angle1b & u0steer0f1dsteer2straight1b) <-> (u0steer0f1dsteer2right0angle1b & !u0steer0f1dsteer2straight1b)) & !(u0steer0f1dsteer2left0angle1b | u0steer0steer)) <-> (!((!u0steer0f1dsteer2left0angle1b & u0steer0steer) <-> (u0steer0f1dsteer2left0angle1b & !u0steer0steer)) & !(u0steer0f1dsteer2right0angle1b | u0steer0f1dsteer2straight1b)))) & ((G(p0p0right2of2center0track2pos -> !p0p0left2of2center0track2pos) & G(p0p0left2of2center0track2pos -> !p0p0right2of2center0track2pos) & G(p0p0turning2left0angle -> !p0p0turning2right0angle) & G(p0p0turning2right0angle -> !p0p0turning2left0angle)) -> (G(u0mode0f1dcentering1b | u0mode0f1dkeep1b | u0mode0f1dstraighten1b) & G(u0mode0f1dcentering1b -> (((p0p0right2of2center0track2pos -> u0steer0f1dsteer2left0angle1b) & (p0p0left2of2center0track2pos -> u0steer0f1dsteer2right0angle1b) & ((u0mode0f1dcentering1b U (!p0p0left2of2center0track2pos & !p0p0right2of2center0track2pos)) | Gu0mode0f1dcentering1b) & X!p0p0right2of2center0track2pos & X!p0p0left2of2center0track2pos) -> Xu0mode0f1dstraighten1b)) & G(u0mode0f1dstraighten1b -> (((p0p0turning2left0angle -> u0steer0f1dsteer2right0angle1b) & (p0p0turning2right0angle -> u0steer0f1dsteer2left0angle1b) & ((u0mode0f1dstraighten1b U (!p0p0turning2left0angle & !p0p0turning2right0angle)) | Gu0mode0f1dstraighten1b) & X!p0p0turning2left0angle & X!p0p0turning2right0angle) -> Xu0mode0f1dkeep1b)) & G(u0mode0f1dkeep1b -> (u0steer0f1dsteer2straight1b & ((Xp0p0left2of2center0track2pos | Xp0p0right2of2center0track2pos) -> Xu0mode0f1dcentering1b)))))
+direct strategy might exist but was not found.
+translating formula done in 0.00749971 seconds
+automaton has 9 states and 2 colors
+split inputs and outputs done in 0.000411257 seconds
+automaton has 55 states
+determinization done
+DPA has 33 states, 2 colors
+simplification done
+DPA has 33 states
+determinization and simplification took 0.00398725 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 6.4592e-05 seconds
+simplification took 9.8629e-05 seconds
+AIG circuit was created in 0.000235614 seconds and has 2 latches and 65 gates
+
+real	0m0.488s
+user	0m0.018s
+sys	0m0.023s

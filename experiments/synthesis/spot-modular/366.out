@@ -1,0 +1,225 @@
+aag 208 7 3 4 198
+2
+4
+6
+8
+10
+12
+14
+16 281
+18 363
+20 417
+62
+109
+0
+215
+22 19 21
+24 16 22
+26 17 19
+28 27 25
+30 3 29
+32 16 21
+34 27 33
+36 3 35
+38 4 36
+40 5 30
+42 41 39
+44 14 35
+46 12 44
+48 13 35
+50 49 47
+52 3 51
+54 5 52
+56 10 54
+58 11 43
+60 59 57
+62 8 61
+64 2 22
+66 17 22
+68 2 66
+70 4 68
+72 5 64
+74 73 71
+76 14 66
+78 12 76
+80 13 66
+82 81 79
+84 2 83
+86 5 84
+88 10 86
+90 11 75
+92 91 89
+94 19 20
+96 16 94
+98 3 96
+100 5 98
+102 11 100
+104 8 102
+106 9 93
+108 107 105
+110 18 20
+112 18 21
+114 95 113
+116 2 115
+118 3 111
+120 119 117
+122 16 111
+124 17 115
+126 125 123
+128 2 127
+130 119 129
+132 4 131
+134 5 121
+136 135 133
+138 14 127
+140 15 111
+142 141 139
+144 12 143
+146 13 127
+148 147 145
+150 2 149
+152 119 151
+154 4 111
+156 5 153
+158 157 155
+160 10 159
+162 11 137
+164 163 161
+166 2 111
+168 3 112
+170 169 167
+172 17 112
+174 173 97
+176 3 175
+178 177 167
+180 4 179
+182 5 171
+184 183 181
+186 14 175
+188 141 187
+190 12 189
+192 13 175
+194 193 191
+196 3 195
+198 197 167
+200 5 199
+202 201 155
+204 10 203
+206 11 185
+208 207 205
+210 8 209
+212 9 165
+214 213 211
+216 16 112
+218 2 216
+220 119 219
+222 6 111
+224 2 222
+226 119 225
+228 4 227
+230 5 221
+232 231 229
+234 12 140
+236 2 234
+238 119 237
+240 5 239
+242 241 155
+244 10 243
+246 11 233
+248 247 245
+250 16 115
+252 3 250
+254 253 167
+256 4 166
+258 5 255
+260 259 257
+262 3 234
+264 263 167
+266 5 265
+268 267 155
+270 10 269
+272 11 261
+274 273 271
+276 8 275
+278 9 249
+280 279 277
+282 16 19
+284 17 21
+286 285 283
+288 2 287
+290 285 97
+292 17 94
+294 293 33
+296 6 295
+298 7 291
+300 299 297
+302 2 301
+304 4 302
+306 5 288
+308 307 305
+310 14 291
+312 12 310
+314 13 291
+316 315 313
+318 2 317
+320 5 318
+322 10 320
+324 11 309
+326 325 323
+328 17 111
+330 329 25
+332 3 331
+334 4 118
+336 5 332
+338 337 335
+340 14 111
+342 12 340
+344 13 111
+346 345 343
+348 3 347
+350 5 348
+352 10 350
+354 11 339
+356 355 353
+358 8 357
+360 9 327
+362 361 359
+364 2 292
+366 119 365
+368 6 291
+370 7 295
+372 371 369
+374 2 373
+376 119 375
+378 4 377
+380 5 367
+382 381 379
+384 14 295
+386 141 385
+388 12 387
+390 13 295
+392 391 389
+394 2 393
+396 119 395
+398 5 397
+400 399 155
+402 10 401
+404 11 383
+406 405 403
+408 11 166
+410 409 271
+412 8 411
+414 9 407
+416 415 413
+i0 p0b0room29light29off
+i1 p0b0switch29toggled
+i2 p0p0bright0outside29brightness
+i3 p0b0room29light29on
+i4 p0b0room29empty
+i5 p0b0room29somebody2enters
+i6 p0b0room29somebody2leaves
+o0 u0room29light0f1dturn2on1b
+o1 u0room29light0f1dtoggle1b
+o2 u0room29light0f1dturn2off1b
+o3 u0room29light0room29light
+{"is_completed":true,"output_vars":["u0room29light0f1dturn2off1b","u0room29light0f1dtoggle1b","u0room29light0f1dturn2on1b","u0room29light0room29light"],"input_vars":["p0p0bright0outside29brightness","p0b0room29light29off","p0b0room29light29on","p0b0room29somebody2leaves","p0b0room29somebody2enters","p0b0switch29toggled","p0b0room29empty"],"formula":"((G (! (((! (((u0room29light0f1dtoggle1b) && (! (u0room29light0room29light))) <-> ((u0room29light0room29light) && (! (u0room29light0f1dtoggle1b))))) && (! ((u0room29light0f1dturn2off1b) || (u0room29light0f1dturn2on1b)))) <-> ((! (((u0room29light0f1dturn2off1b) && (! (u0room29light0f1dturn2on1b))) <-> ((u0room29light0f1dturn2on1b) && (! (u0room29light0f1dturn2off1b))))) && (! ((u0room29light0f1dtoggle1b) || (u0room29light0room29light))))))) && (((((((G ((p0b0room29empty) -> (! (p0b0switch29toggled)))) && (G ((p0b0room29somebody2enters) -> (((! (p0b0room29empty)) U (p0b0room29somebody2leaves)) || (G (! (p0b0room29empty))))))) && (G (((p0b0room29somebody2leaves) && (p0b0room29empty)) -> (((p0b0room29empty) U (p0b0room29somebody2enters)) || (G (p0b0room29empty)))))) && (G (! ((p0b0room29light29on) <-> (p0b0room29light29off))))) && (G (((u0room29light0f1dturn2on1b) || ((u0room29light0f1dtoggle1b) && (p0b0room29light29off))) -> (X (F (((u0room29light0f1dturn2off1b) || (u0room29light0f1dtoggle1b)) R (p0b0room29light29on))))))) && (G (((u0room29light0f1dturn2off1b) || ((u0room29light0f1dtoggle1b) && (p0b0room29light29on))) -> (X (F (((u0room29light0f1dturn2on1b) || (u0room29light0f1dtoggle1b)) R (p0b0room29light29off))))))) -> (G ((p0p0bright0outside29brightness) -> (((p0b0switch29toggled) && (p0b0room29light29off)) -> (X (F (((p0b0room29light29on) U ((p0b0switch29toggled) || (p0b0room29empty))) || (G (p0b0room29light29on))))))))))","total_time":53,"automaton":{"is_built":true,"build_duration":8,"total_states":13,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":13,"total_edges":40},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":44,"realizability":"REALIZABLE","total_inputs":7,"total_outputs":4,"total_latches":3,"total_gates":198},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

@@ -1,0 +1,30 @@
+REALIZABLE
+aag 7 7 0 7 0
+2
+4
+6
+8
+10
+12
+14
+1
+0
+0
+1
+0
+0
+0
+i0 p0p0too2high0room29co252level
+i1 p0p0all2windows2closed0room
+i2 p0b0room29warnlight29off
+i3 p0b0room29warnlight29on
+i4 p0b0timeout
+i5 p0b0room29window29closed
+i6 p0b0room29window29opened
+o0 u0room29warnlight29control0f1dturn2off1b
+o1 u0room29warnlight29control0f1dturn2on1b
+o2 u0room29warnlight29control0room29warnlight29control
+o3 u0system29start2new2timer0f1dmin25231b
+o4 u0system29start2new2timer0f1dhour241b
+o5 u0system29start2new2timer0f1dhour251b
+o6 u0system29start2new2timer0system29start2new2timer

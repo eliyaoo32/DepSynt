@@ -1,0 +1,25 @@
+REALIZABLE
+aag 8 6 1 4 1
+2
+4
+6
+8
+10
+12
+14 17
+0
+0
+1
+0
+16 8 15
+i0 p0b0room29empty
+i1 p0b0room29somebody2leaves
+i2 p0b0room29somebody2enters
+i3 p0b0cm29ready
+i4 p0b0cm29busy
+i5 p0b0cm29standby
+l0 l0
+o0 u0cm29ctrl0f1dturn2off1b
+o1 u0cm29ctrl0f1dmake2coffee1b
+o2 u0cm29ctrl0f1dturn2on1b
+o3 u0cm29ctrl0cm29ctrl

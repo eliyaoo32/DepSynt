@@ -1,0 +1,63 @@
+aag 49 4 3 4 42
+2
+4
+6
+8
+10 67
+12 91
+14 98
+20
+26
+30
+36
+16 13 14
+18 11 16
+20 2 18
+22 12 15
+24 10 22
+26 4 24
+28 11 22
+30 6 28
+32 13 15
+34 10 32
+36 8 34
+38 11 32
+40 8 38
+42 8 32
+44 9 38
+46 45 43
+48 11 15
+50 8 48
+52 9 28
+54 53 51
+56 6 55
+58 7 47
+60 59 57
+62 4 61
+64 5 40
+66 65 63
+68 45 37
+70 6 69
+72 29 35
+74 8 73
+76 9 48
+78 77 75
+80 6 79
+82 7 69
+84 83 81
+86 4 85
+88 5 70
+90 89 87
+92 83 31
+94 5 93
+96 95 27
+98 2 97
+i0 r_0
+i1 r_1
+i2 r_2
+i3 r_3
+o0 g_0
+o1 g_1
+o2 g_2
+o3 g_3
+{"is_completed":true,"output_vars":["g_0","g_1","g_2","g_3"],"input_vars":["r_0","r_1","r_2","r_3"],"formula":"((G ((((((((r_0) && (! (g_0))) -> (X (r_0))) && (((! (r_0)) && (g_0)) -> (X (! (r_0))))) && (F (! ((r_0) && (g_0))))) && (((((r_1) && (! (g_1))) -> (X (r_1))) && (((! (r_1)) && (g_1)) -> (X (! (r_1))))) && (F (! ((r_1) && (g_1)))))) && (((((r_2) && (! (g_2))) -> (X (r_2))) && (((! (r_2)) && (g_2)) -> (X (! (r_2))))) && (F (! ((r_2) && (g_2)))))) && (((((r_3) && (! (g_3))) -> (X (r_3))) && (((! (r_3)) && (g_3)) -> (X (! (r_3))))) && (F (! ((r_3) && (g_3))))))) -> (((((G ((((! (g_0)) && (! (g_1))) && (((! (g_2)) && (true)) || ((true) && (! (g_3))))) || ((((! (g_0)) && (true)) || ((true) && (! (g_1)))) && ((! (g_2)) && (! (g_3)))))) && (G ((r_0) -> (F (g_0))))) && (G ((r_1) -> (F (g_1))))) && (G ((r_2) -> (F (g_2))))) && (G ((r_3) -> (F (g_3))))))","total_time":64,"automaton":{"is_built":true,"build_duration":8,"total_states":55,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":55,"total_edges":487},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":false,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":55,"realizability":"REALIZABLE","total_inputs":4,"total_outputs":4,"total_latches":3,"total_gates":42},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

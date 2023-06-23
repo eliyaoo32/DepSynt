@@ -1,0 +1,9 @@
+trying to create strategy directly for G((in_0 <-> out_1) & (in_1 <-> out_2) & (in_2 <-> out_3) & (in_3 <-> out_4) & (in_4 <-> out_5) & (in_5 <-> out_6) & (in_6 <-> out_7) & (in_7 <-> out_8) & (in_8 <-> out_9) & (in_9 <-> out_0))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 0.0221303 seconds
+AIG circuit was created in 0.00202879 seconds and has 0 latches and 0 gates
+
+real	0m0.039s
+user	0m0.030s
+sys	0m0.009s

@@ -1,0 +1,19 @@
+trying to create strategy directly for G!grant | G(req -> Fack) | G(go -> Fgrant)
+direct strategy might exist but was not found.
+translating formula done in 0.000922029 seconds
+automaton has 6 states and 1 colors
+split inputs and outputs done in 9.2024e-05 seconds
+automaton has 15 states
+determinization done
+DPA has 37 states, 2 colors
+simplification done
+DPA has 37 states
+determinization and simplification took 0.00161885 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 5.6111e-05 seconds
+simplification took 0.000193779 seconds
+AIG circuit was created in 0.00013406 seconds and has 2 latches and 12 gates
+
+real	0m0.017s
+user	0m0.005s
+sys	0m0.010s

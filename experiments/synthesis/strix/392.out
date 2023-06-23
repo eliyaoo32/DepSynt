@@ -1,0 +1,50 @@
+UNREALIZABLE
+aag 29 4 3 6 22
+2
+4
+6
+8
+10 57
+12 58
+14 50
+0
+23
+18
+26
+0
+28
+16 12 14
+18 11 17
+20 12 17
+22 19 21
+24 13 15
+26 18 25
+28 23 27
+30 10 15
+32 7 9
+34 4 33
+36 6 8
+38 5 32
+40 3 37
+42 35 40
+44 39 42
+46 2 38
+48 45 47
+50 26 49
+52 18 45
+54 51 52
+56 31 55
+58 28 49
+i0 u02timer29start2new2timer0f1d2timer29hour251b
+i1 u02timer29start2new2timer0f1d2timer29hour241b
+i2 u02timer29start2new2timer0f1d2timer29min25231b
+i3 u02timer29start2new2timer02timer29start2new2timer
+l0 l0
+l1 l1
+l2 l2
+o0 p0b02room2light29off
+o1 p0b02timer29timeout
+o2 p0b02room29somebody2leaves
+o3 p0b02room29somebody2enters
+o4 p0b02room29switch29toggled
+o5 p0b02room29empty

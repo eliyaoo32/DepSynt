@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u02door29ctrl0f1dunlock1b & !((u02door29ctrl02door29ctrl & !u02door29ctrl0f1dlock1b) <-> (!u02door29ctrl02door29ctrl & u02door29ctrl0f1dlock1b))) <-> (u02door29ctrl0f1dunlock1b & !(u02door29ctrl02door29ctrl | u02door29ctrl0f1dlock1b))) & ((G(p0b02door29locked <-> !p0b02door29unlocked) & G(u02door29ctrl0f1dunlock1b -> X(p0b02door29reaching2unlocked U ((p0b02door29unlocked U u02door29ctrl0f1dlock1b) | Gp0b02door29unlocked))) & G(u02door29ctrl0f1dlock1b -> X(p0b02door29reaching2locked U ((p0b02door29locked U u02door29ctrl0f1dunlock1b) | Gp0b02door29locked)))) -> G(p0b02firesensor29fire -> X(p0b02door29reaching2unlocked U (Gp0b02door29unlocked | (p0b02door29unlocked U p0b02firesensor29fire2extinquished)))))
+direct strategy might exist but was not found.
+translating formula done in 0.00263948 seconds
+automaton has 10 states and 1 colors
+split inputs and outputs done in 0.000720707 seconds
+automaton has 30 states
+determinization done
+DPA has 132 states, 4 colors
+simplification done
+DPA has 106 states
+determinization and simplification took 0.0027773 seconds
+solving game with acceptance: parity min even 4
+game solved in 0.000147058 seconds
+simplification took 0.000164427 seconds
+AIG circuit was created in 0.000450242 seconds and has 3 latches and 172 gates
+
+real	0m0.021s
+user	0m0.009s
+sys	0m0.009s

@@ -1,0 +1,36 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 27 2 6 2 19
+2
+4
+6 1
+8 0
+10 47
+12 50
+14 52
+16 54
+18
+40
+18 5 2
+20 9 6
+22 20 15
+24 22 11
+26 25 4
+28 27 2
+30 20 17
+32 12 5
+34 15 11
+36 34 33
+38 36 30
+40 39 29
+42 4 2
+44 42 23
+46 45 11
+48 22 13
+50 49 5
+52 43 23
+54 43 31
+i0 p0b0c
+i1 p0b0a
+o0 u0out250f1dfun0p1db0a1b1b
+o1 u0out250out25
+{"is_completed":true,"output_vars":["u0out250f1dfun0p1db0a1b1b","u0out250out25"],"input_vars":["p0b0c","p0b0a"],"formula":"((G (! (((u0out250out25) && (! (u0out250f1dfun0p1db0a1b1b))) <-> ((u0out250f1dfun0p1db0a1b1b) && (! (u0out250out25)))))) && (((G (F (p0b0a))) && (G (! ((p0b0a) && (p0b0c))))) -> (G ((p0b0c) <-> (u0out250f1dfun0p1db0a1b1b)))))","total_time":80,"automaton":{"is_built":true,"build_duration":1,"total_states":5,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":5,"total_edges":10},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u0out250out25","duration":0,"is_dependent":true,"tested_dependency_set":["p0b0c","p0b0a","u0out250f1dfun0p1db0a1b1b"]},{"name":"u0out250f1dfun0p1db0a1b1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b0c","p0b0a"]}],"total_duration":0,"is_completed":true,"skipped_dependencies":false,"total_pair_state":9,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":0,"model_checking_status":"UNKNOWN","merge_strategies_duration":76,"final_strategy":{"duration":0,"total_inputs":3,"total_outputs":1,"total_latches":5,"total_gates":44},"independent_strategy":{"duration":2,"realizability":"REALIZABLE","total_inputs":2,"total_outputs":1,"total_latches":0,"total_gates":1},"dependent_strategy":{"duration":0,"total_inputs":3,"total_outputs":1,"total_latches":5,"total_gates":44}}}

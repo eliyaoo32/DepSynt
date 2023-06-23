@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!u0sdi0f1dhigh1b & !((!u0sdi0f1dget2bit0read2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b & u0sdi0sdi) <-> (u0sdi0f1dget2bit0read2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b & !u0sdi0sdi))) <-> (u0sdi0f1dhigh1b & !(u0sdi0f1dget2bit0read2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b | u0sdi0sdi))) & ((G!(p0p0eq0counter0f1dtwo1b & p0p0gte0counter0f1dfour1b) & G!(p0p0eq0counter0f1dthree1b & p0p0gte0counter0f1dfour1b)) -> (G((p0p0eq0counter0f1dthree1b | p0p0eq0counter0f1dtwo1b) -> u0sdi0f1dhigh1b) & G(u0sdi0f1dget2bit0read2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b <-> (p0p0gte0counter0f1dfour1b & p0p0lte0counter0f1dseventeen1b))))
+direct strategy might exist but was not found.
+translating formula done in 0.0119352 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000209114 seconds
+automaton has 9 states
+determinization done
+DPA has 9 states, 2 colors
+simplification done
+DPA has 9 states
+determinization and simplification took 8.2471e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 5.342e-05 seconds
+simplification took 0.000188242 seconds
+AIG circuit was created in 0.000134392 seconds and has 0 latches and 3 gates
+
+real	0m0.274s
+user	0m0.017s
+sys	0m0.016s

@@ -1,0 +1,22 @@
+aag 4 2 0 7 2
+2
+4
+1
+3
+2
+0
+2
+6
+8
+6 3 4
+8 3 5
+i0 p0p0on0reset
+i1 p0p0on0clock
+o0 u0color0incolor
+o1 u0angle0angle
+o2 u0angle0resetangle
+o3 u0color0color
+o4 u0radius0f1dstartradius1b
+o5 u0radius0f1ddec0radius1b
+o6 u0radius0radius
+{"is_completed":true,"output_vars":["u0radius0f1ddec0radius1b","u0radius0f1dstartradius1b","u0radius0radius","u0color0incolor","u0color0color","u0angle0resetangle","u0angle0angle"],"input_vars":["p0p0on0reset","p0p0on0clock"],"formula":"(((((G (((! (((u0angle0angle) && (! (u0angle0resetangle))) <-> ((u0angle0resetangle) && (! (u0angle0angle))))) && (! (((u0color0color) && (! (u0color0incolor))) <-> ((u0color0incolor) && (! (u0color0color)))))) && (! (((u0radius0f1dstartradius1b) && (! ((u0radius0f1ddec0radius1b) || (u0radius0radius)))) <-> ((! (((u0radius0f1ddec0radius1b) && (! (u0radius0radius))) <-> ((u0radius0radius) && (! (u0radius0f1ddec0radius1b))))) && (! (u0radius0f1dstartradius1b))))))) && (G (u0color0incolor))) && (G ((p0p0on0reset) <-> (u0radius0f1dstartradius1b)))) && (G ((p0p0on0reset) <-> (u0angle0resetangle)))) && (G (((p0p0on0clock) && (! (p0p0on0reset))) <-> (u0radius0f1ddec0radius1b))))","total_time":1,"automaton":{"is_built":true,"build_duration":0,"total_states":1,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":1,"total_edges":1},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":false,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":0,"realizability":"REALIZABLE","total_inputs":2,"total_outputs":7,"total_latches":0,"total_gates":2},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

@@ -1,0 +1,34 @@
+there are 2 subformulas
+trying to create strategy directly for G!((u0sitting2arrganent0f1dgenerate0calendar1b & !u0sitting2arrganent0sitting2arrganent) <-> (!u0sitting2arrganent0f1dgenerate0calendar1b & u0sitting2arrganent0sitting2arrganent)) & (GFp0p0new2day0time -> G(p0p0new2day0time -> u0sitting2arrganent0f1dgenerate0calendar1b))
+direct strategy might exist but was not found.
+translating formula done in 0.000497959 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 2.827e-05 seconds
+automaton has 13 states
+determinization done
+DPA has 11 states, 2 colors
+simplification done
+DPA has 8 states
+determinization and simplification took 0.000770691 seconds
+solving game with acceptance: Rabin 1
+game solved in 2.9342e-05 seconds
+simplification took 3.2119e-05 seconds
+trying to create strategy directly for G!((u0sitting2arragment0f1dsitting02arragment1b & !u0sitting2arragment0sitting2arragment) <-> (!u0sitting2arragment0f1dsitting02arragment1b & u0sitting2arragment0sitting2arragment)) & (GFp0p0new2day0time -> G(p0p0new2day0time -> X(u0sitting2arragment0f1dsitting02arragment1b U p0p0new2day0time)))
+direct strategy might exist but was not found.
+translating formula done in 0.000938466 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 5.1694e-05 seconds
+automaton has 16 states
+determinization done
+DPA has 16 states, 2 colors
+simplification done
+DPA has 11 states
+determinization and simplification took 0.00145608 seconds
+solving game with acceptance: Rabin 1
+game solved in 5.3853e-05 seconds
+simplification took 4.644e-05 seconds
+AIG circuit was created in 4.4292e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.027s
+user	0m0.004s
+sys	0m0.009s

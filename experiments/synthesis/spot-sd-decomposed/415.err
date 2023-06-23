@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u0coffe2machine0coffe2machine & u0coffe2machine0f1doff1b) <-> (u0coffe2machine0coffe2machine & !u0coffe2machine0f1doff1b)) & (GFp0p0new2day0time -> (G((((p0p0cleaned0dish2washer2status | p0p0full0dish2washerstatus | p0p0new2day0time) -> u0coffe2machine0f1doff1b) U p0p0empty0dish2washer2status) | G((p0p0cleaned0dish2washer2status | p0p0full0dish2washerstatus | p0p0new2day0time) -> u0coffe2machine0f1doff1b)) & G((p0p0is2meeting0calendar & p0p0is2presentation0calendar) -> u0coffe2machine0f1doff1b)))
+direct strategy might exist but was not found.
+translating formula done in 0.00205539 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 0.000710014 seconds
+automaton has 15 states
+determinization done
+DPA has 21 states, 2 colors
+simplification done
+DPA has 14 states
+determinization and simplification took 0.00166402 seconds
+solving game with acceptance: Rabin 1
+game solved in 3.8744e-05 seconds
+simplification took 6.6922e-05 seconds
+AIG circuit was created in 7.1575e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.020s
+user	0m0.009s
+sys	0m0.011s

@@ -1,0 +1,67 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 51 1 10 6 40
+2
+4 73
+6 76
+8 1
+10 39
+12 85
+14 86
+16 88
+18 94
+20 96
+22 103
+26
+30
+32
+26
+52
+68
+24 4 2
+26 25 7
+28 7 4
+30 28 2
+32 6 5
+34 21 19
+36 34 23
+38 11 8
+40 17 13
+42 40 38
+44 42 36
+46 45 6
+48 14 3
+50 49 47
+52 51 27
+54 49 21
+56 54 40
+58 56 38
+60 58 19
+62 60 23
+64 7 3
+66 65 4
+68 66 63
+70 28 3
+72 71 33
+74 4 3
+76 75 7
+78 28 18
+80 79 21
+82 81 2
+84 83 38
+86 39 26
+88 41 33
+90 41 32
+92 91 19
+94 93 31
+96 20 3
+98 30 26
+100 99 22
+102 101 49
+i0 p0b0in24
+o0 u0a0f1dval241b
+o1 u0a0f1dval251b
+o2 u0b0f1dval241b
+o3 u0b0f1dval251b
+o4 u0a0a
+o5 u0b0b
+{"is_completed":true,"output_vars":["u0b0f1dval251b","u0b0f1dval241b","u0b0b","u0a0f1dval251b","u0a0f1dval241b","u0a0a"],"input_vars":["p0b0in24"],"formula":"((G ((! (((u0a0f1dval241b) && (! ((u0a0f1dval251b) || (u0a0a)))) <-> ((! (((u0a0f1dval251b) && (! (u0a0a))) <-> ((u0a0a) && (! (u0a0f1dval251b))))) && (! (u0a0f1dval241b))))) && (! (((u0b0f1dval241b) && (! ((u0b0f1dval251b) || (u0b0b)))) <-> ((! (((u0b0f1dval251b) && (! (u0b0b))) <-> ((u0b0b) && (! (u0b0f1dval251b))))) && (! (u0b0f1dval241b))))))) && ((G (((u0a0f1dval241b) && (u0b0f1dval251b)) -> (X (p0b0in24)))) -> (((G (F (p0b0in24))) && (G (F (u0a0f1dval251b)))) && (G (F (u0b0f1dval241b))))))","total_time":119,"automaton":{"is_built":true,"build_duration":2,"total_states":7,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":7,"total_edges":18},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u0a0a","duration":0,"is_dependent":true,"tested_dependency_set":["p0b0in24","u0b0f1dval251b","u0b0f1dval241b","u0b0b","u0a0f1dval251b","u0a0f1dval241b"]},{"name":"u0a0f1dval241b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b0in24","u0b0f1dval251b","u0b0f1dval241b","u0b0b","u0a0f1dval251b"]},{"name":"u0a0f1dval251b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b0in24","u0b0f1dval251b","u0b0f1dval241b","u0b0b","u0a0f1dval241b"]},{"name":"u0b0b","duration":0,"is_dependent":true,"tested_dependency_set":["p0b0in24","u0b0f1dval251b","u0b0f1dval241b","u0a0f1dval241b","u0a0f1dval251b"]},{"name":"u0b0f1dval241b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b0in24","u0b0f1dval251b","u0a0f1dval241b","u0a0f1dval251b"]},{"name":"u0b0f1dval251b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b0in24","u0a0f1dval241b","u0a0f1dval251b","u0b0f1dval241b"]}],"total_duration":1,"is_completed":true,"skipped_dependencies":false,"total_pair_state":28,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":0,"model_checking_status":"UNKNOWN","merge_strategies_duration":111,"final_strategy":{"duration":0,"total_inputs":5,"total_outputs":2,"total_latches":7,"total_gates":152},"independent_strategy":{"duration":2,"realizability":"REALIZABLE","total_inputs":1,"total_outputs":4,"total_latches":2,"total_gates":14},"dependent_strategy":{"duration":0,"total_inputs":5,"total_outputs":2,"total_latches":7,"total_gates":152}}}

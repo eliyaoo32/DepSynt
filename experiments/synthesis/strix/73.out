@@ -1,0 +1,18 @@
+REALIZABLE
+aag 2 2 0 6 0
+2
+4
+4
+5
+0
+4
+5
+0
+i0 p0p0slow0speed
+i1 p0p0clear2ahead0track
+o0 u0brakes0f1doff2brakes1b
+o1 u0brakes0f1dhit2brakes1b
+o2 u0brakes0brakes
+o3 u0accel0f1dspeed2up1b
+o4 u0accel0f1ddeaccel1b
+o5 u0accel0accel

@@ -1,0 +1,19 @@
+trying to create strategy directly for (G(!r1 | !r2) & G(!r1 | !r3) & G(!r1 | !r4) & G(!r2 | !r3) & G(!r2 | !r4) & G(!r3 | !r4)) -> G((!g1 | !g2) & (!g1 | !g3) & (!g1 | !g4) & (!g2 | !g3) & (!g2 | !g4) & (!g3 | !g4) & G(r1 -> (Xg1 | XXg1 | XXXg1)) & G(r2 -> (Xg2 | XXg2 | XXXg2)) & G(r3 -> (Xg3 | XXg3 | XXXg3)) & G(r4 -> (Xg4 | XXg4 | XXXg4)))
+direct strategy might exist but was not found.
+translating formula done in 0.0942501 seconds
+automaton has 75 states and 1 colors
+split inputs and outputs done in 0.00159581 seconds
+automaton has 371 states
+determinization done
+DPA has 371 states, 2 colors
+simplification done
+DPA has 371 states
+determinization and simplification took 0.000511747 seconds
+solving game with acceptance: Streett 1
+game solved in 0.000137924 seconds
+simplification took 0.00186952 seconds
+AIG circuit was created in 0.00208187 seconds and has 6 latches and 747 gates
+
+real	0m0.115s
+user	0m0.096s
+sys	0m0.019s

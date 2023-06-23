@@ -1,0 +1,38 @@
+REALIZABLE
+aag 24 4 2 3 18
+2
+4
+6
+8
+10 43
+12 48
+38
+39
+0
+14 3 4
+16 6 9
+18 12 16
+20 7 8
+22 13 16
+24 21 23
+26 11 25
+28 19 27
+30 14 29
+32 2 5
+34 11 32
+36 18 34
+38 31 37
+40 11 24
+42 30 41
+44 15 33
+46 41 45
+48 29 46
+i0 p0p0unlocked02door29intent
+i1 p0p0locked02door29intent
+i2 p0b02door29unlocked
+i3 p0b02door29locked
+l0 l0
+l1 l1
+o0 u02door29door0f1d2door29unlock1b
+o1 u02door29door0f1d2door29lock1b
+o2 u02door29door02door29door

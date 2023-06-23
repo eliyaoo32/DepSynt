@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!((!u0part2control0f1dinit2on1b & !((!u0part2control0f1dacc2on1b & u0part2control0f1dno2cmd1b) <-> (u0part2control0f1dacc2on1b & !u0part2control0f1dno2cmd1b))) <-> (u0part2control0f1dinit2on1b & !(u0part2control0f1dacc2on1b | u0part2control0f1dno2cmd1b))) & !(u0part2control0f1dgyr2on1b | u0part2control0f1dmag2on1b | u0part2control0part2control)) <-> (!((!u0part2control0f1dgyr2on1b & !((u0part2control0f1dmag2on1b & !u0part2control0part2control) <-> (!u0part2control0f1dmag2on1b & u0part2control0part2control))) <-> (u0part2control0f1dgyr2on1b & !(u0part2control0f1dmag2on1b | u0part2control0part2control))) & !(u0part2control0f1dacc2on1b | u0part2control0f1dinit2on1b | u0part2control0f1dno2cmd1b))) & ((G(u0part2control0f1dacc2on1b -> XFp0p0on0acc2finished) & G(u0part2control0f1dgyr2on1b -> XFp0p0on0gyr2finished) & G(u0part2control0f1dmag2on1b -> XFp0p0on0mag2finished) & G(u0part2control0f1dinit2on1b -> XFp0p0on0init2finished)) -> (u0part2control0f1dinit2on1b & G(u0part2control0f1dinit2on1b -> XG!u0part2control0f1dinit2on1b) & G(!(p0p0on0acc2finished | p0p0on0gyr2finished | p0p0on0init2finished | p0p0on0mag2finished | u0part2control0f1dinit2on1b) -> u0part2control0f1dno2cmd1b) & GFu0part2control0f1dacc2on1b & GFu0part2control0f1dgyr2on1b & GFu0part2control0f1dmag2on1b))
+direct strategy might exist but was not found.
+translating formula done in 0.00736721 seconds
+automaton has 7 states and 3 colors
+split inputs and outputs done in 0.000609194 seconds
+automaton has 17 states
+determinization done
+DPA has 390 states, 3 colors
+simplification done
+DPA has 390 states
+determinization and simplification took 0.010242 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.000287674 seconds
+simplification took 0.000486838 seconds
+AIG circuit was created in 0.000642954 seconds and has 4 latches and 289 gates
+
+real	0m0.176s
+user	0m0.021s
+sys	0m0.014s

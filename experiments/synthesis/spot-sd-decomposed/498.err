@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(((!request_0 & !request_1 & !request_2) -> F(!grant_0 & !grant_1 & !grant_2 & !grant_3)) & ((request_0 & !request_1 & !request_2) -> F(grant_0 & !grant_1 & !grant_2 & !grant_3)) & ((!request_0 & request_1 & !request_2) -> F(!grant_0 & grant_1 & !grant_2 & !grant_3)) & ((request_0 & request_1 & !request_2) -> F(grant_0 & grant_1 & !grant_2 & !grant_3)) & ((!request_0 & !request_1 & request_2) -> F(!grant_0 & !grant_1 & grant_2 & !grant_3)) & ((request_0 & !request_1 & request_2) -> F(grant_0 & !grant_1 & grant_2 & !grant_3)) & ((!request_0 & request_1 & request_2) -> F(!grant_0 & grant_1 & grant_2 & !grant_3)) & ((request_0 & request_1 & request_2) -> F(grant_0 & grant_1 & grant_2 & !grant_3))) & GF((grant_0 <-> Xgrant_0) & (grant_1 <-> Xgrant_1) & (grant_2 <-> Xgrant_2))
+direct strategy might exist but was not found.
+translating formula done in 0.181796 seconds
+automaton has 2048 states and 9 colors
+split inputs and outputs done in 0.0540359 seconds
+automaton has 4088 states
+determinization done
+DPA has 20472 states, 2 colors
+simplification done
+DPA has 13551 states
+determinization and simplification took 0.103092 seconds
+solving game with acceptance: Streett 1
+game solved in 0.0117184 seconds
+simplification took 0.123246 seconds
+AIG circuit was created in 0.0603012 seconds and has 10 latches and 16771 gates
+
+real	0m0.585s
+user	0m0.544s
+sys	0m0.036s

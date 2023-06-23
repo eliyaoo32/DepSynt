@@ -1,0 +1,8 @@
+aag 1 1 0 2 0
+2
+0
+1
+i0 p0b02maschine2b29failed
+o0 u02maschine2a29intent02maschine2a29intent
+o1 u02maschine2a29intent0f1dstop1b
+{"is_completed":true,"output_vars":["u02maschine2a29intent0f1dstop1b","u02maschine2a29intent02maschine2a29intent"],"input_vars":["p0b02maschine2b29failed"],"formula":"((G (! (((u02maschine2a29intent02maschine2a29intent) && (! (u02maschine2a29intent0f1dstop1b))) <-> ((u02maschine2a29intent0f1dstop1b) && (! (u02maschine2a29intent02maschine2a29intent)))))) && (G ((p0b02maschine2b29failed) -> (u02maschine2a29intent0f1dstop1b))))","total_time":0,"automaton":{"is_built":true,"build_duration":0,"total_states":1,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":1,"total_edges":1},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":false,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":0,"realizability":"REALIZABLE","total_inputs":1,"total_outputs":2,"total_latches":0,"total_gates":0},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

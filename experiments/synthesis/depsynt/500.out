@@ -1,0 +1,86 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 77 2 14 2 61
+2
+4
+6 99
+8 102
+10 1
+12 0
+14 114
+16 118
+18 126
+20 131
+22 132
+24 105
+26 139
+28 140
+30 145
+32 155
+38
+91
+34 7 3
+36 35 4
+38 37 8
+40 39 3
+42 20 3
+44 42 40
+46 4 2
+48 29 27
+50 48 31
+52 51 46
+54 53 45
+56 5 2
+58 56 39
+60 58 28
+62 49 40
+64 63 61
+66 58 26
+68 13 10
+70 68 17
+72 71 5
+74 47 30
+76 33 25
+78 76 68
+80 78 75
+82 80 73
+84 83 39
+86 85 67
+88 86 64
+90 88 54
+92 9 7
+94 8 6
+96 95 3
+98 96 93
+100 97 4
+102 101 93
+104 68 25
+106 104 23
+108 17 15
+110 108 106
+112 38 5
+114 112 111
+116 104 17
+118 117 5
+120 21 19
+122 120 106
+124 38 3
+126 124 123
+128 105 3
+130 129 43
+132 107 38
+134 32 4
+136 135 68
+138 136 53
+140 49 38
+142 30 3
+144 143 63
+146 56 30
+148 32 5
+150 149 147
+152 150 61
+154 152 67
+i0 b
+i1 a
+o0 p1
+o1 p0
+{"is_completed":true,"output_vars":["p1","p0"],"input_vars":["b","a"],"formula":"((G ((p0) <-> (! (p1)))) && ((G ((F (a)) && (F (b)))) <-> (G (F (p0)))))","total_time":87,"automaton":{"is_built":true,"build_duration":2,"total_states":11,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":11,"total_edges":35},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"p0","duration":0,"is_dependent":true,"tested_dependency_set":["b","a","p1"]},{"name":"p1","duration":0,"is_dependent":false,"tested_dependency_set":["b","a"]}],"total_duration":0,"is_completed":true,"skipped_dependencies":false,"total_pair_state":50,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":0,"model_checking_status":"UNKNOWN","merge_strategies_duration":81,"final_strategy":{"duration":0,"total_inputs":3,"total_outputs":1,"total_latches":11,"total_gates":98},"independent_strategy":{"duration":2,"realizability":"REALIZABLE","total_inputs":2,"total_outputs":1,"total_latches":2,"total_gates":12},"dependent_strategy":{"duration":0,"total_inputs":3,"total_outputs":1,"total_latches":11,"total_gates":98}}}

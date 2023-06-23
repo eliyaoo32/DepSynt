@@ -1,0 +1,166 @@
+UNREALIZABLE
+aag 49 48 1 33 0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+26
+28
+30
+32
+34
+36
+38
+40
+42
+44
+46
+48
+50
+52
+54
+56
+58
+60
+62
+64
+66
+68
+70
+72
+74
+76
+78
+80
+82
+84
+86
+88
+90
+92
+94
+96
+98 1
+0
+1
+1
+0
+1
+0
+1
+0
+1
+1
+0
+0
+1
+1
+1
+1
+1
+0
+1
+0
+1
+1
+0
+0
+1
+1
+1
+0
+0
+0
+1
+1
+0
+i0 u0cleaning2robot0f1dclean1b
+i1 u0cleaning2robot0f1doff1b
+i2 u0cleaning2robot0cleaning2robot
+i3 u0call2center0f1dfacility2mangment0f1dclean1b0time1b
+i4 u0call2center0call2center
+i5 u0sitting2arragment0f1dsitting02arragment1b
+i6 u0sitting2arragment0sitting2arragment
+i7 u0sitting2arrganent0f1dgenerate0calendar1b
+i8 u0sitting2arrganent0sitting2arrganent
+i9 u0window2control0f1duse1b
+i10 u0window2control0f1dignore1b
+i11 u0window2control0window2control
+i12 u0music0music
+i13 u0music0on
+i14 u0doorlock0f1dclose1b
+i15 u0doorlock0f1dopen1b
+i16 u0doorlock0doorlock
+i17 u0presence2timer0f1dinc0presence2timer1b
+i18 u0presence2timer0f1dzero1b
+i19 u0presence2timer0presence2timer
+i20 u0blinder2type0f1douter1b
+i21 u0blinder2type0f1dinner1b
+i22 u0blinder2type0outer
+i23 u0blinder2type0blinder2type
+i24 u0blinders0f1dclosed1b
+i25 u0blinders0blinders
+i26 u0blinders0closed
+i27 u0coffe2machine0f1doff1b
+i28 u0coffe2machine0coffe2machine
+i29 u0dish2washer0dish2washer
+i30 u0dish2washer0on
+i31 u0heating0f1dturn2up0heating1b
+i32 u0heating0f1dturn2down0heating1b
+i33 u0heating0f1dzero1b
+i34 u0heating0heating
+i35 u0window0f1dclose1b
+i36 u0window0f1dopen1b
+i37 u0window0close
+i38 u0window0window
+i39 u0light2color0f1d2normal1b
+i40 u0light2color0f1d2green1b
+i41 u0light2color0light2color
+i42 u0timer0f1dinc2timer0timer0time0date1b
+i43 u0timer0f1dreset0tenminutes1b
+i44 u0timer0timer
+i45 u0light0f1don1b
+i46 u0light0f1doff1b
+i47 u0light0light
+l0 l0
+o0 p0p0lt0temperature0value
+o1 p0p0lt0temeprature0value
+o2 p0p0eq0temeperature0value
+o3 p0p0eq0temperature0value
+o4 p0p0gt0presence2timer0fivemin
+o5 p0p0gt0temperature0value
+o6 p0p0gt0temeprature0value
+o7 p0p0gt0light0th
+o8 p0p0work0time
+o9 p0p0is2full0trash2bin
+o10 p0p0run2out0timer
+o11 p0p0is2opened0window
+o12 p0p0rush2hour0time
+o13 p0p0is2presentation0calendar
+o14 p0p0is2meeting0calendar
+o15 p0p0is2opende2insight0keylock
+o16 p0p0is2key2opened0keylock
+o17 p0p0is2empty0presence2sensor
+o18 p0p0sunlight0screenlightsensor
+o19 p0p0empty0dish2washer2status
+o20 p0p0cleaned0dish2washer2status
+o21 p0p0full0dish2washerstatus
+o22 p0p0full0dish2washer2status
+o23 p0p0after2work0time
+o24 p0p0is2raining0weather
+o25 p0p0is2bad0air2quality
+o26 p0p0daily2workload2archieved0timer
+o27 p0p0see2person0webcame
+o28 p0p0work2time0time
+o29 p0p0has2person02printer2room2m2s
+o30 p0p0new2day0time
+o31 p0b0fire
+o32 p0b02person2in2offic

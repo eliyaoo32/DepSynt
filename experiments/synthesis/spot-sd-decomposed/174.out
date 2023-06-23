@@ -1,0 +1,11 @@
+REALIZABLE
+aag 3 2 1 2 0
+2
+4
+6 1
+6
+0
+i0 req
+i1 cancel
+o0 grant
+o1 ack

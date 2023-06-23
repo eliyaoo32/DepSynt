@@ -1,0 +1,469 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 445 7 15 7 423
+2
+4
+6
+8
+10
+12
+14
+16 790
+18 823
+20 831
+22 1
+24 0
+26 839
+28 843
+30 844
+32 311
+34 853
+36 859
+38 877
+40 881
+42 891
+44 326
+73
+74
+0
+172
+249
+565
+757
+46 12 11
+48 13 10
+50 49 47
+52 6 4
+54 20 17
+56 20 18
+58 21 19
+60 59 57
+62 60 55
+64 8 4
+66 65 15
+68 66 63
+70 69 53
+72 71 51
+74 52 51
+76 59 16
+78 77 55
+80 14 2
+82 80 79
+84 56 16
+86 85 55
+88 15 2
+90 88 87
+92 21 18
+94 92 17
+96 94 3
+98 97 91
+100 98 83
+102 13 9
+104 102 10
+106 104 101
+108 20 16
+110 18 17
+112 111 109
+114 113 14
+116 115 57
+118 9 2
+120 118 12
+122 120 11
+124 122 117
+126 125 107
+128 126 53
+130 88 84
+132 58 17
+134 132 3
+136 93 16
+138 137 111
+140 139 2
+142 141 135
+144 143 14
+146 145 131
+148 12 9
+150 148 11
+152 150 147
+154 111 15
+156 155 104
+158 21 17
+160 159 3
+162 158 2
+164 163 161
+166 164 156
+168 167 52
+170 168 153
+172 171 129
+174 117 3
+176 175 148
+178 177 11
+180 94 2
+182 87 15
+184 79 14
+186 185 183
+188 187 3
+190 189 181
+192 190 102
+194 193 10
+196 195 179
+198 7 4
+200 198 197
+202 191 102
+204 174 148
+206 205 51
+208 206 203
+210 209 5
+212 160 14
+214 17 15
+216 56 3
+218 216 214
+220 219 181
+222 220 213
+224 10 9
+226 224 223
+228 138 14
+230 85 15
+232 9 3
+234 232 11
+236 234 231
+238 236 229
+240 239 51
+242 240 227
+244 243 52
+246 245 211
+248 246 201
+250 51 5
+252 151 105
+254 253 4
+256 255 251
+258 257 7
+260 51 6
+262 261 259
+264 249 172
+266 265 75
+268 266 72
+270 268 262
+272 74 73
+274 273 262
+276 274 265
+278 276 32
+280 278 270
+282 249 127
+284 283 53
+286 51 8
+288 286 52
+290 288 265
+292 291 285
+294 293 34
+296 284 72
+298 296 294
+300 299 281
+302 25 22
+304 265 263
+306 304 303
+308 304 32
+310 309 307
+312 311 268
+314 312 263
+316 315 300
+318 75 72
+320 302 33
+322 321 263
+324 322 173
+326 324 249
+328 263 172
+330 328 248
+332 330 32
+334 333 327
+336 335 318
+338 28 15
+340 338 265
+342 30 13
+344 343 27
+346 345 265
+348 347 341
+350 349 268
+352 44 11
+354 352 273
+356 354 265
+358 356 268
+360 359 351
+362 360 337
+364 198 36
+366 364 265
+368 7 5
+370 368 265
+372 370 36
+374 373 367
+376 375 72
+378 303 276
+380 378 270
+382 381 377
+384 382 362
+386 232 53
+388 386 12
+390 388 266
+392 232 74
+394 392 12
+396 394 265
+398 397 391
+400 399 42
+402 390 72
+404 402 400
+406 53 9
+408 406 2
+410 408 12
+412 410 266
+414 120 74
+416 414 265
+418 417 413
+420 419 42
+422 412 72
+424 422 420
+426 425 405
+428 426 384
+430 428 316
+432 250 6
+434 433 259
+436 435 266
+438 437 291
+440 439 303
+442 436 72
+444 442 440
+446 406 266
+448 74 9
+450 448 265
+452 451 447
+454 453 40
+456 446 72
+458 456 454
+460 459 445
+462 53 8
+464 462 12
+466 464 266
+468 288 12
+470 468 265
+472 471 467
+474 473 42
+476 466 72
+478 476 474
+480 462 266
+482 481 291
+484 483 40
+486 480 72
+488 486 484
+490 489 479
+492 490 460
+494 408 266
+496 118 74
+498 496 265
+500 499 495
+502 501 40
+504 494 72
+506 504 502
+508 462 10
+510 508 266
+512 288 10
+514 512 265
+516 515 511
+518 517 38
+520 510 72
+522 520 518
+524 523 507
+526 386 10
+528 526 266
+530 392 10
+532 530 265
+534 533 529
+536 535 38
+538 528 72
+540 538 536
+542 408 10
+544 542 266
+546 496 10
+548 546 265
+550 549 545
+552 551 38
+554 544 72
+556 554 552
+558 557 541
+560 558 524
+562 560 492
+564 562 430
+566 248 173
+568 566 72
+570 498 303
+572 450 34
+574 573 571
+576 575 568
+578 566 375
+580 248 128
+582 566 288
+584 583 581
+586 585 294
+588 587 579
+590 588 577
+592 392 265
+594 592 34
+596 594 568
+598 566 273
+600 598 262
+602 600 378
+604 603 597
+606 598 263
+608 606 306
+610 600 278
+612 611 609
+614 612 604
+616 303 74
+618 616 254
+620 618 265
+622 620 568
+624 64 7
+626 625 51
+628 626 15
+630 628 273
+632 630 319
+634 632 265
+636 628 32
+638 636 566
+640 638 634
+642 598 356
+644 643 641
+646 644 623
+648 598 349
+650 606 308
+652 651 649
+654 652 646
+656 654 614
+658 566 75
+660 658 435
+662 661 583
+664 663 440
+666 658 406
+668 566 448
+670 669 667
+672 671 454
+674 673 665
+676 674 656
+678 676 590
+680 658 508
+682 566 512
+684 683 681
+686 685 518
+688 658 410
+690 566 414
+692 691 689
+694 693 420
+696 695 687
+698 658 464
+700 566 468
+702 701 699
+704 703 474
+706 658 388
+708 566 394
+710 709 707
+712 711 400
+714 713 705
+716 714 696
+718 658 526
+720 566 530
+722 721 719
+724 723 536
+726 658 542
+728 566 546
+730 729 727
+732 731 552
+734 733 725
+736 658 462
+738 737 583
+740 739 484
+742 658 408
+744 566 496
+746 745 743
+748 747 502
+750 749 741
+752 750 734
+754 752 716
+756 754 678
+758 59 14
+760 759 183
+762 386 51
+764 762 761
+766 61 17
+768 766 3
+770 769 15
+772 771 104
+774 133 85
+776 775 3
+778 777 15
+780 779 150
+782 781 773
+784 133 80
+786 785 52
+788 786 783
+790 789 765
+792 761 5
+794 132 2
+796 795 14
+798 775 12
+800 766 13
+802 801 799
+804 803 15
+806 805 797
+808 807 52
+810 809 793
+812 811 9
+814 761 9
+816 815 65
+818 817 7
+820 819 51
+822 820 813
+824 215 52
+826 825 58
+828 827 9
+830 829 626
+832 367 347
+834 832 357
+836 379 279
+838 836 834
+840 634 321
+842 841 341
+844 330 321
+846 519 295
+848 475 441
+850 848 485
+852 850 846
+854 321 286
+856 854 370
+858 857 373
+860 303 51
+862 860 592
+864 863 595
+866 864 401
+868 386 266
+870 869 593
+872 871 40
+874 873 537
+876 874 866
+878 621 573
+880 878 455
+882 498 34
+884 883 571
+886 884 421
+888 553 503
+890 888 886
+i0 p0p0too2high0room29co252level
+i1 p0p02window29all2windows2closed02window29room
+i2 p0b02window29closed
+i3 p0b02window29opened
+i4 p0b02warnlight29off
+i5 p0b02warnlight29on
+i6 p0b02timer29timeout
+o0 u02timer29start2new2timer0f1d2timer29min25231b
+o1 u02timer29start2new2timer0f1d2timer29hour241b
+o2 u02timer29start2new2timer0f1d2timer29hour251b
+o3 u02warnlight29control0f1d2warnlight29turn2on1b
+o4 u02warnlight29control0f1d2warnlight29turn2off1b
+o5 u02timer29start2new2timer02timer29start2new2timer
+o6 u02warnlight29control02warnlight29control
+{"is_completed":true,"output_vars":["u02warnlight29control0f1d2warnlight29turn2off1b","u02warnlight29control0f1d2warnlight29turn2on1b","u02warnlight29control02warnlight29control","u02timer29start2new2timer0f1d2timer29hour251b","u02timer29start2new2timer0f1d2timer29hour241b","u02timer29start2new2timer0f1d2timer29min25231b","u02timer29start2new2timer02timer29start2new2timer"],"input_vars":["p0p0too2high0room29co252level","p0p02window29all2windows2closed02window29room","p0b02window29closed","p0b02window29opened","p0b02warnlight29off","p0b02warnlight29on","p0b02timer29timeout"],"formula":"((G ((! (((! (((u02timer29start2new2timer0f1d2timer29hour241b) && (! (u02timer29start2new2timer02timer29start2new2timer))) <-> ((u02timer29start2new2timer02timer29start2new2timer) && (! (u02timer29start2new2timer0f1d2timer29hour241b))))) && (! ((u02timer29start2new2timer0f1d2timer29hour251b) || (u02timer29start2new2timer0f1d2timer29min25231b)))) <-> ((! (((u02timer29start2new2timer0f1d2timer29hour251b) && (! (u02timer29start2new2timer0f1d2timer29min25231b))) <-> ((u02timer29start2new2timer0f1d2timer29min25231b) && (! (u02timer29start2new2timer0f1d2timer29hour251b))))) && (! ((u02timer29start2new2timer0f1d2timer29hour241b) || (u02timer29start2new2timer02timer29start2new2timer)))))) && (! (((u02warnlight29control0f1d2warnlight29turn2on1b) && (! ((u02warnlight29control0f1d2warnlight29turn2off1b) || (u02warnlight29control02warnlight29control)))) <-> ((! (((u02warnlight29control0f1d2warnlight29turn2off1b) && (! (u02warnlight29control02warnlight29control))) <-> ((u02warnlight29control02warnlight29control) && (! (u02warnlight29control0f1d2warnlight29turn2off1b))))) && (! (u02warnlight29control0f1d2warnlight29turn2on1b))))))) && ((((((((G ((u02timer29start2new2timer0f1d2timer29min25231b) -> (F (p0b02timer29timeout)))) && (G ((u02timer29start2new2timer0f1d2timer29hour241b) -> (F (p0b02timer29timeout))))) && (G ((u02timer29start2new2timer0f1d2timer29hour251b) -> (F (p0b02timer29timeout))))) && (G ((p0b02warnlight29on) <-> (! (p0b02warnlight29off))))) && (G ((((u02warnlight29control0f1d2warnlight29turn2on1b) -> (X (p0b02warnlight29on))) U (u02warnlight29control0f1d2warnlight29turn2off1b)) || (G ((u02warnlight29control0f1d2warnlight29turn2on1b) -> (X (p0b02warnlight29on))))))) && (G ((((u02warnlight29control0f1d2warnlight29turn2off1b) -> (X (p0b02warnlight29off))) U (u02warnlight29control0f1d2warnlight29turn2on1b)) || (G ((u02warnlight29control0f1d2warnlight29turn2off1b) -> (X (p0b02warnlight29off))))))) && (G ((p0b02window29opened) -> (((! (p0p02window29all2windows2closed02window29room)) U (p0b02window29closed)) || (G (! (p0p02window29all2windows2closed02window29room))))))) -> (G (((p0b02window29closed) && (p0p02window29all2windows2closed02window29room)) -> ((u02timer29start2new2timer0f1d2timer29hour241b) && (F ((p0b02window29opened) || (F (((((p0p0too2high0room29co252level) -> (X (p0b02warnlight29on))) && ((! (p0p0too2high0room29co252level)) -> (X (p0b02warnlight29off)))) U (p0b02window29opened)) || (G (((p0p0too2high0room29co252level) -> (X (p0b02warnlight29on))) && ((! (p0p0too2high0room29co252level)) -> (X (p0b02warnlight29off))))))))))))))","total_time":226,"automaton":{"is_built":true,"build_duration":15,"total_states":11,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":11,"total_edges":36},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u02timer29start2new2timer02timer29start2new2timer","duration":2,"is_dependent":true,"tested_dependency_set":["p0p0too2high0room29co252level","p0p02window29all2windows2closed02window29room","p0b02window29closed","p0b02window29opened","p0b02warnlight29off","p0b02warnlight29on","p0b02timer29timeout","u02warnlight29control0f1d2warnlight29turn2off1b","u02warnlight29control0f1d2warnlight29turn2on1b","u02warnlight29control02warnlight29control","u02timer29start2new2timer0f1d2timer29hour251b","u02timer29start2new2timer0f1d2timer29hour241b","u02timer29start2new2timer0f1d2timer29min25231b"]},{"name":"u02timer29start2new2timer0f1d2timer29min25231b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0too2high0room29co252level","p0p02window29all2windows2closed02window29room","p0b02window29closed","p0b02window29opened","p0b02warnlight29off","p0b02warnlight29on","p0b02timer29timeout","u02warnlight29control0f1d2warnlight29turn2off1b","u02warnlight29control0f1d2warnlight29turn2on1b","u02warnlight29control02warnlight29control","u02timer29start2new2timer0f1d2timer29hour251b","u02timer29start2new2timer0f1d2timer29hour241b"]},{"name":"u02timer29start2new2timer0f1d2timer29hour241b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0too2high0room29co252level","p0p02window29all2windows2closed02window29room","p0b02window29closed","p0b02window29opened","p0b02warnlight29off","p0b02warnlight29on","p0b02timer29timeout","u02warnlight29control0f1d2warnlight29turn2off1b","u02warnlight29control0f1d2warnlight29turn2on1b","u02warnlight29control02warnlight29control","u02timer29start2new2timer0f1d2timer29hour251b","u02timer29start2new2timer0f1d2timer29min25231b"]},{"name":"u02timer29start2new2timer0f1d2timer29hour251b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0too2high0room29co252level","p0p02window29all2windows2closed02window29room","p0b02window29closed","p0b02window29opened","p0b02warnlight29off","p0b02warnlight29on","p0b02timer29timeout","u02warnlight29control0f1d2warnlight29turn2off1b","u02warnlight29control0f1d2warnlight29turn2on1b","u02warnlight29control02warnlight29control","u02timer29start2new2timer0f1d2timer29min25231b","u02timer29start2new2timer0f1d2timer29hour241b"]},{"name":"u02warnlight29control02warnlight29control","duration":2,"is_dependent":true,"tested_dependency_set":["p0p0too2high0room29co252level","p0p02window29all2windows2closed02window29room","p0b02window29closed","p0b02window29opened","p0b02warnlight29off","p0b02warnlight29on","p0b02timer29timeout","u02warnlight29control0f1d2warnlight29turn2off1b","u02warnlight29control0f1d2warnlight29turn2on1b","u02timer29start2new2timer0f1d2timer29min25231b","u02timer29start2new2timer0f1d2timer29hour241b","u02timer29start2new2timer0f1d2timer29hour251b"]},{"name":"u02warnlight29control0f1d2warnlight29turn2on1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0too2high0room29co252level","p0p02window29all2windows2closed02window29room","p0b02window29closed","p0b02window29opened","p0b02warnlight29off","p0b02warnlight29on","p0b02timer29timeout","u02warnlight29control0f1d2warnlight29turn2off1b","u02timer29start2new2timer0f1d2timer29min25231b","u02timer29start2new2timer0f1d2timer29hour241b","u02timer29start2new2timer0f1d2timer29hour251b"]},{"name":"u02warnlight29control0f1d2warnlight29turn2off1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0too2high0room29co252level","p0p02window29all2windows2closed02window29room","p0b02window29closed","p0b02window29opened","p0b02warnlight29off","p0b02warnlight29on","p0b02timer29timeout","u02timer29start2new2timer0f1d2timer29min25231b","u02timer29start2new2timer0f1d2timer29hour241b","u02timer29start2new2timer0f1d2timer29hour251b","u02warnlight29control0f1d2warnlight29turn2on1b"]}],"total_duration":5,"is_completed":true,"skipped_dependencies":false,"total_pair_state":48,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":3,"model_checking_status":"UNKNOWN","merge_strategies_duration":179,"final_strategy":{"duration":3,"total_inputs":12,"total_outputs":2,"total_latches":11,"total_gates":1108},"independent_strategy":{"duration":21,"realizability":"REALIZABLE","total_inputs":7,"total_outputs":5,"total_latches":3,"total_gates":246},"dependent_strategy":{"duration":3,"total_inputs":12,"total_outputs":2,"total_latches":11,"total_gates":1108}}}

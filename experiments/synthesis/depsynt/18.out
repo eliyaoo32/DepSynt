@@ -1,0 +1,62 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 45 6 5 4 34
+2
+4
+6
+8
+10
+12
+14 1
+16 0
+18 77
+20 78
+22 91
+33
+38
+42
+62
+24 13 11
+26 25 7
+28 24 5
+30 29 6
+32 31 27
+34 8 4
+36 24 7
+38 36 34
+40 6 2
+42 40 28
+44 41 35
+46 24 22
+48 46 44
+50 43 39
+52 17 14
+54 52 21
+56 54 19
+58 57 50
+60 59 49
+62 61 32
+64 51 33
+66 65 18
+68 25 8
+70 69 31
+72 65 55
+74 72 71
+76 75 67
+78 72 70
+80 70 53
+82 32 25
+84 83 44
+86 85 50
+88 87 22
+90 89 81
+i0 p0p0lte0counter0f1dthirtynine1b
+i1 p0p0lte0counter0f1dseventeen1b
+i2 p0p0gte0counter0f1dtwentyfour1b
+i3 p0p0gte0counter0f1dfour1b
+i4 p0p0eq0counter0f1dtwo1b
+i5 p0p0eq0counter0f1dthree1b
+o0 u0sdi0f1dlow1b
+o1 u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b
+o2 u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b
+o3 u0sdi0sdi
+{"is_completed":true,"output_vars":["u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b","u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b","u0sdi0f1dlow1b","u0sdi0sdi"],"input_vars":["p0p0lte0counter0f1dthirtynine1b","p0p0lte0counter0f1dseventeen1b","p0p0gte0counter0f1dtwentyfour1b","p0p0gte0counter0f1dfour1b","p0p0eq0counter0f1dtwo1b","p0p0eq0counter0f1dthree1b"],"formula":"((G (! (((! (((u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b) && (! (u0sdi0sdi))) <-> ((u0sdi0sdi) && (! (u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b))))) && (! ((u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b) || (u0sdi0f1dlow1b)))) <-> ((! (((u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b) && (! (u0sdi0f1dlow1b))) <-> ((u0sdi0f1dlow1b) && (! (u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b))))) && (! ((u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b) || (u0sdi0sdi))))))) && ((((((G (! ((p0p0gte0counter0f1dtwentyfour1b) && (p0p0lte0counter0f1dseventeen1b)))) && (G (! ((p0p0gte0counter0f1dfour1b) && (p0p0eq0counter0f1dtwo1b))))) && (G (! ((p0p0gte0counter0f1dtwentyfour1b) && (p0p0eq0counter0f1dtwo1b))))) && (G (! ((p0p0gte0counter0f1dfour1b) && (p0p0eq0counter0f1dthree1b))))) && (G (! ((p0p0gte0counter0f1dtwentyfour1b) && (p0p0eq0counter0f1dthree1b))))) -> (((G (((p0p0eq0counter0f1dtwo1b) || (p0p0eq0counter0f1dthree1b)) -> (u0sdi0f1dlow1b))) && (G (((p0p0gte0counter0f1dfour1b) && (p0p0lte0counter0f1dseventeen1b)) <-> (u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b)))) && (G (((p0p0gte0counter0f1dtwentyfour1b) && (p0p0lte0counter0f1dthirtynine1b)) <-> (u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b))))))","total_time":126,"automaton":{"is_built":true,"build_duration":5,"total_states":4,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":4,"total_edges":7},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u0sdi0sdi","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0lte0counter0f1dthirtynine1b","p0p0lte0counter0f1dseventeen1b","p0p0gte0counter0f1dtwentyfour1b","p0p0gte0counter0f1dfour1b","p0p0eq0counter0f1dtwo1b","p0p0eq0counter0f1dthree1b","u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b","u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b","u0sdi0f1dlow1b"]},{"name":"u0sdi0f1dlow1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0lte0counter0f1dthirtynine1b","p0p0lte0counter0f1dseventeen1b","p0p0gte0counter0f1dtwentyfour1b","p0p0gte0counter0f1dfour1b","p0p0eq0counter0f1dtwo1b","p0p0eq0counter0f1dthree1b","u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b","u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b"]},{"name":"u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0lte0counter0f1dthirtynine1b","p0p0lte0counter0f1dseventeen1b","p0p0gte0counter0f1dtwentyfour1b","p0p0gte0counter0f1dfour1b","p0p0eq0counter0f1dtwo1b","p0p0eq0counter0f1dthree1b","u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b","u0sdi0f1dlow1b"]},{"name":"u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0lte0counter0f1dthirtynine1b","p0p0lte0counter0f1dseventeen1b","p0p0gte0counter0f1dtwentyfour1b","p0p0gte0counter0f1dfour1b","p0p0eq0counter0f1dtwo1b","p0p0eq0counter0f1dthree1b","u0sdi0f1dlow1b","u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b"]}],"total_duration":0,"is_completed":true,"skipped_dependencies":false,"total_pair_state":6,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":0,"model_checking_status":"UNKNOWN","merge_strategies_duration":117,"final_strategy":{"duration":0,"total_inputs":9,"total_outputs":1,"total_latches":4,"total_gates":138},"independent_strategy":{"duration":2,"realizability":"REALIZABLE","total_inputs":6,"total_outputs":3,"total_latches":0,"total_gates":13},"dependent_strategy":{"duration":0,"total_inputs":9,"total_outputs":1,"total_latches":4,"total_gates":138}}}

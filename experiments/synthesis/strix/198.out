@@ -1,0 +1,66 @@
+UNREALIZABLE
+aag 38 7 3 8 28
+2
+4
+6
+8
+10
+12
+14
+16 72
+18 76
+20 68
+0
+25
+25
+0
+25
+0
+29
+25
+22 17 19
+24 20 23
+26 18 21
+28 23 27
+30 13 15
+32 9 30
+34 10 32
+36 22 34
+38 26 34
+40 12 14
+42 8 31
+44 11 41
+46 29 44
+48 33 43
+50 46 48
+52 39 51
+54 37 52
+56 2 6
+58 3 7
+60 5 57
+62 59 60
+64 55 62
+66 4 58
+68 36 66
+70 25 69
+72 65 70
+74 63 67
+76 53 75
+i0 u02warnlight29control0f1d2warnlight29turn2off1b
+i1 u02warnlight29control0f1d2warnlight29turn2on1b
+i2 u02warnlight29control02warnlight29control
+i3 u02timer29start2new2timer0f1d2timer29hour251b
+i4 u02timer29start2new2timer0f1d2timer29hour241b
+i5 u02timer29start2new2timer0f1d2timer29min25231b
+i6 u02timer29start2new2timer02timer29start2new2timer
+l0 l0
+l1 l1
+l2 l2
+o0 p0p0too2high0room29co252level
+o1 p0p02window29all2windows2closed02window29room
+o2 p0b02window29closed
+o3 p0b02window29opened
+o4 p0b02warnlight29of
+o5 p0b02warnlight29off
+o6 p0b02warnlight29on
+o7 p0b02timer29timeout

@@ -1,0 +1,129 @@
+REALIZABLE
+aag 72 5 2 25 65
+2
+4
+6
+8
+10
+12 56
+14 145
+25
+45
+19
+19
+19
+59
+66
+82
+45
+59
+20
+97
+45
+59
+114
+0
+0
+59
+0
+0
+0
+66
+0
+118
+143
+16 13 15
+18 12 14
+20 4 19
+22 5 16
+24 23 21
+26 3 13
+28 12 15
+30 13 14
+32 31 29
+34 2 33
+36 3 19
+38 37 35
+40 4 39
+42 5 26
+44 43 41
+46 2 19
+48 3 28
+50 49 47
+52 2 16
+54 4 52
+56 5 51
+58 57 55
+60 3 30
+62 10 60
+64 6 62
+66 5 64
+68 49 35
+70 10 69
+72 11 33
+74 73 71
+76 6 75
+78 7 33
+80 79 77
+82 5 81
+84 8 26
+86 7 84
+88 8 39
+90 7 88
+92 4 90
+94 5 86
+96 95 93
+98 3 15
+100 99 47
+102 10 101
+104 11 19
+106 105 103
+108 6 107
+110 7 19
+112 111 109
+114 5 113
+116 6 60
+118 5 116
+120 9 26
+122 3 16
+124 6 122
+126 7 120
+128 127 125
+130 9 39
+132 6 39
+134 7 130
+136 135 133
+138 4 137
+140 5 129
+142 141 139
+144 43 21
+i0 p0p0isgameover0f1dgetenemyradius0enemies0counter1b
+i1 p0p0on0gamestart
+i2 p0p0gtz0shot2counter
+i3 p0p0on0shot
+i4 p0p0hitenemy0f1dgetenemyangle0enemies0counter1b0f1dgetenemyradius0enemies0counter1b0rotation
+o0 u0resets0f1dtriggerresetall0newangle1b
+o1 u0gameover0f1dbot1b
+o2 u0counter0f1dincmod0counter0f1denemycount1b1b
+o3 u0newangle0f1dnewrand0newangle1b
+o4 u0scorecolor0f1dfastestenemycolor0enemies1b
+o5 u0gameover0f1dtop1b
+o6 u0resets0f1dtriggerreset0counter0newangle1b
+o7 u0resets0f1dtriggerresetnone1b
+o8 u0moveticks0f1dtickmove0movementclock1b
+o9 u0moveticks0f1dticknomove1b
+o10 u0score0f1dzero2score1b
+o11 u0shot2counter0f1denemycount1b
+o12 u0movementclock0f1dincmoveclock0movementclock0score1b
+o13 u0shot2counter0f1dzero1b
+o14 u0score0score
+o15 u0counter0counter
+o16 u0gameover0gameover
+o17 u0movementclock0movementclock
+o18 u0moveticks0moveticks
+o19 u0newangle0newangle
+o20 u0resets0resets
+o21 u0score0f1dinc0score1b
+o22 u0scorecolor0scorecolor
+o23 u0shot2counter0f1ddec0shot2counter1b
+o24 u0shot2counter0shot2counter

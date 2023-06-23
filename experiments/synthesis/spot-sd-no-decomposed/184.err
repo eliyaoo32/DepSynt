@@ -1,0 +1,19 @@
+trying to create strategy directly for G!(g0 & g1) & (GFr0 -> GFg0) & (GFr1 -> GFg1)
+direct strategy might exist but was not found.
+translating formula done in 0.00255907 seconds
+automaton has 9 states and 2 colors
+split inputs and outputs done in 0.000131708 seconds
+automaton has 27 states
+determinization done
+DPA has 49 states, 5 colors
+simplification done
+DPA has 49 states
+determinization and simplification took 0.00220491 seconds
+solving game with acceptance: parity min even 5
+game solved in 7.7044e-05 seconds
+simplification took 8.8917e-05 seconds
+AIG circuit was created in 6.6874e-05 seconds and has 1 latches and 0 gates
+
+real	0m0.018s
+user	0m0.007s
+sys	0m0.011s
