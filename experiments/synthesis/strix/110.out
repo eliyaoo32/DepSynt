@@ -1,0 +1,108 @@
+REALIZABLE
+aag 49 3 4 25 42
+2
+4
+6
+8 92
+10 97
+12 31
+14 99
+58
+60
+0
+70
+64
+66
+0
+50
+36
+52
+57
+0
+72
+74
+50
+55
+66
+68
+78
+80
+82
+84
+88
+86
+0
+16 10 13
+18 9 16
+20 14 18
+22 11 12
+24 8 16
+26 23 25
+28 15 27
+30 21 29
+32 9 22
+34 15 33
+36 31 35
+38 12 14
+40 11 39
+42 14 40
+44 35 43
+46 8 23
+48 17 47
+50 34 48
+52 45 51
+54 37 53
+56 14 54
+58 4 57
+60 5 57
+62 15 46
+64 17 62
+66 47 52
+68 57 67
+70 65 68
+72 2 50
+74 57 73
+76 8 13
+78 70 76
+80 57 79
+82 12 62
+84 57 83
+86 2 36
+88 57 87
+90 21 77
+92 84 90
+94 8 40
+96 19 95
+98 43 83
+i0 p0eq0coordx0f1ddec0f1dsizex1b1b
+i1 p0on0write
+i2 p0eqz0waitcounter
+l0 l0
+l1 l1
+l2 l2
+l3 l3
+o0 u0ramwrite0f1dwriteram0writecolor0xcoordinate0ycoordinate1b
+o1 u0ramwrite0f1dwriteramnone1b
+o2 u0ramwrite0ramwrite
+o3 u0rampos0f1drampos2r0xcoordinate0ycoordinate1b
+o4 u0rampos0f1drampos250coordx0f1dinc2y0coordy1b1b
+o5 u0rampos0f1drampos240coordx0f1dinc2y0coordy1b1b
+o6 u0rampos0rampos
+o7 u0extclock0f1dlow1b
+o8 u0extclock0f1dhigh1b
+o9 u0extclock0extclock
+o10 u0driver2pin0f1dlow1b
+o11 u0driver2pin0driver2pin
+o12 u0coordy0f1dinc2y0coordy1b
+o13 u0coordy0coordy
+o14 u0coordx0f1dinc2x0coordx1b
+o15 u0coordx0coordx
+o16 u0color250ramout
+o17 u0color250color25
+o18 u0color240ramout
+o19 u0color240color24
+o20 u0color0ramout
+o21 u0color0color
+o22 u0buffer2pin0f1dlow1b
+o23 u0buffer2pin0f1dhigh1b
+o24 u0buffer2pin0buffer2pin

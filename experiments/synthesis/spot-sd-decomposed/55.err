@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!((u0steps0f1dmove2down1b & !u0steps0f1dstop1b) <-> (!u0steps0f1dmove2down1b & u0steps0f1dstop1b)) & !(u0steps0f1dmove2up1b | u0steps0steps)) <-> (!((!u0steps0f1dmove2up1b & u0steps0steps) <-> (u0steps0f1dmove2up1b & !u0steps0steps)) & !(u0steps0f1dmove2down1b | u0steps0f1dstop1b))) & !((!u0users0f1ddec0users1b & !((!u0users0f1dinc0users1b & u0users0users) <-> (u0users0f1dinc0users1b & !u0users0users))) <-> (u0users0f1ddec0users1b & !(u0users0f1dinc0users1b | u0users0users)))) & ((G!(p0p0moving2down0steps & p0p0moving2up0steps) & G!(p0p0enter2event0top & p0p0exit2event0top) & G!(p0p0enter2event0bottom & p0p0exit2event0bottom)) -> (G(u0users0f1dinc0users1b <-> ((p0p0enter2event0bottom & !p0p0exit2event0top & !p0p0moving2down0steps) | (p0p0enter2event0top & !p0p0exit2event0bottom & !p0p0moving2up0steps))) & G(u0users0f1ddec0users1b <-> ((!p0p0enter2event0bottom & p0p0exit2event0top & !p0p0moving2down0steps) | (!p0p0enter2event0top & p0p0exit2event0bottom & !p0p0moving2up0steps))) & G(u0steps0f1dmove2up1b -> (p0p0enter2event0bottom & p0p0zero0users)) & G(u0steps0f1dmove2down1b -> (p0p0enter2event0top & p0p0zero0users)) & G((p0p0enter2event0bottom & !p0p0enter2event0top & p0p0zero0users) -> u0steps0f1dmove2up1b) & G((!p0p0enter2event0bottom & p0p0enter2event0top & p0p0zero0users) -> u0steps0f1dmove2down1b) & G((p0p0enter2event0bottom & p0p0enter2event0top & p0p0zero0users) -> (u0steps0f1dmove2down1b | u0steps0f1dmove2up1b)) & G(Xu0steps0f1dstop1b <-> (!p0p0zero0users & Xp0p0zero0users & X!p0p0enter2event0top & X!p0p0enter2event0bottom))))
+direct strategy might exist but was not found.
+translating formula done in 0.0338196 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 0.00116684 seconds
+automaton has 30 states
+determinization done
+DPA has 30 states, 2 colors
+simplification done
+DPA has 30 states
+determinization and simplification took 0.000145992 seconds
+solving game with acceptance: Streett 1
+game solved in 5.3975e-05 seconds
+simplification took 0.000212152 seconds
+AIG circuit was created in 0.000511869 seconds and has 1 latches and 101 gates
+
+real	0m0.050s
+user	0m0.033s
+sys	0m0.017s

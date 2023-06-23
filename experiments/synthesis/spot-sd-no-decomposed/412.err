@@ -1,0 +1,18 @@
+trying to create strategy directly for G!((!((!u0cm29ctrl0f1dturn2off1b & u0cm29ctrl0f1dturn2on1b) <-> (u0cm29ctrl0f1dturn2off1b & !u0cm29ctrl0f1dturn2on1b)) & !(u0cm29ctrl0cm29ctrl | u0cm29ctrl0f1dmake2coffee1b)) <-> (!((u0cm29ctrl0cm29ctrl & !u0cm29ctrl0f1dmake2coffee1b) <-> (!u0cm29ctrl0cm29ctrl & u0cm29ctrl0f1dmake2coffee1b)) & !(u0cm29ctrl0f1dturn2off1b | u0cm29ctrl0f1dturn2on1b))) & G(((p0b0cm29standby & u0cm29ctrl0f1dturn2on1b) -> Xp0b0cm29busy) U ((u0cm29ctrl0f1dmake2coffee1b | u0cm29ctrl0f1dturn2off1b) R p0b0cm29ready)) & G(((p0b0cm29ready & u0cm29ctrl0f1dturn2off1b) -> Xp0b0cm29busy) U (u0cm29ctrl0f1dturn2on1b R p0b0cm29standby)) & G(((p0b0cm29ready & u0cm29ctrl0f1dmake2coffee1b) -> Xp0b0cm29busy) U (p0b0cm29finished & ((u0cm29ctrl0f1dmake2coffee1b | u0cm29ctrl0f1dturn2off1b) R p0b0cm29ready)))
+srun: error: cn10: task 0: Exited with exit code 1
+direct strategy might exist but was not found.
+translating formula done in 0.00317812 seconds
+automaton has 6 states and 2 colors
+split inputs and outputs done in 0.000267143 seconds
+automaton has 23 states
+determinization done
+DPA has 173 states, 6 colors
+simplification done
+DPA has 143 states
+determinization and simplification took 0.00375663 seconds
+solving game with acceptance: parity min even 6
+game solved in 0.000174324 seconds
+
+real	0m0.020s
+user	0m0.009s
+sys	0m0.011s

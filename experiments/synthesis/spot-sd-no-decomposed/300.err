@@ -1,0 +1,18 @@
+trying to create strategy directly for G!((!u02device29ctrl0f1d2device29turn2on1b & !((u02device29ctrl02device29ctrl & !u02device29ctrl0f1d2device29turn2off1b) <-> (!u02device29ctrl02device29ctrl & u02device29ctrl0f1d2device29turn2off1b))) <-> (u02device29ctrl0f1d2device29turn2on1b & !(u02device29ctrl02device29ctrl | u02device29ctrl0f1d2device29turn2off1b))) & !(G!(p0b02device29off <-> p0b02device29on) & G(u02device29ctrl0f1d2device29turn2on1b -> F(u02device29ctrl0f1d2device29turn2off1b R p0b02device29on)) & G(u02device29ctrl0f1d2device29turn2off1b -> F(u02device29ctrl0f1d2device29turn2on1b R p0b02device29off)))
+srun: error: cn10: task 0: Exited with exit code 1
+direct strategy might exist but was not found.
+translating formula done in 0.00161774 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 5.6935e-05 seconds
+automaton has 11 states
+determinization done
+DPA has 21 states, 3 colors
+simplification done
+DPA has 17 states
+determinization and simplification took 0.00114178 seconds
+solving game with acceptance: parity min odd 3
+game solved in 5.5693e-05 seconds
+
+real	0m0.015s
+user	0m0.007s
+sys	0m0.008s

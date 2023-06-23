@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!((!u02roomlight29light0f1d2roomlight29turn2off1b & u02roomlight29light0f1d2roomlight29turn2on1b) <-> (u02roomlight29light0f1d2roomlight29turn2off1b & !u02roomlight29light0f1d2roomlight29turn2on1b)) & !(u02roomlight29light02roomlight29light | u02roomlight29light0f1d2roomlight29toggle1b)) <-> (!((u02roomlight29light02roomlight29light & !u02roomlight29light0f1d2roomlight29toggle1b) <-> (!u02roomlight29light02roomlight29light & u02roomlight29light0f1d2roomlight29toggle1b)) & !(u02roomlight29light0f1d2roomlight29turn2off1b | u02roomlight29light0f1d2roomlight29turn2on1b))) & ((G(p0b02room29empty -> !p0b02room29switch29toggled) & G(p0b02room29somebody2enters -> ((!p0b02room29empty U (p0b02room29empty & p0b02room29sombebody2leaves)) | G!p0b02room29empty)) & G((p0b02room29empty & p0b02room29somebody2leaves) -> ((p0b02room29empty U p0b02room29sombebody2enters) | Gp0b02room29empty)) & G(p0b02room29bed29occupied -> !p0b02room29empty) & ((!p0b02room29empty U (p0b02room29empty & p0b02room29sombebody2leaves)) | G!p0b02room29empty | (p0b02room29empty U p0b02room29sombebody2enters) | Gp0b02room29empty) & G!(p0b02roomlight29off <-> p0b02roomlight29on) & G((u02roomlight29light0f1d2roomlight29turn2on1b | (p0b02roomlight29off & u02roomlight29light0f1d2roomlight29toggle1b)) -> XF((u02roomlight29light0f1d2roomlight29toggle1b | u02roomlight29light0f1d2roomlight29turn2off1b) R p0b02roomlight29on)) & G((u02roomlight29light0f1d2roomlight29turn2off1b | (p0b02roomlight29on & u02roomlight29light0f1d2roomlight29toggle1b)) -> XF((u02roomlight29light0f1d2roomlight29toggle1b | u02roomlight29light0f1d2roomlight29turn2on1b) R p0b02roomlight29off))) -> (G(p0b02room29somebody2enters -> XF((p0b02roomlight29on U p0b02room29empty) | Gp0b02roomlight29on)) & G(p0b02room29empty -> XFp0b02roomlight29off)))
+direct strategy might exist but was not found.
+translating formula done in 0.0167083 seconds
+automaton has 13 states and 2 colors
+split inputs and outputs done in 0.00480272 seconds
+automaton has 55 states
+determinization done
+DPA has 585 states, 4 colors
+simplification done
+DPA has 388 states
+determinization and simplification took 0.0871638 seconds
+solving game with acceptance: parity min even 4
+game solved in 0.000372219 seconds
+simplification took 0.00218034 seconds
+AIG circuit was created in 0.00126817 seconds and has 4 latches and 461 gates
+
+real	0m0.127s
+user	0m0.110s
+sys	0m0.016s

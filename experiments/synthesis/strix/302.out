@@ -1,0 +1,34 @@
+UNREALIZABLE
+aag 18 4 2 4 12
+2
+4
+6
+8
+10 36
+12 34
+15
+11
+0
+0
+14 10 12
+16 7 9
+18 5 16
+20 3 18
+22 6 8
+24 3 23
+26 19 25
+28 4 17
+30 11 29
+32 21 30
+34 27 32
+36 15 35
+i0 u02device29ctrl0f1d2device29turn2off1b
+i1 u02device29ctrl0f1d2device29make2coffee1b
+i2 u02device29ctrl0f1d2device29turn2on1b
+i3 u02device29ctrl02device29ctrl
+l0 l0
+l1 l1
+o0 p0b02device29finished
+o1 p0b02device29busy
+o2 p0b02device29standby
+o3 p0b02device29ready

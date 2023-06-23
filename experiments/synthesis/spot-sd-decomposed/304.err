@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u0ctrl0f1dmove2to0f1dpercent2423231b1b & !((u0ctrl0ctrl & !u0ctrl0f1dmove2to0f1dpercent231b1b) <-> (!u0ctrl0ctrl & u0ctrl0f1dmove2to0f1dpercent231b1b))) <-> (u0ctrl0f1dmove2to0f1dpercent2423231b1b & !(u0ctrl0ctrl | u0ctrl0f1dmove2to0f1dpercent231b1b))) & ((G!(p0b0closed & p0b0open) & G(u0ctrl0f1dmove2to0f1dpercent2423231b1b -> X(p0b0reaching2open U ((!u0ctrl0ctrl & !u0ctrl0f1dmove2to0f1dpercent2423231b1b) R p0b0open))) & G(u0ctrl0f1dmove2to0f1dpercent231b1b -> X(p0b0reaching2closed U ((!u0ctrl0ctrl & !u0ctrl0f1dmove2to0f1dpercent231b1b) R p0b0closed))) & G((p0b0closed & !u0ctrl0f1dmove2to0f1dpercent2423231b1b) -> Xp0b0closed) & G((p0b0open & !u0ctrl0f1dmove2to0f1dpercent231b1b) -> Xp0b0open) & GFp0b02time292423pm) -> (G(p0b02time296am -> XF((p0b0open U p0b02time292423pm) | Gp0b0open)) & G(p0b02time296am -> X(p0b0reaching2open U ((p0b0open U p0b02time292423pm) | Gp0b0open)))))
+direct strategy might exist but was not found.
+translating formula done in 0.00385216 seconds
+automaton has 13 states and 1 colors
+split inputs and outputs done in 0.000802378 seconds
+automaton has 47 states
+determinization done
+DPA has 1093 states, 2 colors
+simplification done
+DPA has 811 states
+determinization and simplification took 0.0335527 seconds
+solving game with acceptance: Rabin 1
+game solved in 0.000701065 seconds
+simplification took 0.0011543 seconds
+AIG circuit was created in 0.000391945 seconds and has 2 latches and 68 gates
+
+real	0m0.055s
+user	0m0.046s
+sys	0m0.009s

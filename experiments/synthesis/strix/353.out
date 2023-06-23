@@ -1,0 +1,102 @@
+UNREALIZABLE
+aag 25 24 1 25 0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+26
+28
+30
+32
+34
+36
+38
+40
+42
+44
+46
+48
+50 1
+0
+0
+1
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+i0 u0room29warnlight29control0f1dturn2off1b
+i1 u0room29warnlight29control0f1dturn2on1b
+i2 u0room29warnlight29control0room29warnlight29control
+i3 u0system29start2new2timer0f1dhour251b
+i4 u0system29start2new2timer0f1dhour241b
+i5 u0system29start2new2timer0f1dmin25231b
+i6 u0system29start2new2timer0system29start2new2timer
+i7 u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b
+i8 u0room29shades29ctrl0f1dmove2to0f1dpercent2423231b1b
+i9 u0room29shades29ctrl0room29shades29ctrl
+i10 u0room29light0f1dtoggle1b
+i11 u0room29light0f1dturn2off1b
+i12 u0room29light0f1dturn2on1b
+i13 u0room29light0room29light
+i14 u0room29heating29ctrl0f1dturn2off1b
+i15 u0room29heating29ctrl0f1dturn2on1b
+i16 u0room29heating29ctrl0room29heating29ctrl
+i17 u0cm29ctrl0f1dmake2coffee1b
+i18 u0cm29ctrl0f1dturn2off1b
+i19 u0cm29ctrl0f1dturn2on1b
+i20 u0cm29ctrl0cm29ctrl
+i21 u0alarm29control0f1dturn2off1b
+i22 u0alarm29control0f1dturn2on1b
+i23 u0alarm29control0alarm29control
+l0 l0
+o0 p0p0between0t29pm70t29pm8
+o1 p0p0between0t29am50t29am2423
+o2 p0p0all2windows2closed0room
+o3 p0b0room29window29closed
+o4 p0b0room29window29opened
+o5 p0b0room29warnlight29off
+o6 p0b0room29warnlight29on
+o7 p0b0t29sunday
+o8 p0b0t29saturday
+o9 p0b0timeout
+o10 p0b0room29shades29closed
+o11 p0b0room29shades29open
+o12 p0b0room29somebody2leaves
+o13 p0b0room29somebody2enters
+o14 p0b0switch29toggled
+o15 p0b0room29empty
+o16 p0b0room29light29off
+o17 p0b0room29light29on
+o18 p0b0room29heating29on
+o19 p0b0room29heating29off
+o20 p0b0cm29finished
+o21 p0b0cm29busy
+o22 p0b0cm29standby
+o23 p0b0cm29ready
+o24 p0b0alarm

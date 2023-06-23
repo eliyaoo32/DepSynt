@@ -1,0 +1,19 @@
+there are 1 subformulas
+srun: error: cn11: task 0: Exited with exit code 1
+trying to create strategy directly for G!((!u02heating29intend0f1doff1b & !((u02heating29intend02heating29intend & !u02heating29intend0f1don1b) <-> (!u02heating29intend02heating29intend & u02heating29intend0f1don1b))) <-> (u02heating29intend0f1doff1b & !(u02heating29intend02heating29intend | u02heating29intend0f1don1b))) & ((G(p0b02room29somebody2enters -> !p0b02room29empty) & G(((p0b02room29somebody2enters -> !p0b02room29empty) U (p0b02room29empty & p0b02room29somebody2leaves)) | G(p0b02room29somebody2enters -> !p0b02room29empty))) -> (G(p0b02firesensor29fire -> X((u02heating29intend0f1doff1b U p0b02firesensor29fire2off) | Gu02heating29intend0f1doff1b)) & G((p0b02temperature29changes & p0p0gt02temperature29outside02temperature29inside) -> X(Gu02heating29intend0f1doff1b | (u02heating29intend0f1doff1b U p0b02temperature29changes))) & G((!p0b02room29empty & p0b02temperature29changes & p0p0lt242302temperature29inside) -> X((u02heating29intend0f1don1b U p0b02temperature29changes) | Gu02heating29intend0f1don1b))))
+direct strategy might exist but was not found.
+translating formula done in 0.0100259 seconds
+automaton has 10 states and 1 colors
+split inputs and outputs done in 0.00126148 seconds
+automaton has 29 states
+determinization done
+DPA has 29 states, 2 colors
+simplification done
+DPA has 28 states
+determinization and simplification took 0.000123024 seconds
+solving game with acceptance: Streett 1
+game solved in 4.112e-05 seconds
+
+real	0m0.044s
+user	0m0.017s
+sys	0m0.008s

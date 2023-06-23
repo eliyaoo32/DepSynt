@@ -1,0 +1,253 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 234 8 19 4 207
+2
+4
+6
+8
+10
+12
+14
+16
+18 315
+20 1
+22 0
+24 351
+26 377
+28 378
+30 381
+32 397
+34 402
+36 413
+38 421
+40 429
+42 439
+44 442
+46 455
+48 458
+50 462
+52 464
+54 468
+73
+76
+0
+305
+56 15 13
+58 56 9
+60 15 7
+62 60 13
+64 4 3
+66 65 8
+68 66 62
+70 69 59
+72 71 16
+74 19 16
+76 74 71
+78 76 73
+80 8 5
+82 80 36
+84 82 79
+86 9 5
+88 86 36
+90 16 10
+92 38 13
+94 92 91
+96 95 89
+98 34 9
+100 98 3
+102 101 96
+104 102 85
+106 105 77
+108 38 10
+110 109 43
+112 16 13
+114 112 77
+116 16 12
+118 117 115
+120 119 111
+122 114 48
+124 14 12
+126 53 45
+128 127 124
+130 27 25
+132 130 129
+134 56 52
+136 23 20
+138 136 29
+140 138 135
+142 140 132
+144 143 18
+146 145 123
+148 146 121
+150 148 107
+152 151 72
+154 51 49
+156 155 116
+158 8 2
+160 158 40
+162 54 15
+164 44 13
+166 165 163
+168 166 161
+170 38 12
+172 170 91
+174 14 13
+176 174 52
+178 177 173
+180 178 168
+182 16 4
+184 182 58
+186 184 137
+188 159 16
+190 188 32
+192 15 12
+194 192 52
+196 195 191
+198 196 187
+200 198 180
+202 201 77
+204 203 157
+206 205 72
+208 193 175
+210 209 7
+212 210 5
+214 213 17
+216 62 5
+218 217 16
+220 219 158
+222 220 215
+224 222 139
+226 192 9
+228 60 12
+230 228 66
+232 231 227
+234 137 17
+236 234 233
+238 188 40
+240 46 16
+242 54 14
+244 243 33
+246 244 241
+248 192 44
+250 8 3
+252 250 34
+254 253 249
+256 254 246
+258 256 239
+260 258 237
+262 112 50
+264 263 260
+266 264 225
+268 267 77
+270 17 13
+272 270 155
+274 17 12
+276 274 42
+278 274 48
+280 279 277
+282 280 273
+284 274 50
+286 17 15
+288 286 30
+290 270 42
+292 291 289
+294 292 285
+296 294 282
+298 296 269
+300 299 72
+302 301 207
+304 302 153
+306 65 7
+308 307 8
+310 19 17
+312 310 192
+314 312 309
+316 309 209
+318 316 17
+320 319 73
+322 139 77
+324 322 320
+326 252 79
+328 127 13
+330 329 55
+332 331 15
+334 332 79
+336 46 17
+338 337 25
+340 338 273
+342 340 291
+344 342 96
+346 344 335
+348 346 327
+350 348 325
+352 209 17
+354 56 16
+356 355 353
+358 66 7
+360 359 87
+362 361 137
+364 362 357
+366 41 33
+368 367 158
+370 87 67
+372 371 26
+374 373 369
+376 374 365
+378 321 139
+380 289 237
+382 357 4
+384 382 9
+386 384 137
+388 370 26
+390 159 32
+392 391 389
+394 393 79
+396 395 387
+398 384 139
+400 399 99
+402 401 3
+404 222 79
+406 404 28
+408 404 137
+410 409 85
+412 410 407
+414 172 79
+416 139 76
+418 417 279
+420 418 415
+422 367 159
+424 423 389
+426 425 16
+428 427 187
+430 174 17
+432 430 139
+434 432 309
+436 285 277
+438 436 435
+440 192 79
+442 440 127
+444 114 50
+446 240 77
+448 447 445
+450 114 111
+452 451 123
+454 452 448
+456 109 49
+458 457 116
+460 51 43
+462 461 116
+464 128 72
+466 331 14
+468 466 72
+i0 p0b02room29somebody2leaves
+i1 p0b02room29somebody2enters
+i2 p0b02room29switch29toggled
+i3 p0b02room29empty
+i4 p0b02c2m29finished
+i5 p0b02c2m29busy
+i6 p0b02c2m29standby
+i7 p0b02c2m29ready
+o0 u02c2m29ctrl0f1d2c2m29turn2on1b
+o1 u02c2m29ctrl0f1d2c2m29make2coffee1b
+o2 u02c2m29ctrl0f1d2c2m29turn2off1b
+o3 u02c2m29ctrl02c2m29ctrl
+{"is_completed":true,"output_vars":["u02c2m29ctrl0f1d2c2m29turn2off1b","u02c2m29ctrl0f1d2c2m29make2coffee1b","u02c2m29ctrl0f1d2c2m29turn2on1b","u02c2m29ctrl02c2m29ctrl"],"input_vars":["p0b02room29somebody2leaves","p0b02room29somebody2enters","p0b02room29switch29toggled","p0b02room29empty","p0b02c2m29finished","p0b02c2m29busy","p0b02c2m29standby","p0b02c2m29ready"],"formula":"((G (! (((! (((u02c2m29ctrl0f1d2c2m29make2coffee1b) && (! (u02c2m29ctrl02c2m29ctrl))) <-> ((u02c2m29ctrl02c2m29ctrl) && (! (u02c2m29ctrl0f1d2c2m29make2coffee1b))))) && (! ((u02c2m29ctrl0f1d2c2m29turn2off1b) || (u02c2m29ctrl0f1d2c2m29turn2on1b)))) <-> ((! (((u02c2m29ctrl0f1d2c2m29turn2off1b) && (! (u02c2m29ctrl0f1d2c2m29turn2on1b))) <-> ((u02c2m29ctrl0f1d2c2m29turn2on1b) && (! (u02c2m29ctrl0f1d2c2m29turn2off1b))))) && (! ((u02c2m29ctrl0f1d2c2m29make2coffee1b) || (u02c2m29ctrl02c2m29ctrl))))))) && ((((((((((((G (((p0b02c2m29ready) || (p0b02c2m29standby)) || (p0b02c2m29busy))) && (G ((p0b02c2m29ready) -> ((! (p0b02c2m29standby)) && (! (p0b02c2m29busy)))))) && (G ((p0b02c2m29standby) -> ((! (p0b02c2m29busy)) && (! (p0b02c2m29ready)))))) && (G ((p0b02c2m29busy) -> ((! (p0b02c2m29ready)) && (! (p0b02c2m29standby)))))) && (G (((u02c2m29ctrl0f1d2c2m29turn2on1b) && (p0b02c2m29standby)) -> (X ((p0b02c2m29busy) U (((u02c2m29ctrl0f1d2c2m29make2coffee1b) || (u02c2m29ctrl0f1d2c2m29turn2off1b)) R (p0b02c2m29ready))))))) && (G (((u02c2m29ctrl0f1d2c2m29turn2off1b) && (p0b02c2m29ready)) -> (X ((p0b02c2m29busy) U ((u02c2m29ctrl0f1d2c2m29turn2on1b) R (p0b02c2m29standby))))))) && (G (((u02c2m29ctrl0f1d2c2m29make2coffee1b) && (p0b02c2m29ready)) -> (X ((p0b02c2m29busy) U ((p0b02c2m29finished) && (((u02c2m29ctrl0f1d2c2m29make2coffee1b) || (u02c2m29ctrl0f1d2c2m29turn2off1b)) R (p0b02c2m29ready)))))))) && (F ((p0b02c2m29standby) || (p0b02c2m29ready)))) && (G ((p0b02room29empty) -> (! (p0b02room29switch29toggled))))) && (G ((p0b02room29somebody2enters) -> (((! (p0b02room29empty)) U (p0b02room29somebody2leaves)) || (G (! (p0b02room29empty))))))) && (G (((p0b02room29somebody2leaves) && (p0b02room29empty)) -> (((p0b02room29empty) U (p0b02room29somebody2enters)) || (G (p0b02room29empty)))))) -> (G ((p0b02room29somebody2enters) -> (F (((p0b02c2m29ready) U ((p0b02room29somebody2leaves) && (p0b02room29empty))) || (G (p0b02c2m29ready))))))))","total_time":155,"automaton":{"is_built":true,"build_duration":7,"total_states":17,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":17,"total_edges":60},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u02c2m29ctrl02c2m29ctrl","duration":1,"is_dependent":true,"tested_dependency_set":["p0b02room29somebody2leaves","p0b02room29somebody2enters","p0b02room29switch29toggled","p0b02room29empty","p0b02c2m29finished","p0b02c2m29busy","p0b02c2m29standby","p0b02c2m29ready","u02c2m29ctrl0f1d2c2m29turn2off1b","u02c2m29ctrl0f1d2c2m29make2coffee1b","u02c2m29ctrl0f1d2c2m29turn2on1b"]},{"name":"u02c2m29ctrl0f1d2c2m29turn2on1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b02room29somebody2leaves","p0b02room29somebody2enters","p0b02room29switch29toggled","p0b02room29empty","p0b02c2m29finished","p0b02c2m29busy","p0b02c2m29standby","p0b02c2m29ready","u02c2m29ctrl0f1d2c2m29turn2off1b","u02c2m29ctrl0f1d2c2m29make2coffee1b"]},{"name":"u02c2m29ctrl0f1d2c2m29make2coffee1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b02room29somebody2leaves","p0b02room29somebody2enters","p0b02room29switch29toggled","p0b02room29empty","p0b02c2m29finished","p0b02c2m29busy","p0b02c2m29standby","p0b02c2m29ready","u02c2m29ctrl0f1d2c2m29turn2off1b","u02c2m29ctrl0f1d2c2m29turn2on1b"]},{"name":"u02c2m29ctrl0f1d2c2m29turn2off1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b02room29somebody2leaves","p0b02room29somebody2enters","p0b02room29switch29toggled","p0b02room29empty","p0b02c2m29finished","p0b02c2m29busy","p0b02c2m29standby","p0b02c2m29ready","u02c2m29ctrl0f1d2c2m29turn2on1b","u02c2m29ctrl0f1d2c2m29make2coffee1b"]}],"total_duration":2,"is_completed":true,"skipped_dependencies":false,"total_pair_state":90,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":1,"model_checking_status":"UNKNOWN","merge_strategies_duration":126,"final_strategy":{"duration":1,"total_inputs":11,"total_outputs":1,"total_latches":17,"total_gates":657},"independent_strategy":{"duration":16,"realizability":"REALIZABLE","total_inputs":8,"total_outputs":3,"total_latches":1,"total_gates":34},"dependent_strategy":{"duration":1,"total_inputs":11,"total_outputs":1,"total_latches":17,"total_gates":657}}}

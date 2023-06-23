@@ -1,0 +1,59 @@
+aag 13 6 0 19 7
+2
+4
+6
+8
+10
+12
+1
+3
+2
+3
+2
+16
+3
+18
+0
+2
+22
+24
+2
+22
+24
+2
+3
+26
+27
+14 10 12
+16 2 15
+18 2 14
+20 6 8
+22 3 20
+24 3 21
+26 2 4
+i0 p0p0eqz0counter
+i1 p0p0eq0xcoord0f1ddec2size2x1b
+i2 p0p0hitcoord0xcoord0ycoord0f1dgetenemyradius0enemies0f1ddec0counter1b1b0f1dgetenemyangle0enemies0f1ddec0counter1b1b0rotation
+i3 p0p0lt0f1dgetenemyradius0enemies0f1ddec0counter1b1b0tmpdist
+i4 p0p0eq0xcoord0f1dhairlinex1b
+i5 p0p0eq0ycoord0f1dhairliney1b
+o0 u0counter0f1dincmod0counter0f1dinc0f1denemycount1b1b1b
+o1 u0bxcoord0bxcoord
+o2 u0bxcoord0xcoord
+o3 u0bycoord0bycoord
+o4 u0bycoord0ycoord
+o5 u0color0tmpcolor
+o6 u0color0color
+o7 u0color0f1dwhitecolor1b
+o8 u0counter0counter
+o9 u0tmpcolor0f1dblackcolor1b
+o10 u0tmpcolor0f1dgetenemycolor0enemies0f1ddec0counter1b1b
+o11 u0tmpcolor0tmpcolor
+o12 u0tmpdist0f1dstartradius1b
+o13 u0tmpdist0f1dgetenemyradius0enemies0f1ddec0counter1b1b
+o14 u0tmpdist0tmpdist
+o15 u0xcoord0f1dinc2coord0xcoord1b
+o16 u0xcoord0xcoord
+o17 u0ycoord0f1dinc2coord0ycoord1b
+o18 u0ycoord0ycoord
+{"is_completed":true,"output_vars":["u0ycoord0f1dinc2coord0ycoord1b","u0ycoord0ycoord","u0xcoord0f1dinc2coord0xcoord1b","u0xcoord0xcoord","u0tmpdist0f1dgetenemyradius0enemies0f1ddec0counter1b1b","u0tmpdist0f1dstartradius1b","u0tmpdist0tmpdist","u0tmpcolor0f1dgetenemycolor0enemies0f1ddec0counter1b1b","u0tmpcolor0f1dblackcolor1b","u0tmpcolor0tmpcolor","u0counter0f1dincmod0counter0f1dinc0f1denemycount1b1b1b","u0counter0counter","u0color0f1dwhitecolor1b","u0color0tmpcolor","u0color0color","u0bycoord0ycoord","u0bycoord0bycoord","u0bxcoord0xcoord","u0bxcoord0bxcoord"],"input_vars":["p0p0hitcoord0xcoord0ycoord0f1dgetenemyradius0enemies0f1ddec0counter1b1b0f1dgetenemyangle0enemies0f1ddec0counter1b1b0rotation","p0p0lt0f1dgetenemyradius0enemies0f1ddec0counter1b1b0tmpdist","p0p0eq0ycoord0f1dhairliney1b","p0p0eq0xcoord0f1dhairlinex1b","p0p0eq0xcoord0f1ddec2size2x1b","p0p0eqz0counter"],"formula":"(((((((((((((G ((((((((! (((u0bxcoord0bxcoord) && (! (u0bxcoord0xcoord))) <-> ((u0bxcoord0xcoord) && (! (u0bxcoord0bxcoord))))) && (! (((u0bycoord0bycoord) && (! (u0bycoord0ycoord))) <-> ((u0bycoord0ycoord) && (! (u0bycoord0bycoord)))))) && (! (((u0color0tmpcolor) && (! ((u0color0f1dwhitecolor1b) || (u0color0color)))) <-> ((! (((u0color0f1dwhitecolor1b) && (! (u0color0color))) <-> ((u0color0color) && (! (u0color0f1dwhitecolor1b))))) && (! (u0color0tmpcolor)))))) && (! (((u0counter0counter) && (! (u0counter0f1dincmod0counter0f1dinc0f1denemycount1b1b1b))) <-> ((u0counter0f1dincmod0counter0f1dinc0f1denemycount1b1b1b) && (! (u0counter0counter)))))) && (! (((u0tmpcolor0f1dblackcolor1b) && (! ((u0tmpcolor0f1dgetenemycolor0enemies0f1ddec0counter1b1b) || (u0tmpcolor0tmpcolor)))) <-> ((! (((u0tmpcolor0f1dgetenemycolor0enemies0f1ddec0counter1b1b) && (! (u0tmpcolor0tmpcolor))) <-> ((u0tmpcolor0tmpcolor) && (! (u0tmpcolor0f1dgetenemycolor0enemies0f1ddec0counter1b1b))))) && (! (u0tmpcolor0f1dblackcolor1b)))))) && (! (((u0tmpdist0f1dstartradius1b) && (! ((u0tmpdist0f1dgetenemyradius0enemies0f1ddec0counter1b1b) || (u0tmpdist0tmpdist)))) <-> ((! (((u0tmpdist0f1dgetenemyradius0enemies0f1ddec0counter1b1b) && (! (u0tmpdist0tmpdist))) <-> ((u0tmpdist0tmpdist) && (! (u0tmpdist0f1dgetenemyradius0enemies0f1ddec0counter1b1b))))) && (! (u0tmpdist0f1dstartradius1b)))))) && (! (((u0xcoord0xcoord) && (! (u0xcoord0f1dinc2coord0xcoord1b))) <-> ((u0xcoord0f1dinc2coord0xcoord1b) && (! (u0xcoord0xcoord)))))) && (! (((u0ycoord0ycoord) && (! (u0ycoord0f1dinc2coord0ycoord1b))) <-> ((u0ycoord0f1dinc2coord0ycoord1b) && (! (u0ycoord0ycoord))))))) && (G (u0counter0f1dincmod0counter0f1dinc0f1denemycount1b1b1b))) && (G ((p0p0eqz0counter) <-> (u0xcoord0f1dinc2coord0xcoord1b)))) && (G (((p0p0eq0xcoord0f1ddec2size2x1b) && (p0p0eqz0counter)) <-> (u0ycoord0f1dinc2coord0ycoord1b)))) && (G ((((! (p0p0eqz0counter)) && (p0p0lt0f1dgetenemyradius0enemies0f1ddec0counter1b1b0tmpdist)) && (p0p0hitcoord0xcoord0ycoord0f1dgetenemyradius0enemies0f1ddec0counter1b1b0f1dgetenemyangle0enemies0f1ddec0counter1b1b0rotation)) <-> (u0tmpcolor0f1dgetenemycolor0enemies0f1ddec0counter1b1b)))) && (G ((((! (p0p0eqz0counter)) && (p0p0lt0f1dgetenemyradius0enemies0f1ddec0counter1b1b0tmpdist)) && (p0p0hitcoord0xcoord0ycoord0f1dgetenemyradius0enemies0f1ddec0counter1b1b0f1dgetenemyangle0enemies0f1ddec0counter1b1b0rotation)) <-> (u0tmpdist0f1dgetenemyradius0enemies0f1ddec0counter1b1b)))) && (G ((p0p0eqz0counter) <-> ((u0color0tmpcolor) || (u0color0f1dwhitecolor1b))))) && (G ((p0p0eqz0counter) <-> (u0tmpcolor0f1dblackcolor1b)))) && (G ((p0p0eqz0counter) <-> (u0tmpdist0f1dstartradius1b)))) && (G ((p0p0eqz0counter) <-> (u0bxcoord0xcoord)))) && (G ((p0p0eqz0counter) <-> (u0bycoord0ycoord)))) && (G ((u0color0f1dwhitecolor1b) -> ((p0p0eq0xcoord0f1dhairlinex1b) && (p0p0eq0ycoord0f1dhairliney1b))))) && (G ((u0color0tmpcolor) -> (! ((p0p0eq0xcoord0f1dhairlinex1b) && (p0p0eq0ycoord0f1dhairliney1b))))))","total_time":11,"automaton":{"is_built":true,"build_duration":10,"total_states":1,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":1,"total_edges":1},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":0,"realizability":"REALIZABLE","total_inputs":6,"total_outputs":19,"total_latches":0,"total_gates":7},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

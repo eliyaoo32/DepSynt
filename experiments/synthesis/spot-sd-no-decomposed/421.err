@@ -1,0 +1,19 @@
+trying to create strategy directly for G(!((u0sitting2arrganent0f1dgenerate0calendar1b & !u0sitting2arrganent0sitting2arrganent) <-> (!u0sitting2arrganent0f1dgenerate0calendar1b & u0sitting2arrganent0sitting2arrganent)) & !((u0sitting2arragment0f1dsitting02arragment1b & !u0sitting2arragment0sitting2arragment) <-> (!u0sitting2arragment0f1dsitting02arragment1b & u0sitting2arragment0sitting2arragment))) & (GFp0p0new2day0time -> G(p0p0new2day0time -> (u0sitting2arrganent0f1dgenerate0calendar1b & X(u0sitting2arragment0f1dsitting02arragment1b U p0p0new2day0time))))
+direct strategy might exist but was not found.
+translating formula done in 0.00138916 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 6.2842e-05 seconds
+automaton has 16 states
+determinization done
+DPA has 16 states, 2 colors
+simplification done
+DPA has 11 states
+determinization and simplification took 0.00167841 seconds
+solving game with acceptance: Rabin 1
+game solved in 4.0983e-05 seconds
+simplification took 9.8776e-05 seconds
+AIG circuit was created in 6.6967e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.016s
+user	0m0.006s
+sys	0m0.010s

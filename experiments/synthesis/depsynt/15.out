@@ -1,0 +1,136 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 89 2 12 21 75
+2
+4
+6 159
+8 171
+10 178
+12 1
+14 117
+16 115
+18 73
+20 105
+22 109
+24 123
+26 107
+28 125
+33
+36
+51
+0
+91
+51
+94
+96
+98
+100
+102
+0
+131
+0
+137
+68
+102
+96
+100
+98
+94
+30 10 8
+32 30 6
+34 28 3
+36 34 32
+38 4 2
+40 38 28
+42 40 32
+44 5 2
+46 44 28
+48 46 32
+50 49 43
+52 33 3
+54 52 26
+56 52 24
+58 57 55
+60 52 22
+62 52 20
+64 63 61
+66 64 58
+68 33 16
+70 52 18
+72 71 69
+74 15 12
+76 75 4
+78 76 33
+80 75 5
+82 80 33
+84 83 35
+86 84 79
+88 86 72
+90 88 66
+92 33 2
+94 92 26
+96 92 20
+98 92 24
+100 92 22
+102 92 18
+104 103 63
+106 99 55
+108 97 61
+110 108 106
+112 110 104
+114 79 43
+116 83 49
+118 116 114
+120 118 72
+122 101 57
+124 95 35
+126 124 122
+128 126 120
+130 128 112
+132 71 50
+134 132 86
+136 134 66
+138 11 9
+140 7 4
+142 141 138
+144 139 7
+146 145 3
+148 146 143
+150 31 6
+152 151 4
+154 153 145
+156 155 2
+158 157 149
+160 10 3
+162 9 6
+164 162 161
+166 6 2
+168 167 8
+170 169 165
+172 139 31
+174 173 169
+176 172 168
+178 177 175
+i0 p0p0spi2finished0spi2response
+i1 p0p0on0start2mod
+o0 u0finished0f1dbot1b
+o1 u0finished0finished
+o2 u0finished0f1dtop1b
+o3 u0reg2manager2cmd0reg2manager2cmd
+o4 u0reg2manager2cmd0f1dno2command1b
+o5 u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b
+o6 u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b
+o7 u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b
+o8 u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b
+o9 u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b
+o10 u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b
+o11 u0sensor2type0sensor2type
+o12 u0sensor2type0f1dmy2sensor2type1b
+o13 u0spi2control0spi2control
+o14 u0spi2control0f1dread2cmd2none1b
+o15 u0spi2control0f1dread2cmd0f1dreg241b1b
+o16 u0spi2control0f1dread2cmd0f1dreg251b1b
+o17 u0spi2control0f1dread2cmd0f1dreg31b1b
+o18 u0spi2control0f1dread2cmd0f1dreg41b1b
+o19 u0spi2control0f1dread2cmd0f1dreg51b1b
+o20 u0spi2control0f1dread2cmd0f1dreg61b1b
+{"is_completed":true,"output_vars":["u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0sensor2type0sensor2type","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b","u0reg2manager2cmd0f1dno2command1b","u0reg2manager2cmd0reg2manager2cmd","u0finished0f1dtop1b","u0finished0f1dbot1b","u0finished0finished"],"input_vars":["p0p0spi2finished0spi2response","p0p0on0start2mod"],"formula":"(((((((((((((((((((G ((((! (((u0finished0f1dbot1b) && (! ((u0finished0f1dtop1b) || (u0finished0finished)))) <-> ((! (((u0finished0f1dtop1b) && (! (u0finished0finished))) <-> ((u0finished0finished) && (! (u0finished0f1dtop1b))))) && (! (u0finished0f1dbot1b))))) && (! (((! (((! (((u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b) && (! (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b))) <-> ((u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b) && (! (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b))))) && (! ((u0reg2manager2cmd0reg2manager2cmd) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b)))) <-> ((! (((u0reg2manager2cmd0reg2manager2cmd) && (! (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b))) <-> ((u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b) && (! (u0reg2manager2cmd0reg2manager2cmd))))) && (! ((u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b)))))) && (! ((((u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b)) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b)) || (u0reg2manager2cmd0f1dno2command1b)))) <-> ((! (((! (((u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b) && (! (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b))) <-> ((u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b) && (! (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b))))) && (! ((u0reg2manager2cmd0f1dno2command1b) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b)))) <-> ((! (((u0reg2manager2cmd0f1dno2command1b) && (! (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b))) <-> ((u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b) && (! (u0reg2manager2cmd0f1dno2command1b))))) && (! ((u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b)))))) && (! ((((u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b)) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b)) || (u0reg2manager2cmd0reg2manager2cmd))))))) && (! (((u0sensor2type0sensor2type) && (! (u0sensor2type0f1dmy2sensor2type1b))) <-> ((u0sensor2type0f1dmy2sensor2type1b) && (! (u0sensor2type0sensor2type)))))) && (! (((! (((! (((u0spi2control0f1dread2cmd0f1dreg241b1b) && (! (u0spi2control0f1dread2cmd0f1dreg51b1b))) <-> ((u0spi2control0f1dread2cmd0f1dreg51b1b) && (! (u0spi2control0f1dread2cmd0f1dreg241b1b))))) && (! ((u0spi2control0spi2control) || (u0spi2control0f1dread2cmd0f1dreg31b1b)))) <-> ((! (((u0spi2control0spi2control) && (! (u0spi2control0f1dread2cmd0f1dreg31b1b))) <-> ((u0spi2control0f1dread2cmd0f1dreg31b1b) && (! (u0spi2control0spi2control))))) && (! ((u0spi2control0f1dread2cmd0f1dreg241b1b) || (u0spi2control0f1dread2cmd0f1dreg51b1b)))))) && (! ((((u0spi2control0f1dread2cmd0f1dreg61b1b) || (u0spi2control0f1dread2cmd0f1dreg41b1b)) || (u0spi2control0f1dread2cmd0f1dreg251b1b)) || (u0spi2control0f1dread2cmd2none1b)))) <-> ((! (((! (((u0spi2control0f1dread2cmd0f1dreg251b1b) && (! (u0spi2control0f1dread2cmd0f1dreg61b1b))) <-> ((u0spi2control0f1dread2cmd0f1dreg61b1b) && (! (u0spi2control0f1dread2cmd0f1dreg251b1b))))) && (! ((u0spi2control0f1dread2cmd2none1b) || (u0spi2control0f1dread2cmd0f1dreg41b1b)))) <-> ((! (((u0spi2control0f1dread2cmd2none1b) && (! (u0spi2control0f1dread2cmd0f1dreg41b1b))) <-> ((u0spi2control0f1dread2cmd0f1dreg41b1b) && (! (u0spi2control0f1dread2cmd2none1b))))) && (! ((u0spi2control0f1dread2cmd0f1dreg251b1b) || (u0spi2control0f1dread2cmd0f1dreg61b1b)))))) && (! ((((u0spi2control0f1dread2cmd0f1dreg51b1b) || (u0spi2control0f1dread2cmd0f1dreg31b1b)) || (u0spi2control0f1dread2cmd0f1dreg241b1b)) || (u0spi2control0spi2control)))))))) && ((p0p0on0start2mod) R ((u0spi2control0f1dread2cmd2none1b) && ((p0p0on0start2mod) -> (X (u0spi2control0f1dread2cmd0f1dreg241b1b)))))) && ((u0spi2control0f1dread2cmd0f1dreg61b1b) R (u0finished0f1dbot1b))) && (G (((((((u0spi2control0f1dread2cmd2none1b) || (u0spi2control0f1dread2cmd0f1dreg241b1b)) || (u0spi2control0f1dread2cmd0f1dreg251b1b)) || (u0spi2control0f1dread2cmd0f1dreg31b1b)) || (u0spi2control0f1dread2cmd0f1dreg41b1b)) || (u0spi2control0f1dread2cmd0f1dreg51b1b)) || (u0spi2control0f1dread2cmd0f1dreg61b1b)))) && (G (((((((u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b)) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b)) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b)) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b)) || (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b)) || (u0reg2manager2cmd0f1dno2command1b)))) && (G ((u0spi2control0f1dread2cmd0f1dreg241b1b) -> (X ((p0p0spi2finished0spi2response) R (((p0p0spi2finished0spi2response) -> (u0spi2control0f1dread2cmd0f1dreg251b1b)) && ((! (p0p0spi2finished0spi2response)) -> (u0spi2control0f1dread2cmd2none1b)))))))) && (G ((u0spi2control0f1dread2cmd0f1dreg251b1b) -> (X ((p0p0spi2finished0spi2response) R (((p0p0spi2finished0spi2response) -> (u0spi2control0f1dread2cmd0f1dreg31b1b)) && ((! (p0p0spi2finished0spi2response)) -> (u0spi2control0f1dread2cmd2none1b)))))))) && (G ((u0spi2control0f1dread2cmd0f1dreg31b1b) -> (X ((p0p0spi2finished0spi2response) R (((p0p0spi2finished0spi2response) -> (u0spi2control0f1dread2cmd0f1dreg41b1b)) && ((! (p0p0spi2finished0spi2response)) -> (u0spi2control0f1dread2cmd2none1b)))))))) && (G ((u0spi2control0f1dread2cmd0f1dreg41b1b) -> (X ((p0p0spi2finished0spi2response) R (((p0p0spi2finished0spi2response) -> (u0spi2control0f1dread2cmd0f1dreg51b1b)) && ((! (p0p0spi2finished0spi2response)) -> (u0spi2control0f1dread2cmd2none1b)))))))) && (G ((u0spi2control0f1dread2cmd0f1dreg51b1b) -> (X ((p0p0spi2finished0spi2response) R (((p0p0spi2finished0spi2response) -> (u0spi2control0f1dread2cmd0f1dreg61b1b)) && ((! (p0p0spi2finished0spi2response)) -> (u0spi2control0f1dread2cmd2none1b)))))))) && (G ((u0spi2control0f1dread2cmd0f1dreg61b1b) -> (X ((p0p0spi2finished0spi2response) R ((((p0p0spi2finished0spi2response) -> ((p0p0on0start2mod) R ((u0spi2control0f1dread2cmd2none1b) && ((p0p0on0start2mod) -> (X (u0spi2control0f1dread2cmd0f1dreg241b1b)))))) && ((! (p0p0spi2finished0spi2response)) -> (u0spi2control0f1dread2cmd2none1b))) && ((p0p0spi2finished0spi2response) <-> (u0finished0f1dtop1b)))))))) && (G ((u0finished0f1dtop1b) -> (X ((u0spi2control0f1dread2cmd0f1dreg61b1b) R (u0finished0f1dbot1b)))))) && (G ((u0spi2control0f1dread2cmd0f1dreg251b1b) <-> (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b)))) && (G ((u0spi2control0f1dread2cmd0f1dreg31b1b) <-> (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b)))) && (G ((u0spi2control0f1dread2cmd0f1dreg41b1b) <-> (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b)))) && (G ((u0spi2control0f1dread2cmd0f1dreg51b1b) <-> (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b)))) && (G ((u0spi2control0f1dread2cmd0f1dreg61b1b) <-> (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b)))) && (G ((u0finished0f1dtop1b) <-> (u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b)))) && (G (u0sensor2type0f1dmy2sensor2type1b)))","total_time":105,"automaton":{"is_built":true,"build_duration":7,"total_states":8,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":8,"total_edges":16},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u0finished0finished","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0sensor2type0sensor2type","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b","u0reg2manager2cmd0f1dno2command1b","u0reg2manager2cmd0reg2manager2cmd","u0finished0f1dtop1b","u0finished0f1dbot1b"]},{"name":"u0finished0f1dbot1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0sensor2type0sensor2type","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b","u0reg2manager2cmd0f1dno2command1b","u0reg2manager2cmd0reg2manager2cmd","u0finished0f1dtop1b"]},{"name":"u0finished0f1dtop1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0sensor2type0sensor2type","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b","u0reg2manager2cmd0f1dno2command1b","u0reg2manager2cmd0reg2manager2cmd","u0finished0f1dbot1b"]},{"name":"u0reg2manager2cmd0reg2manager2cmd","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0sensor2type0sensor2type","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b","u0reg2manager2cmd0f1dno2command1b","u0finished0f1dbot1b"]},{"name":"u0reg2manager2cmd0f1dno2command1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0sensor2type0sensor2type","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b","u0finished0f1dbot1b"]},{"name":"u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfive1b0spi2response1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0sensor2type0sensor2type","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b","u0finished0f1dbot1b"]},{"name":"u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dfour1b0spi2response1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0sensor2type0sensor2type","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b","u0finished0f1dbot1b"]},{"name":"u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1done1b0spi2response1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0sensor2type0sensor2type","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b","u0finished0f1dbot1b"]},{"name":"u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dthree1b0spi2response1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0sensor2type0sensor2type","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b","u0finished0f1dbot1b"]},{"name":"u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dtwo1b0spi2response1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0sensor2type0sensor2type","u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b","u0finished0f1dbot1b"]},{"name":"u0reg2manager2cmd0f1dset2register0f1dmodule2type1b0f1dzero1b0spi2response1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0sensor2type0sensor2type","u0finished0f1dbot1b"]},{"name":"u0sensor2type0sensor2type","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0sensor2type0f1dmy2sensor2type1b","u0finished0f1dbot1b"]},{"name":"u0sensor2type0f1dmy2sensor2type1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0spi2control0spi2control","u0finished0f1dbot1b"]},{"name":"u0spi2control0spi2control","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0spi2control0f1dread2cmd2none1b","u0finished0f1dbot1b"]},{"name":"u0spi2control0f1dread2cmd2none1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0spi2control0f1dread2cmd0f1dreg241b1b","u0finished0f1dbot1b"]},{"name":"u0spi2control0f1dread2cmd0f1dreg241b1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0spi2control0f1dread2cmd0f1dreg251b1b","u0finished0f1dbot1b"]},{"name":"u0spi2control0f1dread2cmd0f1dreg251b1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0spi2control0f1dread2cmd0f1dreg31b1b","u0finished0f1dbot1b"]},{"name":"u0spi2control0f1dread2cmd0f1dreg31b1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0spi2control0f1dread2cmd0f1dreg41b1b","u0finished0f1dbot1b"]},{"name":"u0spi2control0f1dread2cmd0f1dreg41b1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0spi2control0f1dread2cmd0f1dreg51b1b","u0finished0f1dbot1b"]},{"name":"u0spi2control0f1dread2cmd0f1dreg51b1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0spi2control0f1dread2cmd0f1dreg61b1b","u0finished0f1dbot1b"]},{"name":"u0spi2control0f1dread2cmd0f1dreg61b1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0spi2finished0spi2response","p0p0on0start2mod","u0finished0f1dbot1b"]}],"total_duration":3,"is_completed":true,"skipped_dependencies":false,"total_pair_state":8,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":7,"model_checking_status":"UNKNOWN","merge_strategies_duration":85,"final_strategy":{"duration":7,"total_inputs":3,"total_outputs":20,"total_latches":8,"total_gates":55},"independent_strategy":{"duration":0,"realizability":"REALIZABLE","total_inputs":2,"total_outputs":1,"total_latches":3,"total_gates":34},"dependent_strategy":{"duration":7,"total_inputs":3,"total_outputs":20,"total_latches":8,"total_gates":55}}}

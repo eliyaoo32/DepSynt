@@ -1,0 +1,32 @@
+REALIZABLE
+aag 10 3 1 8 6
+2
+4
+6
+8 18
+1
+0
+11
+12
+16
+21
+20
+0
+10 7 9
+12 4 10
+14 5 9
+16 7 14
+18 11 15
+20 3 19
+i0 p0p0lt0speed0f1dsub0target2speed0f1dmultp0f1dabs0steer1b0f1dcon248881b1b1b
+i1 p0p0lt0rpm0f1dcon32323231b
+i2 p0p0gt0rpm0f1dcon5523231b
+l0 l0
+o0 u0steer0f1dsteering0angle0trackpos1b
+o1 u0steer0steer
+o2 u0gear0f1dmin0f1dcon61b0f1dadd0gear0f1dcon241b1b1b
+o3 u0gear0f1dmax0f1dcon241b0f1dsub0gear0f1dcon241b1b1b
+o4 u0gear0gear
+o5 u0accel0f1dcon23p81b
+o6 u0accel0f1dcon231b
+o7 u0accel0accel

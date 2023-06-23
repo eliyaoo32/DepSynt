@@ -1,0 +1,47 @@
+REALIZABLE
+aag 30 6 3 3 21
+2
+4
+6
+8
+10
+12
+14 46
+16 59
+18 60
+0
+27
+0
+20 14 19
+22 16 18
+24 15 23
+26 21 25
+28 17 19
+30 8 29
+32 24 31
+34 29 32
+36 10 13
+38 11 12
+40 37 39
+42 21 41
+44 35 42
+46 27 45
+48 16 20
+50 33 49
+52 36 51
+54 24 44
+56 12 54
+58 53 57
+60 54 58
+i0 p0b02firesensor29fire2extinquished
+i1 p0b02firesensor29fire
+i2 p0b02door29reaching2locked
+i3 p0b02door29reaching2unlocked
+i4 p0b02door29unlocked
+i5 p0b02door29locked
+l0 l0
+l1 l1
+l2 l2
+o0 u02door29ctrl0f1dlock1b
+o1 u02door29ctrl0f1dunlock1b
+o2 u02door29ctrl02door29ctrl

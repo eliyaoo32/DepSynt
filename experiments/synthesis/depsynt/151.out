@@ -1,0 +1,14 @@
+aag 4 2 0 3 2
+2
+4
+6
+2
+8
+6 3 5
+8 3 4
+i0 hburst_0
+i1 hburst_1
+o0 single
+o1 burst4
+o2 incr
+{"is_completed":true,"output_vars":["incr","burst4","single"],"input_vars":["hburst_0","hburst_1"],"formula":"(G (((((((! (hburst_0)) && (! (hburst_1))) -> (single)) && (((hburst_0) && (! (hburst_1))) -> (burst4))) && (((! (hburst_0)) && (hburst_1)) -> (incr))) && (! ((single) && ((burst4) || (incr))))) && (! ((burst4) && (incr)))))","total_time":1,"automaton":{"is_built":true,"build_duration":0,"total_states":1,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":1,"total_edges":1},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"single","duration":0,"is_dependent":false,"tested_dependency_set":["hburst_0","hburst_1","incr","burst4"]},{"name":"burst4","duration":0,"is_dependent":false,"tested_dependency_set":["hburst_0","hburst_1","incr","single"]},{"name":"incr","duration":0,"is_dependent":false,"tested_dependency_set":["hburst_0","hburst_1","single","burst4"]}],"total_duration":0,"is_completed":true,"skipped_dependencies":false,"total_pair_state":1,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":0,"realizability":"REALIZABLE","total_inputs":2,"total_outputs":3,"total_latches":0,"total_gates":2},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

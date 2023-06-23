@@ -1,0 +1,18 @@
+trying to create strategy directly for G!((!((!u02timer29start2new2timer0f1d2timer29hour251b & u02timer29start2new2timer0f1d2timer29min25231b) <-> (u02timer29start2new2timer0f1d2timer29hour251b & !u02timer29start2new2timer0f1d2timer29min25231b)) & !(u02timer29start2new2timer02timer29start2new2timer | u02timer29start2new2timer0f1d2timer29hour241b)) <-> (!((u02timer29start2new2timer02timer29start2new2timer & !u02timer29start2new2timer0f1d2timer29hour241b) <-> (!u02timer29start2new2timer02timer29start2new2timer & u02timer29start2new2timer0f1d2timer29hour241b)) & !(u02timer29start2new2timer0f1d2timer29hour251b | u02timer29start2new2timer0f1d2timer29min25231b))) & ((G(p0b02room29empty -> !p0b02room29switch29toggled) & G(p0b02room29somebody2enters -> ((!p0b02room29empty U p0b02room29somebody2leaves) | G!p0b02room29empty)) & G((p0b02room29empty & p0b02room29somebody2leaves) -> ((p0b02room29empty U p0b02room29somebody2enters) | Gp0b02room29empty)) & G(u02timer29start2new2timer0f1d2timer29min25231b -> Fp0b02timer29timsrun: error: cn11: task 0: Exited with exit code 1
+eout) & G(u02timer29start2new2timer0f1d2timer29hour241b -> Fp0b02timer29timeout) & G(u02timer29start2new2timer0f1d2timer29hour251b -> Fp0b02timer29timeout)) -> G((p0b02room29empty & p0b02room29somebody2leaves) -> (u02timer29start2new2timer0f1d2timer29hour251b & F(p0b02room29somebody2enters | (p0b02timer29timeout & F((p0b02room2light29off U p0b02room29somebody2enters) | Gp0b02room2light29off))))))
+direct strategy might exist but was not found.
+translating formula done in 0.0057292 seconds
+automaton has 12 states and 2 colors
+split inputs and outputs done in 0.000610246 seconds
+automaton has 54 states
+determinization done
+DPA has 113 states, 3 colors
+simplification done
+DPA has 80 states
+determinization and simplification took 0.00429364 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.000108954 seconds
+
+real	0m0.033s
+user	0m0.013s
+sys	0m0.010s

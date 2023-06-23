@@ -1,0 +1,19 @@
+there are 1 subformulas
+srun: error: cn08: task 0: Exited with exit code 1
+trying to create strategy directly for !(G(req -> Fack) & G(go -> Fgrant))
+direct strategy might exist but was not found.
+translating formula done in 0.000729313 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 5.3144e-05 seconds
+automaton has 9 states
+determinization done
+DPA has 25 states, 2 colors
+simplification done
+DPA has 11 states
+determinization and simplification took 0.000937769 seconds
+solving game with acceptance: Rabin 1
+game solved in 4.5934e-05 seconds
+
+real	0m0.016s
+user	0m0.006s
+sys	0m0.010s

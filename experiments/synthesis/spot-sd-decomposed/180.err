@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for GFets -> G(!(fl & hl) & (hl -> (hl U ets)) & (fl -> (fl U ets)) & (ec -> Ffl) & Fhl)
+direct strategy might exist but was not found.
+translating formula done in 0.00133547 seconds
+automaton has 8 states and 3 colors
+split inputs and outputs done in 7.7226e-05 seconds
+automaton has 24 states
+determinization done
+DPA has 49 states, 3 colors
+simplification done
+DPA has 43 states
+determinization and simplification took 0.00244401 seconds
+solving game with acceptance: parity min even 3
+game solved in 6.9797e-05 seconds
+simplification took 9.274e-05 seconds
+AIG circuit was created in 0.000203134 seconds and has 3 latches and 62 gates
+
+real	0m0.015s
+user	0m0.008s
+sys	0m0.007s

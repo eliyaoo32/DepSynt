@@ -1,0 +1,10 @@
+REALIZABLE
+aag 1 1 0 3 0
+2
+1
+0
+0
+i0 p0b0alarm
+o0 u0alarm29control0f1dturn2off1b
+o1 u0alarm29control0f1dturn2on1b
+o2 u0alarm29control0alarm29control

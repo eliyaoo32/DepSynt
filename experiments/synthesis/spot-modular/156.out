@@ -1,0 +1,65 @@
+aag 47 14 0 1 33
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+26
+28
+95
+30 8 26
+32 9 10
+34 33 31
+36 9 18
+38 6 36
+40 7 35
+42 41 39
+44 9 14
+46 9 22
+48 6 46
+50 7 44
+52 51 49
+54 4 53
+56 5 43
+58 57 55
+60 8 28
+62 9 12
+64 63 61
+66 9 20
+68 6 66
+70 7 65
+72 71 69
+74 9 16
+76 9 24
+78 6 76
+80 7 74
+82 81 79
+84 4 83
+86 5 73
+88 87 85
+90 2 89
+92 3 59
+94 93 91
+i0 select_0
+i1 select_1
+i2 select_2
+i3 select_3
+i4 in_0
+i5 in_1
+i6 in_2
+i7 in_3
+i8 in_4
+i9 in_5
+i10 in_6
+i11 in_7
+i12 in_8
+i13 in_9
+o0 out
+{"is_completed":true,"output_vars":["out"],"input_vars":["in_0","in_1","in_2","in_3","in_4","in_5","in_6","in_7","in_8","in_9","select_0","select_1","select_2","select_3"],"formula":"(G (((((((((((((((true) && (! (select_3))) && (! (select_2))) && (! (select_1))) && (! (select_0))) -> ((out) <-> (in_0))) && ((((((true) && (! (select_3))) && (! (select_2))) && (! (select_1))) && (select_0)) -> ((out) <-> (in_1)))) && ((((((true) && (! (select_3))) && (! (select_2))) && (select_1)) && (! (select_0))) -> ((out) <-> (in_2)))) && ((((((true) && (! (select_3))) && (! (select_2))) && (select_1)) && (select_0)) -> ((out) <-> (in_3)))) && ((((((true) && (! (select_3))) && (select_2)) && (! (select_1))) && (! (select_0))) -> ((out) <-> (in_4)))) && ((((((true) && (! (select_3))) && (select_2)) && (! (select_1))) && (select_0)) -> ((out) <-> (in_5)))) && ((((((true) && (! (select_3))) && (select_2)) && (select_1)) && (! (select_0))) -> ((out) <-> (in_6)))) && ((((((true) && (! (select_3))) && (select_2)) && (select_1)) && (select_0)) -> ((out) <-> (in_7)))) && ((((((true) && (select_3)) && (! (select_2))) && (! (select_1))) && (! (select_0))) -> ((out) <-> (in_8)))) && ((((((true) && (select_3)) && (! (select_2))) && (! (select_1))) && (select_0)) -> ((out) <-> (in_9)))))","total_time":16,"automaton":{"is_built":true,"build_duration":1,"total_states":1,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":1,"total_edges":1},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":false,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":14,"realizability":"REALIZABLE","total_inputs":14,"total_outputs":1,"total_latches":0,"total_gates":33},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

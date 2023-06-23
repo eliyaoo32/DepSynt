@@ -1,0 +1,66 @@
+REALIZABLE
+aag 11 5 0 24 6
+2
+4
+6
+8
+10
+0
+1
+3
+2
+13
+12
+0
+1
+0
+1
+0
+1
+0
+1
+16
+2
+18
+3
+2
+3
+2
+20
+22
+3
+12 2 4
+14 6 8
+16 3 15
+18 3 14
+20 2 11
+22 2 10
+i0 p0p0eq0counter0f1dinc0f1denemycount1b1b
+i1 p0p0eq0xcoord0f1ddec0f1dsizex1b1b
+i2 p0p0eq0xcoord0f1dcartesianx0ramcosineout0bufferdradius1b
+i3 p0p0eq0ycoord0f1dcartesiany0ramsineout0bufferdradius1b
+i4 p0p0ismiddel0xcoord0ycoord
+o0 u0counter0counter
+o1 u0counter0f1dincmod0counter0f1dinc0f1dinc0f1denemycount1b1b1b1b
+o2 u0xcoord0xcoord
+o3 u0xcoord0f1dinccoord0xcoord1b
+o4 u0ycoord0ycoord
+o5 u0ycoord0f1dinccoord0ycoord1b
+o6 u0bufferdradius0bufferdradius
+o7 u0bufferdradius0f1dgetenemyradius0enemies0counter1b
+o8 u0buffercolor0buffercolor
+o9 u0buffercolor0f1dgetenemycolor0enemies0counter1b
+o10 u0ramreqsine0ramreqsine
+o11 u0ramreqsine0f1dsub0f1dgetenemyangle0enemies0counter1b0rotation1b
+o12 u0ramreqcosine0ramreqcosine
+o13 u0ramreqcosine0f1dsub0f1dgetenemyangle0enemies0counter1b0rotation1b
+o14 u0tmpcolor0tmpcolor
+o15 u0tmpcolor0f1dblackcolor1b
+o16 u0tmpcolor0buffercolor
+o17 u0outx0outx
+o18 u0outx0xcoord
+o19 u0outy0outy
+o20 u0outy0ycoord
+o21 u0color0tmpcolor
+o22 u0color0f1dwhitecolor1b
+o23 u0color0color

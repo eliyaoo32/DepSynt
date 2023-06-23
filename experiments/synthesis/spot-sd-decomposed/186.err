@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for (!godown & !goup & !ws & G!(godown & goup) & GF!ws & G((ss & !ws) -> X!ws) & G(ws -> X(!ws | X(!ws | X(!ws | X!ws))))) -> G(!(ws & Xss) & (goup -> F!ss) & (godown -> Fss))
+direct strategy might exist but was not found.
+translating formula done in 0.00145766 seconds
+automaton has 12 states and 2 colors
+split inputs and outputs done in 0.0001281 seconds
+automaton has 34 states
+determinization done
+DPA has 43 states, 2 colors
+simplification done
+DPA has 44 states
+determinization and simplification took 0.0026947 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 7.7952e-05 seconds
+simplification took 0.00019633 seconds
+AIG circuit was created in 0.000117486 seconds and has 2 latches and 26 gates
+
+real	0m0.016s
+user	0m0.008s
+sys	0m0.008s

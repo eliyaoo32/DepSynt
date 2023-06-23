@@ -1,0 +1,26 @@
+UNREALIZABLE
+aag 17 3 2 1 12
+2
+4
+6
+8 28
+10 35
+12
+12 9 10
+14 8 11
+16 7 15
+18 3 4
+20 16 18
+22 3 5
+24 6 22
+26 15 24
+28 21 27
+30 2 5
+32 16 30
+34 21 33
+i0 u0alarm29control0f1dturn2off1b
+i1 u0alarm29control0f1dturn2on1b
+i2 u0alarm29control0alarm29control
+l0 l0
+l1 l1
+o0 p0b0alarm

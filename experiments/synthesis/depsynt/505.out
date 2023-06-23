@@ -1,0 +1,114 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 104 1 21 3 82
+2
+4 96
+6 103
+8 1
+10 0
+12 109
+14 110
+16 115
+18 137
+20 140
+22 149
+24 147
+26 159
+28 171
+30 174
+32 184
+34 190
+36 192
+38 203
+40 204
+42 206
+44 208
+48
+57
+92
+46 6 5
+48 46 3
+50 7 4
+52 50 3
+54 46 2
+56 55 53
+58 11 8
+60 58 31
+62 29 13
+64 62 60
+66 65 2
+68 41 27
+70 68 43
+72 71 2
+74 17 15
+76 74 58
+78 25 23
+80 35 13
+82 80 78
+84 82 76
+86 84 73
+88 86 67
+90 56 49
+92 90 89
+94 4 3
+96 95 7
+98 51 47
+100 99 3
+102 101 55
+104 57 48
+106 105 12
+108 107 58
+110 77 49
+112 105 16
+114 113 58
+116 56 48
+118 57 49
+120 119 117
+122 58 21
+124 122 78
+126 125 121
+128 100 38
+130 37 19
+132 131 116
+134 133 129
+136 134 127
+138 122 25
+140 139 121
+142 105 22
+144 105 24
+146 145 58
+148 146 143
+150 56 2
+152 150 69
+154 58 13
+156 155 2
+158 157 153
+160 74 60
+162 161 2
+164 57 2
+166 43 29
+168 167 164
+170 169 163
+172 60 17
+174 173 2
+176 45 33
+178 177 3
+180 179 35
+182 180 138
+184 183 116
+186 35 25
+188 186 58
+190 189 56
+192 131 118
+194 150 48
+196 195 165
+198 197 38
+200 194 131
+202 201 199
+204 197 69
+206 167 150
+208 194 177
+i0 a
+o0 p1
+o1 p2
+o2 p0
+{"is_completed":true,"output_vars":["p2","p1","p0"],"input_vars":["a"],"formula":"((G (((((p0) && (! (p1))) && (! (p2))) || (((! (p0)) && (p1)) && (! (p2)))) || (((! (p0)) && (! (p1))) && (p2)))) && (((F (G (a))) && (G (F (a)))) <-> ((G (F (p0))) || ((G (F (p2))) && (! (G (F (p1))))))))","total_time":94,"automaton":{"is_built":true,"build_duration":4,"total_states":18,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":18,"total_edges":55},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"p0","duration":0,"is_dependent":true,"tested_dependency_set":["a","p2","p1"]},{"name":"p1","duration":0,"is_dependent":false,"tested_dependency_set":["a","p2"]},{"name":"p2","duration":0,"is_dependent":false,"tested_dependency_set":["a","p1"]}],"total_duration":1,"is_completed":true,"skipped_dependencies":false,"total_pair_state":140,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":0,"model_checking_status":"UNKNOWN","merge_strategies_duration":85,"final_strategy":{"duration":0,"total_inputs":3,"total_outputs":1,"total_latches":18,"total_gates":130},"independent_strategy":{"duration":2,"realizability":"REALIZABLE","total_inputs":1,"total_outputs":2,"total_latches":2,"total_gates":13},"dependent_strategy":{"duration":0,"total_inputs":3,"total_outputs":1,"total_latches":18,"total_gates":130}}}

@@ -1,0 +1,9 @@
+trying to create strategy directly for G!((!u02maschine2a29intent02maschine2a29intent & u02maschine2a29intent0f1dstop1b) <-> (u02maschine2a29intent02maschine2a29intent & !u02maschine2a29intent0f1dstop1b)) & G(p0b02maschine2b29failed -> u02maschine2a29intent0f1dstop1b)
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 7.8422e-05 seconds
+AIG circuit was created in 6.5602e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.013s
+user	0m0.003s
+sys	0m0.010s

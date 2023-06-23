@@ -1,0 +1,19 @@
+there are 1 subformulas
+srun: error: cn11: task 0: Exited with exit code 1
+trying to create strategy directly for G((req -> X(grant & X(grant & Xgrant))) & (grant -> X!grant) & (cancel -> X(!grant U go)))
+direct strategy might exist but was not found.
+translating formula done in 0.00102317 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 6.2353e-05 seconds
+automaton has 11 states
+determinization done
+DPA has 11 states, 2 colors
+simplification done
+DPA has 11 states
+determinization and simplification took 5.694e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 2.8223e-05 seconds
+
+real	0m0.012s
+user	0m0.007s
+sys	0m0.005s

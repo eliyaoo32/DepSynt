@@ -1,0 +1,65 @@
+aag 51 4 2 4 45
+2
+4
+6
+8
+10 79
+12 103
+0
+18
+34
+63
+14 6 11
+16 5 14
+18 3 16
+20 10 12
+22 11 12
+24 8 22
+26 9 21
+28 27 25
+30 7 29
+32 4 30
+34 3 32
+36 10 13
+38 6 36
+40 7 21
+42 41 39
+44 8 13
+46 6 21
+48 7 44
+50 49 47
+52 4 51
+54 5 43
+56 55 53
+58 2 21
+60 3 57
+62 61 59
+64 7 13
+66 4 64
+68 5 38
+70 69 67
+72 5 64
+74 2 72
+76 3 71
+78 77 75
+80 41 15
+82 7 22
+84 83 47
+86 4 85
+88 5 81
+90 89 87
+92 4 21
+94 5 85
+96 95 93
+98 2 97
+100 3 91
+102 101 99
+i0 p0b0cm29busy
+i1 p0b0cm29ready
+i2 p0b0cm29standby
+i3 p0b0cm29finished
+o0 u0cm29ctrl0f1dturn2off1b
+o1 u0cm29ctrl0f1dturn2on1b
+o2 u0cm29ctrl0cm29ctrl
+o3 u0cm29ctrl0f1dmake2coffee1b
+{"is_completed":true,"output_vars":["u0cm29ctrl0f1dturn2off1b","u0cm29ctrl0f1dmake2coffee1b","u0cm29ctrl0f1dturn2on1b","u0cm29ctrl0cm29ctrl"],"input_vars":["p0b0cm29finished","p0b0cm29busy","p0b0cm29standby","p0b0cm29ready"],"formula":"((G (! (((! (((u0cm29ctrl0f1dmake2coffee1b) && (! (u0cm29ctrl0cm29ctrl))) <-> ((u0cm29ctrl0cm29ctrl) && (! (u0cm29ctrl0f1dmake2coffee1b))))) && (! ((u0cm29ctrl0f1dturn2off1b) || (u0cm29ctrl0f1dturn2on1b)))) <-> ((! (((u0cm29ctrl0f1dturn2off1b) && (! (u0cm29ctrl0f1dturn2on1b))) <-> ((u0cm29ctrl0f1dturn2on1b) && (! (u0cm29ctrl0f1dturn2off1b))))) && (! ((u0cm29ctrl0f1dmake2coffee1b) || (u0cm29ctrl0cm29ctrl))))))) && ((((((((G (((p0b0cm29ready) || (p0b0cm29standby)) || (p0b0cm29busy))) && (G ((p0b0cm29ready) -> ((! (p0b0cm29standby)) && (! (p0b0cm29busy)))))) && (G ((p0b0cm29standby) -> ((! (p0b0cm29busy)) && (! (p0b0cm29ready)))))) && (G ((p0b0cm29busy) -> ((! (p0b0cm29ready)) && (! (p0b0cm29standby)))))) && (G ((((u0cm29ctrl0f1dturn2on1b) && (p0b0cm29standby)) -> (X (p0b0cm29busy))) U (((u0cm29ctrl0f1dmake2coffee1b) || (u0cm29ctrl0f1dturn2off1b)) R (p0b0cm29ready))))) && (G ((((u0cm29ctrl0f1dturn2off1b) && (p0b0cm29ready)) -> (X (p0b0cm29busy))) U ((u0cm29ctrl0f1dturn2on1b) R (p0b0cm29standby))))) && (G ((((u0cm29ctrl0f1dmake2coffee1b) && (p0b0cm29ready)) -> (X (p0b0cm29busy))) U ((p0b0cm29finished) && (((u0cm29ctrl0f1dmake2coffee1b) || (u0cm29ctrl0f1dturn2off1b)) R (p0b0cm29ready)))))) -> (false)))","total_time":9,"automaton":{"is_built":true,"build_duration":4,"total_states":13,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":13,"total_edges":38},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":5,"realizability":"REALIZABLE","total_inputs":4,"total_outputs":4,"total_latches":2,"total_gates":45},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

@@ -1,0 +1,19 @@
+there are 1 subformulas
+srun: error: cn08: task 0: Exited with exit code 1
+trying to create strategy directly for G((!g_0 | !g_1) & ((r_0 & Xr_1) -> F(g_0 & g_1))) & G(r_0 -> Fg_0) & G(r_1 -> Fg_1)
+direct strategy might exist but was not found.
+translating formula done in 0.00177792 seconds
+automaton has 8 states and 2 colors
+split inputs and outputs done in 0.000111444 seconds
+automaton has 16 states
+determinization done
+DPA has 20 states, 2 colors
+simplification done
+DPA has 20 states
+determinization and simplification took 0.000142489 seconds
+solving game with acceptance: Streett 1
+game solved in 3.2961e-05 seconds
+
+real	0m0.018s
+user	0m0.004s
+sys	0m0.013s

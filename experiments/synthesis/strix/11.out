@@ -1,0 +1,23 @@
+REALIZABLE
+aag 12 1 2 3 9
+2
+4 22
+6 25
+10
+14
+21
+8 2 4
+10 7 8
+12 2 5
+14 6 12
+16 3 5
+18 7 9
+20 17 19
+22 3 21
+24 11 13
+i0 p0p0acceling0accel0brakes
+l0 l0
+l1 l1
+o0 u0gear0f1dshift2by2speed0gear0speed1b
+o1 u0gear0f1dshift2by2r2p2m0gear0rpm1b
+o2 u0gear0gear

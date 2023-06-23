@@ -1,0 +1,77 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 61 5 6 4 50
+2
+4
+6
+8
+10
+12 1
+14 0
+16 101
+18 105
+20 109
+22 123
+24
+24
+73
+95
+24 11 9
+26 9 4
+28 25 2
+30 28 26
+32 30 22
+34 8 6
+36 35 10
+38 15 12
+40 39 37
+42 40 25
+44 43 33
+46 5 2
+48 47 9
+50 49 22
+52 26 18
+54 53 21
+56 54 51
+58 57 25
+60 39 25
+62 27 18
+64 63 17
+66 65 25
+68 67 61
+70 68 59
+72 70 44
+74 39 36
+76 75 67
+78 76 59
+80 10 7
+82 81 8
+84 24 5
+86 85 83
+88 87 39
+90 88 82
+92 91 44
+94 92 78
+96 36 20
+98 75 17
+100 98 97
+102 63 51
+104 102 89
+106 37 20
+108 107 41
+110 48 24
+112 111 31
+114 113 22
+116 24 4
+118 116 39
+120 119 53
+122 120 115
+i0 p0b02time296pm
+i1 p0b02time298am
+i2 p0b02door29failed
+i3 p0b02c2m29failed
+i4 p0b02power29failed
+o0 u02c2m29intent0f1dready1b
+o1 u02power29intent0f1don1b
+o2 u02c2m29intent02c2m29intent
+o3 u02power29intent02power29intent
+{"is_completed":true,"output_vars":["u02power29intent0f1don1b","u02power29intent02power29intent","u02c2m29intent0f1dready1b","u02c2m29intent02c2m29intent"],"input_vars":["p0b02time296pm","p0b02time298am","p0b02door29failed","p0b02c2m29failed","p0b02power29failed"],"formula":"((G ((! (((u02c2m29intent02c2m29intent) && (! (u02c2m29intent0f1dready1b))) <-> ((u02c2m29intent0f1dready1b) && (! (u02c2m29intent02c2m29intent))))) && (! (((u02power29intent02power29intent) && (! (u02power29intent0f1don1b))) <-> ((u02power29intent0f1don1b) && (! (u02power29intent02power29intent))))))) && (((G ((p0b02power29failed) -> (p0b02c2m29failed))) && (G ((p0b02power29failed) -> (p0b02door29failed)))) -> ((G ((! (p0b02c2m29failed)) -> ((p0b02time298am) -> (X (((u02c2m29intent0f1dready1b) U ((p0b02time296pm) || (p0b02c2m29failed))) || (G (u02c2m29intent0f1dready1b))))))) && (G ((! (p0b02c2m29failed)) -> ((u02c2m29intent0f1dready1b) -> (u02power29intent0f1don1b)))))))","total_time":91,"automaton":{"is_built":true,"build_duration":3,"total_states":5,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":5,"total_edges":11},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u02c2m29intent02c2m29intent","duration":0,"is_dependent":true,"tested_dependency_set":["p0b02time296pm","p0b02time298am","p0b02door29failed","p0b02c2m29failed","p0b02power29failed","u02power29intent0f1don1b","u02power29intent02power29intent","u02c2m29intent0f1dready1b"]},{"name":"u02c2m29intent0f1dready1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b02time296pm","p0b02time298am","p0b02door29failed","p0b02c2m29failed","p0b02power29failed","u02power29intent0f1don1b","u02power29intent02power29intent"]},{"name":"u02power29intent02power29intent","duration":0,"is_dependent":true,"tested_dependency_set":["p0b02time296pm","p0b02time298am","p0b02door29failed","p0b02c2m29failed","p0b02power29failed","u02power29intent0f1don1b","u02c2m29intent0f1dready1b"]},{"name":"u02power29intent0f1don1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0b02time296pm","p0b02time298am","p0b02door29failed","p0b02c2m29failed","p0b02power29failed","u02c2m29intent0f1dready1b"]}],"total_duration":0,"is_completed":true,"skipped_dependencies":false,"total_pair_state":9,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":0,"model_checking_status":"UNKNOWN","merge_strategies_duration":84,"final_strategy":{"duration":0,"total_inputs":7,"total_outputs":2,"total_latches":5,"total_gates":137},"independent_strategy":{"duration":1,"realizability":"REALIZABLE","total_inputs":5,"total_outputs":2,"total_latches":0,"total_gates":1},"dependent_strategy":{"duration":0,"total_inputs":7,"total_outputs":2,"total_latches":5,"total_gates":137}}}

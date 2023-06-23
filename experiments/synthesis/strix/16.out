@@ -1,0 +1,75 @@
+REALIZABLE
+aag 41 9 1 11 31
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20 64
+78
+71
+76
+1
+0
+1
+0
+80
+82
+42
+61
+22 3 21
+24 5 21
+26 7 24
+28 23 27
+30 9 24
+32 28 30
+34 7 29
+36 4 8
+38 34 36
+40 33 39
+42 11 41
+44 9 10
+46 34 44
+48 43 47
+50 9 22
+52 27 51
+54 11 53
+56 26 50
+58 55 57
+60 49 58
+62 17 59
+64 48 55
+66 14 63
+68 65 66
+70 61 69
+72 13 18
+74 59 73
+76 69 74
+78 70 77
+80 4 46
+82 2 46
+i0 p0p0lt0rotation0f1dneg0f1dgamemodeswitch1b1b
+i1 p0p0gt0rotation0f1dgamemodeswitch1b
+i2 p0p0isscoremode0gamemode
+i3 p0p0isradarmode0gamemode
+i4 p0p0iscockpitmode0gamemode
+i5 p0p0gyronoise0gyroy
+i6 p0p0gamemodenoise0rotation
+i7 p0p0eqz2rst0reseter
+i8 p0p0eqz2pre0prescaler
+l0 l0
+o0 u0rotation0f1daddrotation0rotation0f1dgyrocorrection1b0gyroy1b
+o1 u0rotation0f1dzero1b
+o2 u0rotation0rotation
+o3 u0reseter0f1dinc2reset0reseter1b
+o4 u0reseter0reseter
+o5 u0prescaler0f1dinc2prescale0prescaler1b
+o6 u0prescaler0prescaler
+o7 u0gamemode0f1dscoremode1b
+o8 u0gamemode0f1dradarmode1b
+o9 u0gamemode0f1dcockpitmode1b
+o10 u0gamemode0gamemode

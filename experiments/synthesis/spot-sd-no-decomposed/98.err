@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!u0ctrl0f1dpause0mp1b & !((u0ctrl0ctrl & !u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) <-> (!u0ctrl0ctrl & u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) <-> (u0ctrl0f1dpause0mp1b & !(u0ctrl0ctrl | u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) & ((G(p0p0leave2app0sys -> (((!p0p0pause2button0sys & !p0p0play2button0sys) U p0p0resume2app0sys) | G(!p0p0pause2button0sys & !p0p0play2button0sys))) & G!(p0p0pause2button0sys & p0p0play2button0sys) & G!(p0p0leave2app0sys & p0p0resume2app0sys) & G(u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b -> X((p0p0music2playing0mp U u0ctrl0f1dpause0mp1b) | Gp0p0music2playing0mp)) & G(u0ctrl0f1dpause0mp1b -> X((!p0p0music2playing0mp U u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) | G!p0p0music2playing0mp))) -> (G(p0p0play2button0sys -> u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) & G(p0p0pause2button0sys -> u0ctrl0f1dpause0mp1b) & G(u0ctrl0f1dpause0mp1b -> (p0p0leave2app0sys | p0p0pause2button0sys)) & G(p0p0leave2app0sys -> ((!u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b U p0p0resume2app0sys) | G!u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)) & G(p0p0pause2button0sys -> (G!u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b | (!u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b U p0p0play2button0sys))) & G((p0p0leave2app0sys & p0p0music2playing0mp) -> u0ctrl0f1dpause0mp1b) & G((p0p0leave2app0sys & p0p0music2playing0mp) -> ((!(p0p0pause2button0sys | u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) U (p0p0resume2app0sys & (p0p0pause2button0sys | u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) | G!(p0p0pause2button0sys | u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)))))
+direct strategy might exist but was not found.
+translating formula done in 0.015489 seconds
+automaton has 14 states and 1 colors
+split inputs and outputs done in 0.000433162 seconds
+automaton has 54 states
+determinization done
+DPA has 96 states, 2 colors
+simplification done
+DPA has 56 states
+determinization and simplification took 0.00233194 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 8.1979e-05 seconds
+simplification took 0.00013058 seconds
+AIG circuit was created in 0.000226697 seconds and has 2 latches and 74 gates
+
+real	0m0.407s
+user	0m0.022s
+sys	0m0.018s

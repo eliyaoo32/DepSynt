@@ -1,0 +1,12 @@
+trying to create strategy directly for G((p0 & !p1 & !p2) | (!p0 & p1 & !p2) | (!p0 & !p1 & p2)) & (((GFa1 & GFa2 & GFa3 & GFa4 & GFa5) -> GFb) <-> (GFp0 | (GFp2 & !GFp1)))
+direct strategy might exist but was not found.
+translating formula done in 0.0277296 seconds
+automaton has 28 states and 6 colors
+split inputs and outputs done in 0.00153637 seconds
+automaton has 281 states
+ltlsynt: Too many acceptance sets used.  The limit is 32.
+
+real	0m47.970s
+user	0m47.493s
+sys	0m0.320s
+srun: error: cn10: task 0: Exited with exit code 2

@@ -1,0 +1,26 @@
+there are 5 subformulas
+trying to create strategy directly for Gu0bxcoord0xcoord & G!((!u0bxcoord0bxcoord & u0bxcoord0xcoord) <-> (u0bxcoord0bxcoord & !u0bxcoord0xcoord))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 7.0276e-05 seconds
+trying to create strategy directly for Gu0bycoord0ycoord & G!((!u0bycoord0bycoord & u0bycoord0ycoord) <-> (u0bycoord0bycoord & !u0bycoord0ycoord))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 2.3759e-05 seconds
+trying to create strategy directly for Gu0xcoord0f1dinc0xcoord1b & G!((u0xcoord0f1dinc0xcoord1b & !u0xcoord0xcoord) <-> (!u0xcoord0f1dinc0xcoord1b & u0xcoord0xcoord))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 2.1997e-05 seconds
+trying to create strategy directly for G(p0p0eq0xcoord0f1ddec0f1dsizex1b1b <-> u0ycoord0f1dinc0ycoord1b) & G!((u0ycoord0f1dinc0ycoord1b & !u0ycoord0ycoord) <-> (!u0ycoord0f1dinc0ycoord1b & u0ycoord0ycoord))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 3.3778e-05 seconds
+trying to create strategy directly for G(u0actcolor0f1dblackcolor1b | u0actcolor0f1dredcolor1b | u0actcolor0scorecolor) & G(p0p0lt0f1dcoordcount0xcoord0ycoord1b0score <-> u0actcolor0scorecolor) & G(u0actcolor0f1dredcolor1b <-> (!p0p0lt0f1dcoordcount0xcoord0ycoord1b0score & p0p0on0gameover & (p0p0eq0f1dadd0xcoord0ycoord1b0f1ddec0f1dsizex1b1b | p0p0eq0xcoord0ycoord))) & G!((!((!u0actcolor0f1dredcolor1b & u0actcolor0scorecolor) <-> (u0actcolor0f1dredcolor1b & !u0actcolor0scorecolor)) & !(u0actcolor0actcolor | u0actcolor0f1dblackcolor1b)) <-> (!((u0actcolor0actcolor & !u0actcolor0f1dblackcolor1b) <-> (!u0actcolor0actcolor & u0actcolor0f1dblackcolor1b)) & !(u0actcolor0f1dredcolor1b | u0actcolor0scorecolor)))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 0.000185328 seconds
+AIG circuit was created in 0.000249088 seconds and has 0 latches and 4 gates
+
+real	0m0.014s
+user	0m0.006s
+sys	0m0.008s

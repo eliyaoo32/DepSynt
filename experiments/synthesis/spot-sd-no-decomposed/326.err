@@ -1,0 +1,18 @@
+trying to create strategy directly for 0
+srun: error: cn08: task 0: Exited with exit code 1
+direct strategy might exist but was not found.
+translating formula done in 0.000168371 seconds
+automaton has 1 states and 0 colors
+split inputs and outputs done in 5.364e-05 seconds
+automaton has 3 states
+determinization done
+DPA has 3 states, 1 colors
+simplification done
+DPA has 2 states
+determinization and simplification took 6.8089e-05 seconds
+solving game with acceptance: co-Büchi
+game solved in 2.6859e-05 seconds
+
+real	0m0.013s
+user	0m0.004s
+sys	0m0.009s

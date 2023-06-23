@@ -1,0 +1,34 @@
+there are 2 subformulas
+trying to create strategy directly for ((!s2b_req_0 & G((!b2s_ack_0 & s2b_req_0) -> Xs2b_req_0) & G(b2s_ack_0 -> X!s2b_req_0)) -> (!b2s_ack_0 & G((!s2b_req_0 & Xs2b_req_0) -> X(!b2s_ack_0 & XFb2s_ack_0)) & G((!b2s_ack_0 & X!s2b_req_0) -> X!b2s_ack_0) & G(!b2s_ack_0 | !b2s_ack_1))) & ((!s2b_req_1 & G((!b2s_ack_1 & s2b_req_1) -> Xs2b_req_1) & G(b2s_ack_1 -> X!s2b_req_1)) -> (!b2s_ack_0 & G(!b2s_ack_0 | !b2s_ack_1) & G((!s2b_req_1 & Xs2b_req_1) -> X(!b2s_ack_1 & XFb2s_ack_1)) & G((!b2s_ack_1 & X!s2b_req_1) -> X!b2s_ack_1)))
+direct strategy might exist but was not found.
+translating formula done in 0.0053965 seconds
+automaton has 93 states and 2 colors
+split inputs and outputs done in 0.000421776 seconds
+automaton has 206 states
+determinization done
+DPA has 178 states, 2 colors
+simplification done
+DPA has 160 states
+determinization and simplification took 0.0488868 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 0.000162603 seconds
+simplification took 0.000610209 seconds
+trying to create strategy directly for ((!r2b_ack_0 & G(!b2r_req_0 -> X!r2b_ack_0) & G(b2r_req_0 -> XFr2b_ack_0)) -> (!b2r_req_0 & G(r2b_ack_0 -> X!b2r_req_0) & G((b2r_req_0 & !r2b_ack_0) -> Xb2r_req_0) & G((b2r_req_0 & X!b2r_req_0) -> X(!b2r_req_0 U (!b2r_req_0 & b2r_req_1))))) & ((!r2b_ack_1 & G(!b2r_req_1 -> X!r2b_ack_1) & G(b2r_req_1 -> XFr2b_ack_1)) -> (!b2r_req_1 & G(r2b_ack_1 -> X!b2r_req_1) & G((b2r_req_1 & !r2b_ack_1) -> Xb2r_req_1) & G((b2r_req_1 & X!b2r_req_1) -> X(!b2r_req_1 U (b2r_req_0 & !b2r_req_1))))) & (((!r2b_ack_0 & G(!b2r_req_0 -> X!r2b_ack_0) & G(b2r_req_0 -> XFr2b_ack_0)) | (!r2b_ack_1 & G(!b2r_req_1 -> X!r2b_ack_1) & G(b2r_req_1 -> XFr2b_ack_1))) -> G((s2b_req_0 | s2b_req_1) -> XF(b2r_req_0 | b2r_req_1))) & (((!r2b_ack_0 & G(!b2r_req_0 -> X!r2b_ack_0) & G(b2r_req_0 -> XFr2b_ack_0)) | (!r2b_ack_1 & G(!b2r_req_1 -> X!r2b_ack_1) & G(b2r_req_1 -> XFr2b_ack_1))) -> G(!b2r_req_0 | !b2r_req_1))
+direct strategy might exist but was not found.
+translating formula done in 0.0153669 seconds
+automaton has 91 states and 3 colors
+split inputs and outputs done in 0.00210382 seconds
+automaton has 386 states
+determinization done
+DPA has 1442 states, 3 colors
+simplification done
+DPA has 1357 states
+determinization and simplification took 0.143282 seconds
+solving game with acceptance: parity min odd 3
+game solved in 0.000834352 seconds
+simplification took 0.00223644 seconds
+AIG circuit was created in 0.00263187 seconds and has 10 latches and 885 gates
+
+real	0m0.186s
+user	0m0.168s
+sys	0m0.016s

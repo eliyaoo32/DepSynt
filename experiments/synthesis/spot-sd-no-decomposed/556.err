@@ -1,0 +1,18 @@
+trying to create strategy directly for GFacc <-> (GFp_1 & (GFp_0 | FGp_1))
+srun: error: cn09: task 0: Exited with exit code 1
+direct strategy might exist but was not found.
+translating formula done in 0.00281343 seconds
+automaton has 12 states and 3 colors
+split inputs and outputs done in 0.000118452 seconds
+automaton has 42 states
+determinization done
+DPA has 87 states, 4 colors
+simplification done
+DPA has 70 states
+determinization and simplification took 0.00294049 seconds
+solving game with acceptance: parity min even 4
+game solved in 0.000193244 seconds
+
+real	0m0.048s
+user	0m0.009s
+sys	0m0.017s

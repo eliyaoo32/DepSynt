@@ -1,0 +1,18 @@
+trying to create strategy directly for (r_0 R !g_0) & (r_1 R !g_1) & (r_2 R !g_2) & G(((!g_0 & !g_1) | (!g_2 & (!g_0 | !g_1))) & ((g_0 & G!r_0) -> F!g_0) & ((g_0 & X(!g_0 & !r_0)) -> X(r_0 R !g_0)) & ((g_1 & G!r_1) -> F!g_1) & ((g_1 & X(!g_1 & !r_1)) -> X(r_1 R !g_1)) & ((g_2 & G!r_2) -> F!g_2) & ((g_2 & X(!g_2 & !r_2)) -> X(r_2 R !g_2)) & ((r_0 & Xr_1) -> F(g_0 & g_1)) & ((r_0 & Xr_2) -> F(g_0 & g_2)) & ((r_1 & Xr_2) -> F(g_1 & g_2))) & G(r_0 -> Fg_0) & G(r_1 -> Fg_1) & G(r_2 -> Fg_2)
+direct strategy might exist but was not found.
+translating formula done in 0.0493275 seconds
+automaton has 44 states and 6 colors
+split inputs and outputs done in 0.000476739 seconds
+automaton has 158 states
+determinization done
+DPA has 302 states, 2 colors
+simplification done
+DPA has 234 states
+determinization and simplification took 0.000901161 seconds
+solving game with acceptance: Streett 1
+game solved in 0.000146793 seconds
+
+real	0m0.064s
+user	0m0.051s
+sys	0m0.013s
+srun: error: cn09: task 0: Exited with exit code 1

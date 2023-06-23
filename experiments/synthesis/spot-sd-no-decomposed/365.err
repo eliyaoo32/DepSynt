@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!u0room29heating29ctrl0f1dturn2on1b & !((!u0room29heating29ctrl0f1dturn2off1b & u0room29heating29ctrl0room29heating29ctrl) <-> (u0room29heating29ctrl0f1dturn2off1b & !u0room29heating29ctrl0room29heating29ctrl))) <-> (u0room29heating29ctrl0f1dturn2on1b & !(u0room29heating29ctrl0f1dturn2off1b | u0room29heating29ctrl0room29heating29ctrl))) & (G(!(p0b0room29heating29off <-> p0b0room29heating29on) & (u0room29heating29ctrl0f1dturn2on1b -> F(u0room29heating29ctrl0f1dturn2off1b R p0b0room29heating29on)) & (u0room29heating29ctrl0f1dturn2off1b -> F(u0room29heating29ctrl0f1dturn2on1b R p0b0room29heating29off))) -> G(p0p0gt0outside29temperature0room29temperature -> Fp0b0room29heating29off))
+direct strategy might exist but was not found.
+translating formula done in 0.00266994 seconds
+automaton has 7 states and 1 colors
+split inputs and outputs done in 0.000120234 seconds
+automaton has 18 states
+determinization done
+DPA has 51 states, 2 colors
+simplification done
+DPA has 40 states
+determinization and simplification took 0.00212072 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 6.6553e-05 seconds
+simplification took 0.000239819 seconds
+AIG circuit was created in 0.000179384 seconds and has 2 latches and 21 gates
+
+real	0m0.018s
+user	0m0.011s
+sys	0m0.007s

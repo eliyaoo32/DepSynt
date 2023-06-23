@@ -1,0 +1,120 @@
+aag 102 8 2 4 92
+2
+4
+6
+8
+10
+12
+14
+16
+18 111
+20 205
+0
+46
+80
+87
+22 10 19
+24 15 22
+26 13 19
+28 10 26
+30 15 28
+32 3 30
+34 8 30
+36 9 32
+38 37 35
+40 6 39
+42 7 24
+44 43 41
+46 5 45
+48 18 21
+50 11 48
+52 15 50
+54 11 18
+56 15 54
+58 2 56
+60 3 52
+62 61 59
+64 13 48
+66 11 64
+68 15 66
+70 3 68
+72 9 70
+74 6 72
+76 7 63
+78 77 75
+80 4 79
+82 4 78
+84 5 44
+86 85 83
+88 19 11
+90 14 88
+92 26 11
+94 14 92
+96 94 3
+98 8 95
+100 9 97
+102 101 99
+104 6 103
+106 7 91
+108 107 105
+110 108 5
+112 19 21
+114 10 112
+116 11 20
+118 14 116
+120 15 114
+122 121 119
+124 2 90
+126 3 123
+128 127 125
+130 13 112
+132 10 130
+134 13 20
+136 11 134
+138 14 136
+140 15 132
+142 141 139
+144 3 143
+146 13 18
+148 11 146
+150 14 148
+152 31 151
+154 8 153
+156 9 144
+158 157 155
+160 6 159
+162 7 129
+164 163 161
+166 18 20
+168 113 167
+170 11 169
+172 15 170
+174 3 172
+176 13 169
+178 11 176
+180 15 178
+182 3 180
+184 11 13
+186 15 184
+188 8 186
+190 9 182
+192 191 189
+194 6 193
+196 7 174
+198 197 195
+200 4 199
+202 5 165
+204 203 201
+i0 p0b02room29somebody2enters
+i1 p0b02c2m29ready
+i2 p0b02room29empty
+i3 p0b02room29somebody2leaves
+i4 p0b02c2m29standby
+i5 p0b02room29switch29toggled
+i6 p0b02c2m29busy
+i7 p0b02c2m29finished
+o0 u02c2m29ctrl0f1d2c2m29turn2off1b
+o1 u02c2m29ctrl0f1d2c2m29turn2on1b
+o2 u02c2m29ctrl02c2m29ctrl
+o3 u02c2m29ctrl0f1d2c2m29make2coffee1b
+{"is_completed":true,"output_vars":["u02c2m29ctrl0f1d2c2m29turn2off1b","u02c2m29ctrl0f1d2c2m29make2coffee1b","u02c2m29ctrl0f1d2c2m29turn2on1b","u02c2m29ctrl02c2m29ctrl"],"input_vars":["p0b02c2m29finished","p0b02c2m29busy","p0b02c2m29standby","p0b02c2m29ready","p0b02room29somebody2leaves","p0b02room29somebody2enters","p0b02room29switch29toggled","p0b02room29empty"],"formula":"((G (! (((! (((u02c2m29ctrl0f1d2c2m29make2coffee1b) && (! (u02c2m29ctrl02c2m29ctrl))) <-> ((u02c2m29ctrl02c2m29ctrl) && (! (u02c2m29ctrl0f1d2c2m29make2coffee1b))))) && (! ((u02c2m29ctrl0f1d2c2m29turn2off1b) || (u02c2m29ctrl0f1d2c2m29turn2on1b)))) <-> ((! (((u02c2m29ctrl0f1d2c2m29turn2off1b) && (! (u02c2m29ctrl0f1d2c2m29turn2on1b))) <-> ((u02c2m29ctrl0f1d2c2m29turn2on1b) && (! (u02c2m29ctrl0f1d2c2m29turn2off1b))))) && (! ((u02c2m29ctrl0f1d2c2m29make2coffee1b) || (u02c2m29ctrl02c2m29ctrl))))))) && ((((((((((((G ((p0b02room29empty) -> (! (p0b02room29switch29toggled)))) && (G ((p0b02room29somebody2enters) -> (((! (p0b02room29empty)) U (p0b02room29somebody2leaves)) || (G (! (p0b02room29empty))))))) && (G (((p0b02room29somebody2leaves) && (p0b02room29empty)) -> (((p0b02room29empty) U (p0b02room29somebody2enters)) || (G (p0b02room29empty)))))) && (G (((p0b02c2m29ready) || (p0b02c2m29standby)) || (p0b02c2m29busy)))) && (G ((p0b02c2m29ready) -> ((! (p0b02c2m29standby)) && (! (p0b02c2m29busy)))))) && (G ((p0b02c2m29standby) -> ((! (p0b02c2m29busy)) && (! (p0b02c2m29ready)))))) && (G ((p0b02c2m29busy) -> ((! (p0b02c2m29ready)) && (! (p0b02c2m29standby)))))) && (G (((u02c2m29ctrl0f1d2c2m29turn2on1b) && (p0b02c2m29standby)) -> (X ((p0b02c2m29busy) U (((u02c2m29ctrl0f1d2c2m29make2coffee1b) || (u02c2m29ctrl0f1d2c2m29turn2off1b)) R (p0b02c2m29ready))))))) && (G (((u02c2m29ctrl0f1d2c2m29turn2off1b) && (p0b02c2m29ready)) -> (X ((p0b02c2m29busy) U ((u02c2m29ctrl0f1d2c2m29turn2on1b) R (p0b02c2m29standby))))))) && (G (((u02c2m29ctrl0f1d2c2m29make2coffee1b) && (p0b02c2m29ready)) -> (X ((p0b02c2m29busy) U ((p0b02c2m29finished) && (((u02c2m29ctrl0f1d2c2m29make2coffee1b) || (u02c2m29ctrl0f1d2c2m29turn2off1b)) R (p0b02c2m29ready)))))))) && (F ((p0b02c2m29standby) || (p0b02c2m29ready)))) -> (G ((p0b02room29somebody2enters) -> (F (((p0b02c2m29ready) U ((p0b02room29somebody2leaves) && (p0b02room29empty))) || (G (p0b02c2m29ready))))))))","total_time":30,"automaton":{"is_built":true,"build_duration":8,"total_states":17,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":17,"total_edges":60},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":21,"realizability":"REALIZABLE","total_inputs":8,"total_outputs":4,"total_latches":2,"total_gates":92},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

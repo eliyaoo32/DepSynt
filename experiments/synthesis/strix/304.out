@@ -1,0 +1,54 @@
+REALIZABLE
+aag 37 6 3 3 28
+2
+4
+6
+8
+10
+12
+14 36
+16 73
+18 74
+0
+23
+0
+20 14 16
+22 18 20
+24 11 21
+26 12 24
+28 16 19
+30 15 29
+32 8 31
+34 26 33
+36 23 35
+38 5 11
+40 24 32
+42 23 41
+44 39 43
+46 21 31
+48 19 47
+50 8 16
+52 30 50
+54 38 53
+56 49 54
+58 12 57
+60 45 58
+62 9 14
+64 17 19
+66 63 64
+68 13 23
+70 67 68
+72 61 71
+74 26 49
+i0 p0b02time296am
+i1 p0b02time292423pm
+i2 p0b0reaching2closed
+i3 p0b0reaching2open
+i4 p0b0closed
+i5 p0b0open
+l0 l0
+l1 l1
+l2 l2
+o0 u0ctrl0f1dmove2to0f1dpercent231b1b
+o1 u0ctrl0f1dmove2to0f1dpercent2423231b1b
+o2 u0ctrl0ctrl

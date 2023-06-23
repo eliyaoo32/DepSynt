@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for GFreq -> GFgrant
+direct strategy might exist but was not found.
+translating formula done in 0.00405262 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.00102162 seconds
+automaton has 9 states
+determinization done
+DPA has 8 states, 3 colors
+simplification done
+DPA has 7 states
+determinization and simplification took 0.000678509 seconds
+solving game with acceptance: parity min even 3
+game solved in 5.3991e-05 seconds
+simplification took 0.000259214 seconds
+AIG circuit was created in 4.3943e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.019s
+user	0m0.005s
+sys	0m0.009s

@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for (allready & GFallready) -> (!decide & hgrant_0 & G(((!hgrant_0 & !hgrant_1 & (!hgrant_2 | !hgrant_3)) | (!hgrant_2 & !hgrant_3 & (!hgrant_0 | !hgrant_1))) & (hgrant_0 | hgrant_1 | hgrant_2 | hgrant_3) & (hgrant_0 -> (busreq <-> hbusreq_0)) & (hgrant_1 -> (busreq <-> hbusreq_1)) & (hgrant_2 -> (busreq <-> hbusreq_2)) & (hgrant_3 -> (busreq <-> hbusreq_3)) & (!allready -> !decide) & (!allready -> (hgrant_0 <-> Xhgrant_0)) & (!allready -> (hgrant_1 <-> Xhgrant_1)) & (!allready -> (hgrant_2 <-> Xhgrant_2)) & (!allready -> (hgrant_3 <-> Xhgrant_3)) & (hbusreq_0 -> F(!hbusreq_0 | hgrant_0)) & (hbusreq_1 -> F(!hbusreq_1 | hgrant_1)) & (hbusreq_2 -> F(!hbusreq_2 | hgrant_2)) & (hbusreq_3 -> F(!hbusreq_3 | hgrant_3)) & (decide <-> (!(hgrant_0 <-> Xhgrant_0) | !(hgrant_1 <-> Xhgrant_1) | !(hgrant_2 <-> Xhgrant_2) | !(hgrant_3 <-> Xhgrant_3))) & ((decide & !hbusreq_0 & !hbusreq_1 & !hbusreq_2 & !hbusreq_3) -> Xhgrant_0)))
+direct strategy might exist but was not found.
+translating formula done in 0.0117479 seconds
+automaton has 12 states and 4 colors
+split inputs and outputs done in 0.00161328 seconds
+automaton has 276 states
+determinization done
+DPA has 492 states, 3 colors
+simplification done
+DPA has 356 states
+determinization and simplification took 0.0769057 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.000452831 seconds
+simplification took 0.00154941 seconds
+AIG circuit was created in 0.00390252 seconds and has 5 latches and 1380 gates
+
+real	0m0.116s
+user	0m0.095s
+sys	0m0.020s

@@ -1,0 +1,18 @@
+there are 3 subformulas
+trying to create strategy directly for G(p0p0firsthalf0reg2manager2cmd <-> u0buffer0f1dextract2dat0reg2manager2cmd1b) & G!((!u0buffer0buffer & u0buffer0f1dextract2dat0reg2manager2cmd1b) <-> (u0buffer0buffer & !u0buffer0f1dextract2dat0reg2manager2cmd1b))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 8.1808e-05 seconds
+trying to create strategy directly for G(p0p0secondhalf0reg2manager2cmd -> u0reg2type0f1dextract2reg0reg2manager2cmd1b) & G(!p0p0secondhalf0reg2manager2cmd -> u0reg2type0f1dregnone1b) & G!((!u0reg2type0f1dregnone1b & !((!u0reg2type0f1dextract2reg0reg2manager2cmd1b & u0reg2type0reg2type) <-> (u0reg2type0f1dextract2reg0reg2manager2cmd1b & !u0reg2type0reg2type))) <-> (u0reg2type0f1dregnone1b & !(u0reg2type0f1dextract2reg0reg2manager2cmd1b | u0reg2type0reg2type)))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 4.8192e-05 seconds
+trying to create strategy directly for G(p0p0secondhalf0reg2manager2cmd -> u0reg2data0f1dmerge2reg0f1dextract2dat0reg2manager2cmd1b0buffer1b) & G(!p0p0secondhalf0reg2manager2cmd -> u0reg2data0f1dzero1b) & G!((!u0reg2data0f1dzero1b & !((!u0reg2data0f1dmerge2reg0f1dextract2dat0reg2manager2cmd1b0buffer1b & u0reg2data0reg2data) <-> (u0reg2data0f1dmerge2reg0f1dextract2dat0reg2manager2cmd1b0buffer1b & !u0reg2data0reg2data))) <-> (u0reg2data0f1dzero1b & !(u0reg2data0f1dmerge2reg0f1dextract2dat0reg2manager2cmd1b0buffer1b | u0reg2data0reg2data)))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 4.4417e-05 seconds
+AIG circuit was created in 0.000122877 seconds and has 0 latches and 0 gates
+
+real	0m0.013s
+user	0m0.004s
+sys	0m0.008s

@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!((!u02c2m29ctrl0f1d2c2m29turn2off1b & u02c2m29ctrl0f1d2c2m29turn2on1b) <-> (u02c2m29ctrl0f1d2c2m29turn2off1b & !u02c2m29ctrl0f1d2c2m29turn2on1b)) & !(u02c2m29ctrl02c2m29ctrl | u02c2m29ctrl0f1d2c2m29make2coffee1b)) <-> (!((u02c2m29ctrl02c2m29ctrl & !u02c2m29ctrl0f1d2c2m29make2coffee1b) <-> (!u02c2m29ctrl02c2m29ctrl & u02c2m29ctrl0f1d2c2m29make2coffee1b)) & !(u02c2m29ctrl0f1d2c2m29turn2off1b | u02c2m29ctrl0f1d2c2m29turn2on1b))) & ((G(p0b02room29empty -> !p0b02room29switch29toggled) & G(p0b02room29somebody2enters -> ((!p0b02room29empty U (p0b02room29empty & p0b02room29sombebody2leaves)) | G!p0b02room29empty)) & G((p0b02room29empty & p0b02room29somebody2leaves) -> ((p0b02room29empty U p0b02room29sombebody2enters) | Gp0b02room29empty)) & G(p0b02room29bed29occupied -> !p0b02room29empty) & ((!p0b02room29empty U (p0b02room29empty & p0b02room29sombebody2leaves)) | G!p0b02room29empty | (p0b02room29empty U p0b02room29sombebody2enters) | Gp0b02room29empty) & G(p0b02c2m29busy | p0b02c2m29ready | p0b02c2m29standby) & G(p0b02c2m29ready -> (!p0b02c2m29busy & !p0b02c2m29standby)) & G(p0b02c2m29standby -> (!p0b02c2m29busy & !p0b02c2m29ready)) & G(p0b02c2m29busy -> (!p0b02c2m29ready & !p0b02c2m29standby)) & G((p0b02c2m29standby & u02c2m29ctrl0f1d2c2m29turn2on1b) -> X(p0b02c2m29busy U ((u02c2m29ctrl0f1d2c2m29make2coffee1b | u02c2m29ctrl0f1d2c2m29turn2off1b) R p0b02c2m29ready))) & G((p0b02c2m29ready & u02c2m29ctrl0f1d2c2m29turn2off1b) -> X(p0b02c2m29busy U (u02c2m29ctrl0f1d2c2m29turn2on1b R p0b02c2m29standby))) & G((p0b02c2m29ready & u02c2m29ctrl0f1d2c2m29make2coffee1b) -> X(p0b02c2m29busy U (p0b02c2m29finished & ((u02c2m29ctrl0f1d2c2m29make2coffee1b | u02c2m29ctrl0f1d2c2m29turn2off1b) R p0b02c2m29ready)))) & F(p0b02c2m29ready | p0b02c2m29standby)) -> G(p0b02room29somebody2enters -> F((p0b02c2m29ready U (p0b02room29empty & p0b02room29somebody2leaves)) | Gp0b02c2m29ready)))
+direct strategy might exist but was not found.
+translating formula done in 0.0202162 seconds
+automaton has 15 states and 1 colors
+split inputs and outputs done in 0.0206661 seconds
+automaton has 58 states
+determinization done
+DPA has 217 states, 3 colors
+simplification done
+DPA has 132 states
+determinization and simplification took 0.0998051 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.000231395 seconds
+simplification took 0.00134789 seconds
+AIG circuit was created in 0.000633838 seconds and has 3 latches and 231 gates
+
+real	0m0.155s
+user	0m0.144s
+sys	0m0.009s

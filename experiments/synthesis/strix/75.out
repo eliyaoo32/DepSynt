@@ -1,0 +1,87 @@
+REALIZABLE
+aag 48 4 3 15 41
+2
+4
+6
+8
+10 81
+12 93
+14 97
+62
+78
+84
+86
+0
+62
+78
+84
+86
+0
+62
+78
+84
+86
+0
+16 12 14
+18 2 17
+20 2 19
+22 7 11
+24 6 13
+26 12 15
+28 25 27
+30 23 29
+32 8 30
+34 9 17
+36 25 34
+38 13 15
+40 11 38
+42 10 39
+44 41 43
+46 36 45
+48 33 47
+50 5 49
+52 8 17
+54 31 53
+56 4 55
+58 19 57
+60 51 58
+62 21 61
+64 10 36
+66 53 65
+68 5 67
+70 5 15
+72 3 17
+74 71 72
+76 54 74
+78 69 76
+80 58 69
+82 5 29
+84 80 82
+86 63 68
+88 5 54
+90 62 89
+92 85 91
+94 18 88
+96 77 95
+i0 p0p0on0start2mag
+i1 p0p0on0start2init
+i2 p0p0on0start2gyr
+i3 p0p0on0start2acc
+l0 l0
+l1 l1
+l2 l2
+o0 u0spi2control0spi2control2mag
+o1 u0spi2control0spi2control2init
+o2 u0spi2control0spi2control2gyr
+o3 u0spi2control0spi2control2acc
+o4 u0spi2control0spi2control
+o5 u0sensor2type0sensor2type2mag
+o6 u0sensor2type0sensor2type2init
+o7 u0sensor2type0sensor2type2gyr
+o8 u0sensor2type0sensor2type2acc
+o9 u0sensor2type0sensor2type
+o10 u0reg2manager2cmd0reg2manager2cmd2mag
+o11 u0reg2manager2cmd0reg2manager2cmd2init
+o12 u0reg2manager2cmd0reg2manager2cmd2gyr
+o13 u0reg2manager2cmd0reg2manager2cmd2acc
+o14 u0reg2manager2cmd0reg2manager2cmd

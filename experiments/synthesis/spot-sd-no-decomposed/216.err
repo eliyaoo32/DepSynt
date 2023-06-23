@@ -1,0 +1,18 @@
+trying to create strategy directly for G!((!((!u02device29light0f1d2device29turn2off1b & u02device29light0f1d2device29turn2on1b) <-> (u02device29light0f1d2device29turn2off1b & !u02device29light0f1d2device29turn2on1b)) & !(u02device29light02device29light | u02device29light0f1d2device29toggle1b)) <-> (!((u02device29light02device29light & !u02device29light0f1d2device29toggle1b) <-> (!u02device29light02device29light & u02device29light0f1d2device29toggle1b)) & !(u02device29light0f1d2device29turn2off1b | u02device29light0f1d2device29turn2on1b))) & !(G!(p0b02device29off <-> p0b02device29on) & G((u02device29light0f1d2device29turn2on1b | (p0b02device29off & u02device29light0f1d2device29toggle1b)) -> XF((u02device29light0f1d2device29toggle1b | u02device29light0f1d2device29turn2off1b) R p0b02device29on)) & G((u02device29light0f1d2device29turn2off1b | (p0b02device29on & u02device29light0f1d2device29toggle1b)) -> XF((u02device29light0f1d2device29toggle1b | u02device29light0f1d2device29turn2on1b) R p0b02device29off)))
+srun: error: cn11: task 0: Exited with exit code 1
+direct strategy might exist but was not found.
+translating formula done in 0.00151354 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 4.9444e-05 seconds
+automaton has 12 states
+determinization done
+DPA has 22 states, 3 colors
+simplification done
+DPA has 18 states
+determinization and simplification took 0.000948985 seconds
+solving game with acceptance: parity min odd 3
+game solved in 4.5591e-05 seconds
+
+real	0m0.013s
+user	0m0.003s
+sys	0m0.010s

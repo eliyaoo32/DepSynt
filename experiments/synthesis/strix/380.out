@@ -1,0 +1,34 @@
+REALIZABLE
+aag 14 6 2 5 6
+2
+4
+6
+8
+10
+12
+14 28
+16 26
+19
+0
+19
+0
+0
+18 14 16
+20 10 13
+22 11 12
+24 21 23
+26 15 25
+28 19 27
+i0 p0p0gt0outside29temperature0room29temperature
+i1 p0p0all2windows2closed0room
+i2 p0b0room29window29closed
+i3 p0b0room29window29opened
+i4 p0b0room29heating29on
+i5 p0b0room29heating29off
+l0 l0
+l1 l1
+o0 u0music29ctrl0f1dplay0f1doverture1b1b
+o1 u0music29ctrl0music29ctrl
+o2 u0room29heating29ctrl0f1dturn2off1b
+o3 u0room29heating29ctrl0f1dturn2on1b
+o4 u0room29heating29ctrl0room29heating29ctrl

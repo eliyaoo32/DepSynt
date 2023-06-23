@@ -1,0 +1,19 @@
+there are 1 subformulas
+srun: error: cn08: task 0: Exited with exit code 1
+trying to create strategy directly for G!((!((!u02device29ctrl0f1d2device29turn2off1b & u02device29ctrl0f1d2device29turn2on1b) <-> (u02device29ctrl0f1d2device29turn2off1b & !u02device29ctrl0f1d2device29turn2on1b)) & !(u02device29ctrl02device29ctrl | u02device29ctrl0f1d2device29make2coffee1b)) <-> (!((u02device29ctrl02device29ctrl & !u02device29ctrl0f1d2device29make2coffee1b) <-> (!u02device29ctrl02device29ctrl & u02device29ctrl0f1d2device29make2coffee1b)) & !(u02device29ctrl0f1d2device29turn2off1b | u02device29ctrl0f1d2device29turn2on1b))) & !(G(p0b02device29busy | p0b02device29ready | p0b02device29standby) & G(p0b02device29ready -> (!p0b02device29busy & !p0b02device29standby)) & G(p0b02device29standby -> (!p0b02device29busy & !p0b02device29ready)) & G(p0b02device29busy -> (!p0b02device29ready & !p0b02device29standby)) & G((p0b02device29standby & u02device29ctrl0f1d2device29turn2on1b) -> X(p0b02device29busy U ((u02device29ctrl0f1d2device29make2coffee1b | u02device29ctrl0f1d2device29turn2off1b) R p0b02device29ready))) & G((p0b02device29ready & u02device29ctrl0f1d2device29turn2off1b) -> X(p0b02device29busy U (u02device29ctrl0f1d2device29turn2on1b R p0b02device29standby))) & G((p0b02device29ready & u02device29ctrl0f1d2device29make2coffee1b) -> X(p0b02device29busy U (p0b02device29finished & ((u02device29ctrl0f1d2device29make2coffee1b | u02device29ctrl0f1d2device29turn2off1b) R p0b02device29ready)))))
+direct strategy might exist but was not found.
+translating formula done in 0.00286383 seconds
+automaton has 8 states and 1 colors
+split inputs and outputs done in 0.000254235 seconds
+automaton has 21 states
+determinization done
+DPA has 20 states, 2 colors
+simplification done
+DPA has 16 states
+determinization and simplification took 0.00155059 seconds
+solving game with acceptance: Rabin 1
+game solved in 4.97e-05 seconds
+
+real	0m0.018s
+user	0m0.004s
+sys	0m0.014s

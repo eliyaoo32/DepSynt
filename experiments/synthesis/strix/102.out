@@ -1,0 +1,78 @@
+UNREALIZABLE
+aag 43 8 3 11 32
+2
+4
+6
+8
+10
+12
+14
+16
+18 63
+20 82
+22 86
+27
+28
+0
+0
+0
+30
+33
+0
+27
+28
+0
+24 21 23
+26 18 24
+28 19 24
+30 23 27
+32 18 23
+34 13 15
+36 7 9
+38 3 5
+40 2 4
+42 39 41
+44 6 8
+46 11 37
+48 45 46
+50 42 48
+52 10 36
+54 42 52
+56 51 55
+58 16 34
+60 57 58
+62 33 60
+64 12 14
+66 17 35
+68 65 66
+70 57 68
+72 61 71
+74 27 73
+76 2 7
+78 5 24
+80 77 78
+82 74 81
+84 23 51
+86 74 85
+i0 u0selected0f1dtoggle0selected1b
+i1 u0selected0selected
+i2 u0second2counter0f1dincrement0second2counter1b
+i3 u0second2counter0f1ddecrement0second2counter1b
+i4 u0second2counter0second2counter
+i5 u0first2counter0f1dincrement0first2counter1b
+i6 u0first2counter0f1ddecrement0first2counter1b
+i7 u0first2counter0first2counter
+l0 l0
+l1 l1
+l2 l2
+o0 p0p0second0selected
+o1 p0p0in2range0f1dincrement0second2counter1b
+o2 p0p0in2range0f1dincrement0first2counter1b
+o3 p0p0in2range0f1ddecrement0second2counter1b
+o4 p0p0in2range0f1ddecrement0first2counter1b
+o5 p0p0in2range0second2counter
+o6 p0p0in2range0first2counter
+o7 p0p0first0selected
+o8 p0p0button2pressed0up
+o9 p0p0button2pressed0switch
+o10 p0p0button2pressed0down

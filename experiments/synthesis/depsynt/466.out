@@ -1,0 +1,132 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 120 3 15 3 102
+2
+4
+6
+8 122
+10 141
+12 161
+14 1
+16 0
+18 175
+20 193
+22 202
+24 206
+26 212
+28 218
+30 229
+32 232
+34 236
+36 240
+52
+64
+106
+38 6 4
+40 13 11
+42 40 8
+44 13 10
+46 9 5
+48 46 44
+50 49 43
+52 51 39
+54 12 11
+56 54 9
+58 12 10
+60 59 4
+62 61 57
+64 63 6
+66 64 52
+68 67 5
+70 17 14
+72 71 2
+74 33 31
+76 74 73
+78 77 68
+80 28 7
+82 30 4
+84 23 19
+86 84 83
+88 86 81
+90 70 21
+92 27 25
+94 37 35
+96 94 92
+98 96 90
+100 98 88
+102 100 79
+104 65 53
+106 104 103
+108 47 13
+110 109 10
+112 13 2
+114 9 7
+116 114 12
+118 117 113
+120 119 5
+122 121 111
+124 13 8
+126 124 3
+128 9 2
+130 128 40
+132 131 127
+134 133 5
+136 7 4
+138 136 42
+140 139 135
+142 55 45
+144 143 8
+146 145 57
+148 147 136
+150 142 125
+152 127 5
+154 152 151
+156 60 6
+158 157 155
+160 158 149
+162 68 32
+164 67 18
+166 70 25
+168 167 38
+170 169 81
+172 170 165
+174 172 163
+176 5 2
+178 71 39
+180 178 177
+182 180 67
+184 177 20
+186 184 67
+188 26 4
+190 189 187
+192 190 183
+194 35 23
+196 195 7
+198 167 52
+200 199 197
+202 201 65
+204 167 39
+206 204 67
+208 91 2
+210 209 27
+212 211 68
+214 6 5
+216 214 167
+218 216 65
+220 204 53
+222 220 64
+224 37 31
+226 225 68
+228 227 223
+230 167 136
+232 230 53
+234 195 6
+236 234 65
+238 225 4
+240 238 53
+i0 p0p0bright0outside29brightness
+i1 p0b02shades29closed
+i2 p0b02shades29open
+o0 u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b
+o1 u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b
+o2 u02shades29ctrl02shades29ctrl
+{"is_completed":true,"output_vars":["u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b","u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b","u02shades29ctrl02shades29ctrl"],"input_vars":["p0p0bright0outside29brightness","p0b02shades29closed","p0b02shades29open"],"formula":"((G (! (((u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b) && (! ((u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b) || (u02shades29ctrl02shades29ctrl)))) <-> ((! (((u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b) && (! (u02shades29ctrl02shades29ctrl))) <-> ((u02shades29ctrl02shades29ctrl) && (! (u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b))))) && (! (u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b)))))) && ((((((G (! ((p0b02shades29open) && (p0b02shades29closed)))) && (G ((u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b) -> (F (((! (u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b)) && (! (u02shades29ctrl02shades29ctrl))) R (p0b02shades29open)))))) && (G ((u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b) -> (F (((! (u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b)) && (! (u02shades29ctrl02shades29ctrl))) R (p0b02shades29closed)))))) && (G (((p0b02shades29closed) && (! (u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b))) -> (X (p0b02shades29closed))))) && (G (((p0b02shades29open) && (! (u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b))) -> (X (p0b02shades29open))))) -> (G ((p0p0bright0outside29brightness) -> (F (p0b02shades29closed))))))","total_time":102,"automaton":{"is_built":true,"build_duration":3,"total_states":11,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":11,"total_edges":29},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u02shades29ctrl02shades29ctrl","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0bright0outside29brightness","p0b02shades29closed","p0b02shades29open","u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b","u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b"]},{"name":"u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0bright0outside29brightness","p0b02shades29closed","p0b02shades29open","u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b"]},{"name":"u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent231b1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0bright0outside29brightness","p0b02shades29closed","p0b02shades29open","u02shades29ctrl0f1d2shades29move2to0f1d2shades29percent2423231b1b"]}],"total_duration":0,"is_completed":true,"skipped_dependencies":false,"total_pair_state":50,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":0,"model_checking_status":"UNKNOWN","merge_strategies_duration":92,"final_strategy":{"duration":0,"total_inputs":5,"total_outputs":1,"total_latches":11,"total_gates":185},"independent_strategy":{"duration":4,"realizability":"REALIZABLE","total_inputs":3,"total_outputs":2,"total_latches":3,"total_gates":62},"dependent_strategy":{"duration":0,"total_inputs":5,"total_outputs":1,"total_latches":11,"total_gates":185}}}

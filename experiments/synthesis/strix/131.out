@@ -1,0 +1,71 @@
+REALIZABLE
+aag 27 7 3 16 17
+2
+4
+6
+8
+10
+12
+14
+16 51
+18 52
+20 54
+25
+28
+28
+0
+0
+0
+30
+0
+0
+0
+42
+0
+42
+42
+0
+0
+22 17 19
+24 20 23
+26 16 19
+28 21 26
+30 20 22
+32 3 5
+34 9 13
+36 15 34
+38 22 32
+40 36 38
+42 21 40
+44 14 16
+46 21 45
+48 16 46
+50 43 49
+52 41 46
+54 25 47
+i0 hburst1
+i1 hburst0
+i2 hlock1
+i3 hbusreq1
+i4 hlock0
+i5 hbusreq0
+i6 hready
+l0 l0
+l1 l1
+l2 l2
+o0 req_ready
+o1 stateg10_1
+o2 stateg3_2
+o3 stateg3_1
+o4 stateg3_0
+o5 stateg2
+o6 statea1_1
+o7 statea1_0
+o8 busreq
+o9 hgrant1
+o10 hgrant0
+o11 locked
+o12 decide
+o13 start
+o14 hmastlock
+o15 hmaster0

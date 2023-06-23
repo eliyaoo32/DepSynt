@@ -1,0 +1,28 @@
+REALIZABLE
+aag 9 6 1 5 2
+2
+4
+6
+8
+10
+12
+14 19
+1
+0
+1
+0
+0
+16 10 12
+18 15 16
+i0 p0p0too2high0room29co252level
+i1 p0p0all2windows2closed0room
+i2 p0b0room29window29opened
+i3 p0b0room29window29closed
+i4 p0b0room29warnlight29off
+i5 p0b0room29warnlight29on
+l0 l0
+o0 u0system29start2new2timer0f1dhour241b
+o1 u0system29start2new2timer0system29start2new2timer
+o2 u0room29warnlight29control0f1dturn2off1b
+o3 u0room29warnlight29control0f1dturn2on1b
+o4 u0room29warnlight29control0room29warnlight29control

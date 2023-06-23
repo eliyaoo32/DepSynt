@@ -1,0 +1,17 @@
+UNREALIZABLE
+aag 7 3 1 2 3
+2
+4
+6
+8 15
+1
+1
+10 2 5
+12 7 9
+14 10 12
+i0 u0cleaning2robot0f1doff1b
+i1 u0cleaning2robot0f1dclean1b
+i2 u0cleaning2robot0cleaning2robot
+l0 l0
+o0 p0p0work0time
+o1 p0p0new2day0time

@@ -1,0 +1,87 @@
+aag 51 4 2 15 45
+2
+4
+6
+8
+10 92
+12 102
+26
+26
+26
+45
+45
+45
+58
+58
+58
+68
+68
+68
+83
+83
+83
+14 10 13
+16 9 14
+18 2 9
+20 3 16
+22 21 19
+24 7 23
+26 5 24
+28 11 13
+30 9 28
+32 3 30
+34 7 32
+36 3 9
+38 7 36
+40 4 38
+42 5 34
+44 43 41
+46 11 12
+48 9 46
+50 3 48
+52 6 36
+54 7 50
+56 55 53
+58 5 57
+60 10 12
+62 61 9
+64 3 63
+66 7 64
+68 5 66
+70 2 8
+72 6 37
+74 7 70
+76 75 73
+78 4 39
+80 5 77
+82 81 79
+84 11 9
+86 3 85
+88 87 19
+90 7 89
+92 5 90
+94 13 9
+96 3 95
+98 7 96
+100 99 53
+102 5 101
+i0 p0p0on0start2init
+i1 p0p0on0start2acc
+i2 p0p0on0start2gyr
+i3 p0p0on0start2mag
+o0 u0reg2manager2cmd0reg2manager2cmd2init
+o1 u0sensor2type0sensor2type2init
+o2 u0spi2control0spi2control2init
+o3 u0reg2manager2cmd0reg2manager2cmd2acc
+o4 u0sensor2type0sensor2type2acc
+o5 u0spi2control0spi2control2acc
+o6 u0reg2manager2cmd0reg2manager2cmd2gyr
+o7 u0sensor2type0sensor2type2gyr
+o8 u0spi2control0spi2control2gyr
+o9 u0reg2manager2cmd0reg2manager2cmd2mag
+o10 u0sensor2type0sensor2type2mag
+o11 u0spi2control0spi2control2mag
+o12 u0reg2manager2cmd0reg2manager2cmd
+o13 u0sensor2type0sensor2type
+o14 u0spi2control0spi2control
+{"is_completed":true,"output_vars":["u0spi2control0spi2control2mag","u0spi2control0spi2control2init","u0spi2control0spi2control2gyr","u0spi2control0spi2control2acc","u0spi2control0spi2control","u0sensor2type0sensor2type2mag","u0sensor2type0sensor2type2init","u0sensor2type0sensor2type2gyr","u0sensor2type0sensor2type2acc","u0sensor2type0sensor2type","u0reg2manager2cmd0reg2manager2cmd2mag","u0reg2manager2cmd0reg2manager2cmd2init","u0reg2manager2cmd0reg2manager2cmd2gyr","u0reg2manager2cmd0reg2manager2cmd2acc","u0reg2manager2cmd0reg2manager2cmd"],"input_vars":["p0p0on0start2mag","p0p0on0start2init","p0p0on0start2gyr","p0p0on0start2acc"],"formula":"((G (((! (((! (((u0reg2manager2cmd0reg2manager2cmd2init) && (! (u0reg2manager2cmd0reg2manager2cmd2acc))) <-> ((u0reg2manager2cmd0reg2manager2cmd2acc) && (! (u0reg2manager2cmd0reg2manager2cmd2init))))) && (! (((u0reg2manager2cmd0reg2manager2cmd2mag) || (u0reg2manager2cmd0reg2manager2cmd2gyr)) || (u0reg2manager2cmd0reg2manager2cmd)))) <-> ((! (((u0reg2manager2cmd0reg2manager2cmd2gyr) && (! ((u0reg2manager2cmd0reg2manager2cmd) || (u0reg2manager2cmd0reg2manager2cmd2mag)))) <-> ((! (((u0reg2manager2cmd0reg2manager2cmd) && (! (u0reg2manager2cmd0reg2manager2cmd2mag))) <-> ((u0reg2manager2cmd0reg2manager2cmd2mag) && (! (u0reg2manager2cmd0reg2manager2cmd))))) && (! (u0reg2manager2cmd0reg2manager2cmd2gyr))))) && (! ((u0reg2manager2cmd0reg2manager2cmd2init) || (u0reg2manager2cmd0reg2manager2cmd2acc)))))) && (! (((! (((u0sensor2type0sensor2type2init) && (! (u0sensor2type0sensor2type2acc))) <-> ((u0sensor2type0sensor2type2acc) && (! (u0sensor2type0sensor2type2init))))) && (! (((u0sensor2type0sensor2type2mag) || (u0sensor2type0sensor2type2gyr)) || (u0sensor2type0sensor2type)))) <-> ((! (((u0sensor2type0sensor2type2gyr) && (! ((u0sensor2type0sensor2type) || (u0sensor2type0sensor2type2mag)))) <-> ((! (((u0sensor2type0sensor2type) && (! (u0sensor2type0sensor2type2mag))) <-> ((u0sensor2type0sensor2type2mag) && (! (u0sensor2type0sensor2type))))) && (! (u0sensor2type0sensor2type2gyr))))) && (! ((u0sensor2type0sensor2type2init) || (u0sensor2type0sensor2type2acc))))))) && (! (((! (((u0spi2control0spi2control2init) && (! (u0spi2control0spi2control2acc))) <-> ((u0spi2control0spi2control2acc) && (! (u0spi2control0spi2control2init))))) && (! (((u0spi2control0spi2control2mag) || (u0spi2control0spi2control2gyr)) || (u0spi2control0spi2control)))) <-> ((! (((u0spi2control0spi2control2gyr) && (! ((u0spi2control0spi2control) || (u0spi2control0spi2control2mag)))) <-> ((! (((u0spi2control0spi2control) && (! (u0spi2control0spi2control2mag))) <-> ((u0spi2control0spi2control2mag) && (! (u0spi2control0spi2control))))) && (! (u0spi2control0spi2control2gyr))))) && (! ((u0spi2control0spi2control2init) || (u0spi2control0spi2control2acc)))))))) && (((((((G (! ((p0p0on0start2acc) && (p0p0on0start2gyr)))) && (G (! ((p0p0on0start2acc) && (p0p0on0start2mag))))) && (G (! ((p0p0on0start2mag) && (p0p0on0start2gyr))))) && (G (! ((p0p0on0start2init) && (p0p0on0start2gyr))))) && (G (! ((p0p0on0start2init) && (p0p0on0start2acc))))) && (G (! ((p0p0on0start2init) && (p0p0on0start2mag))))) -> (((((G ((((((u0spi2control0spi2control2init) && (u0reg2manager2cmd0reg2manager2cmd2init)) && (u0sensor2type0sensor2type2init)) || (((u0spi2control0spi2control2acc) && (u0reg2manager2cmd0reg2manager2cmd2acc)) && (u0sensor2type0sensor2type2acc))) || (((u0spi2control0spi2control2gyr) && (u0reg2manager2cmd0reg2manager2cmd2gyr)) && (u0sensor2type0sensor2type2gyr))) || (((u0spi2control0spi2control2mag) && (u0reg2manager2cmd0reg2manager2cmd2mag)) && (u0sensor2type0sensor2type2mag)))) && (G ((p0p0on0start2init) -> ((((u0spi2control0spi2control2init) && (u0reg2manager2cmd0reg2manager2cmd2init)) && (u0sensor2type0sensor2type2init)) && (X (((((u0spi2control0spi2control2init) && (u0reg2manager2cmd0reg2manager2cmd2init)) && (u0sensor2type0sensor2type2init)) U ((((p0p0on0start2init) || (p0p0on0start2acc)) || (p0p0on0start2gyr)) || (p0p0on0start2mag))) || (G (((u0spi2control0spi2control2init) && (u0reg2manager2cmd0reg2manager2cmd2init)) && (u0sensor2type0sensor2type2init))))))))) && (G ((p0p0on0start2acc) -> ((((u0spi2control0spi2control2acc) && (u0reg2manager2cmd0reg2manager2cmd2acc)) && (u0sensor2type0sensor2type2acc)) && (X (((((u0spi2control0spi2control2acc) && (u0reg2manager2cmd0reg2manager2cmd2acc)) && (u0sensor2type0sensor2type2acc)) U ((((p0p0on0start2init) || (p0p0on0start2acc)) || (p0p0on0start2gyr)) || (p0p0on0start2mag))) || (G (((u0spi2control0spi2control2acc) && (u0reg2manager2cmd0reg2manager2cmd2acc)) && (u0sensor2type0sensor2type2acc))))))))) && (G ((p0p0on0start2gyr) -> ((((u0spi2control0spi2control2gyr) && (u0reg2manager2cmd0reg2manager2cmd2gyr)) && (u0sensor2type0sensor2type2gyr)) && (X (((((u0spi2control0spi2control2gyr) && (u0reg2manager2cmd0reg2manager2cmd2gyr)) && (u0sensor2type0sensor2type2gyr)) U ((((p0p0on0start2init) || (p0p0on0start2acc)) || (p0p0on0start2gyr)) || (p0p0on0start2mag))) || (G (((u0spi2control0spi2control2gyr) && (u0reg2manager2cmd0reg2manager2cmd2gyr)) && (u0sensor2type0sensor2type2gyr))))))))) && (G ((p0p0on0start2mag) -> ((((u0spi2control0spi2control2mag) && (u0reg2manager2cmd0reg2manager2cmd2mag)) && (u0sensor2type0sensor2type2mag)) && (X (((((u0spi2control0spi2control2mag) && (u0reg2manager2cmd0reg2manager2cmd2mag)) && (u0sensor2type0sensor2type2mag)) U ((((p0p0on0start2init) || (p0p0on0start2acc)) || (p0p0on0start2gyr)) || (p0p0on0start2mag))) || (G (((u0spi2control0spi2control2mag) && (u0reg2manager2cmd0reg2manager2cmd2mag)) && (u0sensor2type0sensor2type2mag)))))))))))","total_time":85,"automaton":{"is_built":true,"build_duration":12,"total_states":8,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":8,"total_edges":31},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":72,"realizability":"REALIZABLE","total_inputs":4,"total_outputs":15,"total_latches":2,"total_gates":45},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

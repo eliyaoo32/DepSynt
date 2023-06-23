@@ -1,0 +1,134 @@
+REALIZABLE
+aag 36 36 0 30 0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+26
+28
+30
+32
+34
+36
+38
+40
+42
+44
+46
+48
+50
+52
+54
+56
+58
+60
+62
+64
+66
+68
+70
+72
+1
+0
+1
+0
+1
+0
+1
+0
+0
+1
+0
+0
+1
+0
+0
+1
+0
+0
+1
+0
+0
+0
+1
+0
+0
+0
+1
+0
+0
+0
+i0 p0p0gt0outside29temperature0room29temperature
+i1 p0p0between0t29pm70t29pm8
+i2 p0p0between0t29am50t29am2423
+i3 p0p0asleep0partner
+i4 p0p0too2high0room29co252level
+i5 p0p0bright0outside29brightness
+i6 p0p0all2windows2closed0room
+i7 p0b0t29am7
+i8 p0b0bed29occupied
+i9 p0b0t29am6323
+i10 p0b0bed29exit
+i11 p0b0bed29enter
+i12 p0b0wakeup
+i13 p0b0room29screen29lowered
+i14 p0b0alarm
+i15 p0b0t29sunday
+i16 p0b0t29saturday
+i17 p0b0room29warnlight29off
+i18 p0b0room29warnlight29on
+i19 p0b0room29window29closed
+i20 p0b0room29window29opened
+i21 p0b0room29heating29on
+i22 p0b0room29heating29off
+i23 p0b0room29shades29closed
+i24 p0b0room29shades29open
+i25 p0b0timeout
+i26 p0b0room29light29off
+i27 p0b0room29light29on
+i28 p0b0cm29finished
+i29 p0b0cm29busy
+i30 p0b0cm29standby
+i31 p0b0cm29ready
+i32 p0b0room29somebody2leaves
+i33 p0b0room29somebody2enters
+i34 p0b0switch29toggled
+i35 p0b0room29empty
+o0 u0tv29ctrl0f1dturn2on1b
+o1 u0tv29ctrl0tv29ctrl
+o2 u0radio29ctrl0f1dturn2on1b
+o3 u0radio29ctrl0radio29ctrl
+o4 u0music29ctrl0f1dplay0f1doverture1b1b
+o5 u0music29ctrl0music29ctrl
+o6 u0alarm29control0f1dturn2off1b
+o7 u0alarm29control0f1dturn2on1b
+o8 u0alarm29control0alarm29control
+o9 u0room29warnlight29control0f1dturn2off1b
+o10 u0room29warnlight29control0f1dturn2on1b
+o11 u0room29warnlight29control0room29warnlight29control
+o12 u0room29heating29ctrl0f1dturn2off1b
+o13 u0room29heating29ctrl0f1dturn2on1b
+o14 u0room29heating29ctrl0room29heating29ctrl
+o15 u0room29shades29ctrl0f1dmove2to0f1dpercent231b1b
+o16 u0room29shades29ctrl0f1dmove2to0f1dpercent2423231b1b
+o17 u0room29shades29ctrl0room29shades29ctrl
+o18 u0system29start2new2timer0f1dmin25231b
+o19 u0system29start2new2timer0f1dhour241b
+o20 u0system29start2new2timer0f1dhour251b
+o21 u0system29start2new2timer0system29start2new2timer
+o22 u0room29light0f1dtoggle1b
+o23 u0room29light0f1dturn2off1b
+o24 u0room29light0f1dturn2on1b
+o25 u0room29light0room29light
+o26 u0cm29ctrl0f1dturn2off1b
+o27 u0cm29ctrl0f1dmake2coffee1b
+o28 u0cm29ctrl0f1dturn2on1b
+o29 u0cm29ctrl0cm29ctrl

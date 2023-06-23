@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u02alarm29control0f1d2alarm29turn2on1b & !((u02alarm29control02alarm29control & !u02alarm29control0f1d2alarm29turn2off1b) <-> (!u02alarm29control02alarm29control & u02alarm29control0f1d2alarm29turn2off1b))) <-> (u02alarm29control0f1d2alarm29turn2on1b & !(u02alarm29control02alarm29control | u02alarm29control0f1d2alarm29turn2off1b))) & ((GFp0b02time29saturday & GF!p0b02time29saturday & GFp0b02time29sunday & GF!p0b02time29sunday & GFp0b02time29am7 & G(((u02alarm29control0f1d2alarm29turn2on1b -> Xp0b02alarm29alarm) U u02alarm29control0f1d2alarm29turn2off1b) | G(u02alarm29control0f1d2alarm29turn2on1b -> Xp0b02alarm29alarm)) & G(((u02alarm29control0f1d2alarm29turn2off1b -> X!p0b02alarm29alarm) U u02alarm29control0f1d2alarm29turn2on1b) | G(u02alarm29control0f1d2alarm29turn2off1b -> X!p0b02alarm29alarm))) -> G((p0b02time29am6323 & p0b0bed29occupied & !(p0b02time29saturday | p0b02time29sunday)) -> F(p0b0bed29exit | (p0b02time29am7 & F((p0b02alarm29alarm U p0b0bed29exit) | Gp0b02alarm29alarm)))))
+direct strategy might exist but was not found.
+translating formula done in 0.0103367 seconds
+automaton has 16 states and 2 colors
+split inputs and outputs done in 0.00113619 seconds
+automaton has 54 states
+determinization done
+DPA has 2072 states, 3 colors
+simplification done
+DPA has 1302 states
+determinization and simplification took 0.138674 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.00195284 seconds
+simplification took 0.00101412 seconds
+AIG circuit was created in 9.9737e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.167s
+user	0m0.157s
+sys	0m0.009s

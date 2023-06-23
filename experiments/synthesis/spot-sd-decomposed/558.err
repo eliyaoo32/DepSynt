@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(((!g_0 & r_0) -> Xr_0) & ((g_0 & !r_0) -> X!r_0) & F!(g_0 & r_0) & ((!g_1 & r_1) -> Xr_1) & ((g_1 & !r_1) -> X!r_1) & F!(g_1 & r_1) & ((!g_2 & r_2) -> Xr_2) & ((g_2 & !r_2) -> X!r_2) & F!(g_2 & r_2) & ((!g_3 & r_3) -> Xr_3) & ((g_3 & !r_3) -> X!r_3) & F!(g_3 & r_3)) -> (G((!g_0 & !g_1 & (!g_2 | !g_3)) | (!g_2 & !g_3 & (!g_0 | !g_1))) & G(r_0 -> Fg_0) & G(r_1 -> Fg_1) & G(r_2 -> Fg_2) & G(r_3 -> Fg_3))
+direct strategy might exist but was not found.
+translating formula done in 0.00854151 seconds
+automaton has 31 states and 4 colors
+split inputs and outputs done in 0.000899691 seconds
+automaton has 87 states
+determinization done
+DPA has 874 states, 3 colors
+simplification done
+DPA has 777 states
+determinization and simplification took 0.0467261 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.000716259 seconds
+simplification took 0.000679495 seconds
+AIG circuit was created in 0.000594654 seconds and has 3 latches and 128 gates
+
+real	0m0.096s
+user	0m0.061s
+sys	0m0.014s

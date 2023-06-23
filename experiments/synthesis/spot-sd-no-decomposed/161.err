@@ -1,0 +1,18 @@
+trying to create strategy directly for G((!g_0 | !g_1) & ((r_0 & Xr_1) -> F(g_0 & g_1))) & G(r_0 -> Fg_0) & G(r_1 -> Fg_1)
+srun: error: cn08: task 0: Exited with exit code 1
+direct strategy might exist but was not found.
+translating formula done in 0.00183686 seconds
+automaton has 8 states and 2 colors
+split inputs and outputs done in 0.000110308 seconds
+automaton has 16 states
+determinization done
+DPA has 20 states, 2 colors
+simplification done
+DPA has 20 states
+determinization and simplification took 0.000139243 seconds
+solving game with acceptance: Streett 1
+game solved in 3.5096e-05 seconds
+
+real	0m0.034s
+user	0m0.005s
+sys	0m0.010s

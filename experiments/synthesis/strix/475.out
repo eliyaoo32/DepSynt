@@ -1,0 +1,20 @@
+UNREALIZABLE
+aag 8 2 2 3 4
+2
+4
+6 16
+8 14
+11
+12
+7
+10 6 8
+12 7 9
+14 4 12
+16 11 15
+i0 grant_0
+i1 grant_1
+l0 l0
+l1 l1
+o0 idle
+o1 request_0
+o2 request_1

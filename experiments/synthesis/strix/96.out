@@ -1,0 +1,42 @@
+REALIZABLE
+aag 12 11 1 8 0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24 1
+1
+0
+1
+0
+0
+0
+0
+1
+i0 p0p0second0selected
+i1 p0p0in2range0f1dincrement0second2counter1b
+i2 p0p0in2range0f1dincrement0first2counter1b
+i3 p0p0in2range0f1ddecrement0second2counter1b
+i4 p0p0in2range0f1ddecrement0first2counter1b
+i5 p0p0in2range0second2counter
+i6 p0p0in2range0first2counter
+i7 p0p0first0selected
+i8 p0p0button2pressed0up
+i9 p0p0button2pressed0switch
+i10 p0p0button2pressed0down
+l0 l0
+o0 u0selected0f1dtoggle0selected1b
+o1 u0selected0selected
+o2 u0second2counter0f1dincrement0second2counter1b
+o3 u0second2counter0f1ddecrement0second2counter1b
+o4 u0second2counter0second2counter
+o5 u0first2counter0f1dincrement0first2counter1b
+o6 u0first2counter0f1ddecrement0first2counter1b
+o7 u0first2counter0first2counter

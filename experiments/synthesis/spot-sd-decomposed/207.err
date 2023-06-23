@@ -1,0 +1,22 @@
+there are 2 subformulas
+srun: error: cn12: task 0: Exited with exit code 1
+trying to create strategy directly for G!((!((!u0room29light0f1dturn2off1b & u0room29light0f1dturn2on1b) <-> (u0room29light0f1dturn2off1b & !u0room29light0f1dturn2on1b)) & !(u0room29light0f1dtoggle1b | u0room29light0room29light)) <-> (!((!u0room29light0f1dtoggle1b & u0room29light0room29light) <-> (u0room29light0f1dtoggle1b & !u0room29light0room29light)) & !(u0room29light0f1dturn2off1b | u0room29light0f1dturn2on1b))) & G((u0room29light0f1dturn2on1b | (p0b0room29light29off & u0room29light0f1dtoggle1b)) -> XF((u0room29light0f1dtoggle1b | u0room29light0f1dturn2off1b) R p0b0room29light29on)) & G((u0room29light0f1dturn2off1b | (p0b0room29light29on & u0room29light0f1dtoggle1b)) -> XF((u0room29light0f1dtoggle1b | u0room29light0f1dturn2on1b) R p0b0room29light29off))
+direct strategy might exist but was not found.
+translating formula done in 0.0028468 seconds
+automaton has 9 states and 2 colors
+split inputs and outputs done in 0.00016613 seconds
+automaton has 34 states
+determinization done
+DPA has 39 states, 3 colors
+simplification done
+DPA has 32 states
+determinization and simplification took 0.00276272 seconds
+solving game with acceptance: parity min even 3
+game solved in 8.0269e-05 seconds
+simplification took 4.5818e-05 seconds
+trying to create strategy directly for G!(p0b0room29light29off <-> p0b0room29light29on)
+no strategy exists.
+
+real	0m0.020s
+user	0m0.007s
+sys	0m0.013s

@@ -1,0 +1,13 @@
+aag 4 3 0 2 1
+2
+4
+6
+9
+8
+8 2 4
+i0 p0p0after2work0time
+i1 p0p0full0dish2washer2status
+i2 p0p0new2day0time
+o0 u0dish2washer0dish2washer
+o1 u0dish2washer0on
+{"is_completed":true,"output_vars":["u0dish2washer0dish2washer","u0dish2washer0on"],"input_vars":["p0p0full0dish2washer2status","p0p0after2work0time","p0p0new2day0time"],"formula":"((G (! (((u0dish2washer0on) && (! (u0dish2washer0dish2washer))) <-> ((u0dish2washer0dish2washer) && (! (u0dish2washer0on)))))) && ((G (G (F (p0p0new2day0time)))) -> (G ((u0dish2washer0on) <-> ((p0p0after2work0time) && (p0p0full0dish2washer2status))))))","total_time":3,"automaton":{"is_built":true,"build_duration":1,"total_states":4,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":4,"total_edges":7},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":false,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":1,"realizability":"REALIZABLE","total_inputs":3,"total_outputs":2,"total_latches":0,"total_gates":1},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

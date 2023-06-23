@@ -1,0 +1,29 @@
+REALIZABLE
+aag 16 3 2 3 11
+2
+4
+6
+8 29
+10 32
+21
+20
+0
+12 2 4
+14 4 6
+16 11 15
+18 13 16
+20 8 18
+22 8 15
+24 7 13
+26 16 25
+28 23 27
+30 6 22
+32 19 31
+i0 p0b02room29somebody2leaves
+i1 p0b02room29empty
+i2 p0b02room29somebody2enters
+l0 l0
+l1 l1
+o0 u02roomlight29intend0f1doff1b
+o1 u02roomlight29intend0f1don1b
+o2 u02roomlight29intend02roomlight29intend

@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for ((!g_0 U r_0) | G!g_0) & G((g_0 & X(!g_0 & !r_0)) -> X((!g_0 U r_0) | G!g_0)) & G((g_0 & G!r_0) -> F!g_0) & G(r_0 -> Fg_0) & G(a_0 <-> Xb_0) & G(b_0 <-> Xc_0) & G(c_0 <-> Xg_0)
+direct strategy might exist but was not found.
+translating formula done in 0.00323125 seconds
+automaton has 17 states and 2 colors
+split inputs and outputs done in 0.000152447 seconds
+automaton has 37 states
+determinization done
+DPA has 41 states, 2 colors
+simplification done
+DPA has 41 states
+determinization and simplification took 0.000207364 seconds
+solving game with acceptance: Streett 1
+game solved in 5.5849e-05 seconds
+simplification took 9.6812e-05 seconds
+AIG circuit was created in 0.000233763 seconds and has 3 latches and 21 gates
+
+real	0m0.020s
+user	0m0.008s
+sys	0m0.012s

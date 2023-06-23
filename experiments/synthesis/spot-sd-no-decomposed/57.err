@@ -1,0 +1,19 @@
+trying to create strategy directly for G(!((!u0finished0p1dbt1b & !((u0finished0finished & !u0finished0p1dbf1b) <-> (!u0finished0finished & u0finished0p1dbf1b))) <-> (u0finished0p1dbt1b & !(u0finished0finished | u0finished0p1dbf1b))) & !((!((!((!u0out0f1dconst51b & !((u0out0f1dconst241b & !u0out0f1dnone1b) <-> (!u0out0f1dconst241b & u0out0f1dnone1b))) <-> (u0out0f1dconst51b & !(u0out0f1dconst241b | u0out0f1dnone1b))) & !(u0out0f1dconst31b | u0out0f1dconst71b)) <-> (!((!u0out0f1dconst31b & u0out0f1dconst71b) <-> (u0out0f1dconst31b & !u0out0f1dconst71b)) & !(u0out0f1dconst51b | u0out0f1dconst241b | u0out0f1dnone1b))) & !(u0out0f1dconst41b | u0out0f1dconst61b | u0out0f1dconst81b | u0out0f1dconst251b | u0out0out)) <-> (!((!((!u0out0f1dconst41b & !((!u0out0f1dconst81b & u0out0out) <-> (u0out0f1dconst81b & !u0out0out))) <-> (u0out0f1dconst41b & !(u0out0f1dconst81b | u0out0out))) & !(u0out0f1dconst61b | u0out0f1dconst251b)) <-> (!((u0out0f1dconst61b & !u0out0f1dconst251b) <-> (!u0out0f1dconst61b & u0out0f1dconst251b)) & !(u0out0f1dconst41b | u0out0f1dconst81b | u0out0out))) & !(u0out0f1dconst31b | u0out0f1dconst51b | u0out0f1dconst71b | u0out0f1dconst241b | u0out0f1dnone1b)))) & (p0b0start R (p0b0start -> u0out0f1dconst241b)) & ((u0out0f1dnone1b U p0b0start) | Gu0out0f1dnone1b) & (u0out0f1dconst81b R u0finished0p1dbf1b) & G(u0out0f1dconst241b -> X(p0b0wait R ((p0b0wait -> u0out0f1dconst251b) & (!p0b0wait -> u0out0f1dnone1b)))) & G(u0out0f1dconst251b -> X(p0b0wait R ((!p0b0wait -> u0out0f1dnone1b) & (p0b0wait -> u0out0f1dconst31b)))) & G(u0out0f1dconst31b -> X(p0b0wait R ((!p0b0wait -> u0out0f1dnone1b) & (p0b0wait -> u0out0f1dconst41b)))) & G(u0out0f1dconst41b -> X(p0b0wait R ((!p0b0wait -> u0out0f1dnone1b) & (p0b0wait -> u0out0f1dconst51b)))) & G(u0out0f1dconst51b -> X(p0b0wait R ((!p0b0wait -> u0out0f1dnone1b) & (p0b0wait -> u0out0f1dconst61b)))) & G(u0out0f1dconst61b -> X(p0b0wait R ((!p0b0wait -> u0out0f1dnone1b) & (p0b0wait -> u0out0f1dconst71b)))) & G(u0out0f1dconst71b -> X(p0b0wait R ((!p0b0wait -> u0out0f1dnone1b) & (p0b0wait -> u0out0f1dconst81b)))) & G(u0out0f1dconst81b -> X(p0b0wait R ((!p0b0wait -> u0out0f1dnone1b) & (p0b0wait <-> u0finished0p1dbt1b) & (p0b0wait -> ((p0b0start R (p0b0start -> u0out0f1dconst241b)) & ((u0out0f1dnone1b U p0b0start) | Gu0out0f1dnone1b)))))) & G(u0finished0p1dbt1b -> X(u0out0f1dconst81b R u0finished0p1dbf1b))
+direct strategy might exist but was not found.
+translating formula done in 0.0105996 seconds
+automaton has 9 states and 1 colors
+split inputs and outputs done in 0.00041074 seconds
+automaton has 28 states
+determinization done
+DPA has 28 states, 1 colors
+simplification done
+DPA has 28 states
+determinization and simplification took 0.000101931 seconds
+solving game with acceptance: Büchi
+game solved in 3.5929e-05 seconds
+simplification took 0.000155546 seconds
+AIG circuit was created in 0.000430083 seconds and has 4 latches and 79 gates
+
+real	0m0.169s
+user	0m0.020s
+sys	0m0.014s

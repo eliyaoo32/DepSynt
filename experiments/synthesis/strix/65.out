@@ -1,0 +1,107 @@
+REALIZABLE
+aag 66 4 3 16 59
+2
+4
+6
+8
+10 115
+12 121
+14 133
+28
+35
+0
+48
+50
+52
+0
+75
+80
+0
+83
+76
+78
+0
+92
+95
+16 10 12
+18 6 8
+20 3 19
+22 5 19
+24 21 23
+26 15 25
+28 16 26
+30 12 25
+32 15 31
+34 16 33
+36 14 16
+38 10 13
+40 11 12
+42 14 39
+44 41 42
+46 20 45
+48 37 47
+50 4 46
+52 5 46
+54 14 17
+56 14 40
+58 20 56
+60 2 22
+62 56 60
+64 14 38
+66 25 64
+68 63 67
+70 59 68
+72 54 70
+74 33 73
+76 26 40
+78 37 77
+80 30 78
+82 67 77
+84 13 25
+86 7 9
+88 84 87
+90 26 89
+92 75 91
+94 70 91
+96 4 20
+98 40 96
+100 16 60
+102 99 101
+104 8 13
+106 17 105
+108 25 106
+110 102 109
+112 15 111
+114 68 113
+116 89 111
+118 26 117
+120 59 119
+122 15 85
+124 102 122
+126 10 96
+128 54 63
+130 127 128
+132 125 131
+i0 p0p0write2finished0write2response
+i1 p0p0read2finished0read2response
+i2 p0p0do2write0spi2control
+i3 p0p0do2read0spi2control
+l0 l0
+l1 l1
+l2 l2
+o0 u0write2control0f1dwrite2cmd0last2cmd1b
+o1 u0write2control0f1dno2write2cmd1b
+o2 u0write2control0write2control
+o3 u0spi2response0f1dmake2write2out0write2response0last2cmd1b
+o4 u0spi2response0f1dmake2read2out0read2response0last2cmd1b
+o5 u0spi2response0f1dno2response1b
+o6 u0spi2response0spi2response
+o7 u0spi2pins0f1ddefault2spi2pins1b
+o8 u0spi2pins0write2spi2pins
+o9 u0spi2pins0spi2pins
+o10 u0spi2pins0read2spi2pins
+o11 u0read2control0f1dread2cmd0last2cmd1b
+o12 u0read2control0f1dno2read2cmd1b
+o13 u0read2control0read2control
+o14 u0last2cmd0spi2control
+o15 u0last2cmd0last2cmd

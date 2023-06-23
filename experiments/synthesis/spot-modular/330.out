@@ -1,0 +1,32 @@
+aag 12 12 0 3 0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+0
+0
+1
+i0 p0p0bright0outside29brightness
+i1 p0b0t29am7
+i2 p0b0bed29exit
+i3 p0b0room29empty
+i4 p0b0room29somebody2leaves
+i5 p0b0room29light29on
+i6 p0b0room29shades29open
+i7 p0b0bed29occupied
+i8 p0b0t29sunday
+i9 p0b0t29saturday
+i10 p0b0t29am6323
+i11 p0b0alarm
+o0 u0alarm29control0f1dturn2on1b
+o1 u0alarm29control0alarm29control
+o2 u0alarm29control0f1dturn2off1b
+{"is_completed":true,"output_vars":["u0alarm29control0f1dturn2off1b","u0alarm29control0f1dturn2on1b","u0alarm29control0alarm29control"],"input_vars":["p0p0bright0outside29brightness","p0b0t29am7","p0b0bed29exit","p0b0room29empty","p0b0room29somebody2leaves","p0b0room29light29on","p0b0room29shades29open","p0b0bed29occupied","p0b0t29sunday","p0b0t29saturday","p0b0t29am6323","p0b0alarm"],"formula":"((G (! (((u0alarm29control0f1dturn2on1b) && (! ((u0alarm29control0f1dturn2off1b) || (u0alarm29control0alarm29control)))) <-> ((! (((u0alarm29control0f1dturn2off1b) && (! (u0alarm29control0alarm29control))) <-> ((u0alarm29control0alarm29control) && (! (u0alarm29control0f1dturn2off1b))))) && (! (u0alarm29control0f1dturn2on1b)))))) && (((G (((u0alarm29control0f1dturn2on1b) -> (u0alarm29control0f1dturn2off1b)) R (p0b0alarm))) && (G (((u0alarm29control0f1dturn2off1b) -> (u0alarm29control0f1dturn2on1b)) R (! (p0b0alarm))))) -> (G ((((p0b0t29am6323) && (! ((p0b0t29saturday) || (p0b0t29sunday)))) && (p0b0bed29occupied)) -> ((F (((((p0b0room29shades29open) <-> (p0p0bright0outside29brightness)) && ((p0b0room29light29on) <-> (! (p0p0bright0outside29brightness)))) U ((p0b0room29somebody2leaves) && (p0b0room29empty))) || (G (((p0b0room29shades29open) <-> (p0p0bright0outside29brightness)) && ((p0b0room29light29on) <-> (! (p0p0bright0outside29brightness))))))) && (F ((p0b0bed29exit) || ((p0b0t29am7) && (F (((p0b0alarm) U (p0b0bed29exit)) || (G (p0b0alarm))))))))))))","total_time":1,"automaton":{"is_built":true,"build_duration":0,"total_states":1,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":1,"total_edges":1},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":0,"realizability":"REALIZABLE","total_inputs":12,"total_outputs":3,"total_latches":0,"total_gates":0},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

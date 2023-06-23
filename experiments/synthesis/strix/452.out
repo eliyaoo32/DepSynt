@@ -1,0 +1,26 @@
+UNREALIZABLE
+aag 6 5 1 6 0
+2
+4
+6
+8
+10
+12 1
+1
+1
+1
+1
+1
+1
+i0 u0heater0f1don1b
+i1 u0heater0heater
+i2 u0window0f1dclose1b
+i3 u0window0f1dopen1b
+i4 u0window0window
+l0 l0
+o0 p0p0gt0co25level0val
+o1 p0p0rushhour0time
+o2 p0p0work2time0time
+o3 p0b02person2in2office
+o4 p0b0rain
+o5 p0b0fire

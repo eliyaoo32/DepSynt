@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((u0sound2system29play0f1dalarm1b & !u0sound2system29play0sound2system29play) <-> (!u0sound2system29play0f1dalarm1b & u0sound2system29play0sound2system29play)) & G(p0b02firesensor29fire -> Xu0sound2system29play0f1dalarm1b)
+direct strategy might exist but was not found.
+translating formula done in 0.00042771 seconds
+automaton has 2 states and 1 colors
+split inputs and outputs done in 3.0145e-05 seconds
+automaton has 6 states
+determinization done
+DPA has 6 states, 1 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 4.724e-05 seconds
+solving game with acceptance: Büchi
+game solved in 2.9655e-05 seconds
+simplification took 3.8415e-05 seconds
+AIG circuit was created in 4.7608e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.035s
+user	0m0.004s
+sys	0m0.008s

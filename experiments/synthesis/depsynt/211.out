@@ -1,0 +1,106 @@
+Hierarchy reader flattened 2 instances of logic boxes and left 0 black boxes.
+aag 94 3 13 3 78
+2
+4
+6
+8 114
+10 124
+12 130
+14 1
+16 0
+18 135
+20 150
+22 158
+24 160
+26 173
+28 181
+30 184
+32 188
+48
+64
+105
+34 7 2
+36 34 9
+38 7 4
+40 6 5
+42 41 39
+44 13 11
+46 44 43
+48 46 37
+50 10 8
+52 13 4
+54 52 50
+56 55 43
+58 11 9
+60 59 12
+62 60 42
+64 63 57
+66 17 14
+68 66 25
+70 69 62
+72 64 48
+74 73 18
+76 34 4
+78 76 67
+80 78 73
+82 69 56
+84 31 23
+86 33 29
+88 27 21
+90 88 86
+92 90 84
+94 92 83
+96 94 81
+98 96 75
+100 65 49
+102 100 99
+104 103 71
+106 44 8
+108 9 2
+110 108 13
+112 111 107
+114 113 38
+116 108 11
+118 51 38
+120 118 117
+122 121 41
+124 123 13
+126 119 41
+128 127 13
+130 129 61
+132 69 42
+134 133 75
+136 38 3
+138 137 41
+140 139 67
+142 26 6
+144 35 20
+146 145 143
+148 146 141
+150 149 73
+152 69 48
+154 85 5
+156 155 153
+158 157 73
+160 69 43
+162 73 7
+164 162 26
+166 34 20
+168 166 73
+170 169 81
+172 170 165
+174 160 49
+176 174 64
+178 162 87
+180 179 177
+182 85 4
+184 182 65
+186 87 6
+188 186 49
+i0 p0p0gt0outside29temperature02room29temperature
+i1 p0b02heating29on
+i2 p0b02heating29off
+o0 u02heating29ctrl0f1d2heating29turn2on1b
+o1 u02heating29ctrl0f1d2heating29turn2off1b
+o2 u02heating29ctrl02heating29ctrl
+{"is_completed":true,"output_vars":["u02heating29ctrl0f1d2heating29turn2off1b","u02heating29ctrl0f1d2heating29turn2on1b","u02heating29ctrl02heating29ctrl"],"input_vars":["p0p0gt0outside29temperature02room29temperature","p0b02heating29on","p0b02heating29off"],"formula":"((G (! (((u02heating29ctrl0f1d2heating29turn2on1b) && (! ((u02heating29ctrl0f1d2heating29turn2off1b) || (u02heating29ctrl02heating29ctrl)))) <-> ((! (((u02heating29ctrl0f1d2heating29turn2off1b) && (! (u02heating29ctrl02heating29ctrl))) <-> ((u02heating29ctrl02heating29ctrl) && (! (u02heating29ctrl0f1d2heating29turn2off1b))))) && (! (u02heating29ctrl0f1d2heating29turn2on1b)))))) && ((((G (! ((p0b02heating29off) <-> (p0b02heating29on)))) && (G ((u02heating29ctrl0f1d2heating29turn2on1b) -> (F ((u02heating29ctrl0f1d2heating29turn2off1b) R (p0b02heating29on)))))) && (G ((u02heating29ctrl0f1d2heating29turn2off1b) -> (F ((u02heating29ctrl0f1d2heating29turn2on1b) R (p0b02heating29off)))))) -> (G ((p0p0gt0outside29temperature02room29temperature) -> (F (p0b02heating29off))))))","total_time":99,"automaton":{"is_built":true,"build_duration":2,"total_states":9,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":9,"total_edges":23},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u02heating29ctrl02heating29ctrl","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0gt0outside29temperature02room29temperature","p0b02heating29on","p0b02heating29off","u02heating29ctrl0f1d2heating29turn2off1b","u02heating29ctrl0f1d2heating29turn2on1b"]},{"name":"u02heating29ctrl0f1d2heating29turn2on1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0gt0outside29temperature02room29temperature","p0b02heating29on","p0b02heating29off","u02heating29ctrl0f1d2heating29turn2off1b"]},{"name":"u02heating29ctrl0f1d2heating29turn2off1b","duration":0,"is_dependent":false,"tested_dependency_set":["p0p0gt0outside29temperature02room29temperature","p0b02heating29on","p0b02heating29off","u02heating29ctrl0f1d2heating29turn2on1b"]}],"total_duration":0,"is_completed":true,"skipped_dependencies":false,"total_pair_state":34,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":0,"model_checking_status":"UNKNOWN","merge_strategies_duration":92,"final_strategy":{"duration":0,"total_inputs":5,"total_outputs":1,"total_latches":9,"total_gates":168},"independent_strategy":{"duration":3,"realizability":"REALIZABLE","total_inputs":3,"total_outputs":2,"total_latches":3,"total_gates":50},"dependent_strategy":{"duration":0,"total_inputs":5,"total_outputs":1,"total_latches":9,"total_gates":168}}}

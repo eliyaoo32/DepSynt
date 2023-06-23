@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!u0room29heating29ctrl0f1dturn2off1b & !((!u0room29heating29ctrl0f1dturn2on1b & u0room29heating29ctrl0room29heating29ctrl) <-> (u0room29heating29ctrl0f1dturn2on1b & !u0room29heating29ctrl0room29heating29ctrl))) <-> (u0room29heating29ctrl0f1dturn2off1b & !(u0room29heating29ctrl0f1dturn2on1b | u0room29heating29ctrl0room29heating29ctrl))) & !((u0music29ctrl0f1dplay0f1doverture1b1b & !u0music29ctrl0music29ctrl) <-> (!u0music29ctrl0f1dplay0f1doverture1b1b & u0music29ctrl0music29ctrl))) & (G(u0room29heating29ctrl0f1dturn2off1b -> F(u0room29heating29ctrl0f1dturn2on1b R p0b0room29heating29off)) -> G(p0b0room29window29opened -> (u0music29ctrl0f1dplay0f1doverture1b1b & F((p0b0room29heating29off U (p0b0room29window29closed & p0p0all2windows2closed0room)) | Gp0b0room29heating29off))))
+direct strategy might exist but was not found.
+translating formula done in 0.00300701 seconds
+automaton has 6 states and 1 colors
+split inputs and outputs done in 0.000238922 seconds
+automaton has 23 states
+determinization done
+DPA has 56 states, 4 colors
+simplification done
+DPA has 52 states
+determinization and simplification took 0.00182692 seconds
+solving game with acceptance: parity min even 4
+game solved in 7.0412e-05 seconds
+simplification took 0.000107464 seconds
+AIG circuit was created in 0.000252678 seconds and has 3 latches and 61 gates
+
+real	0m0.018s
+user	0m0.014s
+sys	0m0.004s

@@ -1,0 +1,19 @@
+trying to create strategy directly for G(!((!u0counter0f1done1b & !((u0counter0counter & !u0counter0f1dincmod0counter0f1dfourtytwo1b1b) <-> (!u0counter0counter & u0counter0f1dincmod0counter0f1dfourtytwo1b1b))) <-> (u0counter0f1done1b & !(u0counter0counter | u0counter0f1dincmod0counter0f1dfourtytwo1b1b))) & !((!u0cs0f1dhigh1b & !((u0cs0cs & !u0cs0f1dlow1b) <-> (!u0cs0cs & u0cs0f1dlow1b))) <-> (u0cs0f1dhigh1b & !(u0cs0cs | u0cs0f1dlow1b))) & !((u0prescaler0f1dinc0prescaler1b & !u0prescaler0prescaler) <-> (!u0prescaler0f1dinc0prescaler1b & u0prescaler0prescaler)) & !((u0write2address0f1dget2write2address0write2control1b & !u0write2address0write2address) <-> (!u0write2address0f1dget2write2address0write2control1b & u0write2address0write2address)) & !((u0write2data0f1dget2write2data0write2control1b & !u0write2data0write2data) <-> (!u0write2data0f1dget2write2data0write2control1b & u0write2data0write2data)) & !((!u0write2response0f1dbot1b & !((!u0write2response0f1dtop1b & u0write2response0write2response) <-> (u0write2response0f1dtop1b & !u0write2response0write2response))) <-> (u0write2response0f1dbot1b & !(u0write2response0f1dtop1b | u0write2response0write2response)))) & (G(u0counter0f1done1b -> Fp0p0eq0counter0f1dfourty1b) -> (Gu0prescaler0f1dinc0prescaler1b & G(u0counter0f1dincmod0counter0f1dfourtytwo1b1b <-> (!p0p0eqz0counter & p0p0eqzi0prescaler)) & G(u0write2data0f1dget2write2data0write2control1b <-> (p0p0do2write0write2control & p0p0eqz0counter)) & G(u0write2address0f1dget2write2address0write2control1b <-> (p0p0do2write0write2control & p0p0eqz0counter)) & G((p0p0do2write0write2control & p0p0eqz0counter) -> (u0cs0f1dlow1b U p0p0eq0counter0f1dfourty1b)) & GFu0cs0f1dhigh1b & G(u0write2response0f1dtop1b <-> (p0p0eq0counter0f1dfourtyone1b & p0p0eqzi0prescaler)) & G(u0write2response0f1dbot1b <-> !(p0p0eq0counter0f1dfourtyone1b & p0p0eqzi0prescaler)) & G(u0counter0f1done1b <-> (p0p0do2write0write2control & p0p0eqz0counter))))
+direct strategy might exist but was not found.
+translating formula done in 0.0281972 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 0.0011851 seconds
+automaton has 34 states
+determinization done
+DPA has 45 states, 3 colors
+simplification done
+DPA has 45 states
+determinization and simplification took 0.250039 seconds
+solving game with acceptance: parity min even 3
+game solved in 7.8727e-05 seconds
+simplification took 0.000236951 seconds
+AIG circuit was created in 0.000286383 seconds and has 1 latches and 13 gates
+
+real	0m0.628s
+user	0m0.279s
+sys	0m0.027s

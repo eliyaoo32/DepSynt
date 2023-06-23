@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!((u0steer0f1dsteer2side0track1b & !u0steer0f1dturn2mod0track1b) <-> (!u0steer0f1dsteer2side0track1b & u0steer0f1dturn2mod0track1b)) & !(u0steer0f1dstraighten0angle1b | u0steer0steer)) <-> (!((!u0steer0f1dstraighten0angle1b & u0steer0steer) <-> (u0steer0f1dstraighten0angle1b & !u0steer0steer)) & !(u0steer0f1dsteer2side0track1b | u0steer0f1dturn2mod0track1b))) & !((u0x0f1dturning1b & !u0x0x) <-> (!u0x0f1dturning1b & u0x0x))) & ((!u0x0f1dturning1b U !p0p0clear2road0track) | G!u0x0f1dturning1b) & G((!u0x0f1dturning1b & X!p0p0clear2road0track) -> X((Fp0p0at2side0track2pos -> (!p0p0at2side0track2pos U (p0p0at2side0track2pos & (Fp0p0straight0angle -> (!p0p0straight0angle U (p0p0straight0angle & (Fp0p0close2to2bend0track -> (!p0p0close2to2bend0track U (p0p0close2to2bend0track & (Fp0p0clear2road0track -> (!p0p0clear2road0track U (p0p0clear2road0track & ((!u0x0f1dturning1b U !p0p0clear2road0track) | G!u0x0f1dturning1b)))) & (((u0steer0f1dturn2mod0track1b & u0x0f1dturning1b) U p0p0clear2road0track) | G(u0steer0f1dturn2mod0track1b & u0x0f1dturning1b))))) & (((u0steer0steer & u0x0f1dturning1b) U p0p0close2to2bend0track) | G(u0steer0steer & u0x0f1dturning1b))))) & (((u0steer0f1dstraighten0angle1b & u0x0f1dturning1b) U p0p0straight0angle) | G(u0steer0f1dstraighten0angle1b & u0x0f1dturning1b))))) & (((u0steer0f1dsteer2side0track1b & u0x0f1dturning1b) U p0p0at2side0track2pos) | G(u0steer0f1dsteer2side0track1b & u0x0f1dturning1b))))
+direct strategy might exist but was not found.
+translating formula done in 0.00396256 seconds
+automaton has 8 states and 1 colors
+split inputs and outputs done in 0.000265274 seconds
+automaton has 16 states
+determinization done
+DPA has 16 states, 1 colors
+simplification done
+DPA has 14 states
+determinization and simplification took 7.8623e-05 seconds
+solving game with acceptance: Büchi
+game solved in 2.8115e-05 seconds
+simplification took 0.000165119 seconds
+AIG circuit was created in 0.000747831 seconds and has 3 latches and 171 gates
+
+real	0m0.018s
+user	0m0.008s
+sys	0m0.010s

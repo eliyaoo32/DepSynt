@@ -1,0 +1,68 @@
+REALIZABLE
+aag 50 8 1 4 41
+2
+4
+6
+8
+10
+12
+14
+16
+18 101
+0
+44
+70
+77
+20 10 19
+22 13 20
+24 15 19
+26 10 24
+28 13 26
+30 3 28
+32 8 28
+34 9 30
+36 35 33
+38 6 37
+40 7 22
+42 41 39
+44 5 43
+46 11 18
+48 13 46
+50 15 18
+52 11 50
+54 13 52
+56 3 54
+58 8 54
+60 9 56
+62 61 59
+64 6 63
+66 7 48
+68 67 65
+70 4 69
+72 4 68
+74 5 42
+76 75 73
+78 19 11
+80 12 78
+82 24 11
+84 12 82
+86 84 3
+88 8 85
+90 9 87
+92 91 89
+94 6 93
+96 7 81
+98 97 95
+100 98 5
+i0 p0b02room29somebody2enters
+i1 p0b02c2m29ready
+i2 p0b02room29empty
+i3 p0b02room29somebody2leaves
+i4 p0b02c2m29standby
+i5 p0b02c2m29busy
+i6 p0b02room29switch29toggled
+i7 p0b02c2m29finished
+o0 u02c2m29ctrl0f1d2c2m29turn2off1b
+o1 u02c2m29ctrl0f1d2c2m29turn2on1b
+o2 u02c2m29ctrl02c2m29ctrl
+o3 u02c2m29ctrl0f1d2c2m29make2coffee1b

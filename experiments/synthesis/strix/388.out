@@ -1,0 +1,65 @@
+UNREALIZABLE
+aag 33 3 3 12 27
+2
+4
+6
+8 52
+10 60
+12 66
+23
+23
+23
+24
+14
+0
+23
+0
+23
+0
+0
+0
+14 11 12
+16 10 13
+18 8 17
+20 15 18
+22 12 20
+24 15 19
+26 5 7
+28 21 26
+30 2 29
+32 2 14
+34 4 7
+36 14 34
+38 3 37
+40 5 6
+42 9 13
+44 40 42
+46 38 45
+48 33 47
+50 31 48
+52 23 51
+54 15 40
+56 35 55
+58 3 21
+60 57 58
+62 14 40
+64 38 63
+66 31 65
+i0 u02heating29ctrl0f1d2heating29turn2off1b
+i1 u02heating29ctrl0f1d2heating29turn2on1b
+i2 u02heating29ctrl02heating29ctrl
+l0 l0
+l1 l1
+l2 l2
+o0 p0p0lt0f1dten2degree1b02room29temperature
+o1 p0p0gt0outside29temperature02room29temperature
+o2 p0b02firesensor29fire
+o3 p0b02heating29on
+o4 p0b02heating29off
+o5 p0b02room29bed29occupied
+o6 p0b02room29sombebody2enters
+o7 p0b02room29somebody2leaves
+o8 p0b02room29sombebody2leaves
+o9 p0b02room29somebody2enters
+o10 p0b02room29switch29toggled
+o11 p0b02room29empty

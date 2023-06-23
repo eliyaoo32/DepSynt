@@ -1,0 +1,11 @@
+there are 1 subformulas
+trying to create strategy directly for F(q & X(p U r)) <-> GFacc
+tanslating formula done in 0.000478821 seconds
+direct strategy was found.
+direct strat has 3 states, 6 edges and 0 colors
+simplification took 0.000144998 seconds
+AIG circuit was created in 0.000174333 seconds and has 2 latches and 11 gates
+
+real	0m0.013s
+user	0m0.002s
+sys	0m0.011s

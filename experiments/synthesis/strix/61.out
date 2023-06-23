@@ -1,0 +1,31 @@
+REALIZABLE
+aag 16 4 1 4 11
+2
+4
+6
+8
+10 32
+30
+18
+0
+28
+12 5 6
+14 9 11
+16 12 14
+18 3 16
+20 4 8
+22 7 11
+24 21 22
+26 3 8
+28 24 26
+30 19 29
+32 17 25
+i0 p0p0on0gameover
+i1 p0p0isscoremode0gamemode
+i2 p0p0isradarmode0gamemode
+i3 p0p0iscockpitmode0gamemode
+l0 l0
+o0 u0outpoint0scoreboardpoint
+o1 u0outpoint0radarboardpoint
+o2 u0outpoint0outpoint
+o3 u0outpoint0cockpitboardpoint

@@ -1,0 +1,30 @@
+UNREALIZABLE
+aag 19 3 2 2 14
+2
+4
+6
+8 28
+10 39
+12
+9
+12 8 10
+14 8 11
+16 7 15
+18 3 4
+20 16 18
+22 3 6
+24 5 9
+26 22 24
+28 21 27
+30 2 16
+32 10 22
+34 31 33
+36 5 35
+38 21 37
+i0 u02device29ctrl0f1d2device29move2to0f1d2device29percent231b1b
+i1 u02device29ctrl0f1d2device29move2to0f1d2device29percent2423231b1b
+i2 u02device29ctrl02device29ctrl
+l0 l0
+l1 l1
+o0 p0b02device29closed
+o1 p0b02device29open

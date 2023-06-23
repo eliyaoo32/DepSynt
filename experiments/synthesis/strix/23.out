@@ -1,0 +1,154 @@
+REALIZABLE
+aag 91 1 6 27 84
+2
+4 179
+6 180
+8 182
+10 146
+12 156
+14 106
+59
+0
+66
+68
+53
+70
+0
+95
+98
+108
+112
+116
+124
+128
+141
+142
+148
+150
+158
+160
+162
+164
+166
+0
+45
+173
+176
+16 5 7
+18 11 13
+20 16 18
+22 4 6
+24 9 23
+26 11 24
+28 12 26
+30 16 26
+32 13 31
+34 29 33
+36 15 35
+38 9 14
+40 18 38
+42 22 40
+44 37 43
+46 13 15
+48 5 35
+50 15 49
+52 41 51
+54 47 53
+56 44 55
+58 21 56
+60 5 57
+62 21 61
+64 2 63
+66 56 64
+68 59 67
+70 52 63
+72 30 46
+74 17 23
+76 8 11
+78 75 76
+80 10 17
+82 5 11
+84 9 83
+86 81 84
+88 79 87
+90 12 15
+92 89 90
+94 73 93
+96 24 80
+98 90 96
+100 8 22
+102 10 100
+104 15 103
+106 54 105
+108 34 106
+110 26 32
+112 14 110
+114 74 76
+116 90 114
+118 25 101
+120 10 118
+122 75 120
+124 90 122
+126 74 120
+128 90 126
+130 13 89
+132 118 130
+134 14 132
+136 12 31
+138 70 136
+140 135 139
+142 46 114
+144 11 101
+146 104 145
+148 130 146
+150 46 126
+152 47 105
+154 13 103
+156 153 155
+158 137 156
+160 15 132
+162 46 96
+164 46 122
+166 15 110
+168 3 53
+170 44 168
+172 67 171
+174 44 169
+176 68 174
+178 61 65
+180 57 74
+182 57 118
+i0 p0p0write0write2control
+l0 l0
+l1 l1
+l2 l2
+l3 l3
+l4 l4
+l5 l5
+o0 u0write2data0f1dget2write2data0write2control1b
+o1 u0write2data0write2data
+o2 u0write2adress0f1dget2write2adress0write2control1b
+o3 u0write2adress0write2adress
+o4 u0spc0f1dlow1b
+o5 u0spc0f1dhigh1b
+o6 u0spc0spc
+o7 u0sdi0f1dget2bit0write2data0f1dtwo1b1b
+o8 u0sdi0f1dget2bit0write2data0f1dthree1b1b
+o9 u0sdi0f1dget2bit0write2data0f1dsix1b1b
+o10 u0sdi0f1dget2bit0write2data0f1dseven1b1b
+o11 u0sdi0f1dget2bit0write2data0f1done1b1b
+o12 u0sdi0f1dget2bit0write2data0f1dfour1b1b
+o13 u0sdi0f1dget2bit0write2data0f1dfive1b1b
+o14 u0sdi0f1dget2bit0write2data0f1deight1b1b
+o15 u0sdi0f1dget2bit0write2adress0f1dtwo1b1b
+o16 u0sdi0f1dget2bit0write2adress0f1dthree1b1b
+o17 u0sdi0f1dget2bit0write2adress0f1dsix1b1b
+o18 u0sdi0f1dget2bit0write2adress0f1dseven1b1b
+o19 u0sdi0f1dget2bit0write2adress0f1done1b1b
+o20 u0sdi0f1dget2bit0write2adress0f1dfour1b1b
+o21 u0sdi0f1dget2bit0write2adress0f1dfive1b1b
+o22 u0sdi0f1dlow1b
+o23 u0sdi0sdi
+o24 u0cs0f1dlow1b
+o25 u0cs0f1dhigh1b
+o26 u0cs0cs

@@ -1,0 +1,15 @@
+REALIZABLE
+aag 5 2 0 3 3
+2
+4
+6
+8
+10
+6 2 5
+8 3 4
+10 7 9
+i0 p0p0exit2event0top
+i1 p0p0enter2event0bottom
+o0 u0steps0f1dstop1b
+o1 u0steps0f1dmove1b
+o2 u0steps0steps

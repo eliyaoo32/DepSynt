@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!((!u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b & u0sdi0f1dlow1b) <-> (u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b & !u0sdi0f1dlow1b)) & !(u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b | u0sdi0sdi)) <-> (!((!u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b & u0sdi0sdi) <-> (u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b & !u0sdi0sdi)) & !(u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b | u0sdi0f1dlow1b))) & ((G!(p0p0gte0counter0f1dtwentyfour1b & p0p0lte0counter0f1dseventeen1b) & G!(p0p0eq0counter0f1dtwo1b & p0p0gte0counter0f1dfour1b) & G!(p0p0eq0counter0f1dtwo1b & p0p0gte0counter0f1dtwentyfour1b) & G!(p0p0eq0counter0f1dthree1b & p0p0gte0counter0f1dfour1b) & G!(p0p0eq0counter0f1dthree1b & p0p0gte0counter0f1dtwentyfour1b)) -> (G((p0p0eq0counter0f1dthree1b | p0p0eq0counter0f1dtwo1b) -> u0sdi0f1dlow1b) & G(u0sdi0f1dget2bit0write2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b <-> (p0p0gte0counter0f1dfour1b & p0p0lte0counter0f1dseventeen1b)) & G(u0sdi0f1dget2bit0write2data0f1dsub0f1dnineteen1b0f1ddiv0counter0f1dtwo1b1b1b1b <-> (p0p0gte0counter0f1dtwentyfour1b & p0p0lte0counter0f1dthirtynine1b))))
+direct strategy might exist but was not found.
+translating formula done in 0.00704217 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.00019679 seconds
+automaton has 10 states
+determinization done
+DPA has 10 states, 2 colors
+simplification done
+DPA has 10 states
+determinization and simplification took 6.7251e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 2.9431e-05 seconds
+simplification took 6.3223e-05 seconds
+AIG circuit was created in 0.000170944 seconds and has 0 latches and 25 gates
+
+real	0m0.412s
+user	0m0.013s
+sys	0m0.023s

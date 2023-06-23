@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!((!u0time0f1dinc2seconds0time1b & !((u0time0f1dcountup0time0dt1b & !u0time0f1dzero1b) <-> (!u0time0f1dcountup0time0dt1b & u0time0f1dzero1b))) <-> (u0time0f1dinc2seconds0time1b & !(u0time0f1dcountup0time0dt1b | u0time0f1dzero1b))) & !(u0time0f1dcountdown0time0dt1b | u0time0f1dinc2minutes0time1b | u0time0time)) <-> (!((!u0time0f1dinc2minutes0time1b & !((u0time0f1dcountdown0time0dt1b & !u0time0time) <-> (!u0time0f1dcountdown0time0dt1b & u0time0time))) <-> (u0time0f1dinc2minutes0time1b & !(u0time0f1dcountdown0time0dt1b | u0time0time))) & !(u0time0f1dcountup0time0dt1b | u0time0f1dinc2seconds0time1b | u0time0f1dzero1b))) & G(u0time0f1dzero1b <-> (p0b0btn2min & p0b0btn2sec)) & G(Xu0time0f1dinc2minutes0time1b <-> (!p0b0btn2min & !(u0time0f1dcountdown0time0dt1b | u0time0f1dcountup0time0dt1b) & Xp0b0btn2min & X!p0b0btn2sec)) & G(Xu0time0f1dinc2seconds0time1b <-> (!p0b0btn2sec & !(u0time0f1dcountdown0time0dt1b | u0time0f1dcountup0time0dt1b) & Xp0b0btn2sec & X!p0b0btn2min))
+direct strategy might exist but was not found.
+translating formula done in 0.0146077 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 0.000782929 seconds
+automaton has 15 states
+determinization done
+DPA has 15 states, 1 colors
+simplification done
+DPA has 14 states
+determinization and simplification took 0.000120566 seconds
+solving game with acceptance: Büchi
+game solved in 3.9573e-05 seconds
+simplification took 0.000203327 seconds
+AIG circuit was created in 0.000246132 seconds and has 2 latches and 9 gates
+
+real	0m0.058s
+user	0m0.016s
+sys	0m0.014s

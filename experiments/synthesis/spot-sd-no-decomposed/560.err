@@ -1,0 +1,18 @@
+trying to create strategy directly for (!b_0 & !b_1 & !b_2 & G((b_0 & !(!f_0 & !f_1 & serve)) -> Xb_0) & G((b_1 & !(f_0 & !f_1 & serve)) -> Xb_1) & G((b_2 & !(!f_0 & f_1 & serve)) -> Xb_2) & G((b_0 & !f_0 & !f_1 & serve) -> X!b_0) & G((b_1 & f_0 & !f_1 & serve) -> X!b_1) & G((b_2 & !f_0 & f_1 & serve) -> X!b_2)) -> (!f_0 & !f_1 & G(!(down & up) & ((!f_0 & !f_1 & up) -> (b_1 | b_2)) & ((f_0 & !f_1 & up) -> b_2) & ((down & f_0 & !f_1) -> (b_0 | (!b_0 & !b_1 & !b_2))) & ((down & !f_0 & f_1) -> (b_0 | b_1 | (!b_0 & !b_1 & !b_2))) & ((!f_0 & !f_1 & serve) -> b_0) & ((f_0 & !f_1 & serve) -> b_1) & ((!f_0 & f_1 & serve) -> b_2) & (up <-> (!f_0 & !f_1 & X(f_0 & !f_1))) & (up <-> (f_0 & !f_1 & X(!f_0 & f_1))) & (down <-> (f_0 & !f_1 & X(!f_0 & !f_1))) & (down <-> (!f_0 & f_1 & X(f_0 & !f_1))) & ((!f_0 & !f_1) -> X((f_0 & !f_1) | (!f_0 & !f_1))) & ((f_0 & !f_1) -> X((f_0 & !f_1) | (!f_0 & f_1))) & ((f_0 & !f_1) -> X((f_0 & !f_1) | (!f_0 & !f_1))) & ((!f_0 & f_1) -> X((f_0 & !f_1) | (!f_0 & f_1)))) & G(b_0 -> F(!f_0 & !srun: error: cn10: task 0: Exited with exit code 1
+f_1 & serve)) & G(b_1 -> F(f_0 & !f_1 & serve)) & G(b_2 -> F(!f_0 & f_1 & serve)) & !FG(!b_0 & !b_1 & !b_2 & !(!f_0 & !f_1)))
+direct strategy might exist but was not found.
+translating formula done in 0.013678 seconds
+automaton has 11 states and 1 colors
+split inputs and outputs done in 0.000135338 seconds
+automaton has 27 states
+determinization done
+DPA has 38 states, 2 colors
+simplification done
+DPA has 38 states
+determinization and simplification took 0.0018814 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 7.4935e-05 seconds
+
+real	0m0.032s
+user	0m0.018s
+sys	0m0.013s

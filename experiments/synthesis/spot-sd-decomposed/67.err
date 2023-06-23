@@ -1,0 +1,34 @@
+there are 2 subformulas
+trying to create strategy directly for u0users0f1dreset2to2zero1b & XG!u0users0f1dreset2to2zero1b & XG(u0users0f1dinc0users1b <-> (p0p0enter2event0bottom & !p0p0exit2event0top)) & XG(u0users0f1ddec0users1b <-> (!p0p0enter2event0bottom & p0p0exit2event0top)) & G!((!((!u0users0f1dinc0users1b & u0users0f1dreset2to2zero1b) <-> (u0users0f1dinc0users1b & !u0users0f1dreset2to2zero1b)) & !(u0users0f1ddec0users1b | u0users0users)) <-> (!((!u0users0f1ddec0users1b & u0users0users) <-> (u0users0f1ddec0users1b & !u0users0users)) & !(u0users0f1dinc0users1b | u0users0f1dreset2to2zero1b)))
+direct strategy might exist but was not found.
+translating formula done in 0.0012638 seconds
+automaton has 2 states and 1 colors
+split inputs and outputs done in 8.8527e-05 seconds
+automaton has 6 states
+determinization done
+DPA has 6 states, 1 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 5.0223e-05 seconds
+solving game with acceptance: Büchi
+game solved in 2.8093e-05 seconds
+simplification took 0.000101247 seconds
+trying to create strategy directly for XG(u0steps0f1dmove1b <-> (p0p0enter2event0bottom & p0p0zero0users)) & XG(Xu0steps0f1dstop1b <-> (!p0p0zero0users & Xp0p0zero0users & X!p0p0enter2event0bottom)) & G!((!u0steps0f1dmove1b & !((!u0steps0f1dstop1b & u0steps0steps) <-> (u0steps0f1dstop1b & !u0steps0steps))) <-> (u0steps0f1dmove1b & !(u0steps0f1dstop1b | u0steps0steps)))
+direct strategy might exist but was not found.
+translating formula done in 0.0030516 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 0.000134848 seconds
+automaton has 12 states
+determinization done
+DPA has 12 states, 1 colors
+simplification done
+DPA has 11 states
+determinization and simplification took 0.000112202 seconds
+solving game with acceptance: Büchi
+game solved in 5.3386e-05 seconds
+simplification took 0.000103193 seconds
+AIG circuit was created in 0.000261909 seconds and has 2 latches and 13 gates
+
+real	0m0.018s
+user	0m0.008s
+sys	0m0.010s

@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!u02c2m29intent02c2m29intent & u02c2m29intent0f1dready1b) <-> (u02c2m29intent02c2m29intent & !u02c2m29intent0f1dready1b)) & !((!u02power29intent02power29intent & u02power29intent0f1don1b) <-> (u02power29intent02power29intent & !u02power29intent0f1don1b)) & !((!u02system02system & u02system0f1dnotify0f1d2c2m1b1b) <-> (u02system02system & !u02system0f1dnotify0f1d2c2m1b1b)) & !((!u02maschine2a29intent02maschine2a29intent & u02maschine2a29intent0f1dstop1b) <-> (u02maschine2a29intent02maschine2a29intent & !u02maschine2a29intent0f1dstop1b))) & ((G(p0b02power29failed -> p0b02c2m29failed) & G(p0b02power29failed -> p0b02door29failed)) -> (G(!p0b02c2m29failed -> (p0b02time298am -> X((u02c2m29intent0f1dready1b U (p0b02c2m29failed | p0b02time296pm)) | Gu02c2m29intent0f1dready1b))) & G(!p0b02c2m29failed -> (u02c2m29intent0f1dready1b -> u02power29intent0f1don1b)) & G(p0b02c2m29failed -> u02system0f1dnotify0f1d2c2m1b1b) & G(p0b02maschine2b29failed -> u02maschine2a29intent0f1dstop1b)))
+direct strategy might exist but was not found.
+translating formula done in 0.0220255 seconds
+automaton has 4 states and 1 colors
+split inputs and outputs done in 0.00056511 seconds
+automaton has 15 states
+determinization done
+DPA has 15 states, 2 colors
+simplification done
+DPA has 15 states
+determinization and simplification took 7.9009e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 3.7554e-05 seconds
+simplification took 0.000156668 seconds
+AIG circuit was created in 0.000125364 seconds and has 0 latches and 0 gates
+
+real	0m0.035s
+user	0m0.025s
+sys	0m0.009s

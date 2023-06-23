@@ -1,0 +1,92 @@
+aag 80 4 3 3 73
+2
+4
+6
+8
+10 87
+12 119
+14 161
+0
+59
+58
+16 13 15
+18 10 16
+20 8 18
+22 9 10
+24 6 22
+26 7 20
+28 27 25
+30 4 29
+32 12 14
+34 10 13
+36 11 32
+38 37 35
+40 8 39
+42 15 11
+44 9 43
+46 6 44
+48 7 40
+50 49 47
+52 5 51
+54 2 52
+56 3 30
+58 57 55
+60 11 16
+62 8 61
+64 62 7
+66 4 64
+68 14 13
+70 68 11
+72 70 9
+74 6 73
+76 7 63
+78 77 75
+80 78 5
+82 2 81
+84 3 67
+86 85 83
+88 8 19
+90 33 11
+92 90 9
+94 6 93
+96 7 89
+98 97 95
+100 4 98
+102 8 38
+104 71 9
+106 6 105
+108 7 103
+110 109 107
+112 110 5
+114 2 113
+116 3 101
+118 117 115
+120 8 16
+122 11 17
+124 123 9
+126 6 125
+128 7 121
+130 129 127
+132 4 130
+134 12 15
+136 69 135
+138 10 12
+140 11 137
+142 141 139
+144 8 142
+146 60 9
+148 6 147
+150 7 145
+152 151 149
+154 152 5
+156 2 155
+158 3 133
+160 159 157
+i0 p0b02plug29off
+i1 p0b02plug29on
+i2 p0b02plug29intent29off
+i3 p0b02plug29intent29on
+o0 u02plug29ctrl02plug29ctrl
+o1 u02plug29ctrl0f1d2plug29coff1b
+o2 u02plug29ctrl0f1d2plug29con1b
+{"is_completed":true,"output_vars":["u02plug29ctrl0f1d2plug29coff1b","u02plug29ctrl0f1d2plug29con1b","u02plug29ctrl02plug29ctrl"],"input_vars":["p0b02plug29intent29off","p0b02plug29intent29on","p0b02plug29off","p0b02plug29on"],"formula":"((G (! (((u02plug29ctrl0f1d2plug29con1b) && (! ((u02plug29ctrl0f1d2plug29coff1b) || (u02plug29ctrl02plug29ctrl)))) <-> ((! (((u02plug29ctrl0f1d2plug29coff1b) && (! (u02plug29ctrl02plug29ctrl))) <-> ((u02plug29ctrl02plug29ctrl) && (! (u02plug29ctrl0f1d2plug29coff1b))))) && (! (u02plug29ctrl0f1d2plug29con1b)))))) && (((((G (! ((p0b02plug29on) <-> (p0b02plug29off)))) && (G ((u02plug29ctrl0f1d2plug29con1b) -> (X (F (((p0b02plug29on) U (u02plug29ctrl0f1d2plug29coff1b)) || (G (p0b02plug29on)))))))) && (G ((u02plug29ctrl0f1d2plug29coff1b) -> (X (F (((p0b02plug29off) U (u02plug29ctrl0f1d2plug29con1b)) || (G (p0b02plug29off)))))))) && (G (! ((p0b02plug29intent29on) <-> (p0b02plug29intent29off))))) -> ((G ((p0b02plug29intent29on) -> (F (((p0b02plug29on) U (! (p0b02plug29intent29on))) || (G (p0b02plug29on)))))) && (G ((p0b02plug29intent29off) -> (F (((p0b02plug29off) U (! (p0b02plug29intent29off))) || (G (p0b02plug29off)))))))))","total_time":11,"automaton":{"is_built":true,"build_duration":3,"total_states":14,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":14,"total_edges":66},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":false,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":7,"realizability":"REALIZABLE","total_inputs":4,"total_outputs":3,"total_latches":3,"total_gates":73},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

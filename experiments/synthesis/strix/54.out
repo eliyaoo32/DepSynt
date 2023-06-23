@@ -1,0 +1,81 @@
+REALIZABLE
+aag 37 8 2 16 27
+2
+4
+6
+8
+10
+12
+14
+16
+18 68
+20 74
+44
+48
+42
+54
+52
+0
+58
+60
+23
+0
+68
+70
+0
+32
+58
+72
+22 18 20
+24 4 14
+26 21 25
+28 12 15
+30 26 29
+32 23 31
+34 2 4
+36 11 12
+38 34 36
+40 15 21
+42 39 40
+44 32 43
+46 5 14
+48 21 46
+50 8 12
+52 26 51
+54 23 53
+56 16 46
+58 21 56
+60 23 59
+62 18 25
+64 57 63
+66 7 21
+68 65 66
+70 23 69
+72 30 57
+74 23 27
+i0 p0p0lt0counter0f1dthirtyfour1b
+i1 p0p0gt0counter0f1deighteen1b
+i2 p0p0eq0counter0f1dthirtyfour1b
+i3 p0p0eq0counter0f1dthirtyfive1b
+i4 p0p0is2even0counter
+i5 p0p0eqzi0prescaler
+i6 p0p0eqz0counter
+i7 p0p0do2read0read2control
+l0 l0
+l1 l1
+o0 u0temp2data0f1dcustom2set2bit0temp2data0sdo1b
+o1 u0temp2data0f1dzero1b
+o2 u0temp2data0temp2data
+o3 u0read2response0f1dwrap2data0temp2data0f1dtop1b1b
+o4 u0read2response0f1dwrap2data0temp2data0f1dbot1b1b
+o5 u0read2response0read2response
+o6 u0read2address0f1dget2read2address0read2control1b
+o7 u0read2address0read2address
+o8 u0prescaler0f1dinc0prescaler1b
+o9 u0prescaler0prescaler
+o10 u0cs0f1dlow1b
+o11 u0cs0f1dhigh1b
+o12 u0cs0cs
+o13 u0counter0f1dincmod0counter0f1dthirtysix1b1b
+o14 u0counter0f1done1b
+o15 u0counter0counter

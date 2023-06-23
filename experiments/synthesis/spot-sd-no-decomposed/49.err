@@ -1,0 +1,19 @@
+trying to create strategy directly for G(!((!u0pos0f1dadd0pos0vel1b & !((!u0pos0f1dsub0pos0vel1b & u0pos0pos) <-> (u0pos0f1dsub0pos0vel1b & !u0pos0pos))) <-> (u0pos0f1dadd0pos0vel1b & !(u0pos0f1dsub0pos0vel1b | u0pos0pos))) & !((!u0score0f1dzero1b & !((!u0score0f1dadd0score0f1done1b1b & u0score0score) <-> (u0score0f1dadd0score0f1done1b1b & !u0score0score))) <-> (u0score0f1dzero1b & !(u0score0f1dadd0score0f1done1b1b | u0score0score))) & !((!u0vel0f1done1b & !((!u0vel0f1dadd0vel0f1done1b1b & u0vel0vel) <-> (u0vel0f1dadd0vel0f1done1b1b & !u0vel0vel))) <-> (u0vel0f1done1b & !(u0vel0f1dadd0vel0f1done1b1b | u0vel0vel)))) & ((G(u0pos0f1dadd0pos0vel1b -> X!p0p0left2most0pos) & G(u0pos0f1dsub0pos0vel1b -> X!p0p0right2most0pos)) -> (G(p0p0left2most0pos -> Fu0pos0f1dadd0pos0vel1b) & G(p0p0right2most0pos -> Fu0pos0f1dsub0pos0vel1b) & G((!p0p0left2most0pos & !p0p0right2most0pos) -> F(u0pos0f1dadd0pos0vel1b | u0pos0f1dsub0pos0vel1b)) & G(p0p0left2most0pos -> ((!u0pos0f1dsub0pos0vel1b U p0p0right2most0pos) | G!u0pos0f1dsub0pos0vel1b)) & G(p0p0right2most0pos -> ((!u0pos0f1dadd0pos0vel1b U p0p0left2most0pos) | G!u0pos0f1dadd0pos0vel1b)) & G(X(u0score0f1dadd0score0f1done1b1b & u0vel0f1dadd0vel0f1done1b1b) <-> (p0p0clicked0button & Xp0p0center0pos)) & G(X(u0score0f1dzero1b & u0vel0f1done1b) <-> (p0p0clicked0button & X!p0p0center0pos))))
+direct strategy might exist but was not found.
+translating formula done in 0.0537782 seconds
+automaton has 77 states and 3 colors
+split inputs and outputs done in 0.00216242 seconds
+automaton has 192 states
+determinization done
+DPA has 169 states, 2 colors
+simplification done
+DPA has 159 states
+determinization and simplification took 0.033809 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 0.000217737 seconds
+simplification took 0.000406204 seconds
+AIG circuit was created in 0.000720839 seconds and has 4 latches and 159 gates
+
+real	0m0.267s
+user	0m0.096s
+sys	0m0.017s

@@ -1,0 +1,20 @@
+UNREALIZABLE
+aag 5 4 1 4 0
+2
+4
+6
+8
+10 1
+0
+0
+0
+0
+i0 u0cm29ctrl0f1dturn2off1b
+i1 u0cm29ctrl0f1dmake2coffee1b
+i2 u0cm29ctrl0f1dturn2on1b
+i3 u0cm29ctrl0cm29ctrl
+l0 l0
+o0 p0b0cm29finished
+o1 p0b0cm29ready
+o2 p0b0cm29busy
+o3 p0b0cm29standby

@@ -1,0 +1,19 @@
+trying to create strategy directly for G!((!u0ctrl0f1dpause0mp1b & !((u0ctrl0ctrl & !u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) <-> (!u0ctrl0ctrl & u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) <-> (u0ctrl0f1dpause0mp1b & !(u0ctrl0ctrl | u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) & ((G(p0p0leave2app0sys -> (!p0p0pause2button0sys & !p0p0play2button0sys)) & G!(p0p0pause2button0sys & p0p0play2button0sys) & G!(p0p0leave2app0sys & p0p0resume2app0sys)) -> (G(p0p0play2button0sys -> u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) & G(p0p0pause2button0sys -> u0ctrl0f1dpause0mp1b) & G(u0ctrl0f1dpause0mp1b -> (p0p0leave2app0sys | p0p0pause2button0sys)) & G(u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b -> !p0p0leave2app0sys) & G((((p0p0pause2button0sys & u0ctrl0f1dpause0mp1b) -> !u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) U p0p0play2button0sys) | G((p0p0pause2button0sys & u0ctrl0f1dpause0mp1b) -> !u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)) & G((u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b & (!u0ctrl0f1dpause0mp1b U p0p0leave2app0sys)) -> ((!(u0ctrl0f1dpause0mp1b & ((!(!p0p0pause2button0sys -> u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) U (!p0p0leave2app0sys & (!p0p0pause2button0sys -> u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) | G!(!p0p0pause2button0sys -> u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) U (p0p0leave2app0sys & u0ctrl0f1dpause0mp1b & ((!(!p0p0pause2button0sys -> u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) U (!p0p0leave2app0sys & (!p0p0pause2button0sys -> u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) | G!(!p0p0pause2button0sys -> u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)))) | G!(u0ctrl0f1dpause0mp1b & ((!(!p0p0pause2button0sys -> u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b) U (!p0p0leave2app0sys & (!p0p0pause2button0sys -> u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b))) | G!(!p0p0pause2button0sys -> u0ctrl0f1dplay0tr0f1dtrack2pos0mp1b1b)))))))
+direct strategy might exist but was not found.
+translating formula done in 0.00896248 seconds
+automaton has 8 states and 1 colors
+split inputs and outputs done in 0.00160205 seconds
+automaton has 31 states
+determinization done
+DPA has 33 states, 2 colors
+simplification done
+DPA has 27 states
+determinization and simplification took 0.00436155 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 0.000117184 seconds
+simplification took 0.000152847 seconds
+AIG circuit was created in 0.000178481 seconds and has 1 latches and 7 gates
+
+real	0m0.094s
+user	0m0.012s
+sys	0m0.015s

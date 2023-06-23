@@ -1,0 +1,192 @@
+aag 178 6 3 3 169
+2
+4
+6
+8
+10
+12
+14 251
+16 287
+18 357
+107
+165
+0
+20 16 18
+22 19 12
+24 16 23
+26 14 25
+28 15 21
+30 29 27
+32 15 17
+34 33 27
+36 8 35
+38 9 31
+40 39 37
+42 10 41
+44 11 31
+46 45 43
+48 2 31
+50 3 47
+52 51 49
+54 6 53
+56 7 21
+58 57 55
+60 16 19
+62 17 18
+64 63 61
+66 14 65
+68 29 67
+70 8 69
+72 9 21
+74 73 71
+76 14 60
+78 33 77
+80 8 79
+82 73 81
+84 10 83
+86 11 75
+88 87 85
+90 2 21
+92 3 89
+94 93 91
+96 6 21
+98 7 95
+100 99 97
+102 4 101
+104 5 59
+106 105 103
+108 19 13
+110 16 108
+112 14 110
+114 15 60
+116 115 113
+118 8 117
+120 9 112
+122 121 119
+124 10 123
+126 11 112
+128 127 125
+130 2 112
+132 3 129
+134 133 131
+136 6 135
+138 17 19
+140 14 138
+142 8 140
+144 14 17
+146 115 145
+148 8 147
+150 10 148
+152 11 142
+154 153 151
+156 3 155
+158 7 156
+160 4 158
+162 5 136
+164 163 161
+166 15 138
+168 167 77
+170 14 21
+172 167 171
+174 8 173
+176 9 169
+178 177 175
+180 15 19
+182 181 171
+184 8 183
+186 177 185
+188 10 187
+190 11 179
+192 191 189
+194 8 170
+196 9 76
+198 197 195
+200 2 199
+202 3 193
+204 203 201
+206 6 205
+208 57 207
+210 33 171
+212 8 211
+214 73 213
+216 10 21
+218 11 215
+220 219 217
+222 15 65
+224 223 171
+226 15 62
+228 227 171
+230 8 229
+232 9 225
+234 233 231
+236 2 235
+238 3 221
+240 239 237
+242 7 241
+244 243 97
+246 4 245
+248 5 209
+250 249 247
+252 8 114
+254 8 180
+256 9 166
+258 257 255
+260 2 259
+262 3 252
+264 263 261
+266 6 265
+268 115 141
+270 8 269
+272 11 270
+274 273 151
+276 3 275
+278 277 261
+280 7 279
+282 4 280
+284 5 266
+286 285 283
+288 16 109
+290 14 289
+292 223 291
+294 63 111
+296 14 295
+298 227 297
+300 8 299
+302 9 293
+304 303 301
+306 227 113
+308 8 307
+310 303 309
+312 10 311
+314 11 305
+316 315 313
+318 3 317
+320 319 237
+322 6 321
+324 57 323
+326 223 145
+328 8 62
+330 9 327
+332 331 329
+334 8 226
+336 331 335
+338 10 337
+340 11 333
+342 341 339
+344 3 343
+346 345 237
+348 7 347
+350 349 97
+352 4 351
+354 5 325
+356 355 353
+i0 p0b02firesensor29fire
+i1 p0b02door29locked
+i2 p0b02door29unlocked
+i3 p0b02door29reaching2unlocked
+i4 p0b02firesensor29fire2extinquished
+i5 p0b02door29reaching2locked
+o0 u02door29ctrl0f1dunlock1b
+o1 u02door29ctrl0f1dlock1b
+o2 u02door29ctrl02door29ctrl
+{"is_completed":true,"output_vars":["u02door29ctrl0f1dlock1b","u02door29ctrl0f1dunlock1b","u02door29ctrl02door29ctrl"],"input_vars":["p0b02firesensor29fire2extinquished","p0b02firesensor29fire","p0b02door29reaching2locked","p0b02door29reaching2unlocked","p0b02door29unlocked","p0b02door29locked"],"formula":"((G (! (((u02door29ctrl0f1dunlock1b) && (! ((u02door29ctrl0f1dlock1b) || (u02door29ctrl02door29ctrl)))) <-> ((! (((u02door29ctrl0f1dlock1b) && (! (u02door29ctrl02door29ctrl))) <-> ((u02door29ctrl02door29ctrl) && (! (u02door29ctrl0f1dlock1b))))) && (! (u02door29ctrl0f1dunlock1b)))))) && ((((G ((p0b02door29locked) <-> (! (p0b02door29unlocked)))) && (G ((u02door29ctrl0f1dunlock1b) -> (X ((p0b02door29reaching2unlocked) U (((p0b02door29unlocked) U (u02door29ctrl0f1dlock1b)) || (G (p0b02door29unlocked)))))))) && (G ((u02door29ctrl0f1dlock1b) -> (X ((p0b02door29reaching2locked) U (((p0b02door29locked) U (u02door29ctrl0f1dunlock1b)) || (G (p0b02door29locked)))))))) -> (G ((p0b02firesensor29fire) -> (X ((p0b02door29reaching2unlocked) U (((p0b02door29unlocked) U (p0b02firesensor29fire2extinquished)) || (G (p0b02door29unlocked)))))))))","total_time":12,"automaton":{"is_built":true,"build_duration":3,"total_states":13,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":13,"total_edges":44},"dependency":{"dependency_approach":"automaton","tested_dependencies":[],"total_duration":-1,"is_completed":true,"skipped_dependencies":true,"total_pair_state":-1},"unate":{"skipped_unate":true},"synthesis":{"model_checking_status":"UNKNOWN","independent_strategy":{"duration":9,"realizability":"REALIZABLE","total_inputs":6,"total_outputs":3,"total_latches":3,"total_gates":169},"dependent_strategy":{"duration":-1,"total_inputs":-1,"total_outputs":-1,"total_latches":-1,"total_gates":-1}}}

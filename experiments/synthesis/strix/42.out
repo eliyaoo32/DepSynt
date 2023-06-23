@@ -1,0 +1,45 @@
+REALIZABLE
+aag 20 3 2 9 15
+2
+4
+6
+8 36
+10 40
+21
+24
+26
+28
+24
+30
+34
+35
+0
+12 6 8
+14 10 12
+16 7 11
+18 15 17
+20 5 19
+22 2 5
+24 14 22
+26 20 25
+28 16 22
+30 25 29
+32 2 4
+34 14 33
+36 19 33
+38 3 16
+40 25 39
+i0 p0p0clicked0toggle2button
+i1 p0p0clicked0counter2button
+i2 p0p0activated0toggle
+l0 l0
+l1 l1
+o0 u0value0f1dinc0value1b
+o1 u0value0f1dzero1b
+o2 u0value0value
+o3 u0toggle0f1don1b
+o4 u0toggle0f1doff1b
+o5 u0toggle0toggle
+o6 u0counter2button0f1dset2label0counter2button0f1dminus2one1b1b
+o7 u0counter2button0f1dset2label0counter2button0value1b
+o8 u0counter2button0counter2button

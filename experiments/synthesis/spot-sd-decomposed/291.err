@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!u02timer2429start2new2timer02timer2429start2new2timer & u02timer2429start2new2timer0f1d2timer2429hour251b) <-> (u02timer2429start2new2timer02timer2429start2new2timer & !u02timer2429start2new2timer0f1d2timer2429hour251b)) & !((!u02roomlight29intend02roomlight29intend & u02roomlight29intend0f1doff1b) <-> (u02roomlight29intend02roomlight29intend & !u02roomlight29intend0f1doff1b)) & !((!u02shades29intend0f1dopen1b & !((u02shades29intend02shades29intend & !u02shades29intend0f1dclosed1b) <-> (!u02shades29intend02shades29intend & u02shades29intend0f1dclosed1b))) <-> (u02shades29intend0f1dopen1b & !(u02shades29intend02shades29intend | u02shades29intend0f1dclosed1b)))) & ((G(p0b02room29somebody2enters -> ((!p0b02room29empty U (p0b02room29empty & p0b02room29somebody2leaves)) | G!p0b02room29empty)) & G((p0b02room29empty & p0b02room29somebody2leaves) -> ((p0b02room29empty U p0b02room29somebody2enters) | Gp0b02room29empty)) & ((!p0b02room29empty U (p0b02room29empty & p0b02room29somebody2leaves)) | G!p0b02room29empty | (p0b02room29empty U p0b02room29somebody2enters) | Gp0b02room29empty) & G(u02timer2429start2new2timer0f1d2timer2429hour251b -> XFp0b02timer2429timeout) & G(p0b0bed29occupied -> (!p0b02room29empty & X(G!p0b02room29empty | (!p0b02room29empty U p0b0bed29exit)))) & G(p0b02room29empty -> (!p0b0bed29occupied & X((!p0b0bed29occupied U p0b02room29somebody2enters) | G!p0b0bed29occupied)))) -> (G((p0b02room29empty & p0b02room29somebody2leaves) -> (u02timer2429start2new2timer0f1d2timer2429hour251b & F(p0b02room29somebody2enters | (p0b02timer2429timeout & X((u02roomlight29intend0f1doff1b U p0b02room29somebody2enters) | Gu02roomlight29intend0f1doff1b))))) & G((p0b02time29am6323 & p0b0bed29occupied & !(p0b02time29saturday | p0b02time29sunday)) -> X((((p0p0bright0outside29brightness <-> u02roomlight29intend0f1doff1b) & (p0p0bright0outside29brightness -> u02shades29intend0f1dopen1b) & (!p0p0bright0outside29brightness -> u02shades29intend0f1dclosed1b)) U p0b0bed29exit) | G((p0p0bright0outside29brightness <-> u02roomlight29intend0f1doff1b) & (p0p0bright0outside29brightness -> u02shades29intend0f1dopen1b) & (!p0p0bright0outside29brightness -> u02shades29intend0f1dclosed1b))))))
+direct strategy might exist but was not found.
+translating formula done in 0.0282109 seconds
+automaton has 16 states and 1 colors
+split inputs and outputs done in 0.0184825 seconds
+automaton has 74 states
+determinization done
+DPA has 233 states, 3 colors
+simplification done
+DPA has 93 states
+determinization and simplification took 0.0319609 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.000204119 seconds
+simplification took 0.000759715 seconds
+AIG circuit was created in 0.000537074 seconds and has 3 latches and 141 gates
+
+real	0m0.095s
+user	0m0.082s
+sys	0m0.012s

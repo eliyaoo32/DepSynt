@@ -1,0 +1,35 @@
+aag 16 5 2 6 9
+2
+4
+6
+8
+10
+12 1
+14 21
+0
+22
+24
+0
+30
+32
+16 6 2
+18 16 8
+20 15 12
+22 21 19
+24 21 18
+26 4 2
+28 26 10
+30 29 21
+32 28 21
+i0 p0p0norotation0gyrox0gyroy0gyroz
+i1 p0p0gt0f1dabs0accz1b0f1dshotthreshhold1b
+i2 p0p0gt0accz0f1dresetthreshhold1b
+i3 p0p0isscoremode0gamemode
+i4 p0p0iscockpitmode0gamemode
+o0 u0gamestart0gamestart
+o1 u0gamestart0f1dbot1b
+o2 u0gamestart0f1dtop1b
+o3 u0shot0shot
+o4 u0shot0f1dbot1b
+o5 u0shot0f1dtop1b
+{"is_completed":true,"output_vars":["u0shot0f1dtop1b","u0shot0f1dbot1b","u0shot0shot","u0gamestart0f1dtop1b","u0gamestart0f1dbot1b","u0gamestart0gamestart"],"input_vars":["p0p0norotation0gyrox0gyroy0gyroz","p0p0gt0f1dabs0accz1b0f1dshotthreshhold1b","p0p0gt0accz0f1dresetthreshhold1b","p0p0isscoremode0gamemode","p0p0iscockpitmode0gamemode"],"formula":"(((((G ((! (((u0gamestart0f1dbot1b) && (! ((u0gamestart0f1dtop1b) || (u0gamestart0gamestart)))) <-> ((! (((u0gamestart0f1dtop1b) && (! (u0gamestart0gamestart))) <-> ((u0gamestart0gamestart) && (! (u0gamestart0f1dtop1b))))) && (! (u0gamestart0f1dbot1b))))) && (! (((u0shot0f1dbot1b) && (! ((u0shot0f1dtop1b) || (u0shot0shot)))) <-> ((! (((u0shot0f1dtop1b) && (! (u0shot0shot))) <-> ((u0shot0shot) && (! (u0shot0f1dtop1b))))) && (! (u0shot0f1dbot1b))))))) && (G ((u0gamestart0f1dtop1b) || (u0gamestart0f1dbot1b)))) && (G ((u0shot0f1dtop1b) || (u0shot0f1dbot1b)))) && (G ((((p0p0isscoremode0gamemode) && (p0p0gt0accz0f1dresetthreshhold1b)) && (p0p0norotation0gyrox0gyroy0gyroz)) <-> (u0gamestart0f1dtop1b)))) && (G ((((p0p0iscockpitmode0gamemode) && (p0p0gt0f1dabs0accz1b0f1dshotthreshhold1b)) && (p0p0norotation0gyrox0gyroy0gyroz)) <-> (u0shot0f1dtop1b))))","total_time":105,"automaton":{"is_built":true,"build_duration":0,"total_states":1,"state_based_status":"true","prune_automaton_duration":0,"pruned_state_based_status":"true","prune_total_states":1,"total_edges":1},"dependency":{"dependency_approach":"automaton","tested_dependencies":[{"name":"u0gamestart0gamestart","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0norotation0gyrox0gyroy0gyroz","p0p0gt0f1dabs0accz1b0f1dshotthreshhold1b","p0p0gt0accz0f1dresetthreshhold1b","p0p0isscoremode0gamemode","p0p0iscockpitmode0gamemode","u0shot0f1dtop1b","u0shot0f1dbot1b","u0shot0shot","u0gamestart0f1dtop1b","u0gamestart0f1dbot1b"]},{"name":"u0gamestart0f1dbot1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0norotation0gyrox0gyroy0gyroz","p0p0gt0f1dabs0accz1b0f1dshotthreshhold1b","p0p0gt0accz0f1dresetthreshhold1b","p0p0isscoremode0gamemode","p0p0iscockpitmode0gamemode","u0shot0f1dtop1b","u0shot0f1dbot1b","u0shot0shot","u0gamestart0f1dtop1b"]},{"name":"u0gamestart0f1dtop1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0norotation0gyrox0gyroy0gyroz","p0p0gt0f1dabs0accz1b0f1dshotthreshhold1b","p0p0gt0accz0f1dresetthreshhold1b","p0p0isscoremode0gamemode","p0p0iscockpitmode0gamemode","u0shot0f1dtop1b","u0shot0f1dbot1b","u0shot0shot"]},{"name":"u0shot0shot","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0norotation0gyrox0gyroy0gyroz","p0p0gt0f1dabs0accz1b0f1dshotthreshhold1b","p0p0gt0accz0f1dresetthreshhold1b","p0p0isscoremode0gamemode","p0p0iscockpitmode0gamemode","u0shot0f1dtop1b","u0shot0f1dbot1b"]},{"name":"u0shot0f1dbot1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0norotation0gyrox0gyroy0gyroz","p0p0gt0f1dabs0accz1b0f1dshotthreshhold1b","p0p0gt0accz0f1dresetthreshhold1b","p0p0isscoremode0gamemode","p0p0iscockpitmode0gamemode","u0shot0f1dtop1b"]},{"name":"u0shot0f1dtop1b","duration":0,"is_dependent":true,"tested_dependency_set":["p0p0norotation0gyrox0gyroy0gyroz","p0p0gt0f1dabs0accz1b0f1dshotthreshhold1b","p0p0gt0accz0f1dresetthreshhold1b","p0p0isscoremode0gamemode","p0p0iscockpitmode0gamemode"]}],"total_duration":1,"is_completed":true,"skipped_dependencies":false,"total_pair_state":1,"search_pair_state_duration":0},"unate":{"skipped_unate":true},"synthesis":{"remove_dependent_ap_duration":0,"clone_nba_with_dep":0,"synthesis_dependents_duration":0,"model_checking_status":"UNKNOWN","merge_strategies_duration":102,"final_strategy":{"duration":0,"total_inputs":5,"total_outputs":6,"total_latches":1,"total_gates":23},"independent_strategy":{"duration":0,"realizability":"REALIZABLE","total_inputs":5,"total_outputs":0,"total_latches":0,"total_gates":0},"dependent_strategy":{"duration":0,"total_inputs":5,"total_outputs":6,"total_latches":1,"total_gates":23}}}

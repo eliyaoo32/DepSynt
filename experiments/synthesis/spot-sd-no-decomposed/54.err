@@ -1,0 +1,19 @@
+trying to create strategy directly for G(!((!u0counter0f1done1b & !((u0counter0counter & !u0counter0f1dincmod0counter0f1dthirtysix1b1b) <-> (!u0counter0counter & u0counter0f1dincmod0counter0f1dthirtysix1b1b))) <-> (u0counter0f1done1b & !(u0counter0counter | u0counter0f1dincmod0counter0f1dthirtysix1b1b))) & !((!u0cs0f1dhigh1b & !((u0cs0cs & !u0cs0f1dlow1b) <-> (!u0cs0cs & u0cs0f1dlow1b))) <-> (u0cs0f1dhigh1b & !(u0cs0cs | u0cs0f1dlow1b))) & !((u0prescaler0f1dinc0prescaler1b & !u0prescaler0prescaler) <-> (!u0prescaler0f1dinc0prescaler1b & u0prescaler0prescaler)) & !((u0read2address0f1dget2read2address0read2control1b & !u0read2address0read2address) <-> (!u0read2address0f1dget2read2address0read2control1b & u0read2address0read2address)) & !((!u0read2response0f1dwrap2data0temp2data0f1dbot1b1b & !((!u0read2response0f1dwrap2data0temp2data0f1dtop1b1b & u0read2response0read2response) <-> (u0read2response0f1dwrap2data0temp2data0f1dtop1b1b & !u0read2response0read2response))) <-> (u0read2response0f1dwrap2data0temp2data0f1dbot1b1b & !(u0read2response0f1dwrap2data0temp2data0f1dtop1b1b | u0read2response0read2response))) & !((!u0temp2data0f1dzero1b & !((!u0temp2data0f1dcustom2set2bit0temp2data0sdo1b & u0temp2data0temp2data) <-> (u0temp2data0f1dcustom2set2bit0temp2data0sdo1b & !u0temp2data0temp2data))) <-> (u0temp2data0f1dzero1b & !(u0temp2data0f1dcustom2set2bit0temp2data0sdo1b | u0temp2data0temp2data)))) & ((G!(p0p0eqz0counter & p0p0gt0counter0f1deighteen1b) & G(u0counter0f1done1b -> Fp0p0eq0counter0f1dthirtyfour1b)) -> (Gu0prescaler0f1dinc0prescaler1b & G(u0counter0f1dincmod0counter0f1dthirtysix1b1b <-> (!p0p0eqz0counter & p0p0eqzi0prescaler)) & G(u0read2address0f1dget2read2address0read2control1b <-> (p0p0do2read0read2control & p0p0eqz0counter)) & G((p0p0do2read0read2control & p0p0eqz0counter) -> (u0cs0f1dlow1b U p0p0eq0counter0f1dthirtyfour1b)) & GFu0cs0f1dhigh1b & G(u0read2response0f1dwrap2data0temp2data0f1dtop1b1b <-> (p0p0eq0counter0f1dthirtyfive1b & p0p0eqzi0prescaler)) & G(u0read2response0f1dwrap2data0temp2data0f1dbot1b1b <-> !(p0p0eq0counter0f1dthirtyfive1b & p0p0eqzi0prescaler)) & G(u0counter0f1done1b <-> (p0p0do2read0read2control & p0p0eqz0counter)) & G(p0p0eqz0counter -> u0temp2data0f1dzero1b) & G((!p0p0eqz0counter & !(p0p0eqzi0prescaler & p0p0gt0counter0f1deighteen1b & !p0p0is2even0counter & p0p0lt0counter0f1dthirtyfour1b)) -> u0temp2data0temp2data) & G(u0temp2data0f1dcustom2set2bit0temp2data0sdo1b <-> (p0p0eqzi0prescaler & p0p0gt0counter0f1deighteen1b & !p0p0is2even0counter & p0p0lt0counter0f1dthirtyfour1b))))
+direct strategy might exist but was not found.
+translating formula done in 0.133512 seconds
+automaton has 6 states and 1 colors
+split inputs and outputs done in 0.0172276 seconds
+automaton has 49 states
+determinization done
+DPA has 71 states, 3 colors
+simplification done
+DPA has 65 states
+determinization and simplification took 0.611468 seconds
+solving game with acceptance: parity min even 3
+game solved in 0.000122347 seconds
+simplification took 0.000270051 seconds
+AIG circuit was created in 0.000285802 seconds and has 1 latches and 39 gates
+
+real	0m0.925s
+user	0m0.761s
+sys	0m0.022s

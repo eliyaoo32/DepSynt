@@ -1,0 +1,19 @@
+trying to create strategy directly for G(!((!u0steps0f1dmove1b & !((!u0steps0f1dstop1b & u0steps0steps) <-> (u0steps0f1dstop1b & !u0steps0steps))) <-> (u0steps0f1dmove1b & !(u0steps0f1dstop1b | u0steps0steps))) & !((!u0users0f1ddec0users1b & !((!u0users0f1dinc0users1b & u0users0users) <-> (u0users0f1dinc0users1b & !u0users0users))) <-> (u0users0f1ddec0users1b & !(u0users0f1dinc0users1b | u0users0users)))) & G(u0users0f1dinc0users1b <-> (p0p0enter2event0bottom & !p0p0exit2event0top)) & G(u0users0f1ddec0users1b <-> (!p0p0enter2event0bottom & p0p0exit2event0top)) & G(u0steps0f1dmove1b <-> (p0p0enter2event0bottom & p0p0zero0users)) & G(Xu0steps0f1dstop1b <-> (!p0p0zero0users & Xp0p0zero0users & X!p0p0enter2event0bottom))
+direct strategy might exist but was not found.
+translating formula done in 0.0109338 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000140256 seconds
+automaton has 19 states
+determinization done
+DPA has 19 states, 1 colors
+simplification done
+DPA has 17 states
+determinization and simplification took 0.000127648 seconds
+solving game with acceptance: Büchi
+game solved in 4.7979e-05 seconds
+simplification took 0.00016078 seconds
+AIG circuit was created in 0.000196321 seconds and has 1 latches and 11 gates
+
+real	0m0.091s
+user	0m0.009s
+sys	0m0.015s

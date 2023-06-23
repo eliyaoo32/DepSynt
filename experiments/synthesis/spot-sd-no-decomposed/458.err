@@ -1,0 +1,9 @@
+trying to create strategy directly for G!((!u0email0email & u0email0f1dfacility2management1b) <-> (u0email0email & !u0email0f1dfacility2management1b)) & G(p0p0full0trashcan -> u0email0f1dfacility2management1b)
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 9.4065e-05 seconds
+AIG circuit was created in 6.0945e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.013s
+user	0m0.003s
+sys	0m0.009s

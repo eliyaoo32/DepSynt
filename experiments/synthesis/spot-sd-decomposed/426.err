@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((u0out250f1dfun0p1db0a1b1b & !u0out250out25) <-> (!u0out250f1dfun0p1db0a1b1b & u0out250out25)) & ((GFp0b0a & G!(p0b0a & p0b0c)) -> G(p0b0c <-> u0out250f1dfun0p1db0a1b1b))
+direct strategy might exist but was not found.
+translating formula done in 0.00101907 seconds
+automaton has 5 states and 1 colors
+split inputs and outputs done in 6.6854e-05 seconds
+automaton has 17 states
+determinization done
+DPA has 23 states, 2 colors
+simplification done
+DPA has 15 states
+determinization and simplification took 0.00146125 seconds
+solving game with acceptance: Rabin 1
+game solved in 4.5873e-05 seconds
+simplification took 0.000127308 seconds
+AIG circuit was created in 7.6401e-05 seconds and has 0 latches and 1 gates
+
+real	0m0.015s
+user	0m0.005s
+sys	0m0.010s

@@ -1,0 +1,107 @@
+UNREALIZABLE
+aag 58 17 2 14 39
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+26
+28
+30
+32
+34
+36 116
+38 114
+41
+41
+41
+0
+41
+0
+0
+41
+0
+41
+41
+0
+37
+0
+40 36 38
+42 7 9
+44 6 8
+46 29 31
+48 26 46
+50 27 47
+52 49 51
+54 17 19
+56 23 25
+58 21 56
+60 11 13
+62 15 60
+64 28 30
+66 10 12
+68 32 34
+70 14 61
+72 20 57
+74 22 24
+76 33 35
+78 2 5
+80 3 4
+82 79 81
+84 16 18
+86 37 43
+88 45 55
+90 65 67
+92 69 75
+94 77 85
+96 92 94
+98 88 90
+100 59 86
+102 63 71
+104 73 83
+106 102 104
+108 98 100
+110 53 96
+112 108 110
+114 106 112
+116 41 115
+i0 u02shades29intend0f1dclosed1b
+i1 u02shades29intend02shades29intend
+i2 u02c2m29intend0f1dready1b
+i3 u02c2m29intend02c2m29intend
+i4 u02heating29intend0f1doff1b
+i5 u02heating29intend0f1don1b
+i6 u02heating29intend02heating29intend
+i7 u0sound2system29play0f1dalarm1b
+i8 u0sound2system29play0sound2system29play
+i9 u02door29intend0f1dunlocked1b
+i10 u02door29intend0f1dlocked1b
+i11 u02door29intend02door29intend
+i12 u02roomlight29intend0f1doff1b
+i13 u02roomlight29intend0f1don1b
+i14 u02roomlight29intend02roomlight29intend
+i15 u02timer29start0f1dmin25231b
+i16 u02timer29start02timer29start
+l0 l0
+l1 l1
+o0 p0p0gt02temperature29outside02temperature29inside
+o1 p0p0lt242302temperature29inside
+o2 p0b02system29blackout
+o3 p0b02outside29dark
+o4 p0b02outside29bright
+o5 p0b02temperature29changes
+o6 p0b02firesensor29fire2off
+o7 p0b02firesensor29fire
+o8 p0b02time29become5am
+o9 p0b02time29become6pm
+o10 p0b02timer29timeout
+o11 p0b02room29somebody2leaves
+o12 p0b02room29empty
+o13 p0b02room29somebody2enters

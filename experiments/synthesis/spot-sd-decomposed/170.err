@@ -1,0 +1,118 @@
+there are 8 subformulas
+trying to create strategy directly for G(upd -> (in_0 <-> out_0)) & G(upd -> (in_0 -> X((out_0 U upd) | Gout_0))) & G(upd -> (!in_0 -> X((!out_0 U upd) | G!out_0)))
+direct strategy might exist but was not found.
+translating formula done in 0.000935405 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 5.266e-05 seconds
+automaton has 6 states
+determinization done
+DPA has 6 states, 1 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 3.8142e-05 seconds
+solving game with acceptance: Büchi
+game solved in 2.7837e-05 seconds
+simplification took 9.1428e-05 seconds
+trying to create strategy directly for G(upd -> (in_1 <-> out_1)) & G(upd -> (in_1 -> X((out_1 U upd) | Gout_1))) & G(upd -> (!in_1 -> X((!out_1 U upd) | G!out_1)))
+direct strategy might exist but was not found.
+translating formula done in 0.00164836 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 8.1149e-05 seconds
+automaton has 6 states
+determinization done
+DPA has 6 states, 1 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 7.0033e-05 seconds
+solving game with acceptance: Büchi
+game solved in 4.4508e-05 seconds
+simplification took 8.6149e-05 seconds
+trying to create strategy directly for G(upd -> (in_2 <-> out_2)) & G(upd -> (in_2 -> X((out_2 U upd) | Gout_2))) & G(upd -> (!in_2 -> X((!out_2 U upd) | G!out_2)))
+direct strategy might exist but was not found.
+translating formula done in 0.0023598 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000109496 seconds
+automaton has 6 states
+determinization done
+DPA has 6 states, 1 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 0.000101496 seconds
+solving game with acceptance: Büchi
+game solved in 6.0897e-05 seconds
+simplification took 0.000103774 seconds
+trying to create strategy directly for G(upd -> (in_3 <-> out_3)) & G(upd -> (in_3 -> X((out_3 U upd) | Gout_3))) & G(upd -> (!in_3 -> X((!out_3 U upd) | G!out_3)))
+direct strategy might exist but was not found.
+translating formula done in 0.0031338 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000142979 seconds
+automaton has 6 states
+determinization done
+DPA has 6 states, 1 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 0.000143874 seconds
+solving game with acceptance: Büchi
+game solved in 8.4519e-05 seconds
+simplification took 8.0409e-05 seconds
+trying to create strategy directly for G(upd -> (in_4 <-> out_4)) & G(upd -> (in_4 -> X((out_4 U upd) | Gout_4))) & G(upd -> (!in_4 -> X((!out_4 U upd) | G!out_4)))
+direct strategy might exist but was not found.
+translating formula done in 0.00384842 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000174151 seconds
+automaton has 6 states
+determinization done
+DPA has 6 states, 1 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 0.000183562 seconds
+solving game with acceptance: Büchi
+game solved in 0.000106402 seconds
+simplification took 7.9773e-05 seconds
+trying to create strategy directly for G(upd -> (in_5 <-> out_5)) & G(upd -> (in_5 -> X((out_5 U upd) | Gout_5))) & G(upd -> (!in_5 -> X((!out_5 U upd) | G!out_5)))
+direct strategy might exist but was not found.
+translating formula done in 0.00456873 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000206101 seconds
+automaton has 6 states
+determinization done
+DPA has 6 states, 1 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 0.000219912 seconds
+solving game with acceptance: Büchi
+game solved in 0.000127328 seconds
+simplification took 8.5098e-05 seconds
+trying to create strategy directly for G(upd -> (in_6 <-> out_6)) & G(upd -> (in_6 -> X((out_6 U upd) | Gout_6))) & G(upd -> (!in_6 -> X((!out_6 U upd) | G!out_6)))
+direct strategy might exist but was not found.
+translating formula done in 0.00524765 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000237987 seconds
+automaton has 6 states
+determinization done
+DPA has 6 states, 1 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 0.000256335 seconds
+solving game with acceptance: Büchi
+game solved in 0.00014842 seconds
+simplification took 7.1688e-05 seconds
+trying to create strategy directly for G(upd -> (in_7 <-> out_7)) & G(upd -> (in_7 -> X((out_7 U upd) | Gout_7))) & G(upd -> (!in_7 -> X((!out_7 U upd) | G!out_7)))
+direct strategy might exist but was not found.
+translating formula done in 0.00590754 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000270693 seconds
+automaton has 6 states
+determinization done
+DPA has 6 states, 1 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 0.000294503 seconds
+solving game with acceptance: Büchi
+game solved in 0.00017038 seconds
+simplification took 6.9983e-05 seconds
+AIG circuit was created in 0.000595379 seconds and has 8 latches and 24 gates
+
+real	0m0.025s
+user	0m0.011s
+sys	0m0.013s

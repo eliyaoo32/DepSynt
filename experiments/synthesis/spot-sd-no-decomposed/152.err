@@ -1,0 +1,19 @@
+trying to create strategy directly for G((hready -> (locked <-> Xhmastlock)) & (!hready -> (hmastlock <-> Xhmastlock)))
+direct strategy might exist but was not found.
+translating formula done in 0.000772999 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 6.4366e-05 seconds
+automaton has 10 states
+determinization done
+DPA has 10 states, 1 colors
+simplification done
+DPA has 10 states
+determinization and simplification took 6.4465e-05 seconds
+solving game with acceptance: Büchi
+game solved in 3.5131e-05 seconds
+simplification took 0.000145693 seconds
+AIG circuit was created in 0.000120757 seconds and has 1 latches and 5 gates
+
+real	0m0.015s
+user	0m0.003s
+sys	0m0.011s

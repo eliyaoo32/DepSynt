@@ -1,0 +1,14 @@
+there are 2 subformulas
+trying to create strategy directly for G(!p0b0person2in2front2of2screen -> u0sit0f1dzero1b) & G(p0b0person2in2front2of2screen -> u0sit0f1dup0f1dsit1b1b) & G!((!u0sit0f1dzero1b & !((!u0sit0f1dup0f1dsit1b1b & u0sit0sit) <-> (u0sit0f1dup0f1dsit1b1b & !u0sit0sit))) <-> (u0sit0f1dzero1b & !(u0sit0f1dup0f1dsit1b1b | u0sit0sit)))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 0.000137552 seconds
+trying to create strategy directly for G(p0p0toolong0sit -> u0screen0f1doff1b) & G!((u0screen0f1doff1b & !u0screen0screen) <-> (!u0screen0f1doff1b & u0screen0screen))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 4.4601e-05 seconds
+AIG circuit was created in 0.000119036 seconds and has 0 latches and 0 gates
+
+real	0m0.038s
+user	0m0.003s
+sys	0m0.010s

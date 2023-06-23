@@ -1,0 +1,47 @@
+UNREALIZABLE
+aag 29 3 3 5 23
+2
+4
+6
+8 54
+10 56
+12 58
+16
+0
+14
+24
+0
+14 9 13
+16 11 14
+18 8 11
+20 9 11
+22 12 21
+24 19 23
+26 4 7
+28 5 6
+30 27 29
+32 3 19
+34 31 32
+36 2 7
+38 16 36
+40 3 6
+42 14 40
+44 39 43
+46 24 44
+48 5 36
+50 46 48
+52 35 51
+54 23 52
+56 5 45
+58 46 53
+i0 u0counter0f1dinc0counter1b
+i1 u0counter0f1ddec0counter1b
+i2 u0counter0counter
+l0 l0
+l1 l1
+l2 l2
+o0 p0p0in2range0f1dinc0counter1b
+o1 p0p0in2range0f1ddec0counter1b
+o2 p0p0in2range0counter
+o3 p0p0button2pressed0up
+o4 p0p0button2pressed0down

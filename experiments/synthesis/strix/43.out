@@ -1,0 +1,23 @@
+REALIZABLE
+aag 10 4 1 3 5
+2
+4
+6
+8
+10 17
+20
+21
+0
+12 7 9
+14 4 13
+16 11 15
+18 2 4
+20 16 18
+i0 p0p0lte0counter0f1dseventeen1b
+i1 p0p0gte0counter0f1dfour1b
+i2 p0p0eq0counter0f1dtwo1b
+i3 p0p0eq0counter0f1dthree1b
+l0 l0
+o0 u0sdi0f1dget2bit0read2address0f1dsub0f1deight1b0f1ddiv0counter0f1dtwo1b1b1b1b
+o1 u0sdi0f1dhigh1b
+o2 u0sdi0sdi

@@ -1,0 +1,10 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u0count0count & u0count0f1dincrement0count1b) <-> (u0count0count & !u0count0f1dincrement0count1b)) & G(p0p0event0click <-> u0count0f1dincrement0count1b)
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 0.00234341 seconds
+AIG circuit was created in 6.1762e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.020s
+user	0m0.006s
+sys	0m0.007s

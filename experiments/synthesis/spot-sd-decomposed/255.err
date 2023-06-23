@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!u0a0f1dval241b & !((u0a0a & !u0a0f1dval251b) <-> (!u0a0a & u0a0f1dval251b))) <-> (u0a0f1dval241b & !(u0a0a | u0a0f1dval251b))) & !((!u0b0f1dval241b & !((u0b0b & !u0b0f1dval251b) <-> (!u0b0b & u0b0f1dval251b))) <-> (u0b0f1dval241b & !(u0b0b | u0b0f1dval251b)))) & (G((u0a0f1dval241b & u0b0f1dval251b) -> Xp0b0in24) -> (GFp0b0in24 & GFu0a0f1dval251b & GFu0b0f1dval241b))
+direct strategy might exist but was not found.
+translating formula done in 0.00183423 seconds
+automaton has 4 states and 3 colors
+split inputs and outputs done in 6.5642e-05 seconds
+automaton has 11 states
+determinization done
+DPA has 28 states, 2 colors
+simplification done
+DPA has 26 states
+determinization and simplification took 0.00140877 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 4.2791e-05 seconds
+simplification took 0.000103545 seconds
+AIG circuit was created in 5.8222e-05 seconds and has 1 latches and 1 gates
+
+real	0m0.015s
+user	0m0.005s
+sys	0m0.009s

@@ -1,0 +1,10 @@
+there are 1 subformulas
+trying to create strategy directly for G!((u0g0f1dc31b & !u0g0g) <-> (!u0g0f1dc31b & u0g0g)) & G((p0b0in3 | p0b0in4 | p0b0in25) -> u0g0f1dc31b)
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 0.000125181 seconds
+AIG circuit was created in 7.7783e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.012s
+user	0m0.004s
+sys	0m0.008s

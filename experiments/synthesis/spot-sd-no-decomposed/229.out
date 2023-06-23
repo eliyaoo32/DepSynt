@@ -1,0 +1,71 @@
+REALIZABLE
+aag 53 8 1 4 44
+2
+4
+6
+8
+10
+12
+14
+16
+18 1
+42
+89
+0
+107
+20 5 18
+22 17 18
+24 9 22
+26 12 22
+28 13 24
+30 29 27
+32 5 31
+34 3 32
+36 10 34
+38 11 20
+40 39 37
+42 14 41
+44 4 19
+46 19 17
+48 46 9
+50 12 47
+52 13 49
+54 53 51
+56 4 54
+58 56 3
+60 10 59
+62 11 45
+64 63 61
+66 17 9
+68 12 16
+70 13 67
+72 71 69
+74 72 5
+76 74 3
+78 10 77
+80 11 4
+82 81 79
+84 14 83
+86 15 65
+88 87 85
+90 5 19
+92 5 54
+94 3 92
+96 10 94
+98 11 90
+100 99 97
+102 14 101
+104 15 64
+106 105 103
+i0 p0b02room29switch29toggled
+i1 p0b02roomlight29off
+i2 p0p0bright0outside29brightness
+i3 p0b02room29somebody2enters
+i4 p0b02room29empty
+i5 p0b02room29somebody2leaves
+i6 p0b02roomlight29on
+i7 p0b02room29bed29occupied
+o0 u02roomlight29light0f1d2roomlight29turn2on1b
+o1 u02roomlight29light0f1d2roomlight29toggle1b
+o2 u02roomlight29light0f1d2roomlight29turn2off1b
+o3 u02roomlight29light02roomlight29light

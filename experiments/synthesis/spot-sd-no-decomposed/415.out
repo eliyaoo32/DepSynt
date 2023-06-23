@@ -1,0 +1,18 @@
+REALIZABLE
+aag 6 6 0 2 0
+2
+4
+6
+8
+10
+12
+0
+1
+i0 p0p0new2day0time
+i1 p0p0is2meeting0calendar
+i2 p0p0is2presentation0calendar
+i3 p0p0empty0dish2washer2status
+i4 p0p0cleaned0dish2washer2status
+i5 p0p0full0dish2washerstatus
+o0 u0coffe2machine0coffe2machine
+o1 u0coffe2machine0f1doff1b

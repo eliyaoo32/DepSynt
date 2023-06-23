@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!u0counter2button0f1dset2label0counter2button0value1b & !((u0counter2button0counter2button & !u0counter2button0f1dset2label0counter2button0f1dminus2one1b1b) <-> (!u0counter2button0counter2button & u0counter2button0f1dset2label0counter2button0f1dminus2one1b1b))) <-> (u0counter2button0f1dset2label0counter2button0value1b & !(u0counter2button0counter2button | u0counter2button0f1dset2label0counter2button0f1dminus2one1b1b))) & !((!u0toggle0f1doff1b & !((!u0toggle0f1don1b & u0toggle0toggle) <-> (u0toggle0f1don1b & !u0toggle0toggle))) <-> (u0toggle0f1doff1b & !(u0toggle0f1don1b | u0toggle0toggle))) & !((u0value0f1dinc0value1b & !u0value0value) <-> (!u0value0f1dinc0value1b & u0value0value))) & ((G!(p0p0clicked0counter2button & p0p0clicked0toggle2button) & ((!p0p0activated0toggle U u0toggle0f1don1b) | G!p0p0activated0toggle) & G(u0toggle0f1don1b -> X((p0p0activated0toggle U u0toggle0f1doff1b) | Gp0p0activated0toggle)) & G(u0toggle0f1doff1b -> X((!p0p0activated0toggle U u0toggle0f1don1b) | G!p0p0activated0toggle))) -> (G(!p0p0activated0toggle <-> u0counter2button0f1dset2label0counter2button0value1b) & G(p0p0activated0toggle <-> u0counter2button0f1dset2label0counter2button0f1dminus2one1b1b) & G(p0p0clicked0toggle2button <-> (p0p0activated0toggle <-> X!p0p0activated0toggle)) & G(u0value0f1dinc0value1b <-> (p0p0activated0toggle & p0p0clicked0counter2button))))
+direct strategy might exist but was not found.
+translating formula done in 0.00850496 seconds
+automaton has 7 states and 1 colors
+split inputs and outputs done in 0.000201565 seconds
+automaton has 27 states
+determinization done
+DPA has 31 states, 2 colors
+simplification done
+DPA has 29 states
+determinization and simplification took 0.00285798 seconds
+solving game with acceptance: generalized-Streett 1 1
+game solved in 6.326e-05 seconds
+simplification took 0.000163577 seconds
+AIG circuit was created in 0.0003505 seconds and has 2 latches and 63 gates
+
+real	0m0.025s
+user	0m0.016s
+sys	0m0.009s

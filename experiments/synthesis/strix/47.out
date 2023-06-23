@@ -1,0 +1,32 @@
+REALIZABLE
+aag 12 4 2 6 6
+2
+4
+6
+8
+10 22
+12 24
+18
+0
+0
+0
+20
+0
+14 10 12
+16 6 8
+18 15 17
+20 15 16
+22 3 13
+24 15 23
+i0 p0p0eq0time0f1dzero1b
+i1 p0b0btn2start2stop
+i2 p0b0btn2sec
+i3 p0b0btn2min
+l0 l0
+l1 l1
+o0 u0time0f1dcountup0time0dt1b
+o1 u0time0f1dcountdown0time0dt1b
+o2 u0time0f1dinc2seconds0time1b
+o3 u0time0f1dinc2minutes0time1b
+o4 u0time0f1dzero1b
+o5 u0time0time

@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G(!((!((u0gamemode0f1dcockpitmode1b & !u0gamemode0f1dscoremode1b) <-> (!u0gamemode0f1dcockpitmode1b & u0gamemode0f1dscoremode1b)) & !(u0gamemode0f1dradarmode1b | u0gamemode0gamemode)) <-> (!((!u0gamemode0f1dradarmode1b & u0gamemode0gamemode) <-> (u0gamemode0f1dradarmode1b & !u0gamemode0gamemode)) & !(u0gamemode0f1dcockpitmode1b | u0gamemode0f1dscoremode1b))) & !((u0prescaler0f1dinc2prescale0prescaler1b & !u0prescaler0prescaler) <-> (!u0prescaler0f1dinc2prescale0prescaler1b & u0prescaler0prescaler)) & !((u0reseter0f1dinc2reset0reseter1b & !u0reseter0reseter) <-> (!u0reseter0f1dinc2reset0reseter1b & u0reseter0reseter)) & !((!u0rotation0f1dzero1b & !((!u0rotation0f1daddrotation0rotation0f1dgyrocorrection1b0gyroy1b & u0rotation0rotation) <-> (u0rotation0f1daddrotation0rotation0f1dgyrocorrection1b0gyroy1b & !u0rotation0rotation))) <-> (u0rotation0f1dzero1b & !(u0rotation0f1daddrotation0rotation0f1dgyrocorrection1b0gyroy1b | u0rotation0rotation)))) & ((G!(p0p0isradarmode0gamemode & p0p0isscoremode0gamemode) & G!(p0p0iscockpitmode0gamemode & p0p0isradarmode0gamemode) & G!(p0p0iscockpitmode0gamemode & p0p0isscoremode0gamemode) & G!(p0p0gt0rotation0f1dgamemodeswitch1b & p0p0lt0rotation0f1dneg0f1dgamemodeswitch1b1b)) -> (Gu0prescaler0f1dinc2prescale0prescaler1b & Gu0reseter0f1dinc2reset0reseter1b & G(u0gamemode0f1dcockpitmode1b <-> ((p0p0isscoremode0gamemode & p0p0lt0rotation0f1dneg0f1dgamemodeswitch1b1b) | (p0p0gt0rotation0f1dgamemodeswitch1b & p0p0isradarmode0gamemode))) & G(u0gamemode0f1dradarmode1b <-> (p0p0iscockpitmode0gamemode & p0p0lt0rotation0f1dneg0f1dgamemodeswitch1b1b)) & G(u0gamemode0f1dscoremode1b <-> (p0p0gt0rotation0f1dgamemodeswitch1b & p0p0iscockpitmode0gamemode)) & G(u0rotation0f1dzero1b <-> (u0gamemode0f1dcockpitmode1b | u0gamemode0f1dradarmode1b | u0gamemode0f1dscoremode1b | (p0p0eqz2rst0reseter & p0p0gamemodenoise0rotation))) & G(u0rotation0f1daddrotation0rotation0f1dgyrocorrection1b0gyroy1b <-> (p0p0eqz2pre0prescaler & !p0p0gyronoise0gyroy & !(u0gamemode0f1dcockpitmode1b | u0gamemode0f1dradarmode1b | u0gamemode0f1dscoremode1b | (p0p0eqz2rst0reseter & p0p0gamemodenoise0rotation))))))
+direct strategy might exist but was not found.
+translating formula done in 0.994111 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.00459196 seconds
+automaton has 12 states
+determinization done
+DPA has 12 states, 2 colors
+simplification done
+DPA has 12 states
+determinization and simplification took 0.000110287 seconds
+solving game with acceptance: Streett 1
+game solved in 4.3158e-05 seconds
+simplification took 9.7338e-05 seconds
+AIG circuit was created in 0.00028967 seconds and has 0 latches and 103 gates
+
+real	0m1.017s
+user	0m0.957s
+sys	0m0.056s

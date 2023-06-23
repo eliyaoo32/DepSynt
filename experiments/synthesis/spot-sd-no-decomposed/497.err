@@ -1,0 +1,19 @@
+trying to create strategy directly for G(r_0 -> ((try_0 <-> Xack_0) U g_0))
+direct strategy might exist but was not found.
+translating formula done in 0.000604365 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 5.3003e-05 seconds
+automaton has 10 states
+determinization done
+DPA has 10 states, 2 colors
+simplification done
+DPA has 10 states
+determinization and simplification took 4.5082e-05 seconds
+solving game with acceptance: Streett 1
+game solved in 2.911e-05 seconds
+simplification took 3.7327e-05 seconds
+AIG circuit was created in 5.1902e-05 seconds and has 0 latches and 0 gates
+
+real	0m0.012s
+user	0m0.003s
+sys	0m0.008s

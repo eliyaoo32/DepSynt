@@ -1,0 +1,19 @@
+there are 11 subformulas
+srun: error: cn08: task 0: Exited with exit code 1
+trying to create strategy directly for G(p0b0room29somebody2enters -> F((p0b0cm29ready U (p0b0room29empty & p0b0room29somebody2leaves)) | Gp0b0cm29ready))
+direct strategy might exist but was not found.
+translating formula done in 0.000536977 seconds
+automaton has 3 states and 1 colors
+split inputs and outputs done in 0.000127376 seconds
+automaton has 9 states
+determinization done
+DPA has 7 states, 3 colors
+simplification done
+DPA has 6 states
+determinization and simplification took 0.000666625 seconds
+solving game with acceptance: parity min even 3
+game solved in 4.2679e-05 seconds
+
+real	0m0.017s
+user	0m0.005s
+sys	0m0.012s

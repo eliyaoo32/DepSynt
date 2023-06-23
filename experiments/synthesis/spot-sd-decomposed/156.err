@@ -1,0 +1,10 @@
+there are 1 subformulas
+trying to create strategy directly for G(((!select_0 & !select_1 & !select_2 & !select_3) -> (in_0 <-> out)) & ((select_0 & !select_1 & !select_2 & !select_3) -> (in_1 <-> out)) & ((!select_0 & select_1 & !select_2 & !select_3) -> (in_2 <-> out)) & ((select_0 & select_1 & !select_2 & !select_3) -> (in_3 <-> out)) & ((!select_0 & !select_1 & select_2 & !select_3) -> (in_4 <-> out)) & ((select_0 & !select_1 & select_2 & !select_3) -> (in_5 <-> out)) & ((!select_0 & select_1 & select_2 & !select_3) -> (in_6 <-> out)) & ((select_0 & select_1 & select_2 & !select_3) -> (in_7 <-> out)) & ((!select_0 & !select_1 & !select_2 & select_3) -> (in_8 <-> out)) & ((select_0 & !select_1 & !select_2 & select_3) -> (in_9 <-> out)))
+direct strategy was found.
+direct strat has 1 states, 1 edges and 0 colors
+simplification took 0.0155324 seconds
+AIG circuit was created in 0.000271482 seconds and has 0 latches and 41 gates
+
+real	0m0.036s
+user	0m0.020s
+sys	0m0.014s

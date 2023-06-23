@@ -1,0 +1,20 @@
+there are 1 subformulas
+trying to create strategy directly for G!((!u02plug29ctrl0f1d2plug29con1b & !((u02plug29ctrl02plug29ctrl & !u02plug29ctrl0f1d2plug29coff1b) <-> (!u02plug29ctrl02plug29ctrl & u02plug29ctrl0f1d2plug29coff1b))) <-> (u02plug29ctrl0f1d2plug29con1b & !(u02plug29ctrl02plug29ctrl | u02plug29ctrl0f1d2plug29coff1b))) & ((G!(p0b02plug29off <-> p0b02plug29on) & G(u02plug29ctrl0f1d2plug29con1b -> XF((p0b02plug29on U u02plug29ctrl0f1d2plug29coff1b) | Gp0b02plug29on)) & G(u02plug29ctrl0f1d2plug29coff1b -> XF((p0b02plug29off U u02plug29ctrl0f1d2plug29con1b) | Gp0b02plug29off)) & G!(p0b02plug29intent29off <-> p0b02plug29intent29on)) -> (G(p0b02plug29intent29on -> F(Gp0b02plug29on | (p0b02plug29on U !p0b02plug29intent29on))) & G(p0b02plug29intent29off -> F(Gp0b02plug29off | (p0b02plug29off U !p0b02plug29intent29off)))))
+direct strategy might exist but was not found.
+translating formula done in 0.00328703 seconds
+automaton has 8 states and 2 colors
+split inputs and outputs done in 0.000224073 seconds
+automaton has 35 states
+determinization done
+DPA has 79 states, 4 colors
+simplification done
+DPA has 74 states
+determinization and simplification took 0.00365237 seconds
+solving game with acceptance: parity min even 4
+game solved in 0.000149118 seconds
+simplification took 0.000198384 seconds
+AIG circuit was created in 0.000363953 seconds and has 3 latches and 60 gates
+
+real	0m0.020s
+user	0m0.012s
+sys	0m0.009s
