@@ -1,9 +1,9 @@
 # DepSynt - Reactive Synthesis Tool
-## Introduction
+# Introduction
 This is a reactive synthesis tool that uses the concept of dependency in LTL.
 Currently, we are working on elevating the Unate concept to the LTL level.
 
-## 3rd Parties Libraries
+# 3rd Parties Libraries
 This tool uses the following 3rd parties:
 - [Boost](https://www.boost.org/) - Common C++ libraries, mainly used for JSON creation and CLI parsing.
 - [Spot](https://spot.lrde.epita.fr/) - Library for LTL and omega-automata manipulation
@@ -11,11 +11,34 @@ This tool uses the following 3rd parties:
   - Used mainly for AIG optimization
 - [AIGER](https://github.com/arminbiere/aiger) - AIGER is a format, library and set of utilities for And-Inverter Graphs (AIGs).
 
-## Tools
+# Tools
 - Model checking was done with [combine_aiger](https://github.com/reactive-systems/aiger-ltl-model-checker).
 - The tool was applied on the [SYNTCOMP](https://github.com/SYNTCOMP/benchmarks) benchmarks.
 
-## File Structure
+# Build & Usage Instruction
+1) Make sure you add to `CPATH` enviornment variable a path to Spot headers, for example: `CPATH=~/spot/include:$CPATH`.
+
+2) Compile binaries with CMake and Makefile:
+```bash
+cmake .
+make
+```
+# Flows
+## Generate Benchmarks
+TBD.
+
+## Find Dependencies
+TBD.
+
+## Synthesis with DepSynt
+TBD.
+
+## Model Checking
+TBD.
+
+
+
+# File Structure
 ```
 bins/ - Executable files
 libs/ - 3rd party libraries, includes AIGER and ABC
@@ -25,4 +48,3 @@ src/
   unates/ - Classes to find unate variables in LTL formulas (Still in progress)
   utils/ - Utility functions
 ```
-

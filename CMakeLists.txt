@@ -12,7 +12,14 @@ add_executable(find_dependencies ${non_executable_SRC} ${aiger_lib_SRC} bins/fin
 add_executable(find_unates ${non_executable_SRC} ${aiger_lib_SRC} bins/find_unates.cpp)
 add_executable(synthesis ${non_executable_SRC} ${aiger_lib_SRC} bins/synthesis.cpp)
 
+################ TODO: Clean this specific include_directories ################
 list(APPEND CMAKE_PREFIX_PATH "/Users/eliyahub/spot/lib/" "./libs/abc")
+include_directories(/usr/local/include)
+include_directories(/Users/eliyahub/spot/include)
+include_directories(./libs/abc/src)
+################################################################################
+
+include_directories(./src/findDeps ./src/models ./src/synthesis ./src/utils ./src/unates ./libs/aiger ./libs/abc ./libs/abc/src)
 
 # Configuration
 option(TEMP_DIRECTORY "Directory to store temporary files" "./")
@@ -68,11 +75,3 @@ set_target_properties(spot PROPERTIES IMPORTED_LOCATION ${spot_location})
 target_link_libraries(find_dependencies boost_options boost_json bddx spot abc)
 target_link_libraries(synthesis boost_options boost_json bddx spot abc Threads::Threads)
 target_link_libraries(find_unates boost_options boost_json bddx spot abc)
-
-# TODO: Import all libs and src folder automatically
-include_directories(./src/findDeps ./src/models ./src/synthesis ./src/utils ./src/unates ./libs/aiger ./libs/abc ./libs/abc/src)
-
-# TODO: find a way to include the spot headers and boost headers
-include_directories(/usr/local/include)
-include_directories(/Users/eliyahub/spot/include)
-include_directories(./libs/abc/src)

@@ -1,3 +1,4 @@
+#define _GLIBCXX_USE_NANOSLEEP
 #include <signal.h>
 #include <iostream>
 #include <spot/twaalgos/aiger.hh>
@@ -6,6 +7,7 @@
 #include <stdexcept>
 #include <future>
 #include <chrono>
+#include <thread>
 
 
 #include "dependents_synthesiser.h"
