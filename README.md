@@ -13,7 +13,7 @@ This tool uses the following 3rd parties:
 
 ## Tools
 - Model checking was done with [combine_aiger](https://github.com/reactive-systems/aiger-ltl-model-checker).
-- The tool was applied on the [SYNTCOMP](https://www.syntcomp.org/) benchmarks.
+- The tool was applied on the [SYNTCOMP](https://github.com/SYNTCOMP/benchmarks) benchmarks.
 
 ## File Structure
 ```
