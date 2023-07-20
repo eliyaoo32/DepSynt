@@ -3,7 +3,7 @@
 version: '3'
 
 vars:
-  GENERATED_BENCHMARK_PATH: ./generated_benchmarks
+  GENERATED_BENCHMARK_PATH: ./tasks_output/generated_benchmarks
 
 tasks:
   generate_benchmarks:

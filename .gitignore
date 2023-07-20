@@ -149,4 +149,4 @@ assets/
 config.h
 experiments/
 /libs/abc/libabc.so
-/tools/scripts/benchmarks
+/tasks_output/*
