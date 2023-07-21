@@ -14,6 +14,8 @@ This tool uses the following 3rd parties:
 - [AIGER](https://github.com/arminbiere/aiger) - AIGER is a format, library and set of utilities for And-Inverter Graphs (AIGs).
 
 ## Useful Tools
+- [Syfco](https://github.com/reactive-systems/syfco) - A tool for converting from TLSF files to LTL formulas.
+- [Taskfile](https://taskfile.dev/) - Simple task runner.
 - Model checking was done with [combine_aiger](https://github.com/reactive-systems/aiger-ltl-model-checker).
 - The tool was applied on the [SYNTCOMP](https://github.com/SYNTCOMP/benchmarks) benchmarks.
 
@@ -33,38 +35,18 @@ For each benchmark it generates a file in a dedicated folder with the format:
 id
 benchmark_name
 benchmark_family
-LTL_formula
+ltl_formula
 input_variables
 output_variables
-expected_realizability
 ```
-
-
-[//]: # (```json)
-
-[//]: # ({)
-
-[//]: # (  "name": "benchmark name",)
-
-[//]: # (  "family": "benchmark family",)
-
-[//]: # (  "ltl": "LTL formula",)
-
-[//]: # (  "ins": "i1,...,in",)
-
-[//]: # (  "outs": "i1,...,in")
-
-[//]: # (})
-
-[//]: # (```)
 
 ## Find Dependencies
 The flow applies the following steps:
 
 1. Generate a bash file to runs slurm job on the generated benchmarks folder.
 2. Run the bash file on the slurm cluster.
-3. Aggregate the results into a single JSON/CSV file.
-4. Remove the generated bash file.
+
+### Summarize Dependency Results
 
 ## Synthesis with DepSynt
 TBD.

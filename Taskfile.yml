@@ -8,5 +8,23 @@ vars:
 tasks:
   generate_benchmarks:
     cmds:
+      - task: generate_benchmarks_clean
+      - task: generate_benchmarks_tlsf
+      - task: generate_benchmarks_text
+  generate_benchmarks_tlsf:
+    internal: true
+    cmds:
       - mkdir -p {{.GENERATED_BENCHMARK_PATH}}/tlsf
       - ./scripts/benchmarks/tlsf/selectBenchmarks.py ./scripts/benchmarks/tlsf {{.GENERATED_BENCHMARK_PATH}}/tlsf --savestruct
+  generate_benchmarks_clean:
+    internal: true
+    cmds:
+      - rm -rf {{.GENERATED_BENCHMARK_PATH}}
+      - mkdir -p {{.GENERATED_BENCHMARK_PATH}}
+  generate_benchmarks_text:
+    internal: true
+    deps: [generate_benchmarks_tlsf]
+    cmds:
+      - rm -rf {{.GENERATED_BENCHMARK_PATH}}/text
+      - mkdir -p {{.GENERATED_BENCHMARK_PATH}}/text
+      - ./scripts/tlsf_to_text.py {{.GENERATED_BENCHMARK_PATH}}/tlsf {{.GENERATED_BENCHMARK_PATH}}/text
