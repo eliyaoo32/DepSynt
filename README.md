@@ -40,6 +40,11 @@ input_variables
 output_variables
 ```
 
+Generating benchmark with Taskfile:
+```bash
+task generate_benchmarks
+```
+
 ## Find Dependencies
 The flow applies the following steps:
 
