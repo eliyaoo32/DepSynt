@@ -12,7 +12,8 @@ tasks:
   find_dependencies:
     cmds:
       - mkdir -p {{.FIND_DEPENDENCIES_PATH}}
-      - rm -v {{.FIND_DEPENDENCIES_PATH}}/*
+      - rm -f {{.FIND_DEPENDENCIES_PATH}}/*
+      - rm -f ./submit_find_deps
       - ./scripts/slurm_task_gen.py --task=find_deps --timeout={{.FIND_DEPENDENCIES_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.FIND_DEPENDENCIES_PATH}} > submit_find_deps
       - sbatch submit_find_deps
 
