@@ -20,13 +20,19 @@ This tool uses the following 3rd parties:
 - The tool was applied on the [SYNTCOMP](https://github.com/SYNTCOMP/benchmarks) benchmarks.
 
 # Build & Usage Instruction
-1) Make sure you add to `CPATH` enviornment variable a path to Spot headers, for example: `CPATH=~/spot/include:$CPATH`.
+1) Fetch the used submodules:
+```bash
+git submodule update --init
+```
 
-2) Compile binaries with CMake and Makefile:
+2) Make sure you add to `CPATH` enviornment variable a path to Spot headers, for example: `CPATH=~/spot/include:$CPATH`.
+
+3) Compile binaries with CMake and Makefile:
 ```bash
 cmake .
 make
 ```
+
 # Flows
 ## Generate Benchmarks
 For each benchmark it generates a file in a dedicated folder with the format:
