@@ -82,6 +82,11 @@ CMakeFiles/
 Makefile
 cmake_install.cmake
 
+# Generated Binary
+find_dependencies
+find_unates
+synthesis
+
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
 
