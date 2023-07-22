@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #SBATCH --job-name=find_deps
-#SBATCH --output={{OUTPUT_BASE_PATH}}/%A_%a.out
-#SBATCH --error={{OUTPUT_BASE_PATH}}/%A_%a.err
+#SBATCH --output={{OUTPUT_BASE_PATH}}/%a.out
+#SBATCH --error={{OUTPUT_BASE_PATH}}/%a.err
 #SBATCH --array=1-{{NUM_BENCHMARKS}}
 #SBATCH --ntasks=1
 #SBATCH --mem=2G
