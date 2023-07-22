@@ -9,7 +9,7 @@
 #SBATCh --cpus-per-task=1
 
 TOTAL_TIMEOUT="{{TIMEOUT}}"
-CLI_TOOL="find_dependencies"
+CLI_TOOL="./find_dependencies"
 FILEPATH="{{BENCHMARKS_DIR}}/$SLURM_ARRAY_TASK_ID.txt"
 
 benchmark_name=$(sed -n "1p" "$FILEPATH" | tr -d '\r')
