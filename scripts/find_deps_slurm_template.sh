@@ -17,4 +17,4 @@ inputs_var=$(sed -n "2p" "$FILEPATH" | tr -d '\r')
 outputs_var=$(sed -n "3p" "$FILEPATH" | tr -d '\r')
 formula=$(sed -n "4p" "$FILEPATH" | tr -d '\r')
 
-srun bash -c "{ time timeout $TOTAL_TIMEOUT $CLI_TOOL --formula=\"$formula\" --input=\"$inputs_var\" --output=\"$outputs_var\" --model-name=\"$benchmark_name\"; }"
+srun bash -c "{ time timeout $TOTAL_TIMEOUT $CLI_TOOL --formula=\"$formula\" --input=\"$inputs_var\" --output=\"$outputs_var\" --model-name=\"$benchmark_name\" --algo=automaton; }"
