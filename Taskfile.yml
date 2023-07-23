@@ -5,6 +5,7 @@ version: '3'
 vars:
   GENERATED_BENCHMARK_PATH: ./tasks_output/generated_benchmarks
   FIND_DEPENDENCIES_PATH: ./tasks_output/find_deps
+  FIND_DEPENDENCIES_SUMMARY: ./tasks_output/find_deps.csv
   FIND_DEPENDENCIES_TIMEOUT: 60m
 
 tasks:
@@ -16,6 +17,10 @@ tasks:
       - rm -f ./submit_find_deps
       - ./scripts/slurm_task_gen.py --task=find_deps --timeout={{.FIND_DEPENDENCIES_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.FIND_DEPENDENCIES_PATH}} > submit_find_deps
       - sbatch submit_find_deps
+
+  find_dependencies_summary:
+    - rm -f {{.FIND_DEPENDENCIES_SUMMARY}}
+    - ./scripts/find_deps_analyzer.py --find-deps-result-path={{.FIND_DEPENDENCIES_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.FIND_DEPENDENCIES_SUMMARY}}
 
 # Generate benchmarks
   generate_benchmarks:

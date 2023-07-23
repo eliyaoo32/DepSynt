@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
 import argparse
+import csv
 import json
 import os
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from glob import glob
 from pathlib import Path
 from typing import List, Optional
@@ -11,6 +12,7 @@ from typing import List, Optional
 parser = argparse.ArgumentParser("Analyze Find Dependency Results")
 parser.add_argument("--find-deps-result-path", type=str, required=True, help="The path to the find deps results")
 parser.add_argument("--benchmarks-path", type=str, required=True, help="The path to the benchmark text files")
+parser.add_argument("--summary-output", type=str, required=True, help="The path to store the summary CSV file")
 
 
 @dataclass
@@ -22,7 +24,8 @@ class Benchmark:
     input_vars: str = ""
     output_vars: str = ""
 
-    status: str = "UNKNOWN"    # Success, Timeout, Out-Of-Memory, Other Error. TODO: make it enum.
+    status: str = "UNKNOWN"    # Success, Timeout, Out-Of-Memory, Irrelevant, Other Error. TODO: make it enum.
+    error_message: str = ""
     total_duration: float = -1
 
     dependent_variables: List[str] = field(default_factory=list)
@@ -67,7 +70,18 @@ def load_benchmark(find_deps_path, text_file_path):
     find_deps_out = Path(find_deps_out_path).read_text()
     find_deps_err = Path(find_deps_err_path).read_text()
 
-    # Case 1: Out of Memory
+    # Case: No output/input variables, therefore, irrelevant
+    if 'should follow immediately after the equal sign' in find_deps_err:
+        benchmark.status = 'Irrelevant'
+        return benchmark
+
+    # Case: Argument list too long
+    if 'Argument list too long' in find_deps_err:
+        benchmark.status = 'Error'
+        benchmark.error_message = 'Argument list too long'
+        return benchmark
+
+    # Case: Out of Memory
     if 'Detected 1 oom-kill event' in find_deps_err:
         benchmark.status = 'Out-Of-Memory'
         return benchmark
@@ -120,8 +134,20 @@ if __name__ == "__main__":
 
     # List all benchmarks
     benchmarks = glob(f"{benchmarks_path}/*.txt")
+    if len(benchmarks) == 0:
+        print("Error: no benchmarks found in the path: {}".format(benchmarks_path))
+        exit(1)
     print("Found {} benchmarks".format(len(benchmarks)))
 
+    summary = []
     for benchmark_path in benchmarks:
-        print(load_benchmark(find_deps_path, benchmark_path))
-        break
+        benchmark = load_benchmark(find_deps_path, benchmark_path)
+        summary.append(asdict(benchmark))
+
+    # Write summary to CSV
+    with open(args.summary_output, 'w+', newline='') as output_file:
+        keys = summary[0].keys()
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(summary)
+
