@@ -4,12 +4,25 @@ version: '3'
 
 vars:
   GENERATED_BENCHMARK_PATH: ./tasks_output/generated_benchmarks
+
+  DEPSYNT_RESULTS_PATH: ./tasks_output/depsynt
+  SYNTHESIS_TIMEOUT: 180m
+  BENCHMARKS_FAMALIES: "tsl_smart_home_jarvis/extracted-benchmarks,tsl_paper,mux,ltl2dpa,shift"
+
   FIND_DEPENDENCIES_PATH: ./tasks_output/find_deps
   FIND_DEPENDENCIES_SUMMARY: ./tasks_output/find_deps.csv
   FIND_DEPENDENCIES_TIMEOUT: 60m
 
 tasks:
-# Find Dependencies
+  # Synthesis
+  depsynt:
+    - mkdir -p {{.DEPSYNT_RESULTS_PATH}}
+    - rm -f {{.DEPSYNT_RESULTS_PATH}}/*
+    - rm -f ./submit_depsynt
+    - ./scripts/slurm_task_gen.py --task=depsynt --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.DEPSYNT_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_depsynt
+    - sbatch submit_depsynt
+
+  # Find Dependencies
   find_dependencies:
     cmds:
       - mkdir -p {{.FIND_DEPENDENCIES_PATH}}
@@ -22,7 +35,7 @@ tasks:
     - rm -f {{.FIND_DEPENDENCIES_SUMMARY}}
     - ./scripts/find_deps_summarizer.py --find-deps-result-path={{.FIND_DEPENDENCIES_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.FIND_DEPENDENCIES_SUMMARY}}
 
-# Generate benchmarks
+  # Generate benchmarks
   generate_benchmarks:
     cmds:
       - task: generate_benchmarks_clean
