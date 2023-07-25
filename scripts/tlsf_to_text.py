@@ -55,7 +55,8 @@ def load_benchmarks_families(tlsf_basepath):
         for family, benchmarks in benchmarks_structure.items():
             if benchmark_name in benchmarks or "{}.tlsf".format(benchmark_name) in benchmarks:
                 return family
-        return None
+        
+        raise Exception("Benchmark {} not found in structure.json".format(benchmark_name))
 
     return get_benchmark_family
 

@@ -39,8 +39,43 @@ class Benchmark:
     total_pair_states: Optional[int] = None
     find_pair_states_duration: Optional[float] = None
 
+    def summary(self):
+        total_dependent_vars = len(self.dependent_variables)
+        total_output_vars = len(self.output_vars.split(','))
+        return {
+            # Benchmark Metadata
+            'Benchmark Id': self.benchmark_id,
+            'Benchmark Name': self.benchmark_name,
+            'Benchmark Family': self.benchmark_family,
+            'LTL Formula': self.ltl_formula,
+            'Input Variables': self.input_vars,
+            'Output Variables': self.output_vars,
+            'Total Input Variables': len(self.input_vars.split(',')),
+            'Total Output Variables': total_output_vars,
 
-def load_benchmark(find_deps_path, text_file_path):
+            # Find Deps Information
+            'Status': self.status,
+            'Error Message': self.error_message,
+            'Total Duration': self.total_duration,
+
+            # Dependent Variables
+            'Dependent Variables': self.dependent_variables,
+            'Total Dependent Variables': total_dependent_vars,
+            'Independent Variables': self.independent_variables,
+            'Total Independent Variables': len(self.independent_variables),
+            'Dependency Ratio': total_dependent_vars / total_output_vars if total_output_vars > 0 else 0,
+
+            # Automaton Information
+            'Is Automaton Built': self.is_automaton_built,
+            'Automaton Build Duration': self.automaton_build_duration,
+            'Automaton Total States': self.automaton_total_states,
+            'Automaton Total Edges': self.automaton_total_edges,
+            'Total Pair States': self.total_pair_states,
+            'Find Pair States Duration': self.find_pair_states_duration
+        }
+
+
+def load_benchmark(find_deps_path, text_file_path) -> Benchmark:
     benchmark = Benchmark()
     benchmark_id = Path(text_file_path).stem
 
@@ -142,7 +177,7 @@ if __name__ == "__main__":
     summary = []
     for benchmark_path in benchmarks:
         benchmark = load_benchmark(find_deps_path, benchmark_path)
-        summary.append(asdict(benchmark))
+        summary.append(benchmark.summary())
 
     # Write summary to CSV
     with open(args.summary_output, 'w+', newline='') as output_file:
