@@ -20,7 +20,7 @@ outputs_var=$(sed -n "6p" "$FILEPATH" | tr -d '\r')
 formula=$(sed -n "4p" "$FILEPATH" | tr -d '\r')
 
 allowed_family=({{ALLOWED_FAMILIES}})
-if [[ ! " ${allowed_family[*]} " = "${benchmark_family}" ]]; then
+if [[ ! " ${allowed_family[@]} " =~ " ${benchmark_family} " ]]; then
     echo "Family $benchmark_family is skipped"
     exit 1
 fi
