@@ -16,11 +16,16 @@ vars:
 tasks:
   # Synthesis
   depsynt:
-    - mkdir -p {{.DEPSYNT_RESULTS_PATH}}
-    - rm -f {{.DEPSYNT_RESULTS_PATH}}/*
-    - rm -f ./submit_depsynt
-    - ./scripts/slurm_task_gen.py --task=depsynt --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.DEPSYNT_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_depsynt
-    - sbatch submit_depsynt
+    cmds:
+      - mkdir -p {{.DEPSYNT_RESULTS_PATH}}
+      - rm -f {{.DEPSYNT_RESULTS_PATH}}/*
+      - rm -f ./submit_depsynt
+      - ./scripts/slurm_task_gen.py --task=depsynt --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.DEPSYNT_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_depsynt
+      - sbatch submit_depsynt
+
+  depsynt_clean_skipped:
+    cmds:
+      - ./scripts/remove_skipped_synt.sh {{.DEPSYNT_RESULTS_PATH}}
 
   # Find Dependencies
   find_dependencies:
