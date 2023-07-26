@@ -5,7 +5,9 @@ version: '3'
 vars:
   GENERATED_BENCHMARK_PATH: ./tasks_output/generated_benchmarks
 
+  SPOT_MODULAR_RESULTS_PATH: ./tasks_output/spot_modular
   DEPSYNT_RESULTS_PATH: ./tasks_output/depsynt
+
   SYNTHESIS_TIMEOUT: 180m
   BENCHMARKS_FAMALIES: "tsl_smart_home_jarvis/extracted-benchmarks,tsl_paper,mux,ltl2dpa,shift"
 
@@ -26,6 +28,13 @@ tasks:
   depsynt_clean_skipped:
     cmds:
       - ./scripts/remove_skipped_synt.sh {{.DEPSYNT_RESULTS_PATH}}
+
+  spot_modular:
+    - mkdir -p {{.SPOT_MODULAR_RESULTS_PATH}}
+    - rm -f {{.SPOT_MODULAR_RESULTS_PATH}}/*
+    - rm -f ./submit_spot_modular
+    - ./scripts/slurm_task_gen.py --task=spotmodular --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.SPOT_MODULAR_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_spot_modular
+    - sbatch submit_spot_modular
 
   # Find Dependencies
   find_dependencies:

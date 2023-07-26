@@ -11,7 +11,7 @@
 TOTAL_TIMEOUT="{{TIMEOUT}}"
 CLI_TOOL="./synthesis"
 FILEPATH="{{BENCHMARKS_DIR}}/$SLURM_ARRAY_TASK_ID.txt"
-DEPENDENCY_TIMEOUT="12000"
+DEPENDENCY_TIMEOUT="{{FIND_DEP_TIMEOUT}}"
 
 benchmark_family=$(sed -n "3p" "$FILEPATH" | tr -d '\r')
 benchmark_name=$(sed -n "2p" "$FILEPATH" | tr -d '\r')
