@@ -38,7 +38,7 @@ tasks:
 
   find_dependencies_summary:
     - rm -f {{.FIND_DEPENDENCIES_SUMMARY}}
-    - ./scripts/find_deps_summarizer.py --find-deps-result-path={{.FIND_DEPENDENCIES_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.FIND_DEPENDENCIES_SUMMARY}}
+    - ./scripts/results_summarizer.py --result-path={{.FIND_DEPENDENCIES_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.FIND_DEPENDENCIES_SUMMARY}}
 
   # Generate benchmarks
   generate_benchmarks:

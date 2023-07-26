@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import List, Optional
 
 parser = argparse.ArgumentParser("Analyze Find Dependency Results")
-parser.add_argument("--find-deps-result-path", type=str, required=True, help="The path to the find deps results")
+parser.add_argument("--result-path", type=str, required=True, help="The path to the find deps results")
 parser.add_argument("--benchmarks-path", type=str, required=True, help="The path to the benchmark text files")
 parser.add_argument("--summary-output", type=str, required=True, help="The path to store the summary CSV file")
 
@@ -38,6 +38,7 @@ class Benchmark:
 
     total_pair_states: Optional[int] = None
     find_pair_states_duration: Optional[float] = None
+    find_dependency_duration: Optional[float] = None
 
     def summary(self):
         total_dependent_vars = len(self.dependent_variables)
@@ -70,17 +71,20 @@ class Benchmark:
             'Automaton Build Duration': self.automaton_build_duration,
             'Automaton Total States': self.automaton_total_states,
             'Automaton Total Edges': self.automaton_total_edges,
+
+            # Find Dependency Process
             'Total Pair States': self.total_pair_states,
-            'Find Pair States Duration': self.find_pair_states_duration
+            'Find Pair States Duration': self.find_pair_states_duration,
+            'Find Dependency Duration': self.find_dependency_duration,
         }
 
 
-def load_benchmark(find_deps_path, text_file_path) -> Benchmark:
+def load_benchmark(results_path, text_file_path) -> Benchmark:
     benchmark = Benchmark()
     benchmark_id = Path(text_file_path).stem
 
-    find_deps_out_path = os.path.join(find_deps_path, benchmark_id + ".out")
-    find_deps_err_path = os.path.join(find_deps_path, benchmark_id + ".err")
+    find_deps_out_path = os.path.join(results_path, benchmark_id + ".out")
+    find_deps_err_path = os.path.join(results_path, benchmark_id + ".err")
 
     if not os.path.exists(find_deps_out_path):
         print("Error: find deps out not found for benchmark {}".format(benchmark_id))
@@ -135,8 +139,9 @@ def load_benchmark(find_deps_path, text_file_path) -> Benchmark:
     # Dependent Information
     benchmark.dependent_variables = dependent_vars
     benchmark.independent_variables = independent_vars
-    benchmark.total_pair_states = benchmark_json['dependency'].get('total_pair_state',None)
-    benchmark.find_pair_states_duration = benchmark_json['dependency'].get('search_pair_state_duration',None)
+    benchmark.total_pair_states = benchmark_json['dependency'].get('total_pair_state', None)
+    benchmark.find_pair_states_duration = benchmark_json['dependency'].get('search_pair_state_duration', None)
+    benchmark.find_dependency_duration = benchmark_json['dependency'].get('total_duration', None)
 
     # Automaton Information
     benchmark.is_automaton_built = benchmark_json['automaton']['is_built']
@@ -156,10 +161,10 @@ def load_benchmark(find_deps_path, text_file_path) -> Benchmark:
 
 if __name__ == "__main__":
     args = parser.parse_args()
-    find_deps_path = args.find_deps_result_path
+    results_path = args.result_path
     benchmarks_path = args.benchmarks_path
 
-    if not os.path.exists(find_deps_path):
+    if not os.path.exists(results_path):
         print("Error: find deps path does not exist")
         exit(1)
 
@@ -176,7 +181,7 @@ if __name__ == "__main__":
 
     summary = []
     for benchmark_path in benchmarks:
-        benchmark = load_benchmark(find_deps_path, benchmark_path)
+        benchmark = load_benchmark(results_path, benchmark_path)
         summary.append(benchmark.summary())
 
     # Write summary to CSV
