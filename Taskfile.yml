@@ -26,9 +26,11 @@ tasks:
       - ./scripts/slurm_task_gen.py --task=depsynt --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.DEPSYNT_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_depsynt
       - sbatch submit_depsynt
 
-  depsynt_clean_skipped:
+  clean_skipped_synthesis:  # Example: task clean_skipped_synthesis -V PATH=./tasks_output/depsynt
+    vars:
+        PATH:
     cmds:
-      - ./scripts/remove_skipped_synt.sh {{.DEPSYNT_RESULTS_PATH}}
+      - ./scripts/remove_skipped_synt.sh {{.PATH}}
 
   spot_modular:
     - mkdir -p {{.SPOT_MODULAR_RESULTS_PATH}}
