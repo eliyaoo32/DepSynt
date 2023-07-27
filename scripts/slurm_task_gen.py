@@ -119,6 +119,8 @@ def main():
         generate_find_deps(args)
     elif args.task == 'depsynt':
         generate_depsynt(args)
+    elif args.task == 'strix':
+        generate_strix(args)
     elif args.task == 'spotmodular':
         generate_spotmodular(args)
     else:
