@@ -5,6 +5,7 @@ version: '3'
 vars:
   GENERATED_BENCHMARK_PATH: ./tasks_output/generated_benchmarks
 
+  STRIX_RESULTS_PATH: ./tasks_output/strix
   SPOT_MODULAR_RESULTS_PATH: ./tasks_output/spot_modular
   DEPSYNT_RESULTS_PATH: ./tasks_output/depsynt
 
@@ -35,6 +36,16 @@ tasks:
     - rm -f ./submit_spot_modular
     - ./scripts/slurm_task_gen.py --task=spotmodular --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.SPOT_MODULAR_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_spot_modular
     - sbatch submit_spot_modular
+
+
+  strix:
+    - mkdir -p {{.STRIX_RESULTS_PATH}}
+    - rm -f {{.STRIX_RESULTS_PATH}}/*
+    - rm -f ./submit_strix
+    - ./scripts/slurm_task_gen.py --task=strix --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.STRIX_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_strix
+    - sbatch submit_strix
+
+
 
   # Find Dependencies
   find_dependencies:

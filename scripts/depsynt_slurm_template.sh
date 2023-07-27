@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=find_deps
+#SBATCH --job-name=depsynt
 #SBATCH --output={{OUTPUT_BASE_PATH}}/%a.out
 #SBATCH --error={{OUTPUT_BASE_PATH}}/%a.err
 #SBATCH --array=1-{{NUM_BENCHMARKS}}
