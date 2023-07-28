@@ -219,8 +219,45 @@ def load_find_deps(results_path, text_file_path):
     return benchmark
 
 
-def load_depsynt(results_path, benchmark_path):
-    return None
+def get_second_last_line(text):
+    lines = text.split('\n')
+    if len(lines) < 2:
+        return None  # Return None or some default value if there aren't at least two lines.
+    return lines[-2]  # Negative indexing gets lines from the end. -1 would be the last line, -2 is the second to last line.
+
+
+def load_depsynt(results_path, text_file_path):
+    benchmark_id = Path(text_file_path).stem
+    out_path = os.path.join(results_path, benchmark_id + ".out")
+    err_path = os.path.join(results_path, benchmark_id + ".err")
+
+    if not os.path.exists(out_path):
+        print("Error: Couldn't find out file for benchmark {}".format(benchmark_id))
+        return
+
+    if not os.path.exists(err_path):
+        print("Error: Couldn't find err file for benchmark {}".format(benchmark_id))
+        return
+
+    out_file = Path(out_path).read_text()
+    err_file = Path(err_path).read_text()
+
+    # Loading Benchmark File
+    benchmark = DepSyntBenchmark()
+    benchmark.load_benchmark_file(text_file_path)
+
+    # Extracting status
+    extracted_status = extract_status(out_file, err_file)
+    benchmark.status = extracted_status['status']
+    if benchmark.status != 'Success':
+        benchmark.error_message = extracted_status.get('message', None)
+        return benchmark
+
+    # Load JSON Measure
+    benchmark_json = json.loads(get_second_last_line(out_file))   # Last line is empty
+    benchmark.load_from_dict(benchmark_json)
+
+    return benchmark
 
 
 def main():
@@ -247,13 +284,14 @@ def main():
     for benchmark_path in benchmarks:
         if args.tool == 'find_deps':
             benchmark = load_find_deps(results_path, benchmark_path)
-        elif args == 'depsynt':
+        elif args.tool == 'depsynt':
             benchmark = load_depsynt(results_path, benchmark_path)
         else:
             print("Error: unknown tool")
             exit(1)
 
-        summary.append(benchmark.summary())
+        if benchmark is not None:
+            summary.append(benchmark.summary())
 
     # Write summary to CSV
     with open(args.summary_output, 'w+', newline='') as output_file:

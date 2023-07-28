@@ -9,6 +9,8 @@ vars:
   SPOT_MODULAR_RESULTS_PATH: ./tasks_output/spot_modular
   DEPSYNT_RESULTS_PATH: ./tasks_output/depsynt
 
+  DEPSYNT_SUMMARY: ./tasks_output/depsynt.csv
+
   SYNTHESIS_TIMEOUT: 180m
   BENCHMARKS_FAMALIES: "tsl_smart_home_jarvis/extracted-benchmarks,tsl_paper,mux,ltl2dpa,shift"
 
@@ -31,6 +33,13 @@ tasks:
       - chmod +x ./scripts/slurm_task_gen.py
       - ./scripts/slurm_task_gen.py --task=depsynt --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.DEPSYNT_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_depsynt
       - sbatch submit_depsynt
+
+  depsynt_summary:
+    cmds:
+      - rm -f {{.DEPSYNT_SUMMARY}}
+      - chmod +x ./scripts/results_summarizer.py
+      - ./scripts/results_summarizer.py --result-path={{.DEPSYNT_RESULTS_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.DEPSYNT_SUMMARY}} --tool=depsynt
+
 
   clean_skipped_synthesis:  # Example: task clean_skipped_synthesis -V PATH=./tasks_output/depsynt
     desc: Remove the skipped synthesis results
