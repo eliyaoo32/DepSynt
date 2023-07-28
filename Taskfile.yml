@@ -19,23 +19,36 @@ vars:
 tasks:
   # Synthesis
   depsynt:
+    desc: Run DepSynt tool on the generated benchmarks
+    summary: |
+      This task removes the previous results and submits a new job to the cluster.
+      The job is generated using the `slurm_task_gen.py` script with the args of:
+      synthesis timeout, benchmarks text files path, the output directory to put the results on, what families of benchmark to run the results on.
     cmds:
       - mkdir -p {{.DEPSYNT_RESULTS_PATH}}
       - rm -f {{.DEPSYNT_RESULTS_PATH}}/*
       - rm -f ./submit_depsynt
+      - chmod +x ./scripts/slurm_task_gen.py
       - ./scripts/slurm_task_gen.py --task=depsynt --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.DEPSYNT_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_depsynt
       - sbatch submit_depsynt
 
   clean_skipped_synthesis:  # Example: task clean_skipped_synthesis -V PATH=./tasks_output/depsynt
+    desc: Remove the skipped synthesis results
+    summary: |
+      Benchmarks may be skipped since it wasn't defined in the families of benchmarks to run on.
+      The script `remove_skipped_synt.sh` removes the results of the synthesis that were skipped.
+      The script takes as an argument the path to the results directory.
     vars:
         PATH:
     cmds:
+      - chmod +x ./scripts/remove_skipped_synt.sh
       - ./scripts/remove_skipped_synt.sh {{.PATH}}
 
   spot_modular:
     - mkdir -p {{.SPOT_MODULAR_RESULTS_PATH}}
     - rm -f {{.SPOT_MODULAR_RESULTS_PATH}}/*
     - rm -f ./submit_spot_modular
+    - chmod +x ./scripts/slurm_task_gen.py
     - ./scripts/slurm_task_gen.py --task=spotmodular --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.SPOT_MODULAR_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_spot_modular
     - sbatch submit_spot_modular
 
@@ -44,6 +57,7 @@ tasks:
     - mkdir -p {{.STRIX_RESULTS_PATH}}
     - rm -f {{.STRIX_RESULTS_PATH}}/*
     - rm -f ./submit_strix
+    - chmod +x ./scripts/slurm_task_gen.py
     - ./scripts/slurm_task_gen.py --task=strix --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.STRIX_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_strix
     - sbatch submit_strix
 
@@ -55,12 +69,14 @@ tasks:
       - mkdir -p {{.FIND_DEPENDENCIES_PATH}}
       - rm -f {{.FIND_DEPENDENCIES_PATH}}/*
       - rm -f ./submit_find_deps
+      - chmod +x ./scripts/slurm_task_gen.py
       - ./scripts/slurm_task_gen.py --task=find_deps --timeout={{.FIND_DEPENDENCIES_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.FIND_DEPENDENCIES_PATH}} > submit_find_deps
       - sbatch submit_find_deps
 
   find_dependencies_summary:
     - rm -f {{.FIND_DEPENDENCIES_SUMMARY}}
-    - ./scripts/results_summarizer.py --result-path={{.FIND_DEPENDENCIES_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.FIND_DEPENDENCIES_SUMMARY}}
+    - chmod +x ./scripts/results_summarizer.py
+    - ./scripts/results_summarizer.py --result-path={{.FIND_DEPENDENCIES_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.FIND_DEPENDENCIES_SUMMARY}} --tool=find_deps
 
   # Generate benchmarks
   generate_benchmarks:
@@ -73,6 +89,7 @@ tasks:
     internal: true
     cmds:
       - mkdir -p {{.GENERATED_BENCHMARK_PATH}}/tlsf
+      - chmod +x ./scripts/benchmarks/tlsf/selectBenchmarks.py
       - ./scripts/benchmarks/tlsf/selectBenchmarks.py ./scripts/benchmarks/tlsf {{.GENERATED_BENCHMARK_PATH}}/tlsf --savestruct
   generate_benchmarks_clean:
     internal: true
@@ -85,4 +102,5 @@ tasks:
     cmds:
       - rm -rf {{.GENERATED_BENCHMARK_PATH}}/text
       - mkdir -p {{.GENERATED_BENCHMARK_PATH}}/text
+      - chmod +x ./scripts/tlsf_to_text.py
       - ./scripts/tlsf_to_text.py {{.GENERATED_BENCHMARK_PATH}}/tlsf {{.GENERATED_BENCHMARK_PATH}}/text

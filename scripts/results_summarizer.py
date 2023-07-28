@@ -4,19 +4,21 @@ import argparse
 import csv
 import json
 import os
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass, field
 from glob import glob
 from pathlib import Path
 from typing import List, Optional
 
+
 parser = argparse.ArgumentParser("Analyze Find Dependency Results")
-parser.add_argument("--result-path", type=str, required=True, help="The path to the find deps results")
+parser.add_argument("--result-path", type=str, required=True, help="The path to the results")
 parser.add_argument("--benchmarks-path", type=str, required=True, help="The path to the benchmark text files")
 parser.add_argument("--summary-output", type=str, required=True, help="The path to store the summary CSV file")
+parser.add_argument("--tool", type=str, choices=['find_deps','depsynt'])
 
 
 @dataclass
-class Benchmark:
+class FindDepsBenchmark:
     benchmark_id: str = ""
     benchmark_name: str = ""
     benchmark_family: str = ""
@@ -40,9 +42,23 @@ class Benchmark:
     find_pair_states_duration: Optional[float] = None
     find_dependency_duration: Optional[float] = None
 
+    def load_benchmark_file(self, text_file_path):
+        benchmark_id = Path(text_file_path).stem
+
+        with open(text_file_path, 'r') as file:
+            self.benchmark_id = file.readline().strip()
+            assert(self.benchmark_id == benchmark_id)
+
+            self.benchmark_name = file.readline().strip()
+            self.benchmark_family = file.readline().strip()
+            self.ltl_formula = file.readline().strip()
+            self.input_vars = file.readline().strip()
+            self.output_vars = file.readline().strip()
+
     def summary(self):
         total_dependent_vars = len(self.dependent_variables)
         total_output_vars = len(self.output_vars.split(','))
+
         return {
             # Benchmark Metadata
             'Benchmark Id': self.benchmark_id,
@@ -78,88 +94,136 @@ class Benchmark:
             'Find Dependency Duration': self.find_dependency_duration,
         }
 
+    def load_from_dict(self, data):
+        self.total_duration = data['total_time']
 
-def load_benchmark(results_path, text_file_path) -> Benchmark:
-    benchmark = Benchmark()
-    benchmark_id = Path(text_file_path).stem
+        # Find Dependent Variables
+        dependent_vars, independent_vars = [], []
+        for var_description in data["dependency"]['tested_dependencies']:
+            if var_description['is_dependent']:
+                dependent_vars.append(var_description['name'])
+            else:
+                independent_vars.append(var_description['name'])
 
-    find_deps_out_path = os.path.join(results_path, benchmark_id + ".out")
-    find_deps_err_path = os.path.join(results_path, benchmark_id + ".err")
+        # Dependent Information
+        self.dependent_variables = dependent_vars
+        self.independent_variables = independent_vars
+        self.total_pair_states = data['dependency'].get('total_pair_state', None)
+        self.find_pair_states_duration = data['dependency'].get('search_pair_state_duration', None)
+        self.find_dependency_duration = data['dependency'].get('total_duration', None)
 
-    if not os.path.exists(find_deps_out_path):
-        print("Error: find deps out not found for benchmark {}".format(benchmark_id))
-        exit(1)
+        # Automaton Information
+        self.is_automaton_built = data['automaton']['is_built']
+        self.automaton_build_duration = data['automaton'].get('build_duration', None)
+        self.automaton_total_states = data['automaton'].get('total_states', None) if self.is_automaton_built else None
+        self.automaton_total_edges = data['automaton'].get('total_edges', None) if self.is_automaton_built else None
 
-    if not os.path.exists(find_deps_err_path):
-        print("Error: find deps err not found for benchmark {}".format(benchmark_id))
-        exit(1)
 
-    # Read text file
-    with open(text_file_path, 'r') as file:
-        benchmark.benchmark_id = file.readline().strip()
-        assert(benchmark.benchmark_id == benchmark_id)
+@dataclass
+class DepSyntBenchmark(FindDepsBenchmark):
+    realizability: str = ""
+    independents_synthesis_duration: float = -1
+    dependents_synthesis_duration: float = -1
+    merge_strategies_duration: float = -1
+    strategies_synthesis_duration: float = -1
 
-        benchmark.benchmark_name = file.readline().strip()
-        benchmark.benchmark_family = file.readline().strip()
-        benchmark.ltl_formula = file.readline().strip()
-        benchmark.input_vars = file.readline().strip()
-        benchmark.output_vars = file.readline().strip()
+    def __init__(self):
+        super().__init__()
 
-    # Read find deps output file
-    find_deps_out = Path(find_deps_out_path).read_text()
-    find_deps_err = Path(find_deps_err_path).read_text()
+    def load_from_dict(self, data):
+        super().load_from_dict(data)
 
+        self.realizability = data['synthesis']['independent_strategy']['realizability']
+        self.independents_synthesis_duration = data['synthesis']['independent_strategy']['duration']
+
+        deps_synthesis_duration = data['synthesis']['dependent_strategy']['duration']
+        self.dependents_synthesis_duration = deps_synthesis_duration if deps_synthesis_duration != -1 else 0
+        self.merge_strategies_duration = data['synthesis'].get('merge_strategies_duration', None)
+        self.strategies_synthesis_duration = self.independents_synthesis_duration + self.dependents_synthesis_duration
+
+    def summary(self):
+        summary = super().summary()
+        summary.update({
+            # Synthesis Information
+            'Realizability': self.realizability,
+            'Independent Synthesis Duration': self.independents_synthesis_duration,
+            'Dependent Synthesis Duration': self.dependents_synthesis_duration,
+            'Merge Strategies Duration': self.merge_strategies_duration,
+            'Synthesis Duration': self.strategies_synthesis_duration,
+        })
+        return summary
+
+
+def extract_status(out_file, err_file):
     # Case: No output/input variables, therefore, irrelevant
-    if 'should follow immediately after the equal sign' in find_deps_err:
-        benchmark.status = 'Irrelevant'
-        return benchmark
-
-    # Case: Argument list too long
-    if 'Argument list too long' in find_deps_err:
-        benchmark.status = 'Error'
-        benchmark.error_message = 'Argument list too long'
-        return benchmark
-
-    # Case: Out of Memory
-    if 'Detected 1 oom-kill event' in find_deps_err:
-        benchmark.status = 'Out-Of-Memory'
-        return benchmark
-
-    benchmark_json = json.loads(find_deps_out)
-    benchmark.total_duration = benchmark_json['total_time']
-
-    # Find Dependent Variables
-    dependent_vars, independent_vars = [], []
-    for var_description in benchmark_json["dependency"]['tested_dependencies']:
-        if var_description['is_dependent']:
-            dependent_vars.append(var_description['name'])
-        else:
-            independent_vars.append(var_description['name'])
-
-    # Dependent Information
-    benchmark.dependent_variables = dependent_vars
-    benchmark.independent_variables = independent_vars
-    benchmark.total_pair_states = benchmark_json['dependency'].get('total_pair_state', None)
-    benchmark.find_pair_states_duration = benchmark_json['dependency'].get('search_pair_state_duration', None)
-    benchmark.find_dependency_duration = benchmark_json['dependency'].get('total_duration', None)
-
-    # Automaton Information
-    benchmark.is_automaton_built = benchmark_json['automaton']['is_built']
-    benchmark.automaton_build_duration = benchmark_json['automaton'].get('build_duration', None)
-    benchmark.automaton_total_states = benchmark_json['automaton'].get('total_states', None) if benchmark.is_automaton_built else None
-    benchmark.automaton_total_edges = benchmark_json['automaton'].get('total_edges', None) if benchmark.is_automaton_built else None
+    if 'should follow immediately after the equal sign' in err_file:
+        return {
+            'status': 'Irrelevant',
+        }
 
     # Case 2: Timeout
-    if 'Exited with exit code 124' in find_deps_err:
-        benchmark.status = 'Timeout'
+    if 'Exited with exit code 124' in err_file:
+        return {
+            'status': 'Timeout',
+        }
+
+    # Case: Out of Memory
+    if 'Detected 1 oom-kill event' in err_file:
+        return {
+            'status': 'Out-Of-Memory',
+        }
+
+    # Case: Argument list too long
+    if 'Argument list too long' in err_file:
+        return {
+            'status': 'Error',
+            'message': 'Argument List Too Long',
+        }
+
+    return {
+        'status': 'Success',
+    }
+
+
+def load_find_deps(results_path, text_file_path):
+    benchmark_id = Path(text_file_path).stem
+    out_path = os.path.join(results_path, benchmark_id + ".out")
+    err_path = os.path.join(results_path, benchmark_id + ".err")
+
+    if not os.path.exists(out_path):
+        print("Error: Couldn't find out file for benchmark {}".format(benchmark_id))
+        exit(1)
+
+    if not os.path.exists(err_path):
+        print("Error: Couldn't find err file for benchmark {}".format(benchmark_id))
+        exit(1)
+
+    out_file = Path(out_path).read_text()
+    err_file = Path(err_path).read_text()
+
+    # Loading Benchmark File
+    benchmark = FindDepsBenchmark()
+    benchmark.load_benchmark_file(text_file_path)
+
+    # Extracting status
+    extracted_status = extract_status(out_file, err_file)
+    benchmark.status = extracted_status['status']
+    if benchmark.status != 'Success':
+        benchmark.error_message = extracted_status.get('message', None)
         return benchmark
 
-    # Case 3: Success
-    benchmark.status = 'Success'
+    # Load JSON Measure
+    benchmark_json = json.loads(out_file)
+    benchmark.load_from_dict(benchmark_json)
+
     return benchmark
 
 
-if __name__ == "__main__":
+def load_depsynt(results_path, benchmark_path):
+    return None
+
+
+def main():
     args = parser.parse_args()
     results_path = args.result_path
     benchmarks_path = args.benchmarks_path
@@ -181,7 +245,14 @@ if __name__ == "__main__":
 
     summary = []
     for benchmark_path in benchmarks:
-        benchmark = load_benchmark(results_path, benchmark_path)
+        if args.tool == 'find_deps':
+            benchmark = load_find_deps(results_path, benchmark_path)
+        elif args == 'depsynt':
+            benchmark = load_depsynt(results_path, benchmark_path)
+        else:
+            print("Error: unknown tool")
+            exit(1)
+
         summary.append(benchmark.summary())
 
     # Write summary to CSV
@@ -191,3 +262,6 @@ if __name__ == "__main__":
         dict_writer.writeheader()
         dict_writer.writerows(summary)
 
+
+if __name__ == "__main__":
+    main()
