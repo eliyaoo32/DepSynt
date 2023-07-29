@@ -29,7 +29,7 @@ class BaseBenchmark:
 
     status: str = "UNKNOWN"    # Success, Timeout, Out-Of-Memory, Irrelevant, Other Error. TODO: make it enum.
     error_message: str = ""
-    total_duration: float = -1
+    total_duration: Optional[float] = None
 
     def load_benchmark_file(self, text_file_path):
         benchmark_id = Path(text_file_path).stem
@@ -128,7 +128,7 @@ class FindDepsBenchmark(BaseBenchmark):
     independent_variables: List[str] = field(default_factory=list)
 
     is_automaton_built: bool = False
-    automaton_build_duration: float = -1.0
+    automaton_build_duration: Optional[float] = None
     automaton_total_states: Optional[int] = None
     automaton_total_edges: Optional[int] = None
 
@@ -137,9 +137,15 @@ class FindDepsBenchmark(BaseBenchmark):
     find_dependency_duration: Optional[float] = None
 
     def summary(self):
-        total_dependent_vars = len(self.dependent_variables)
         total_output_vars = len(self.output_vars.split(','))
         base_summary = super().summary()
+
+        if self.status == "Success":
+            total_dependent_vars = len(self.dependent_variables)
+            dependency_ratio = total_dependent_vars / total_output_vars if total_output_vars > 0 else 0
+        else:
+            total_dependent_vars = None
+            dependency_ratio = None
 
         return {
             **base_summary,
@@ -149,7 +155,7 @@ class FindDepsBenchmark(BaseBenchmark):
             'Total Dependent Variables': total_dependent_vars,
             'Independent Variables': self.independent_variables,
             'Total Independent Variables': len(self.independent_variables),
-            'Dependency Ratio': total_dependent_vars / total_output_vars if total_output_vars > 0 else 0,
+            'Dependency Ratio': dependency_ratio,
 
             # Automaton Information
             'Is Automaton Built': self.is_automaton_built,
@@ -191,10 +197,10 @@ class FindDepsBenchmark(BaseBenchmark):
 @dataclass
 class DepSyntBenchmark(FindDepsBenchmark):
     realizability: str = ""
-    independents_synthesis_duration: float = -1
-    dependents_synthesis_duration: float = -1
-    merge_strategies_duration: float = -1
-    strategies_synthesis_duration: float = -1
+    independents_synthesis_duration: Optional[float] = None
+    dependents_synthesis_duration: Optional[float] = None
+    merge_strategies_duration: Optional[float] = None
+    strategies_synthesis_duration: Optional[float] = None
 
     def __init__(self):
         super().__init__()
