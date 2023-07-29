@@ -4,6 +4,7 @@ import argparse
 import csv
 import json
 import os
+import re
 from dataclasses import dataclass, field
 from glob import glob
 from pathlib import Path
@@ -14,11 +15,11 @@ parser = argparse.ArgumentParser("Analyze Find Dependency Results")
 parser.add_argument("--result-path", type=str, required=True, help="The path to the results")
 parser.add_argument("--benchmarks-path", type=str, required=True, help="The path to the benchmark text files")
 parser.add_argument("--summary-output", type=str, required=True, help="The path to store the summary CSV file")
-parser.add_argument("--tool", type=str, choices=['find_deps','depsynt'])
+parser.add_argument("--tool", type=str, choices=['find_deps','depsynt','strix'])
 
 
 @dataclass
-class FindDepsBenchmark:
+class BaseBenchmark:
     benchmark_id: str = ""
     benchmark_name: str = ""
     benchmark_family: str = ""
@@ -29,18 +30,6 @@ class FindDepsBenchmark:
     status: str = "UNKNOWN"    # Success, Timeout, Out-Of-Memory, Irrelevant, Other Error. TODO: make it enum.
     error_message: str = ""
     total_duration: float = -1
-
-    dependent_variables: List[str] = field(default_factory=list)
-    independent_variables: List[str] = field(default_factory=list)
-
-    is_automaton_built: bool = False
-    automaton_build_duration: float = -1.0
-    automaton_total_states: Optional[int] = None
-    automaton_total_edges: Optional[int] = None
-
-    total_pair_states: Optional[int] = None
-    find_pair_states_duration: Optional[float] = None
-    find_dependency_duration: Optional[float] = None
 
     def load_benchmark_file(self, text_file_path):
         benchmark_id = Path(text_file_path).stem
@@ -56,7 +45,6 @@ class FindDepsBenchmark:
             self.output_vars = file.readline().strip()
 
     def summary(self):
-        total_dependent_vars = len(self.dependent_variables)
         total_output_vars = len(self.output_vars.split(','))
 
         return {
@@ -74,6 +62,87 @@ class FindDepsBenchmark:
             'Status': self.status,
             'Error Message': self.error_message,
             'Total Duration': self.total_duration,
+        }
+
+
+@dataclass
+class StrixBenchmark(BaseBenchmark):
+    realizability: str = ""
+
+    def summary(self):
+        base_summary = super().summary()
+
+        return {
+            **base_summary,
+
+            # Strix Information
+            'Realizability': self.realizability,
+        }
+
+    def load_output(self, out_content, err_content):
+        # Load error
+        if 'slurmstepd: error' in err_content and 'oom-kill' in err_content:
+            self.status = 'Error'
+            self.error_message = 'Out Of Memory'
+            return
+        if 'java.lang.OutOfMemoryError' in err_content:
+            self.status = 'Error'
+            self.error_message = 'Out Of Memory'
+            return
+        if 'ltlsynt: Too many acceptance sets used' in err_content:
+            self.status = 'Error'
+            self.error_message = 'Spot Limited Accepting State'
+            return
+        if 'ltlsynt: alternate_players(): Odd cycle detected.' in err_content:
+            self.status = 'Error'
+            self.error_message = 'Spot, Odd Cycle Detected'
+            return
+
+        # Load Duration
+        match = re.search(r'real\t(\d+)m(\d+\.\d+)s', err_content)
+        if match:
+            minutes = int(match.group(1))
+            seconds = float(match.group(2))
+            total_time_in_seconds = minutes * 60 + seconds
+            self.total_duration = total_time_in_seconds * 1000
+
+        # Load Timeout
+        if 'Exited with exit code 124' in err_content:
+            self.status = 'Timeout'
+            return
+
+        # Load Realizabilty
+        if 'UNREALIZABLE' in out_content:
+            self.realizability = 'UNREALIZABLE'
+        elif 'REALIZABLE' in out_content:
+            self.realizability = 'REALIZABLE'
+        else:
+            self.realizability = 'UNKNOWN'
+
+        self.status = 'Success'
+
+
+@dataclass
+class FindDepsBenchmark(BaseBenchmark):
+    dependent_variables: List[str] = field(default_factory=list)
+    independent_variables: List[str] = field(default_factory=list)
+
+    is_automaton_built: bool = False
+    automaton_build_duration: float = -1.0
+    automaton_total_states: Optional[int] = None
+    automaton_total_edges: Optional[int] = None
+
+    total_pair_states: Optional[int] = None
+    find_pair_states_duration: Optional[float] = None
+    find_dependency_duration: Optional[float] = None
+
+    def summary(self):
+        total_dependent_vars = len(self.dependent_variables)
+        total_output_vars = len(self.output_vars.split(','))
+        base_summary = super().summary()
+
+        return {
+            **base_summary,
 
             # Dependent Variables
             'Dependent Variables': self.dependent_variables,
@@ -226,6 +295,30 @@ def get_second_last_line(text):
     return lines[-2]  # Negative indexing gets lines from the end. -1 would be the last line, -2 is the second to last line.
 
 
+def load_strix(results_path, text_file_path):
+    benchmark_id = Path(text_file_path).stem
+    out_path = os.path.join(results_path, benchmark_id + ".out")
+    err_path = os.path.join(results_path, benchmark_id + ".err")
+
+    if not os.path.exists(out_path):
+        print("Error: Couldn't find out file for benchmark {}".format(benchmark_id))
+        return
+
+    if not os.path.exists(err_path):
+        print("Error: Couldn't find err file for benchmark {}".format(benchmark_id))
+        return
+
+    out_file = Path(out_path).read_text()
+    err_file = Path(err_path).read_text()
+
+    # Loading Benchmark File
+    benchmark = StrixBenchmark()
+    benchmark.load_benchmark_file(text_file_path)
+    benchmark.load_output(out_file, err_file)
+
+    return benchmark
+
+
 def load_depsynt(results_path, text_file_path):
     benchmark_id = Path(text_file_path).stem
     out_path = os.path.join(results_path, benchmark_id + ".out")
@@ -286,6 +379,8 @@ def main():
             benchmark = load_find_deps(results_path, benchmark_path)
         elif args.tool == 'depsynt':
             benchmark = load_depsynt(results_path, benchmark_path)
+        elif args.tool == 'strix':
+            benchmark = load_strix(results_path, benchmark_path)
         else:
             print("Error: unknown tool")
             exit(1)

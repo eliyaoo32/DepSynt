@@ -9,7 +9,9 @@ vars:
   SPOT_MODULAR_RESULTS_PATH: ./tasks_output/spot_modular
   DEPSYNT_RESULTS_PATH: ./tasks_output/depsynt
 
+  STRIX_SUMMARY: ./tasks_output/strix.csv
   DEPSYNT_SUMMARY: ./tasks_output/depsynt.csv
+  SPOT_MODULAR_SUMMARY: ./tasks_output/spotmodular.csv
 
   SYNTHESIS_TIMEOUT: 180m
   BENCHMARKS_FAMALIES: "tsl_smart_home_jarvis/extracted-benchmarks,tsl_paper,mux,ltl2dpa,shift"
@@ -34,24 +36,11 @@ tasks:
       - ./scripts/slurm_task_gen.py --task=depsynt --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.DEPSYNT_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_depsynt
       - sbatch submit_depsynt
 
-  depsynt_summary:
+  depsynt:summary:
     cmds:
       - rm -f {{.DEPSYNT_SUMMARY}}
       - chmod +x ./scripts/results_summarizer.py
       - ./scripts/results_summarizer.py --result-path={{.DEPSYNT_RESULTS_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.DEPSYNT_SUMMARY}} --tool=depsynt
-
-
-  clean_skipped_synthesis:  # Example: task clean_skipped_synthesis -V PATH=./tasks_output/depsynt
-    desc: Remove the skipped synthesis results
-    summary: |
-      Benchmarks may be skipped since it wasn't defined in the families of benchmarks to run on.
-      The script `remove_skipped_synt.sh` removes the results of the synthesis that were skipped.
-      The script takes as an argument the path to the results directory.
-    vars:
-        PATH:
-    cmds:
-      - chmod +x ./scripts/remove_skipped_synt.sh
-      - ./scripts/remove_skipped_synt.sh {{.PATH}}
 
   spot_modular:
     - mkdir -p {{.SPOT_MODULAR_RESULTS_PATH}}
@@ -61,14 +50,27 @@ tasks:
     - ./scripts/slurm_task_gen.py --task=spotmodular --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.SPOT_MODULAR_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_spot_modular
     - sbatch submit_spot_modular
 
+  spot_modular:summary:
+    cmds:
+      - rm -f {{.SPOT_MODULAR_SUMMARY}}
+      - chmod +x ./scripts/results_summarizer.py
+      - ./scripts/results_summarizer.py --result-path={{.SPOT_MODULAR_RESULTS_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.SPOT_MODULAR_SUMMARY}} --tool=depsynt
 
   strix:
-    - mkdir -p {{.STRIX_RESULTS_PATH}}
-    - rm -f {{.STRIX_RESULTS_PATH}}/*
-    - rm -f ./submit_strix
-    - chmod +x ./scripts/slurm_task_gen.py
-    - ./scripts/slurm_task_gen.py --task=strix --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.STRIX_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_strix
-    - sbatch submit_strix
+    cmds:
+      - mkdir -p {{.STRIX_RESULTS_PATH}}
+      - rm -f {{.STRIX_RESULTS_PATH}}/*
+      - rm -f ./submit_strix
+      - chmod +x ./scripts/slurm_task_gen.py
+      - ./scripts/slurm_task_gen.py --task=strix --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.STRIX_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_strix
+      - sbatch submit_strix
+
+  strix:summary:
+    cmds:
+      - rm -f {{.STRIX_SUMMARY}}
+      - chmod +x ./scripts/results_summarizer.py
+      - ./scripts/results_summarizer.py --result-path={{.STRIX_RESULTS_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.STRIX_SUMMARY}} --tool=strix
+
 
 
 
@@ -82,7 +84,7 @@ tasks:
       - ./scripts/slurm_task_gen.py --task=find_deps --timeout={{.FIND_DEPENDENCIES_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.FIND_DEPENDENCIES_PATH}} > submit_find_deps
       - sbatch submit_find_deps
 
-  find_dependencies_summary:
+  find_dependencies:summary:
     - rm -f {{.FIND_DEPENDENCIES_SUMMARY}}
     - chmod +x ./scripts/results_summarizer.py
     - ./scripts/results_summarizer.py --result-path={{.FIND_DEPENDENCIES_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.FIND_DEPENDENCIES_SUMMARY}} --tool=find_deps
@@ -90,26 +92,39 @@ tasks:
   # Generate benchmarks
   generate_benchmarks:
     cmds:
-      - task: generate_benchmarks_clean
-      - task: generate_benchmarks_tlsf
-      - task: generate_benchmarks_text
+      - task: generate_benchmarks:clean
+      - task: generate_benchmarks:tlsf
+      - task: generate_benchmarks:text
 
-  generate_benchmarks_tlsf:
+  generate_benchmarks:tlsf:
     internal: true
     cmds:
       - mkdir -p {{.GENERATED_BENCHMARK_PATH}}/tlsf
       - chmod +x ./scripts/benchmarks/tlsf/selectBenchmarks.py
       - ./scripts/benchmarks/tlsf/selectBenchmarks.py ./scripts/benchmarks/tlsf {{.GENERATED_BENCHMARK_PATH}}/tlsf --savestruct
-  generate_benchmarks_clean:
+  generate_benchmarks:clean:
     internal: true
     cmds:
       - rm -rf {{.GENERATED_BENCHMARK_PATH}}
       - mkdir -p {{.GENERATED_BENCHMARK_PATH}}
-  generate_benchmarks_text:
+  generate_benchmarks:text:
     internal: true
-    deps: [generate_benchmarks_tlsf]
+    deps: [generate_benchmarks:tlsf]
     cmds:
       - rm -rf {{.GENERATED_BENCHMARK_PATH}}/text
       - mkdir -p {{.GENERATED_BENCHMARK_PATH}}/text
       - chmod +x ./scripts/tlsf_to_text.py
       - ./scripts/tlsf_to_text.py {{.GENERATED_BENCHMARK_PATH}}/tlsf {{.GENERATED_BENCHMARK_PATH}}/text
+
+  clean_skipped_synthesis:  # Example: task clean_skipped_synthesis -V PATH=./tasks_output/depsynt
+    desc: Remove the skipped synthesis results
+    summary: |
+      Benchmarks may be skipped since it wasn't defined in the families of benchmarks to run on.
+      The script `remove_skipped_synt.sh` removes the results of the synthesis that were skipped.
+      The script takes as an argument the path to the results directory.
+    vars:
+      CLEAN_PATH:
+    cmds:
+      - chmod +x ./scripts/remove_skipped_synt.sh
+      - ./scripts/remove_skipped_synt.sh {{.CLEAN_PATH}}
+
