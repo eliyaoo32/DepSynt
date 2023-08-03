@@ -82,12 +82,10 @@ class StrixBenchmark(BaseBenchmark):
     def load_output(self, out_content, err_content):
         # Load error
         if 'slurmstepd: error' in err_content and 'oom-kill' in err_content:
-            self.status = 'Error'
-            self.error_message = 'Out Of Memory'
+            self.status = 'Out-Of-Memory'
             return
         if 'java.lang.OutOfMemoryError' in err_content:
-            self.status = 'Error'
-            self.error_message = 'Out Of Memory'
+            self.status = 'Out-Of-Memory'
             return
         if 'ltlsynt: Too many acceptance sets used' in err_content:
             self.status = 'Error'
@@ -98,6 +96,11 @@ class StrixBenchmark(BaseBenchmark):
             self.error_message = 'Spot, Odd Cycle Detected'
             return
 
+        # Load Timeout
+        if 'Exited with exit code 124' in err_content:
+            self.status = 'Timeout'
+            return
+
         # Load Duration
         match = re.search(r'real\t(\d+)m(\d+\.\d+)s', err_content)
         if match:
@@ -105,11 +108,6 @@ class StrixBenchmark(BaseBenchmark):
             seconds = float(match.group(2))
             total_time_in_seconds = minutes * 60 + seconds
             self.total_duration = total_time_in_seconds * 1000
-
-        # Load Timeout
-        if 'Exited with exit code 124' in err_content:
-            self.status = 'Timeout'
-            return
 
         # Load Realizabilty
         if 'UNREALIZABLE' in out_content:

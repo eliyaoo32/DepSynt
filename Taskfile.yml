@@ -116,7 +116,7 @@ tasks:
       - chmod +x ./scripts/tlsf_to_text.py
       - ./scripts/tlsf_to_text.py {{.GENERATED_BENCHMARK_PATH}}/tlsf {{.GENERATED_BENCHMARK_PATH}}/text
 
-  clean_skipped_synthesis:  # Example: task clean_skipped_synthesis -V PATH=./tasks_output/depsynt
+  clean_skipped_synthesis:  # Example: task clean_skipped_synthesis CLEAN_PATH=./tasks_output/depsynt
     desc: Remove the skipped synthesis results
     summary: |
       Benchmarks may be skipped since it wasn't defined in the families of benchmarks to run on.
