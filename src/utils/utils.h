@@ -33,6 +33,7 @@ struct BaseCLIOptions {
 struct SynthesisCLIOptions : public BaseCLIOptions {
     int dependency_timeout;
     bool skip_unates;
+    bool merge_strategies;
     bool apply_model_checking;
     std::string model_name;
 };
