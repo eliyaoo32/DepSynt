@@ -49,7 +49,13 @@ bool parse_synthesis_cli(int argc, const char *argv[],
         "skip-unates",
         Options::bool_switch(&options.skip_unates)->default_value(false),
         "Should skip using unates to synthesise a strategy"
-        )(
+        )
+        (
+        "merge-strategies",
+        Options::bool_switch(&options.merge_strategies)->default_value(false),
+        "Should merge the independent and dependent strategies"
+        )
+        (
         "model-checking",
         Options::bool_switch(&options.apply_model_checking)->default_value(false),
         "Should apply model checking to the synthesized strategy"
@@ -68,6 +74,10 @@ bool parse_synthesis_cli(int argc, const char *argv[],
 
         if(!options.skip_unates) {
             cerr << "Currently, unates are not supported. Please use --skip-unates option" << endl;
+            return false;
+        }
+        if(!options.merge_strategies && options.apply_model_checking) {
+            cerr << "Model checking can only be applied if the strategies are merged. Please use --merge-strategies option." << endl;
             return false;
         }
 

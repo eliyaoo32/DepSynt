@@ -82,6 +82,11 @@ CMakeFiles/
 Makefile
 cmake_install.cmake
 
+# Generated Binary
+find_dependencies
+find_unates
+synthesis
+
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
 
@@ -149,4 +154,8 @@ assets/
 config.h
 experiments/
 /libs/abc/libabc.so
-/tools/scripts/benchmarks
+/tasks_output
+submit_find_deps
+submit_depsynt
+submit_spot_modular
+submit_strix

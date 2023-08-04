@@ -1,12 +1,6 @@
-[submodule "tools/syfco"]
-	path = tools/syfco
-	url = https://github.com/reactive-systems/syfco.git
-[submodule "tools/benchmarks"]
-	path = tools/benchmarks
-	url = https://github.com/SYNTCOMP/benchmarks.git
-[submodule "tools/aiger-utilities"]
-	path = tools/aiger-utilities
-	url = https://github.com/arminbiere/aiger.git
 [submodule "libs/abc"]
 	path = libs/abc
 	url = https://github.com/berkeley-abc/abc.git
+[submodule "scripts/benchmarks"]
+	path = scripts/benchmarks
+	url = https://github.com/SYNTCOMP/benchmarks.git

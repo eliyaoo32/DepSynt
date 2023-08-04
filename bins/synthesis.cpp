@@ -152,11 +152,15 @@ int main(int argc, const char* argv[]) {
             dependents_strategy = dependents_synt.synthesis();
             synt_measure.end_dependents_synthesis(dependents_strategy);
 
-            synt_measure.start_merge_strategies();
-            final_strategy = merge_strategies(
-                indep_strategy, dependents_strategy, input_vars,
-                independent_variables, dependent_variables, gi.dict, options.model_name);
-            synt_measure.end_merge_strategies(final_strategy);
+            if(options.merge_strategies) {
+                synt_measure.start_merge_strategies();
+                final_strategy = merge_strategies(
+                        indep_strategy, dependents_strategy, input_vars,
+                        independent_variables, dependent_variables, gi.dict, options.model_name);
+                synt_measure.end_merge_strategies(final_strategy);
+            } else {
+                final_strategy = indep_strategy;
+            }
         } else {
             final_strategy = indep_strategy;
 
