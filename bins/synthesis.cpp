@@ -85,6 +85,7 @@ int main(int argc, const char* argv[]) {
 
         if (skip_dependencies) {
             verbose << "=> Skipping finding and ejecting dependencies" << endl;
+            independent_variables = synt_instance.get_output_vars();
         } else {
             FindDepsByAutomaton automaton_dependencies(synt_instance, synt_measure,
                                                        nba, false);
