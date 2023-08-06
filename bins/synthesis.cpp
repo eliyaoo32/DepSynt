@@ -122,17 +122,18 @@ int main(int argc, const char* argv[]) {
         nba_without_deps = nba;
 
         // Synthesis the independent variables
-        vector<string> indep_outs = !found_dependencies
-                                   ? synt_instance.get_output_vars()
-                                   : independent_variables;
+        spot::aig_ptr indeps_strategy = nullptr;
+        if(!independent_variables.empty()) {
+            vector<string> indep_outs = !found_dependencies
+                            ? synt_instance.get_output_vars()
+                            : independent_variables;
+            synt_measure.start_independents_synthesis();
+            indeps_strategy = synthesis_nba_to_aiger(gi, nba_without_deps, indep_outs, input_vars, verbose);
+            synt_measure.end_independents_synthesis(indeps_strategy);
+        }
 
-        synt_measure.start_independents_synthesis();
-        spot::aig_ptr indep_strategy =
-            synthesis_nba_to_aiger(gi, nba_without_deps, indep_outs, input_vars, verbose);
-        synt_measure.end_independents_synthesis(indep_strategy);
-
-
-        if (indep_strategy == nullptr) {
+        // Check Realizability
+        if(!independent_variables.empty() && indeps_strategy == nullptr) {
             cout << "UNREALIZABLE" << endl;
             synt_measure.completed();
 
@@ -141,39 +142,39 @@ int main(int argc, const char* argv[]) {
             return EXIT_SUCCESS;
         }
 
-        // Synthesis the dependent variables
-        spot::aig_ptr final_strategy, dependents_strategy;
-
-        if (found_dependencies) {
+        // Synthesis the dependents variables
+        spot::aig_ptr deps_strategy = nullptr;
+        if(!dependent_variables.empty()) {
             synt_measure.start_dependents_synthesis();
             DependentsSynthesiser dependents_synt(nba_without_deps, nba_with_deps,
                                                   input_vars, independent_variables,
                                                   dependent_variables, bdd_to_bdd_without_deps);
-            dependents_strategy = dependents_synt.synthesis();
-            synt_measure.end_dependents_synthesis(dependents_strategy);
-
-            if(options.merge_strategies) {
-                synt_measure.start_merge_strategies();
-                final_strategy = merge_strategies(
-                        indep_strategy, dependents_strategy, input_vars,
-                        independent_variables, dependent_variables, gi.dict, options.model_name);
-                synt_measure.end_merge_strategies(final_strategy);
-            } else {
-                final_strategy = indep_strategy;
-            }
-        } else {
-            final_strategy = indep_strategy;
-
-            if (skip_dependencies) {
-                verbose << "=> Skipping synthesis dependent variables" << endl;
-            } else {
-                verbose << "=> No dependent variables found." << endl;
-            }
+            deps_strategy = dependents_synt.synthesis();
+            synt_measure.end_dependents_synthesis(deps_strategy);
         }
 
-        spot::print_aiger(std::cout, final_strategy) << '\n';
+        // Merge strategies
+        spot::aig_ptr final_strategy = nullptr;
+        if(options.merge_strategies) {
+            synt_measure.start_merge_strategies();
+            final_strategy = merge_strategies(
+                    indeps_strategy, deps_strategy, input_vars,
+                    independent_variables, dependent_variables, gi.dict, options.model_name);
+            synt_measure.end_merge_strategies(final_strategy);
+        }
 
+        // Print the strategy
+        if(final_strategy != nullptr) {
+            spot::print_aiger(std::cout, final_strategy) << '\n';
+        } else if(indeps_strategy != nullptr) {
+            spot::print_aiger(std::cout, indeps_strategy) << '\n';
+        } else if(deps_strategy != nullptr) {
+            spot::print_aiger(std::cout, deps_strategy) << '\n';
+        } else {
+            throw std::runtime_error("No strategy was found");
+        }
         if (options.apply_model_checking) {
+            assert(final_strategy != nullptr && "Model checking is only supported when merging strategies");
             synt_measure.start_model_checking();
 
             spot::translator trans(gi.dict, &gi.opt);
@@ -193,7 +194,6 @@ int main(int argc, const char* argv[]) {
 
             synt_measure.end_model_checking(model_checking_ok ? "OK" : "Error");
         }
-
         // Print Measures
         synt_measure.completed();
         dump_measures(synt_measure, options);
