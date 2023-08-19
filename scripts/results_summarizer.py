@@ -365,11 +365,7 @@ def should_benchmark_be_included(summary: BaseBenchmark):
     return True
 
 
-def main():
-    args = parser.parse_args()
-    results_path = args.result_path
-    benchmarks_path = args.benchmarks_path
-
+def list_benchmarks(results_path, benchmarks_path, target_tool):
     if not os.path.exists(results_path):
         print("Error: find deps path does not exist")
         exit(1)
@@ -385,22 +381,37 @@ def main():
         exit(1)
     print("Found {} benchmarks".format(len(benchmarks)))
 
-    summary = []
+    listed_benchmarks = []
     for benchmark_path in benchmarks:
-        if args.tool == 'find_deps':
+        if target_tool == 'find_deps':
             benchmark = load_find_deps(results_path, benchmark_path)
-        elif args.tool == 'depsynt':
+        elif target_tool == 'depsynt':
             benchmark = load_depsynt(results_path, benchmark_path)
-        elif args.tool == 'strix':
+        elif target_tool == 'strix':
             benchmark = load_strix(results_path, benchmark_path)
         else:
             print("Error: unknown tool")
             exit(1)
 
         if benchmark is not None and should_benchmark_be_included(benchmark):
-            summary.append(benchmark.summary())
+            listed_benchmarks.append(benchmark)
+
+    return listed_benchmarks
+
+
+def main():
+    args = parser.parse_args()
+    results_path = args.result_path
+    benchmarks_path = args.benchmarks_path
+    target_tool = args.tool
+
+    listed_benchmarks = list_benchmarks(results_path, benchmarks_path, target_tool)
 
     # Write summary to CSV
+    summary = [
+        x.summary()
+        for x in listed_benchmarks
+    ]
     with open(args.summary_output, 'w+', newline='') as output_file:
         keys = summary[0].keys()
         dict_writer = csv.DictWriter(output_file, keys)
