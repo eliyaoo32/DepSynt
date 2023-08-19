@@ -17,7 +17,8 @@ This tool uses the following 3rd parties:
 - [Syfco](https://github.com/reactive-systems/syfco) - A tool for converting from TLSF files to LTL formulas.
 - [Taskfile](https://taskfile.dev/) - Simple task runner.
 - Model checking was done with [combine_aiger](https://github.com/reactive-systems/aiger-ltl-model-checker).
-- The tool was applied on the [SYNTCOMP](https://github.com/SYNTCOMP/benchmarks) benchmarks.
+  - The tool was applied on the [SYNTCOMP](https://github.com/SYNTCOMP/benchmarks) benchmarks.
+- [MKPlot](https://github.com/alexeyignatiev/mkplot.git) - Python script to generate Cactus plots.
 
 # Build & Usage Instruction
 1) Fetch the used submodules:
