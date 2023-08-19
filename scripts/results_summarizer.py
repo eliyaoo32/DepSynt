@@ -357,7 +357,7 @@ def load_depsynt(results_path, text_file_path):
     return benchmark
 
 
-def should_summary_be_included(summary: BaseBenchmark):
+def should_benchmark_be_included(summary: BaseBenchmark):
     # if has no output variable then skip
     if len(summary.output_vars) == 0:
         return False
@@ -397,11 +397,8 @@ def main():
             print("Error: unknown tool")
             exit(1)
 
-        if benchmark is not None:
+        if benchmark is not None and should_benchmark_be_included(benchmark):
             summary.append(benchmark.summary())
-
-    # Filter Benchmark
-    summary = [s for s in summary if should_summary_be_included(s)]
 
     # Write summary to CSV
     with open(args.summary_output, 'w+', newline='') as output_file:

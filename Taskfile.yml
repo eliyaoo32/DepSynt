@@ -122,8 +122,6 @@ tasks:
       Benchmarks may be skipped since it wasn't defined in the families of benchmarks to run on.
       The script `remove_skipped_synt.sh` removes the results of the synthesis that were skipped.
       The script takes as an argument the path to the results directory.
-    vars:
-      CLEAN_PATH:
     cmds:
       - chmod +x ./scripts/remove_skipped_synt.sh
       - ./scripts/remove_skipped_synt.sh {{.CLEAN_PATH}}
