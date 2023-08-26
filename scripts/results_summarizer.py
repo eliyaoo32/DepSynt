@@ -19,6 +19,37 @@ parser.add_argument("--tool", type=str, choices=['find_deps','depsynt','strix'])
 
 
 @dataclass
+class NBABDDSummary:
+    avg_bdd_size: Optional[int] = None
+    max_bdd_size: Optional[int] = None
+    min_bdd_size: Optional[int] = None
+    total_bdds: Optional[int] = None
+    total_bdds_size_not_repeated: Optional[int] = None
+    total_bdds_size_repeated: Optional[int] = None
+
+    def summary(self):
+        return {
+            'Average BDD Size': self.avg_bdd_size,
+            'Max BDD Size': self.max_bdd_size,
+            'Min BDD Size': self.min_bdd_size,
+            'Total BDDs Instances': self.total_bdds,
+            'Total BDDs Size (Not Repeated)': self.total_bdds_size_not_repeated,
+            'Total BDDs Size (Repeated)': self.total_bdds_size_repeated,
+        }
+
+    @staticmethod
+    def load_object(obj):
+        summary = NBABDDSummary()
+        summary.avg_bdd_size = obj.get('avg_bdd_size', None)
+        summary.max_bdd_size = obj.get('max_bdd_size', None)
+        summary.min_bdd_size = obj.get('min_bdd_size', None)
+        summary.total_bdds = obj.get('total_bdds', None)
+        summary.total_bdds_size_not_repeated = obj.get('total_bdds_size_not_repeated', None)
+        summary.total_bdds_size_repeated = obj.get('total_bdds_size_repeated', None)
+        return summary
+
+
+@dataclass
 class BaseBenchmark:
     benchmark_id: str = ""
     benchmark_name: str = ""
@@ -200,6 +231,9 @@ class DepSyntBenchmark(FindDepsBenchmark):
     merge_strategies_duration: Optional[float] = None
     strategies_synthesis_duration: Optional[float] = None
 
+    projected_bdd_summary: Optional[NBABDDSummary] = None
+    origin_bdd_summary: Optional[NBABDDSummary] = None
+
     def __init__(self):
         super().__init__()
 
@@ -214,6 +248,16 @@ class DepSyntBenchmark(FindDepsBenchmark):
         self.merge_strategies_duration = data['synthesis'].get('merge_strategies_duration', None)
         self.strategies_synthesis_duration = self.independents_synthesis_duration + self.dependents_synthesis_duration
 
+        # BDD Summary
+        origin_bdd_summary = data['bdd_summary'].get('origin_nba', None)
+        projected_bdd_summary = data['bdd_summary'].get('projected_nba', None)
+
+        if origin_bdd_summary is not None:
+            self.origin_bdd_summary = NBABDDSummary.load_object(origin_bdd_summary)
+
+        if projected_bdd_summary is not None:
+            self.projected_bdd_summary = NBABDDSummary.load_object(projected_bdd_summary)
+
     def summary(self):
         summary = super().summary()
         summary.update({
@@ -224,6 +268,23 @@ class DepSyntBenchmark(FindDepsBenchmark):
             'Merge Strategies Duration': self.merge_strategies_duration,
             'Synthesis Duration': self.strategies_synthesis_duration,
         })
+
+        if self.projected_bdd_summary is not None:
+            projected_bdd_summary = self.projected_bdd_summary.summary()
+            projected_bdd_summary = {
+                "Projected " + key: value
+                for key, value in projected_bdd_summary.items()
+            }
+            summary.update(projected_bdd_summary)
+
+        if self.origin_bdd_summary is not None:
+            origin_bdd_summary = self.origin_bdd_summary.summary()
+            origin_bdd_summary = {
+                "Origin " + key: value
+                for key, value in origin_bdd_summary.items()
+            }
+            summary.update(origin_bdd_summary)
+
         return summary
 
 
