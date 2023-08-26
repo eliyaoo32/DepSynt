@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "synt_instance.h"
+#include "bdd_utils.h"
 #include "utils.h"
 #include "unate_utils.h"
 
@@ -50,12 +51,16 @@ private:
     uint m_total_prune_automaton_states;
     int m_total_automaton_edges;
 
+    // BDD Measure
+    NBABDDSummary m_origin_nba_bdd_summary;
+
     // Generic data
     TimeMeasure m_total_time;
     SyntInstance &m_synt_instance;
     bool m_is_completed;
 
 protected:
+    bool m_measure_bdd;
     virtual void get_json_object(json::object &obj) const;
 
 public:
@@ -65,9 +70,12 @@ public:
               m_total_automaton_states(-1),
               m_total_prune_automaton_states(-1),
               m_total_automaton_edges(-1),
-              m_is_completed(false) {
+              m_is_completed(false),
+              m_measure_bdd(false) {
         m_total_time.start();
     }
+
+    void set_measure_bdd(bool measure_bdd) { m_measure_bdd = measure_bdd; }
 
     void start_automaton_construct() { m_aut_construct_time.start(); }
 
@@ -153,6 +161,7 @@ private:
     AigerDescription m_independent_strategy;
     AigerDescription m_dependent_strategy;
     AigerDescription m_final_strategy;
+    NBABDDSummary m_projected_nba_bdd_summary;
 
     string m_independents_realizable;
     string m_model_checking_status;
@@ -175,7 +184,15 @@ public:
 
     void start_remove_dependent_ap() { m_remove_dependent_ap.start(); }
 
-    void end_remove_dependent_ap() { m_remove_dependent_ap.end(); }
+    void end_remove_dependent_ap() {
+        m_remove_dependent_ap.end();
+    }
+
+    void end_remove_dependent_ap(spot::twa_graph_ptr& projected_automaton) {
+        m_remove_dependent_ap.end();
+        assert(m_measure_bdd && "Measure BDD on projected automaton only if \"m_measure_bdd\" projected");
+        extract_nba_bdd_summary(m_projected_nba_bdd_summary, projected_automaton);
+    }
 
     void start_clone_nba_with_deps() { m_clone_nba_with_deps.start(); }
 

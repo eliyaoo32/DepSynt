@@ -37,3 +37,39 @@ bool can_restrict_variable(bdd& bd, int variable, bool restriction_value) {
 
     return bdd_and(bd, var_bdd) != bddfalse;
 }
+
+void extract_nba_bdd_summary(NBABDDSummary& summary, spot::twa_graph_ptr& nba) {
+    std::unordered_map<int, int> bdd_to_size;
+    std::unordered_map<int, int> bdd_to_count;
+
+    for (int i = 0; i < nba->num_states(); i++) {
+        for (auto& edge : nba->out(i)) {
+            int bdd_id = edge.cond.id();
+            if (bdd_to_size.find(bdd_id) == bdd_to_size.end()) {
+                bdd_to_size[bdd_id] = bdd_nodecount(bdd_id);
+                bdd_to_count[bdd_id] = 1;
+            } else {
+                bdd_to_count[bdd_id]++;
+            }
+        }
+    }
+
+    summary.total_bdds = static_cast<int>(bdd_to_size.size());
+    summary.total_bdds_size_repeated = 0;
+    summary.total_bdds_size_not_repeated = 0;
+    summary.min_bdd_size = std::numeric_limits<int>::max();
+    summary.max_bdd_size = std::numeric_limits<int>::min();
+    summary.avg_bdd_size = 0;
+
+    for (auto& bdd_size : bdd_to_size) {
+        int bdd_id = bdd_size.first;
+        int bdd_count = bdd_to_count[bdd_id];
+        summary.total_bdds_size_repeated += bdd_size.second * bdd_count;
+        summary.total_bdds_size_not_repeated += bdd_size.second;
+        summary.min_bdd_size = std::min(summary.min_bdd_size, bdd_size.second);
+        summary.max_bdd_size = std::max(summary.max_bdd_size, bdd_size.second);
+    }
+
+    summary.avg_bdd_size =
+        summary.total_bdds_size_not_repeated / summary.total_bdds;
+}
