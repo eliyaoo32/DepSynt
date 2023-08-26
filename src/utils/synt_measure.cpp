@@ -93,6 +93,14 @@ void BaseMeasures::get_json_object(json::object& obj) const {
 
     obj.emplace("automaton", automaton);
 
+    json::object bdd_obj;
+    if(m_measure_bdd) {
+        json::object obj_origin_nba_bdd_summary;
+        nba_bdd_summary_obj(obj_origin_nba_bdd_summary,
+                            m_origin_nba_bdd_summary);
+        bdd_obj.emplace("origin_nba", obj_origin_nba_bdd_summary);
+    }
+    obj.emplace("bdd_summary", bdd_obj);
 }
 
 
@@ -247,6 +255,16 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
     synthesis_process_obj.emplace("dependent_strategy", dependent_strategy_obj);
 
     obj.emplace("synthesis", synthesis_process_obj);
+
+
+    // Update bdd summary
+    if(m_measure_bdd) {
+        json::object& bdd_summary = obj["bdd_summary"].as_object();
+        bdd_summary.emplace("projected_nba", json::object());
+
+        nba_bdd_summary_obj(bdd_summary["projected_nba"].as_object(),
+                            m_projected_nba_bdd_summary);
+    }
 }
 
 ostream& operator<<(ostream& os, const BaseMeasures& sm) {

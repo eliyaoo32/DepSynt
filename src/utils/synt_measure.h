@@ -184,14 +184,11 @@ public:
 
     void start_remove_dependent_ap() { m_remove_dependent_ap.start(); }
 
-    void end_remove_dependent_ap() {
-        m_remove_dependent_ap.end();
-    }
-
     void end_remove_dependent_ap(spot::twa_graph_ptr& projected_automaton) {
         m_remove_dependent_ap.end();
-        assert(m_measure_bdd && "Measure BDD on projected automaton only if \"m_measure_bdd\" projected");
-        extract_nba_bdd_summary(m_projected_nba_bdd_summary, projected_automaton);
+        if(m_measure_bdd) {
+            extract_nba_bdd_summary(m_projected_nba_bdd_summary, projected_automaton);
+        }
     }
 
     void start_clone_nba_with_deps() { m_clone_nba_with_deps.start(); }

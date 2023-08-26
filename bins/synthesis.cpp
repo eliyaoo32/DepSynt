@@ -51,6 +51,7 @@ int main(int argc, const char* argv[]) {
     g_synt_measure =
         new SynthesisMeasure(synt_instance, skip_dependencies, options.skip_unates);
     SynthesisMeasure& synt_measure = *g_synt_measure;
+    synt_measure.set_measure_bdd(options.measure_bdd);
 
     signal(SIGINT, on_sighup);
     signal(SIGTERM, on_sighup);
@@ -118,7 +119,7 @@ int main(int argc, const char* argv[]) {
         if (found_dependencies) {
             synt_measure.start_remove_dependent_ap();
             remove_ap_from_automaton(nba, dependent_variables, bdd_to_bdd_without_deps);
-            synt_measure.end_remove_dependent_ap();
+            synt_measure.end_remove_dependent_ap(nba);
         }
         nba_without_deps = nba;
 
