@@ -24,6 +24,17 @@ class BDDVarsCacher {
     int get_prime_variable_index(std::string& variable_name);
 };
 
+struct NBABDDSummary {
+    int total_bdds_size_repeated;       // The same BDD is counted as many times as it is used
+    int total_bdds_size_not_repeated;   // If the same BDD is used more than once, it is counted only once
+    int total_bdds;         // Total number of unique BDDs used
+    int min_bdd_size;       // The smallest BDD size used
+    int max_bdd_size;       // The smallest BDD size used
+    int avg_bdd_size;       // The smallest BDD size used
+};
+
+void extract_nba_bdd_summary(NBABDDSummary& summary, spot::twa_graph_ptr& nba);
+
 /* Due to bug in BuDDY where restricting variable is not working if this is the only
  * variable left, this workaround is used. */
 bool can_restrict_variable(bdd& bd, int variable, bool restriction_value);

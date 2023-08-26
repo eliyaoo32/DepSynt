@@ -9,7 +9,7 @@
 #include <vector>
 #include <atomic>
 
-#include "bdd_var_cacher.h"
+#include "bdd_utils.h"
 #include "synt_instance.h"
 #include "synt_measure.h"
 

@@ -59,6 +59,10 @@ bool parse_synthesis_cli(int argc, const char *argv[],
         "model-checking",
         Options::bool_switch(&options.apply_model_checking)->default_value(false),
         "Should apply model checking to the synthesized strategy"
+        )(
+        "measure-bdd",
+        Options::bool_switch(&options.measure_bdd)->default_value(false),
+        "Should measure the BDD size of NBAs"
         );
 
     try {

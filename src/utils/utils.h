@@ -35,6 +35,7 @@ struct SynthesisCLIOptions : public BaseCLIOptions {
     bool skip_unates;
     bool merge_strategies;
     bool apply_model_checking;
+    bool measure_bdd;
     std::string model_name;
 };
 

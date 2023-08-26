@@ -10,6 +10,15 @@ void aiger_description_obj(json::object& obj, const AigerDescription& descriptio
     obj.emplace("total_gates", description.gates);
 }
 
+void nba_bdd_summary_obj(json::object& obj, const NBABDDSummary& sum) {
+    obj.emplace("avg_bdd_size", sum.avg_bdd_size);
+    obj.emplace("max_bdd_size", sum.max_bdd_size);
+    obj.emplace("min_bdd_size", sum.min_bdd_size);
+    obj.emplace("total_bdds", sum.total_bdds);
+    obj.emplace("total_bdds_size_not_repeated", sum.total_bdds_size_not_repeated);
+    obj.emplace("total_bdds_size_repeated", sum.total_bdds_size_repeated);
+}
+
 void extract_aiger_description(AigerDescription& description_dst,
                                spot::aig_ptr& aiger) {
     description_dst.gates = aiger->num_gates();
@@ -84,6 +93,14 @@ void BaseMeasures::get_json_object(json::object& obj) const {
 
     obj.emplace("automaton", automaton);
 
+    json::object bdd_obj;
+    if(m_measure_bdd) {
+        json::object obj_origin_nba_bdd_summary;
+        nba_bdd_summary_obj(obj_origin_nba_bdd_summary,
+                            m_origin_nba_bdd_summary);
+        bdd_obj.emplace("origin_nba", obj_origin_nba_bdd_summary);
+    }
+    obj.emplace("bdd_summary", bdd_obj);
 }
 
 
@@ -145,6 +162,10 @@ void BaseMeasures::end_prune_automaton(
             : (pruned_automaton->prop_state_acc().is_false() ? "false" : "maybe");
 
     m_total_automaton_edges = count_edges(pruned_automaton);
+
+    if(m_measure_bdd) {
+        extract_nba_bdd_summary(m_origin_nba_bdd_summary, pruned_automaton);
+    }
 }
 
 void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
@@ -234,6 +255,16 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
     synthesis_process_obj.emplace("dependent_strategy", dependent_strategy_obj);
 
     obj.emplace("synthesis", synthesis_process_obj);
+
+
+    // Update bdd summary
+    if(m_measure_bdd) {
+        json::object& bdd_summary = obj["bdd_summary"].as_object();
+        bdd_summary.emplace("projected_nba", json::object());
+
+        nba_bdd_summary_obj(bdd_summary["projected_nba"].as_object(),
+                            m_projected_nba_bdd_summary);
+    }
 }
 
 ostream& operator<<(ostream& os, const BaseMeasures& sm) {
