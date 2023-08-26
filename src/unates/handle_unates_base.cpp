@@ -1,6 +1,6 @@
 #include "nba_utils.h"
 #include "handle_unates_base.h"
-#include "bdd_var_cacher.h"
+#include "bdd_utils.h"
 
 
 void HandleUnatesBase::run() {

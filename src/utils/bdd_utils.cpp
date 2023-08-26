@@ -1,4 +1,4 @@
-#include "bdd_var_cacher.h"
+#include "bdd_utils.h"
 
 #include <spot/tl/parse.hh>
 #include <spot/twaalgos/translate.hh>
