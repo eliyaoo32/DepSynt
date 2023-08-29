@@ -57,6 +57,15 @@ int main(int argc, const char* argv[]) {
     signal(SIGTERM, on_sighup);
     signal(SIGHUP, on_sighup);
 
+    if(synt_instance.get_output_vars().empty()) {
+        cout << "UNKNOWN (No Output)" << endl;
+        synt_measure.completed();
+
+        dump_measures(synt_measure, options);
+
+        return EXIT_SUCCESS;
+    }
+
     try {
         // Get NBA for synthesis
         spot::twa_graph_ptr nba = get_nba_for_synthesis(

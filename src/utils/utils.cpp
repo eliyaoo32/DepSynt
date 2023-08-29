@@ -14,10 +14,10 @@ void parse_cli_common(BaseCLIOptions &options, Options::options_description &des
     desc.add_options()("formula,f",
                        Options::value<string>(&options.formula)->required(),
                        "LTL formula")(
-        "output,o", Options::value<string>(&options.outputs)->required(),
+        "output,o", Options::value<string>(&options.outputs)->default_value(""),
 
         "Output variables")("input,i",
-                            Options::value<string>(&options.inputs)->required(),
+                            Options::value<string>(&options.inputs)->default_value(""),
                             "Input variables")(
         "verbose,v", Options::bool_switch(&options.verbose), "Verbose messages")(
         "measures-path",
@@ -192,6 +192,10 @@ ostream &operator<<(ostream &out, const vector<string> &vec) {
 }
 
 void extract_variables(const std::string &str, std::vector<std::string> &dst) {
+    if(str.empty()) {
+        return;
+    }
+
     boost::split(dst, str, boost::is_any_of(","));
 }
 
