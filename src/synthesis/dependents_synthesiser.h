@@ -21,6 +21,7 @@ using namespace spot;
 using namespace std;
 
 class DependentsSynthesiser {
+    enum Realizability { REALIZABLE, UNREALIZABLE, UNKNOWN };
    private:
     spot::twa_graph_ptr m_nba_without_deps;
     spot::twa_graph_ptr m_nba_with_deps;
@@ -33,6 +34,8 @@ class DependentsSynthesiser {
     unordered_set<BDDVar> deps_bdd_vars;
     unordered_map<string, Gate> partial_impl_cache;
     unordered_map<int, bdd>& m_bdd_to_bdd_without_deps;
+
+    Realizability m_is_realizable;
 
     void init_aiger();
 
@@ -61,17 +64,26 @@ class DependentsSynthesiser {
           m_input_vars(input_vars),
           m_indep_vars(indep_vars),
           m_bdd_to_bdd_without_deps(bdd_to_bdd_without_deps),
+          m_is_realizable(Realizability::UNKNOWN),
           m_dep_vars(dep_vars){};
+
+    Realizability is_realizable() {
+        return m_is_realizable;
+    }
 
     spot::aig_ptr synthesis() {
         assert(m_nba_with_deps->num_states() == m_nba_without_deps->num_states());
         assert(m_nba_with_deps->get_dict() == m_nba_without_deps->get_dict());
         assert(!m_dep_vars.empty() && "Dep Vars must be non-empty");
 
+
         init_aiger();
         define_next_latches();
         define_output_gates();
 
+        if(m_is_realizable == Realizability::UNREALIZABLE) {
+            return nullptr;
+        }
         return m_aiger;
     }
 };

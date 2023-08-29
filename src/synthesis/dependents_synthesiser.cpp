@@ -90,6 +90,8 @@ void DependentsSynthesiser::define_next_latches() {
 }
 
 void DependentsSynthesiser::define_output_gates() {
+    m_is_realizable = Realizability::REALIZABLE;
+
     for (unsigned dep_idx = 0; dep_idx < m_dep_vars.size(); dep_idx++) {
         string& dep_var = m_dep_vars[dep_idx];
         vector<Gate> dependent_conds;
@@ -111,6 +113,11 @@ void DependentsSynthesiser::define_output_gates() {
             }
         }
 
+        if(dependent_conds.empty()) {
+            // Unrealizable
+            m_is_realizable = Realizability::UNREALIZABLE;
+            return;
+        }
         m_aiger->set_output(dep_idx, m_aiger->aig_or(dependent_conds));
     }
 }

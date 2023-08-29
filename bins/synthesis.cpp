@@ -134,7 +134,7 @@ int main(int argc, const char* argv[]) {
             synt_measure.end_independents_synthesis(indeps_strategy);
         }
 
-        // Check Realizability
+        // Check Realizability of independent variables
         if(!independent_variables.empty() && indeps_strategy == nullptr) {
             cout << "UNREALIZABLE" << endl;
             synt_measure.completed();
@@ -153,6 +153,16 @@ int main(int argc, const char* argv[]) {
                                                   dependent_variables, bdd_to_bdd_without_deps);
             deps_strategy = dependents_synt.synthesis();
             synt_measure.end_dependents_synthesis(deps_strategy);
+        }
+
+        // Check Realizability of dependent variables
+        if(!dependent_variables.empty() && deps_strategy == nullptr) {
+            cout << "UNREALIZABLE" << endl;
+            synt_measure.completed();
+
+            dump_measures(synt_measure, options);
+
+            return EXIT_SUCCESS;
         }
 
         // Merge strategies
