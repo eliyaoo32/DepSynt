@@ -25,5 +25,12 @@ if [[ ! " ${allowed_family[@]} " =~ " ${benchmark_family} " ]]; then
     exit 1
 fi
 
+cmd_string="$CLI_TOOL --formula=\"$formula\" --model-name=\"$benchmark_name\" --dependency-timeout=$DEPENDENCY_TIMEOUT --skip-unates"
+if [[ -n "$inputs_var" ]]; then
+    cmd_string="$cmd_string --input=\"$inputs_var\""
+fi
+if [[ -n "$outputs_var" ]]; then
+    cmd_string="$cmd_string --output=\"$outputs_var\""
+fi
 
-srun bash -c "{ time timeout $TOTAL_TIMEOUT $CLI_TOOL --formula=\"$formula\" --input=\"$inputs_var\" --output=\"$outputs_var\" --model-name=\"$benchmark_name\" --dependency-timeout=$DEPENDENCY_TIMEOUT --skip-unates; }"
+srun bash -c "{ time timeout $TOTAL_TIMEOUT $cmd_string; }"
