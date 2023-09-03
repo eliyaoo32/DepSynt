@@ -1,7 +1,7 @@
 import csv
 import json
 import os.path
-
+import shutil
 
 TOOLS = [
     'strix',
@@ -57,7 +57,7 @@ def create_cactus_file():
     command :  python ./scripts/mkplot/mkplot.py -b png --save-to cactus.png ./tasks_output/tmp_cactus/*.json
     :return:
     """
-    pass
+    os.system("python ./scripts/mkplot/mkplot.py -b png --save-to cactus.png ./tasks_output/tmp_cactus/*.json")
 
 
 # TODO: ignore instances that have 0 dependent variables
@@ -89,7 +89,9 @@ def main():
         with open(tool_json_file, 'w') as fp:
             json.dump(tool_json, fp, indent=4)
 
-    # TODO: remove tmp folder with all files
+    create_cactus_file()
+
+    shutil.rmtree(tmp_dir)
 
 
 if __name__ == '__main__':

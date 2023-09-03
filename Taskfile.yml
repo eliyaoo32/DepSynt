@@ -56,6 +56,11 @@ tasks:
       - chmod +x ./scripts/results_summarizer.py
       - ./scripts/results_summarizer.py --result-path={{.SPOT_MODULAR_RESULTS_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.SPOT_MODULAR_SUMMARY}} --tool=depsynt
 
+  cactus:
+    desc: Generate Cactus Plot from the results of the synthesis
+    cmds:
+      - python ./scripts/generate_cactus.py
+
   strix:
     cmds:
       - mkdir -p {{.STRIX_RESULTS_PATH}}
