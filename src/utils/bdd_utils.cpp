@@ -70,6 +70,8 @@ void extract_nba_bdd_summary(NBABDDSummary& summary, spot::twa_graph_ptr& nba) {
         summary.max_bdd_size = std::max(summary.max_bdd_size, bdd_size.second);
     }
 
-    summary.avg_bdd_size =
-        summary.total_bdds_size_not_repeated / summary.total_bdds;
+    if(summary.total_bdds > 0) {
+        summary.avg_bdd_size =
+                summary.total_bdds_size_not_repeated / summary.total_bdds;
+    }
 }
