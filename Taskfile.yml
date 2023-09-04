@@ -8,6 +8,7 @@ vars:
   STRIX_RESULTS_PATH: ./tasks_output/strix
   SPOT_MODULAR_RESULTS_PATH: ./tasks_output/spot_modular
   DEPSYNT_RESULTS_PATH: ./tasks_output/depsynt
+  DEPSYNT_MEASURES_RESULTS_PATH: ./tasks_output/depsynt-measures
 
   STRIX_SUMMARY: ./tasks_output/strix.csv
   DEPSYNT_SUMMARY: ./tasks_output/depsynt.csv
@@ -35,6 +36,17 @@ tasks:
       - chmod +x ./scripts/slurm_task_gen.py
       - ./scripts/slurm_task_gen.py --task=depsynt --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.DEPSYNT_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_depsynt
       - sbatch submit_depsynt
+
+  # Synthesis
+  depsynt:measure:
+    desc: Run DepSynt tool with extra measures
+    cmds:
+      - mkdir -p {{.DEPSYNT_MEASURES_RESULTS_PATH}}
+      - rm -f {{.DEPSYNT_MEASURES_RESULTS_PATH}}/*
+      - rm -f ./submit_depsynt_measures
+      - chmod +x ./scripts/slurm_task_gen.py
+      - ./scripts/slurm_task_gen.py --task=depsynt_measured --timeout={{.SYNTHESIS_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.DEPSYNT_MEASURES_RESULTS_PATH}} --families="{{.BENCHMARKS_FAMALIES}}" > submit_depsynt_measures
+      - sbatch submit_depsynt_measures
 
   depsynt:summary:
     cmds:

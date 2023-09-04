@@ -32,5 +32,8 @@ fi
 if [[ -n "$outputs_var" ]]; then
     cmd_string="$cmd_string --output=\"$outputs_var\""
 fi
+if [ -n "{{MEASURES}}" ]; then
+    cmd_string="$cmd_string  --measure-bdd"
+fi
 
 srun bash -c "{ time timeout $TOTAL_TIMEOUT $cmd_string; }"

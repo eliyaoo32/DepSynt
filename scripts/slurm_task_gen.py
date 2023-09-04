@@ -6,14 +6,14 @@ from os import path
 from pathlib import Path
 
 parser = argparse.ArgumentParser("Generate slurm tasks for finding dependency and synthesis")
-parser.add_argument("--task", type=str, required=True, choices=['find_deps', 'depsynt', 'spotmodular', 'strix'], help="Type of task to generate")
+parser.add_argument("--task", type=str, required=True, choices=['find_deps', 'depsynt', 'depsynt_measured', 'spotmodular', 'strix'], help="Type of task to generate")
 parser.add_argument("--timeout", type=str, required=True, help="Timeout for each task, for example, 60m")
 parser.add_argument("--benchmarks-path", type=str, required=True, help="Path for the benchmarks in text file")
 parser.add_argument("--output-path", type=str, required=True, help="Path for put the output files")
 parser.add_argument("--families", type=str, required=True, help="List of benchmarks families to run, separated by comma, for example, mux,adder")
 
 
-def generate_depsynt(args):
+def generate_depsynt(args, measured):
     benchmarks_path = args.benchmarks_path
     total_benchmarks = len([f for f in glob(path.join(benchmarks_path, "*.txt"))])
     task_template = Path(path.join(Path(__file__).parent.resolve(), 'depsynt_slurm_template.sh')).read_text()
@@ -28,7 +28,8 @@ def generate_depsynt(args):
         'TIMEOUT': args.timeout,
         'BENCHMARKS_DIR': benchmarks_path,
         'ALLOWED_FAMILIES': " ".join(["\""+f+"\"" for f in families]),
-        'FIND_DEP_TIMEOUT': '12000'
+        'FIND_DEP_TIMEOUT': '12000',
+        'MEASURES': 'True' if measured else ''
     }
 
     for var_name, var_value in variables.items():
@@ -118,7 +119,9 @@ def main():
     if args.task == 'find_deps':
         generate_find_deps(args)
     elif args.task == 'depsynt':
-        generate_depsynt(args)
+        generate_depsynt(args, measured=False)
+    elif args.task == 'depsynt_measured':
+        generate_depsynt(args, measured=True)
     elif args.task == 'strix':
         generate_strix(args)
     elif args.task == 'spotmodular':
