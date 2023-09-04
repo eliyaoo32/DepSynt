@@ -12,6 +12,7 @@ vars:
 
   STRIX_SUMMARY: ./tasks_output/strix.csv
   DEPSYNT_SUMMARY: ./tasks_output/depsynt.csv
+  DEPSYNT_MEASURE_SUMMARY: ./tasks_output/depsynt_measure.csv
   SPOT_MODULAR_SUMMARY: ./tasks_output/spotmodular.csv
 
   SYNTHESIS_TIMEOUT: 180m
@@ -53,6 +54,12 @@ tasks:
       - rm -f {{.DEPSYNT_SUMMARY}}
       - chmod +x ./scripts/results_summarizer.py
       - ./scripts/results_summarizer.py --result-path={{.DEPSYNT_RESULTS_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.DEPSYNT_SUMMARY}} --tool=depsynt
+
+  depsynt:measure:summary:
+    cmds:
+      - rm -f {{.DEPSYNT_MEASURE_SUMMARY}}
+      - chmod +x ./scripts/results_summarizer.py
+      - ./scripts/results_summarizer.py --result-path={{.DEPSYNT_MEASURES_RESULTS_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.DEPSYNT_MEASURE_SUMMARY}} --tool=depsynt
 
   spot_modular:
     - mkdir -p {{.SPOT_MODULAR_RESULTS_PATH}}
