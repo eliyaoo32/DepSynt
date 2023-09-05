@@ -57,9 +57,16 @@ void extract_nba_bdd_summary(NBABDDSummary& summary, spot::twa_graph_ptr& nba) {
     summary.total_bdds = static_cast<int>(bdd_to_size.size());
     summary.total_bdds_size_repeated = 0;
     summary.total_bdds_size_not_repeated = 0;
+    summary.avg_bdd_size = 0;
+
+    if(summary.total_bdds == 0) {
+        summary.min_bdd_size = 0;
+        summary.max_bdd_size = 0;
+        return;
+    }
+
     summary.min_bdd_size = std::numeric_limits<int>::max();
     summary.max_bdd_size = std::numeric_limits<int>::min();
-    summary.avg_bdd_size = 0;
 
     for (auto& bdd_size : bdd_to_size) {
         int bdd_id = bdd_size.first;
@@ -70,8 +77,5 @@ void extract_nba_bdd_summary(NBABDDSummary& summary, spot::twa_graph_ptr& nba) {
         summary.max_bdd_size = std::max(summary.max_bdd_size, bdd_size.second);
     }
 
-    if(summary.total_bdds > 0) {
-        summary.avg_bdd_size =
-                summary.total_bdds_size_not_repeated / summary.total_bdds;
-    }
+    summary.avg_bdd_size = summary.total_bdds_size_not_repeated / summary.total_bdds;
 }
