@@ -419,10 +419,6 @@ def load_depsynt(results_path, text_file_path):
 
 
 def should_benchmark_be_included(summary: BaseBenchmark):
-    # if has no output variable then skip
-    if len(summary.output_vars) == 0:
-        return False
-
     return True
 
 

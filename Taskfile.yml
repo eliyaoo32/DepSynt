@@ -95,7 +95,11 @@ tasks:
       - chmod +x ./scripts/results_summarizer.py
       - ./scripts/results_summarizer.py --result-path={{.STRIX_RESULTS_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.STRIX_SUMMARY}} --tool=strix
 
-
+  spot:summary: # Example: task spot:summary SPOT_RESULTS_PATH=./tasks_output/spot-lar SPOT_SUMMARY=./tasks_output/spot-lar.csv
+    cmds:
+      - rm -f {{.SPOT_SUMMARY}}
+      - chmod +x ./scripts/results_summarizer.py
+      - ./scripts/results_summarizer.py --result-path={{.SPOT_RESULTS_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.SPOT_SUMMARY}} --tool=strix
 
 
   # Find Dependencies
