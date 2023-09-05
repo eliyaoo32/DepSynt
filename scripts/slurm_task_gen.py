@@ -10,7 +10,7 @@ parser.add_argument("--task", type=str, required=True, choices=['find_deps', 'de
 parser.add_argument("--timeout", type=str, required=True, help="Timeout for each task, for example, 60m")
 parser.add_argument("--benchmarks-path", type=str, required=True, help="Path for the benchmarks in text file")
 parser.add_argument("--output-path", type=str, required=True, help="Path for put the output files")
-parser.add_argument("--families", type=str, required=True, help="List of benchmarks families to run, separated by comma, for example, mux,adder")
+parser.add_argument("--families", type=str, help="List of benchmarks families to run, separated by comma, for example, mux,adder")
 
 
 def generate_depsynt(args, measured):
