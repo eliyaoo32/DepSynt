@@ -76,7 +76,8 @@ class BaseBenchmark:
             self.output_vars = file.readline().strip()
 
     def summary(self):
-        total_output_vars = len(self.output_vars.split(','))
+        total_input_vars = len(self.input_vars.split(',')) if self.input_vars != "" else 0
+        total_output_vars = len(self.output_vars.split(',')) if self.output_vars != "" else 0
 
         return {
             # Benchmark Metadata
@@ -86,7 +87,7 @@ class BaseBenchmark:
             'LTL Formula': self.ltl_formula,
             'Input Variables': self.input_vars,
             'Output Variables': self.output_vars,
-            'Total Input Variables': len(self.input_vars.split(',')),
+            'Total Input Variables': total_input_vars,
             'Total Output Variables': total_output_vars,
 
             # Find Deps Information
