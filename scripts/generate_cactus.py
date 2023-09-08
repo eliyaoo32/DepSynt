@@ -25,7 +25,7 @@ def load_stats_from_csv(tool_csv_file):
                 'status': success_,
             }
             if success_:
-                stats[row['Benchmark Name']]['rtime'] = float(row['Total Duration'])
+                stats[row['Benchmark Name']]['rtime'] = float(row['Total Duration']) / 1000.0   #  In seconds
 
     return stats
 
@@ -57,7 +57,7 @@ def create_cactus_file():
     command :  python ./scripts/mkplot/mkplot.py -b png --save-to cactus.png ./tasks_output/tmp_cactus/*.json
     :return:
     """
-    os.system("python ./scripts/mkplot/mkplot.py -b png --save-to cactus.png ./tasks_output/tmp_cactus/*.json")
+    os.system("python ./scripts/mkplot/mkplot.py --ylabel=\"Time (ms)\" -t 10800 --ylog -b png --save-to cactus.png ./tasks_output/tmp_cactus/*.json")
 
 
 # TODO: ignore instances that have 0 dependent variables
