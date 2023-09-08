@@ -1,4 +1,37 @@
-<html>
-<head></head>
-<body>Hello</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DepSynt - Dependency in LTL</title>
+
+    <!--  Loading bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./style.css" />
+
+</head>
+<body>
+<div class="container">
+    <h1>DepSynt</h1>
+
+    <p>DepSynt is a tool for dependent variables in Linear Temporal Logic (LTL), including: Finding Dependent variables, Synthesis exploiting dependency.</p>
+
+    <h2 id="dependencies">Dependencies</h2>
+    <p>DepSynt uses open source formal methods projects.</p>
+    <ul>
+        <li>
+            <b><a href="https://spot.lrde.epita.fr/" target="_blank">Spot</a></b>: for managing Automatons, LTL formulas and Synthesis.
+        </li>
+        <li>
+            <b><a href="https://people.eecs.berkeley.edu/~alanmi/abc/" target="_blank">ABC</a></b>: For advanced operations on AIGs.
+        </li>
+        <li>
+            <b><a href="https://github.com/arminbiere/aiger" target="_blank">AIGER</a></b>: For converting AIGs to other formats (such as, AIG to BLIF, ASCII AIG to Binary AIG, etc...).
+        </li>
+    </ul>
+</div>
+</body>
 </html>
