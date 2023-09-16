@@ -25,4 +25,4 @@ if [[ ! " ${allowed_family[@]} " =~ " ${benchmark_family} " ]]; then
 fi
 
 
-srun bash -c "{ time timeout $TOTAL_TIMEOUT $CLI_TOOL -f \"$formula\" --ins=\"$inputs_var\" --outs=\"$outputs_var\" -o aag -e bfs --solver zlk; }"
+srun bash -c "{ time timeout $TOTAL_TIMEOUT $CLI_TOOL -f \"$formula\" --ins=\"$inputs_var\" --outs=\"$outputs_var\" -o aag; }"
