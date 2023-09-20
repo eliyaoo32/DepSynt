@@ -1,3 +1,6 @@
+import pathlib
+
+from .results_summarizer import load_find_deps
 import csv
 import json
 import os.path
@@ -13,6 +16,16 @@ TOOLS = [
 ]
 
 
+def should_include_row(row):
+    benchmark_id = row['Benchmark Id']
+    find_deps_results = os.path.join(pathlib.Path(__file__).parent.resolve(), "../tasks_output/find_deps")
+    benchmark_file = os.path.join(pathlib.Path(__file__).parent.resolve(), "../tasks_output/generated_benchmarks/text/"+benchmark_id+".txt")
+    find_deps_summary = load_find_deps(find_deps_results, benchmark_file)
+
+    total_dependent_vars = len(find_deps_summary.dependent_variables)
+    return total_dependent_vars > 0
+
+
 def load_stats_from_csv(tool_csv_file):
     stats = {}
 
@@ -20,6 +33,9 @@ def load_stats_from_csv(tool_csv_file):
         reader = csv.DictReader(fp)
         rows = list(reader)
         for row in rows:
+            if not should_include_row(row):
+                print("Skipping row: " + row['Benchmark Id'])
+                continue
             success_ = row['Status'] == 'Success'
             stats[row['Benchmark Name']] = {
                 'status': success_,

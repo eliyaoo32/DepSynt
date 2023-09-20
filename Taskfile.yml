@@ -78,7 +78,7 @@ tasks:
   cactus:
     desc: Generate Cactus Plot from the results of the synthesis
     cmds:
-      - python ./scripts/generate_cactus.py
+      - python -m scripts.generate_cactus
 
   strix:
     cmds:
