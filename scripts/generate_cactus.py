@@ -41,7 +41,10 @@ def load_stats_from_csv(tool_csv_file):
                 'status': success_,
             }
             if success_:
-                stats[row['Benchmark Name']]['rtime'] = float(row['Total Duration']) / 1000.0   #  In seconds
+                rtime = float(row['Total Duration']) / 1000.0  # In seconds
+                if rtime < 0.0001:
+                    rtime = 0.0001
+                stats[row['Benchmark Name']]['rtime'] = rtime
 
     return stats
 
@@ -56,6 +59,9 @@ def get_current_dir():
 
 def load_tool_json(tool_csv_file):
     stats = load_stats_from_csv(tool_csv_file)
+    if len(stats.keys()) == 0:
+        raise Exception('No stats found ' + tool_csv_file)
+
     tool_name = get_filename(tool_csv_file)
     return {
         'preamble': {
@@ -73,7 +79,7 @@ def create_cactus_file():
     command :  python ./scripts/mkplot/mkplot.py -b png --save-to cactus.png ./tasks_output/tmp_cactus/*.json
     :return:
     """
-    os.system("python ./scripts/mkplot/mkplot.py --ylabel=\"Time (ms)\" -t 10800 --ylog -b png --save-to cactus.png ./tasks_output/tmp_cactus/*.json")
+    os.system("python ./scripts/mkplot/mkplot.py --ylabel=\"Time (seconds)\" --ymin 0.0001 -t 10800 --ylog -b png --save-to cactus.png ./tasks_output/tmp_cactus/*.json")
 
 
 # TODO: ignore instances that have 0 dependent variables
