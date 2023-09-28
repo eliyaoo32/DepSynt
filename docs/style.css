@@ -1,3 +1,13 @@
 body {
     background: #ddd;
 }
+#csv-table td, #csv-table th {
+    max-width: 150px !important; /* Set maximum width */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#csv-table tbody tr {
+    height: 50px; /* Set maximum height */
+}
