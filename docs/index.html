@@ -12,6 +12,47 @@
 
     <link rel="stylesheet" href="./style.css" />
 
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- Include DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+    <!-- Load Experiment Results -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script>
+        function loadCSV(csvFile, title) {
+            var titleElement = $('#csv-table-container h4');
+            reconstructTable();
+            titleElement.text('Loading '+title+'...');
+
+            Papa.parse(csvFile, {
+                download: true,
+                header: true,
+                skipEmptyLines: true,
+                complete: function(results) {
+                    var csvData = results.data;
+                    var columns = Object.keys(csvData[0]).map(function(key) {
+                        return {title: key, data: key}; // this will help DataTables to dynamically create columns
+                    });
+
+                    $('#csv-table').DataTable({
+                        data: csvData,
+                        columns: columns,
+                        autoWidth: false,
+                        pageLength: 50
+                    });
+                    titleElement.text(title + ' - Experiment Results ');
+                }
+            });
+        }
+
+        function reconstructTable() {
+            $('#csv-table-wrap').remove();
+            $('#csv-table-container').append('<div id="csv-table-wrap"><table id="csv-table" class="table"><thead class="table-dark"></thead><tbody></tbody></table></div>');
+        }
+    </script>
 </head>
 <body>
 <div class="container">
@@ -32,6 +73,55 @@
             <b><a href="https://github.com/arminbiere/aiger" target="_blank">AIGER</a></b>: For converting AIGs to other formats (such as, AIG to BLIF, ASCII AIG to Binary AIG, etc...).
         </li>
     </ul>
+
+    <h2 id="experimental-results">Experimental Results</h2>
+    <p>
+        The experimental results includes:
+    </p>
+    <ul>
+        <li>Search for Dependent Variables based on the Automaton-approach over SYNTCOMP benchmarks.</li>
+        <li>Synthesis SYNTCOMP benchmarks exploiting dependency concept (with DepSynt tool) and other state-of-the-art tools.</li>
+    </ul>
+    <h3>Download Links:</h3>
+    <ul>
+        <li><a href="assets/find_deps.csv">Find Dependency on SYNTCOMP benchmarks</a></li>
+        <li><a href="assets/depsynt.csv">DepSynt SYNTCOMP</a> (For results with BDD measured: <a href="assets/depsynt_bdd_measured.csv">DepSynt Measured SYNTCOMP</a>)</li>
+        <li><a href="assets/strix.csv">Strix SYNTCOMP</a> (BFS as an exploration strategy, FPI as parity game solver)</li>
+        <li><a href="assets/spot-acd.csv">Ltlsynt ACD SYNTCOMP</a></li>
+        <li><a href="assets/spot-ds.csv">Ltlsynt DS SYNTCOMP</a></li>
+        <li><a href="assets/spot-sd.csv">Ltlsynt SD SYNTCOMP</a></li>
+        <li><a href="assets/spot-lar.csv">Ltlsynt LAR SYNTCOMP</a></li>
+    </ul>
+
+    <h3>Online Viewer:</h3>
+    <div class="row">
+        <div class="col">
+            <button onclick="loadCSV('./assets/find_deps.csv', 'Find Deps')">Load Find Deps</button>
+        </div>
+        <div class="col">
+            <button onclick="loadCSV('./assets/depsynt.csv', 'DepSynt')">Load DepSynt</button>
+        </div>
+        <div class="col">
+            <button onclick="loadCSV('./assets/strix.csv', 'Strix')">Load Strix</button>
+        </div>
+        <div class="col">
+            <button onclick="loadCSV('./assets/spot-acd.csv', 'Ltlsynt ACD')">Load Ltlsynt ACD</button>
+        </div>
+        <div class="col">
+            <button onclick="loadCSV('./assets/spot-ds.csv', 'Ltlsynt DS')">Load Ltlsynt DS</button>
+        </div>
+        <div class="col">
+            <button onclick="loadCSV('./assets/spot-sd.csv', 'Ltlsynt SD')">Load Ltlsynt SD</button>
+        </div>
+        <div class="col">
+            <button onclick="loadCSV('./assets/spot-lar.csv', 'Ltlsynt LAR')">Load Ltlsynt LAR</button>
+        </div>
+    </div>
+
+    <div id="csv-table-container">
+        <h4></h4>
+        <div id="csv-table-wrap"></div>
+    </div>
 </div>
 </body>
 </html>
