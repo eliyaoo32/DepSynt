@@ -23,6 +23,7 @@ bool are_edges_shares_variable(spot::twa_graph::edge_storage_t& e1,
                                spot::twa_graph::edge_storage_t& e2);
 bool are_edges_shares_assignment(spot::twa_graph::edge_storage_t& e1,
                                  spot::twa_graph::edge_storage_t& e2);
+bool are_states_collides_by_edges(spot::twa_graph_ptr& automaton, unsigned state1, unsigned state2, int dependent_var_num);
 
 struct VarIndexer {
     int var_index{};
@@ -49,7 +50,8 @@ class FindDepsByAutomaton {
 
     bool is_variable_dependent(std::string dependent_var,
                                std::vector<std::string>& dependency_vars,
-                               std::vector<PairState>& pairStates);
+                               std::vector<PairState>& pairStates,
+                               bool use_shared_edges);
 
     bool is_dependent_by_pair_edges(int dependent_var,
                                     std::vector<int>& dependency_vars,
@@ -108,7 +110,8 @@ class FindDepsByAutomaton {
     }
 
     void find_dependencies(std::vector<std::string>& dependent_variables,
-                           std::vector<std::string>& independent_variables);
+                           std::vector<std::string>& independent_variables,
+                           bool use_shared_edges);
 
     void stop() {
         return m_stop_flag.store(true);
