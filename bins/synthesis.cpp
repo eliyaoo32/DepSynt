@@ -102,7 +102,7 @@ int main(int argc, const char* argv[]) {
 
             std::future<void> fut = std::async(std::launch::async, [&] {
                 automaton_dependencies.find_dependencies(dependent_variables,
-                                                         independent_variables);
+                                                         independent_variables, false);
             });
             if (fut.wait_for(std::chrono::milliseconds (options.dependency_timeout)) == std::future_status::timeout) {
                 automaton_dependencies.stop();

@@ -10,7 +10,8 @@
 using namespace std;
 
 void FindDepsByAutomaton::find_dependencies(vector<string>& dependent_variables,
-                                            vector<string>& independent_variables) {
+                                            vector<string>& independent_variables,
+                                            bool use_shared_edges) {
     m_measures.start_find_deps();
 
     // Find Dependencies
@@ -43,7 +44,7 @@ void FindDepsByAutomaton::find_dependencies(vector<string>& dependent_variables,
 
         // Check if candidates variable is dependent
         if (FindDepsByAutomaton::is_variable_dependent(dependent_var, dependency_set,
-                                                       compatibleStates)) {
+                                                       compatibleStates, use_shared_edges)) {
             dependent_variables.push_back(dependent_var);
             m_measures.end_testing_variable(true, dependency_set);
         } else {
@@ -97,7 +98,8 @@ void FindDepsByAutomaton::extract_dependency_set(
 
 bool FindDepsByAutomaton::is_variable_dependent(std::string dependent_var,
                                                 vector<std::string>& dependency_vars,
-                                                vector<PairState>& pairStates) {
+                                                vector<PairState>& pairStates,
+                                                bool use_shared_edges) {
     // Extract variables indexes
     vector<VarIndexer> reset_vars_nums;
     vector<int> dependency_vars_nums;
@@ -115,23 +117,45 @@ bool FindDepsByAutomaton::is_variable_dependent(std::string dependent_var,
                                    m_bdd_cacher->get_prime_variable_index(var)});
     }
 
-    // For each pair-state, Can we move to an accepting state with different
-    // value of dependent_var? If yes, then dependent_var is not dependent
-    for (auto pairState : pairStates) {
-        for (auto& t1 : m_automaton->out(pairState.first)) {
-            for (auto& t2 : m_automaton->out(pairState.second)) {
-                PairEdges pair_edges = PairEdges(t1, t2);
+    if(use_shared_edges) {
+        /**
+         * For each pair-state (p,q), if:
+         * 1. Denote Edge[p] = Ep1, ..., Epn and Edge[q] = Eq1, ..., Eqn
+         * 2. Denote Corr[Epi] = Eqj if Dst[Epi] = Dst[Eqj], otherwise, None
+         * 3. Let z be the variable which we test if he's dependent
+         * 4. If the following formula is SAT then z is not dependent:
+         *  4.1 (Eq1 | ... | Eqn) & [ (Ep1[~z] & ~Corr[Ep1]) | ... | (Epn[~z] & ~Corr[Epn]) ]
+         *  4.2 If Corr[Ep1] is not exists, then define Corr[Ep1] to be the constant False
+         * 5. Corresponding check for (q, p) is required
+         */
+        for (auto pairState : pairStates) {
+            if(are_states_collides_by_edges(m_automaton, pairState.first, pairState.second, dependent_var_num)) {
+                return false;
+            }
+            if(are_states_collides_by_edges(m_automaton, pairState.second, pairState.first, dependent_var_num)) {
+                return false;
+            }
+        }
+        return true;
+    } else {
+        // For each pair-state, Can we move to an accepting state with different
+        // value of dependent_var? If yes, then dependent_var is not dependent
+        for (auto pairState : pairStates) {
+            for (auto& t1 : m_automaton->out(pairState.first)) {
+                for (auto& t2 : m_automaton->out(pairState.second)) {
+                    PairEdges pair_edges = PairEdges(t1, t2);
 
-                if (!FindDepsByAutomaton::is_dependent_by_pair_edges(
-                        dependent_var_num, dependency_vars_nums, reset_vars_nums,
-                        pair_edges)) {
-                    return false;
+                    if (!FindDepsByAutomaton::is_dependent_by_pair_edges(
+                            dependent_var_num, dependency_vars_nums, reset_vars_nums,
+                            pair_edges)) {
+                        return false;
+                    }
                 }
             }
         }
-    }
 
-    return true;
+        return true;
+    }
 }
 
 /**
@@ -248,4 +272,42 @@ bool are_edges_shares_variable(spot::twa_graph::edge_storage_t& e1,
 bool are_edges_shares_assignment(spot::twa_graph::edge_storage_t& e1,
                                spot::twa_graph::edge_storage_t& e2) {
     return (e1.cond & e2.cond) != bddfalse;
+}
+
+bool are_states_collides_by_edges(spot::twa_graph_ptr& automaton, unsigned state1, unsigned state2, int dependent_var_num) {
+    auto edges_p = automaton->out(state1);
+    auto edges_q = automaton->out(state2);
+
+    // state2's edges are tested
+    bdd q_edges_cond = bddfalse;
+    for(auto& edge : edges_q) {
+        q_edges_cond |= edge.cond;
+    }
+
+    // state1's edges are tested
+    bdd p_edges_cond = bddfalse;
+    for(auto& p_edge : edges_p) {
+        auto q_corr_edge = std::find_if(edges_q.begin(), edges_q.end(), [&](auto& e) {
+            return e.dst == p_edge.dst;
+        });
+        if(q_corr_edge == edges_q.end()) {
+            continue;
+        }
+
+        bddPair* pairs = bdd_newpair();
+        bdd_setbddpair(pairs, dependent_var_num, bdd_nithvar(dependent_var_num));
+        if(q_corr_edge != edges_q.end()) {
+            p_edges_cond |=
+                    bdd_replace( p_edge.cond, pairs )
+                    & bdd_not(q_corr_edge->cond);  // Epi[~z] & ~Corr[Epi]
+        } else {
+            p_edges_cond |= bdd_replace( p_edge.cond, pairs ); // Epi[~z] & ~False = Epi[~z]
+        }
+
+        bdd_freepair(pairs);
+    }
+
+    // Verify if collides
+    bool is_collides = (q_edges_cond & p_edges_cond) != bddfalse;
+    return is_collides;
 }

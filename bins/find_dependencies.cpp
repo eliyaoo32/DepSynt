@@ -112,7 +112,7 @@ int main(int argc, const char* argv[]) {
                     FindDepsByAutomaton::DependentVariableType::Output);
             }
             automaton_dependencies.find_dependencies(
-                automaton_dependent_variables, automaton_independent_variables);
+                automaton_dependent_variables, automaton_independent_variables, true);
 
             verbose_out << "Automaton Dependent Variables: "
                         << automaton_dependent_variables << endl;
