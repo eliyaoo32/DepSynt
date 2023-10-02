@@ -275,8 +275,6 @@ bool are_edges_shares_assignment(spot::twa_graph::edge_storage_t& e1,
 }
 
 bool are_states_collides_by_edges(spot::twa_graph_ptr& automaton, unsigned state1, unsigned state2, int dependent_var_num) {
-    // TODO: handle the case where state1 and state2 have no edges with same destination
-
     auto edges_p = automaton->out(state1);
     auto edges_q = automaton->out(state2);
 
