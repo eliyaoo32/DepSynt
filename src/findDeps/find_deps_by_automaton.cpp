@@ -125,6 +125,7 @@ bool FindDepsByAutomaton::is_variable_dependent(std::string dependent_var,
          * 3. Let z be the variable which we test if he's dependent
          * 4. If the following formula is SAT then z is not dependent:
          *  4.1 (Eq1 | ... | Eqn) & [ (Ep1[~z] & ~Corr[Ep1]) | ... | (Epn[~z] & ~Corr[Epn]) ]
+         *  4.2 If Corr[Ep1] is not exists, then define Corr[Ep1] to be the constant False
          * 5. Corresponding check for (q, p) is required
          */
         for (auto pairState : pairStates) {
@@ -297,9 +298,14 @@ bool are_states_collides_by_edges(spot::twa_graph_ptr& automaton, unsigned state
 
         bddPair* pairs = bdd_newpair();
         bdd_setbddpair(pairs, dependent_var_num, bdd_nithvar(dependent_var_num));
-        p_edges_cond |=
-                bdd_replace( p_edge.cond, pairs )
-                & bdd_not(q_corr_edge->cond);  // Epi[~z] & ~Corr[Epi]
+        if(q_corr_edge != edges_q.end()) {
+            p_edges_cond |=
+                    bdd_replace( p_edge.cond, pairs )
+                    & bdd_not(q_corr_edge->cond);  // Epi[~z] & ~Corr[Epi]
+        } else {
+            p_edges_cond |= bdd_replace( p_edge.cond, pairs ); // Epi[~z] & ~False = Epi[~z]
+        }
+
         bdd_freepair(pairs);
     }
 
