@@ -203,12 +203,16 @@ class FindDepsBenchmark(BaseBenchmark):
         self.total_duration = data['total_time']
 
         # Find Dependent Variables
-        dependent_vars, independent_vars = [], []
+        dependent_vars = []
         for var_description in data["dependency"]['tested_dependencies']:
             if var_description['is_dependent']:
                 dependent_vars.append(var_description['name'])
-            else:
-                independent_vars.append(var_description['name'])
+
+        # All output vars which are not dependent are independent
+        if self.output_vars == "" or self.status != "Success":
+            independent_vars = []
+        else:
+            independent_vars = list(set(self.output_vars.split(',')) - set(dependent_vars))
 
         # Dependent Information
         self.dependent_variables = dependent_vars
