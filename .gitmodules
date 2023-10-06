@@ -3,7 +3,7 @@
 	url = https://github.com/SYNTCOMP/benchmarks.git
 [submodule "scripts/mkplot"]
 	path = scripts/mkplot
-	url = https://github.com/alexeyignatiev/mkplot.git
+	url = https://github.com/eliyaoo32/mkplot-extended.git
 [submodule "libs/abc"]
 	path = libs/abc
 	url = https://github.com/berkeley-abc/abc
