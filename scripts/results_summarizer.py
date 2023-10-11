@@ -414,7 +414,8 @@ def load_depsynt(results_path, text_file_path):
     benchmark.status = extracted_status['status']
     if benchmark.status != 'Success':
         benchmark.error_message = extracted_status.get('message', None)
-        return benchmark
+        if out_file == "":
+            return benchmark
 
     # Load JSON Measure
     benchmark_json = json.loads(get_second_last_line(out_file))   # Last line is empty
