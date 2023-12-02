@@ -6,7 +6,7 @@ from os import path
 from pathlib import Path
 
 parser = argparse.ArgumentParser("Generate slurm tasks for finding dependency and synthesis")
-parser.add_argument("--task", type=str, required=True, choices=['find_deps', 'depsynt', 'depsynt_measured', 'spotmodular', 'strix'], help="Type of task to generate")
+parser.add_argument("--task", type=str, required=True, choices=['find_deps', 'find_deps_formula', 'depsynt', 'depsynt_measured', 'spotmodular', 'strix'], help="Type of task to generate")
 parser.add_argument("--timeout", type=str, required=True, help="Timeout for each task, for example, 60m")
 parser.add_argument("--benchmarks-path", type=str, required=True, help="Path for the benchmarks in text file")
 parser.add_argument("--output-path", type=str, required=True, help="Path for put the output files")
@@ -85,7 +85,11 @@ def generate_spotmodular(args):
     print(task_template)
 
 
-def generate_find_deps(args):
+def generate_find_deps(args, approach):
+    if apprach not in ['formula', 'automaton']::
+        print("Error: unknown approach, must be: formula, automaton")
+        exit(1)
+    
     benchmarks_path = args.benchmarks_path
     total_benchmarks = len([f for f in glob(path.join(benchmarks_path, "*.txt"))])
     task_template = Path(path.join(Path(__file__).parent.resolve(), 'find_deps_slurm_template.sh')).read_text()
@@ -94,7 +98,8 @@ def generate_find_deps(args):
         'OUTPUT_BASE_PATH': args.output_path,
         'NUM_BENCHMARKS': str(total_benchmarks),
         'TIMEOUT': args.timeout,
-        'BENCHMARKS_DIR': benchmarks_path
+        'BENCHMARKS_DIR': benchmarks_path,
+        'ALGORITHM': approach,
     }
 
     for var_name, var_value in variables.items():
@@ -117,7 +122,9 @@ def main():
         exit(1)
 
     if args.task == 'find_deps':
-        generate_find_deps(args)
+        generate_find_deps(args, 'automaton')
+    elif args.task == 'find_deps_formula':
+        generate_find_deps(args, 'formula')
     elif args.task == 'depsynt':
         generate_depsynt(args, measured=False)
     elif args.task == 'depsynt_measured':

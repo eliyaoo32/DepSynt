@@ -349,9 +349,11 @@ def load_find_deps(results_path, text_file_path):
     benchmark.status = extracted_status['status']
     if benchmark.status != 'Success':
         benchmark.error_message = extracted_status.get('message', None)
-        return benchmark
+        # return benchmark
 
     # Load JSON Measure
+    if out_file == "" or benchmark.status == 'Irrelevant':
+        return benchmark
     benchmark_json = json.loads(out_file)
     benchmark.load_from_dict(benchmark_json)
 
@@ -414,7 +416,7 @@ def load_depsynt(results_path, text_file_path):
     benchmark.status = extracted_status['status']
     if benchmark.status != 'Success':
         benchmark.error_message = extracted_status.get('message', None)
-        if out_file == "":
+        if out_file == "" or benchmark.status == 'Irrelevant':
             return benchmark
 
     # Load JSON Measure

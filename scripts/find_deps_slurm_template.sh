@@ -17,7 +17,7 @@ inputs_var=$(sed -n "5p" "$FILEPATH" | tr -d '\r')
 outputs_var=$(sed -n "6p" "$FILEPATH" | tr -d '\r')
 formula=$(sed -n "4p" "$FILEPATH" | tr -d '\r')
 
-cmd_string="$CLI_TOOL --formula=\"$formula\" --model-name=\"$benchmark_name\" --algo=automaton"
+cmd_string="$CLI_TOOL --formula=\"$formula\" --model-name=\"$benchmark_name\" --algo={{ALGORITHM}}"
 if [[ -n "$inputs_var" ]]; then
     cmd_string="$cmd_string --input=\"$inputs_var\""
 fi
