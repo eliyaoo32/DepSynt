@@ -18,6 +18,9 @@ vars:
   SYNTHESIS_TIMEOUT: 180m
   BENCHMARKS_FAMALIES: "tsl_smart_home_jarvis/extracted-benchmarks,tsl_paper,mux,ltl2dpa,shift"
 
+  FIND_DEPENDENCIES_FORMULA_PATH: ./tasks_output/find_deps_formula
+  FIND_DEPENDENCIES_FORMULA_SUMMARY: ./tasks_output/find_deps_formula.csv
+
   FIND_DEPENDENCIES_PATH: ./tasks_output/find_deps
   FIND_DEPENDENCIES_SUMMARY: ./tasks_output/find_deps.csv
   FIND_DEPENDENCIES_TIMEOUT: 60m
@@ -116,6 +119,22 @@ tasks:
     - rm -f {{.FIND_DEPENDENCIES_SUMMARY}}
     - chmod +x ./scripts/results_summarizer.py
     - ./scripts/results_summarizer.py --result-path={{.FIND_DEPENDENCIES_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.FIND_DEPENDENCIES_SUMMARY}} --tool=find_deps
+
+
+  find_dependencies_formula:
+    cmds:
+      - mkdir -p {{.FIND_DEPENDENCIES_FORMULA_PATH}}
+      - rm -f {{.FIND_DEPENDENCIES_FORMULA_PATH}}/*
+      - rm -f ./submit_find_deps
+      - chmod +x ./scripts/slurm_task_gen.py
+      - ./scripts/slurm_task_gen.py --task=find_deps --timeout={{.FIND_DEPENDENCIES_TIMEOUT}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --output-path={{.FIND_DEPENDENCIES_FORMULA_PATH}} > submit_find_deps
+      - sbatch submit_find_deps
+
+
+  find_dependencies_formula:summary:
+    - rm -f {{.FIND_DEPENDENCIES_FORMULA_SUMMARY}}
+    - chmod +x ./scripts/results_summarizer.py
+    - ./scripts/results_summarizer.py --result-path={{.FIND_DEPENDENCIES_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.FIND_DEPENDENCIES_FORMULA_SUMMARY}} --tool=find_deps
 
   # Generate benchmarks
   generate_benchmarks:
