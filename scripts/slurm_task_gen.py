@@ -86,7 +86,7 @@ def generate_spotmodular(args):
 
 
 def generate_find_deps(args, approach):
-    if apprach not in ['formula', 'automaton']:
+    if approach not in ['formula', 'automaton']:
         print("Error: unknown approach, must be: formula, automaton")
         exit(1)
     
