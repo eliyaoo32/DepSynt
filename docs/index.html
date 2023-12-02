@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,22 @@
     <title>DepSynt - Dependency in LTL</title>
 
     <!--  Loading bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./style.css" />
 
     <!-- Include jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <!-- Include DataTables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 
     <!-- Load Experiment Results -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
@@ -25,16 +31,16 @@
         function loadCSV(csvFile, title) {
             var titleElement = $('#csv-table-container h4');
             reconstructTable();
-            titleElement.text('Loading '+title+'...');
+            titleElement.text('Loading ' + title + '...');
 
             Papa.parse(csvFile, {
                 download: true,
                 header: true,
                 skipEmptyLines: true,
-                complete: function(results) {
+                complete: function (results) {
                     var csvData = results.data;
-                    var columns = Object.keys(csvData[0]).map(function(key) {
-                        return {title: key, data: key}; // this will help DataTables to dynamically create columns
+                    var columns = Object.keys(csvData[0]).map(function (key) {
+                        return { title: key, data: key }; // this will help DataTables to dynamically create columns
                     });
 
                     $('#csv-table').DataTable({
@@ -54,74 +60,88 @@
         }
     </script>
 </head>
+
 <body>
-<div class="container">
-    <h1>DepSynt</h1>
+    <div class="container">
+        <h1>DepSynt</h1>
 
-    <p>DepSynt is a tool for dependent variables in Linear Temporal Logic (LTL), including: Finding Dependent variables, Synthesis exploiting dependency.</p>
+        <p>DepSynt is a tool for dependent variables in Linear Temporal Logic (LTL), including: Finding Dependent
+            variables, Synthesis exploiting dependency.</p>
 
-    <h2 id="dependencies">Dependencies</h2>
-    <p>DepSynt uses open source formal methods projects.</p>
-    <ul>
-        <li>
-            <b><a href="https://spot.lrde.epita.fr/" target="_blank">Spot</a></b>: for managing Automatons, LTL formulas and Synthesis.
-        </li>
-        <li>
-            <b><a href="https://people.eecs.berkeley.edu/~alanmi/abc/" target="_blank">ABC</a></b>: For advanced operations on AIGs.
-        </li>
-        <li>
-            <b><a href="https://github.com/arminbiere/aiger" target="_blank">AIGER</a></b>: For converting AIGs to other formats (such as, AIG to BLIF, ASCII AIG to Binary AIG, etc...).
-        </li>
-    </ul>
+        <h2 id="dependencies">Dependencies</h2>
+        <p>DepSynt uses open source formal methods projects.</p>
+        <ul>
+            <li>
+                <b><a href="https://spot.lrde.epita.fr/" target="_blank">Spot</a></b>: for managing Automatons, LTL
+                formulas and Synthesis.
+            </li>
+            <li>
+                <b><a href="https://people.eecs.berkeley.edu/~alanmi/abc/" target="_blank">ABC</a></b>: For advanced
+                operations on AIGs.
+            </li>
+            <li>
+                <b><a href="https://github.com/arminbiere/aiger" target="_blank">AIGER</a></b>: For converting AIGs to
+                other formats (such as, AIG to BLIF, ASCII AIG to Binary AIG, etc...).
+            </li>
+        </ul>
 
-    <h2 id="experimental-results">Experimental Results</h2>
-    <p>
-        The experimental results includes:
-    </p>
-    <ul>
-        <li>Search for Dependent Variables based on the Automaton-approach over SYNTCOMP benchmarks.</li>
-        <li>Synthesis SYNTCOMP benchmarks exploiting dependency concept (with DepSynt tool) and other state-of-the-art tools.</li>
-    </ul>
-    <h3>Download Links:</h3>
-    <ul>
-        <li><a href="assets/find_deps.csv">Find Dependency on SYNTCOMP benchmarks</a></li>
-        <li><a href="assets/depsynt.csv">DepSynt SYNTCOMP</a> (For results with BDD measured: <a href="assets/depsynt_bdd_measured.csv">DepSynt Measured SYNTCOMP</a>)</li>
-        <li><a href="assets/strix.csv">Strix SYNTCOMP</a> (BFS as an exploration strategy, FPI as parity game solver)</li>
-        <li><a href="assets/spot-acd.csv">Ltlsynt ACD SYNTCOMP</a></li>
-        <li><a href="assets/spot-ds.csv">Ltlsynt DS SYNTCOMP</a></li>
-        <li><a href="assets/spot-sd.csv">Ltlsynt SD SYNTCOMP</a></li>
-        <li><a href="assets/spot-lar.csv">Ltlsynt LAR SYNTCOMP</a></li>
-    </ul>
+        <h2 id="experimental-results">Experimental Results</h2>
+        <p>
+            The experimental results includes:
+        </p>
+        <ul>
+            <li>Search for Dependent Variables based on the Automaton-approach over SYNTCOMP benchmarks.</li>
+            <li>Synthesis SYNTCOMP benchmarks exploiting dependency concept (with DepSynt tool) and other
+                state-of-the-art tools.</li>
+        </ul>
+        <h3>Download Links:</h3>
+        <ul>
+            <li><a href="assets/find_deps_nba.csv">Find Dependency, NBA approach on SYNTCOMP benchmarks</a></li>
+            <li><a href="assets/find_deps_formula.csv">Find Dependency, Formula approach on SYNTCOMP benchmarks</a></li>
+            <li><a href="assets/depsynt.csv">DepSynt SYNTCOMP</a> (For results with BDD measured: <a
+                    href="assets/depsynt_bdd_measured.csv">DepSynt Measured SYNTCOMP</a>)</li>
+            <li><a href="assets/strix.csv">Strix SYNTCOMP</a> (BFS as an exploration strategy, FPI as parity game
+                solver)</li>
+            <li><a href="assets/spot-acd.csv">Ltlsynt ACD SYNTCOMP</a></li>
+            <li><a href="assets/spot-ds.csv">Ltlsynt DS SYNTCOMP</a></li>
+            <li><a href="assets/spot-sd.csv">Ltlsynt SD SYNTCOMP</a></li>
+            <li><a href="assets/spot-lar.csv">Ltlsynt LAR SYNTCOMP</a></li>
+        </ul>
 
-    <h3>Online Viewer:</h3>
-    <div class="row">
-        <div class="col">
-            <button onclick="loadCSV('./assets/find_deps.csv', 'Find Deps')">Load Find Deps</button>
+        <h3>Online Viewer:</h3>
+        <div class="row">
+            <div class="col">
+                <button onclick="loadCSV('./assets/find_deps_nba.csv', 'Find Deps')">Load Find Deps (NBA)</button>
+            </div>
+            <div class="col">
+                <button onclick="loadCSV('./assets/find_deps_formula.csv', 'Find Deps')">Load Find Deps
+                    (Formula)</button>
+            </div>
+            <div class="col">
+                <button onclick="loadCSV('./assets/depsynt.csv', 'DepSynt')">Load DepSynt</button>
+            </div>
+            <div class="col">
+                <button onclick="loadCSV('./assets/strix.csv', 'Strix')">Load Strix</button>
+            </div>
+            <div class="col">
+                <button onclick="loadCSV('./assets/spot-acd.csv', 'Ltlsynt ACD')">Load Ltlsynt ACD</button>
+            </div>
+            <div class="col">
+                <button onclick="loadCSV('./assets/spot-ds.csv', 'Ltlsynt DS')">Load Ltlsynt DS</button>
+            </div>
+            <div class="col">
+                <button onclick="loadCSV('./assets/spot-sd.csv', 'Ltlsynt SD')">Load Ltlsynt SD</button>
+            </div>
+            <div class="col">
+                <button onclick="loadCSV('./assets/spot-lar.csv', 'Ltlsynt LAR')">Load Ltlsynt LAR</button>
+            </div>
         </div>
-        <div class="col">
-            <button onclick="loadCSV('./assets/depsynt.csv', 'DepSynt')">Load DepSynt</button>
-        </div>
-        <div class="col">
-            <button onclick="loadCSV('./assets/strix.csv', 'Strix')">Load Strix</button>
-        </div>
-        <div class="col">
-            <button onclick="loadCSV('./assets/spot-acd.csv', 'Ltlsynt ACD')">Load Ltlsynt ACD</button>
-        </div>
-        <div class="col">
-            <button onclick="loadCSV('./assets/spot-ds.csv', 'Ltlsynt DS')">Load Ltlsynt DS</button>
-        </div>
-        <div class="col">
-            <button onclick="loadCSV('./assets/spot-sd.csv', 'Ltlsynt SD')">Load Ltlsynt SD</button>
-        </div>
-        <div class="col">
-            <button onclick="loadCSV('./assets/spot-lar.csv', 'Ltlsynt LAR')">Load Ltlsynt LAR</button>
+
+        <div id="csv-table-container">
+            <h4></h4>
+            <div id="csv-table-wrap"></div>
         </div>
     </div>
-
-    <div id="csv-table-container">
-        <h4></h4>
-        <div id="csv-table-wrap"></div>
-    </div>
-</div>
 </body>
+
 </html>
