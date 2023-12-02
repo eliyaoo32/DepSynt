@@ -134,7 +134,7 @@ tasks:
   find_dependencies_formula:summary:
     - rm -f {{.FIND_DEPENDENCIES_FORMULA_SUMMARY}}
     - chmod +x ./scripts/results_summarizer.py
-    - ./scripts/results_summarizer.py --result-path={{.FIND_DEPENDENCIES_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.FIND_DEPENDENCIES_FORMULA_SUMMARY}} --tool=find_deps
+    - ./scripts/results_summarizer.py --result-path={{.FIND_DEPENDENCIES_FORMULA_PATH}} --benchmarks-path={{.GENERATED_BENCHMARK_PATH}}/text --summary-output={{.FIND_DEPENDENCIES_FORMULA_SUMMARY}} --tool=find_deps
 
   # Generate benchmarks
   generate_benchmarks:
