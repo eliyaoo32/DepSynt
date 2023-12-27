@@ -34,8 +34,9 @@ void parse_cli_common(BaseCLIOptions &options, Options::options_description &des
 bool parse_synthesis_cli(int argc, const char *argv[],
                          SynthesisCLIOptions &options) {
     Options::options_description desc(
-        "Tool to synthesis LTL specification using dependencies and Unates concept");
+        "Tool to synthesis LTL specification using dependencies");
     parse_cli_common(options, desc);
+    options.skip_unates = true; // Currently, we always skip unates
     desc.add_options()(
             "model-name",
             Options::value<string>(&options.model_name)->required(),
@@ -45,11 +46,6 @@ bool parse_synthesis_cli(int argc, const char *argv[],
          Options::value<int>(&options.dependency_timeout)->required(),
          "Timeout for finding dependencies in milliseconds, if 0 then the process skips finding dependencies"
          )
-        (
-        "skip-unates",
-        Options::bool_switch(&options.skip_unates)->default_value(false),
-        "Should skip using unates to synthesise a strategy"
-        )
         (
         "merge-strategies",
         Options::bool_switch(&options.merge_strategies)->default_value(false),

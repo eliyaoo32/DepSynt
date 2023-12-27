@@ -12,13 +12,9 @@ add_executable(find_dependencies ${non_executable_SRC} ${aiger_lib_SRC} bins/fin
 add_executable(find_unates ${non_executable_SRC} ${aiger_lib_SRC} bins/find_unates.cpp)
 add_executable(synthesis ${non_executable_SRC} ${aiger_lib_SRC} bins/synthesis.cpp)
 
-################ TODO: Clean this specific include_directories ################
-list(APPEND CMAKE_PREFIX_PATH "/Users/eliyahub/spot/lib/" "./libs/abc")
-include_directories(/usr/local/include)
-include_directories(/Users/eliyahub/spot/include)
+list(APPEND CMAKE_PREFIX_PATH "./libs/spot" "./libs/abc")
 include_directories(./libs/abc/src)
-################################################################################
-
+include_directories(./libs/spot/spot)
 include_directories(./src/findDeps ./src/models ./src/synthesis ./src/utils ./src/unates ./libs/aiger ./libs/abc ./libs/abc/src)
 
 # Configuration

@@ -1,2 +1,10 @@
-scripts
-docs
+# Exclude directories
+.git/
+docs/
+scripts/
+.gitattributes
+.gitignore
+.gitmodules
+.clang-format
+Taskfile.yml
+*.md  # Excludes all markdown files, like README.md
