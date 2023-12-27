@@ -1,11 +1,12 @@
 # DepSynt - Reactive Synthesis Tool
 # Introduction
-This is a reactive synthesis tool that uses the concept of dependency in LTL.
-Currently, we are working on elevating the Unate concept to the LTL level.
+DepSynt is a reactive synthesis and LTL tool that elevates the concept of dependency to LTL.
 
-# 3rd Parties
+This project expose 2 tools:
+1) Find dependencies - find maximal set of dependent varialbes in LTL formula.
+2) DepSynt - Synthesis a reactive synthesis specification, separating the problem into 2 sub-problems: A) synthesis strategy of independent out variables. B) synthesis strategy of dependent variables.
 
-## Libraries
+# 3rd Parties Dependencies
 This tool uses the following 3rd parties:
 - [Boost](https://www.boost.org/) - Common C++ libraries, mainly used for JSON creation and CLI parsing.
 - [Spot](https://spot.lrde.epita.fr/) - Library for LTL and omega-automata manipulation
@@ -13,14 +14,22 @@ This tool uses the following 3rd parties:
   - Used mainly for AIG optimization
 - [AIGER](https://github.com/arminbiere/aiger) - AIGER is a format, library and set of utilities for And-Inverter Graphs (AIGs).
 
-## Useful Tools
+## Useful Tools for analyzing
 - [Syfco](https://github.com/reactive-systems/syfco) - A tool for converting from TLSF files to LTL formulas.
 - [Taskfile](https://taskfile.dev/) - Simple task runner.
 - Model checking was done with [combine_aiger](https://github.com/reactive-systems/aiger-ltl-model-checker).
   - The tool was applied on the [SYNTCOMP](https://github.com/SYNTCOMP/benchmarks) benchmarks.
 - [MKPlot](https://github.com/alexeyignatiev/mkplot.git) - Python script to generate Cactus plots.
 
+
 # Build & Usage Instruction
+## Using docker:
+1) Fetch the git submodules:
+```bash
+git submodule update --init
+```
+
+## Build locally
 1) Fetch the used submodules:
 ```bash
 git submodule update --init
@@ -32,6 +41,18 @@ git submodule update --init
 ```bash
 cmake .
 make
+```
+
+# Documentation
+## File Structure
+```
+bins/ - Executable files
+libs/ - 3rd party libraries, includes AIGER and ABC
+src/
+  findDeps/ - Classes to find dependent variables in LTL formulas
+  synthesis/ - Synthesis functions, synthesis dependent variables strategy, synthesis an NBA, merge strategies.
+  unates/ - Classes to find unate variables in LTL formulas (Still in progress)
+  utils/ - Utility functions
 ```
 
 # Flows
@@ -69,14 +90,3 @@ TBD.
 TBD.
 
 
-
-# File Structure
-```
-bins/ - Executable files
-libs/ - 3rd party libraries, includes AIGER and ABC
-src/
-  findDeps/ - Classes to find dependent variables in LTL formulas
-  synthesis/ - Synthesis functions, synthesis dependent variables strategy, synthesis an NBA, merge strategies.
-  unates/ - Classes to find unate variables in LTL formulas (Still in progress)
-  utils/ - Utility functions
-```

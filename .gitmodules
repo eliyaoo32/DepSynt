@@ -7,3 +7,6 @@
 [submodule "libs/abc"]
 	path = libs/abc
 	url = https://github.com/berkeley-abc/abc
+[submodule "libs/spot"]
+	path = libs/spot
+	url = https://gitlab.lre.epita.fr/spot/spot.git
