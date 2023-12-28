@@ -41,7 +41,7 @@ Now we can run the DepSynt tool: `docker run depsynt`
 
 Example for synthesising the LTL specification [ltl2dpa10](https://github.com/SYNTCOMP/benchmarks/blob/288f8f313d3a4c1e1bafff97e7c5533fc43b3a71/tlsf/ltl2dpa/ltl2dpa16.tlsf):
 ```bash
-docker run depsynt --formula="((G (((((p0) && (! (p1))) && (! (p2))) || (((! (p0)) && (p1)) && (! (p2)))) || (((! (p0)) && (! (p1))) && (p2)))) && (((F (G (a))) || (G (F (b)))) <-> ((G (F (p0))) || ((G (F (p2))) && (! (G (F (p1))))))))" --input="b,a" --output="p2,p1,p0" --dependency-timeout=10000 --model-name="ltl2dpa16"
+docker run depsynt --input="b,a" --output="p2,p1,p0" --dependency-timeout=10000 --model-name="ltl2dpa16" --formula="((G (((((p0) && (! (p1))) && (! (p2))) || (((! (p0)) && (p1)) && (! (p2)))) || (((! (p0)) && (! (p1))) && (p2)))) && (((F (G (a))) || (G (F (b)))) <-> ((G (F (p0))) || ((G (F (p2))) && (! (G (F (p1))))))))"
 ```
 
 # Build & Running on Ubuntu/Debian
