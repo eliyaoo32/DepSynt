@@ -51,7 +51,7 @@ class FindDepsByAutomaton {
     bool is_variable_dependent(std::string dependent_var,
                                std::vector<std::string>& dependency_vars,
                                std::vector<PairState>& pairStates,
-                               bool use_shared_edges);
+                               bool use_single_bdd);
 
     bool is_dependent_by_pair_edges(int dependent_var,
                                     std::vector<int>& dependency_vars,
@@ -111,7 +111,7 @@ class FindDepsByAutomaton {
 
     void find_dependencies(std::vector<std::string>& dependent_variables,
                            std::vector<std::string>& independent_variables,
-                           bool use_shared_edges);
+                           bool use_single_bdd);
 
     void stop() {
         return m_stop_flag.store(true);
