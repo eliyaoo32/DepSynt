@@ -9,7 +9,7 @@ FILE(GLOB non_executable_SRC ${PROJECT_SOURCE_DIR}/src/**/*.cpp)
 FILE(GLOB aiger_lib_SRC ${PROJECT_SOURCE_DIR}/libs/aiger/*.c)
 
 add_executable(find_dependencies ${non_executable_SRC} ${aiger_lib_SRC} bins/find_dependencies.cpp)
-add_executable(find_unates ${non_executable_SRC} ${aiger_lib_SRC} bins/find_unates.cpp)
+#add_executable(find_unates ${non_executable_SRC} ${aiger_lib_SRC} bins/find_unates.cpp)
 add_executable(synthesis ${non_executable_SRC} ${aiger_lib_SRC} bins/synthesis.cpp)
 
 list(APPEND CMAKE_PREFIX_PATH "./libs/spot" "./libs/abc")
@@ -70,4 +70,4 @@ set_target_properties(spot PROPERTIES IMPORTED_LOCATION ${spot_location})
 # Linking exectuables to packages
 target_link_libraries(find_dependencies boost_options boost_json bddx spot abc)
 target_link_libraries(synthesis boost_options boost_json bddx spot abc Threads::Threads)
-target_link_libraries(find_unates boost_options boost_json bddx spot abc)
+#target_link_libraries(find_unates boost_options boost_json bddx spot abc)

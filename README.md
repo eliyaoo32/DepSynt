@@ -15,10 +15,10 @@ This tool uses the following 3rd parties:
 - [ABC](https://people.eecs.berkeley.edu/~alanmi/abc/) - Library for software system for synthesis and verification of binary sequential logic circuits.
   - Used mainly for AIG optimization
 - [AIGER](https://github.com/arminbiere/aiger) - AIGER is a format, library and set of utilities for And-Inverter Graphs (AIGs).
-- [SYNTCOMP Benchmarks](https://github.com/SYNTCOMP/benchmarks) - Repoistory contains all the benchmarks used by SYNTCOMP competition, we use the benchmarks for LTL reactive synthesis encoded in [TLSF](https://github.com/SYNTCOMP/benchmarks#:~:text=synthesis%20encoded%20in-,TLSF,-format%2C) format.
 
 ## Useful Tools for analyzing
 - [Syfco](https://github.com/reactive-systems/syfco) - A tool for converting from TLSF files to LTL formulas.
+- [SYNTCOMP Benchmarks](https://github.com/SYNTCOMP/benchmarks) - Repoistory contains all the benchmarks used by SYNTCOMP competition, we use the benchmarks for LTL reactive synthesis encoded in [TLSF](https://github.com/SYNTCOMP/benchmarks#:~:text=synthesis%20encoded%20in-,TLSF,-format%2C) format.
 - [Taskfile](https://taskfile.dev/) - Simple task runner.
 - Model checking was done with [combine_aiger](https://github.com/reactive-systems/aiger-ltl-model-checker).
   - The tool was applied on the [SYNTCOMP](https://github.com/SYNTCOMP/benchmarks) benchmarks.
