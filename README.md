@@ -111,23 +111,34 @@ Tool to synthesis LTL specification using dependencies and Unates concept:
 ```
 
 ## Find Dependencies
-TBD.
+Find dependency is a standalone tool that finds the maximal set of dependent variables in LTL formula, without time limitation and without synthesising process.
+The CLI tool source code is available in `bins/findDeps.cpp`.
 
 # Documentation
 ## File Structure
 ```
-bins/ - Executable files
+bins/ - Executable files, such as: synthesis, findDeps, etc.
 libs/ - 3rd party libraries, includes AIGER, Spot and ABC
 src/
-  findDeps/ - Classes to find dependent variables in LTL formulas
+  findDeps/ - Find dependent variables logic
   synthesis/ - Synthesis functions, synthesis dependent variables strategy, synthesis an NBA, merge strategies.
-  unates/ - Classes to find unate variables in LTL formulas (Still in progress, currently not relevant for synthesis and dependency)
   utils/ - Utility functions
+  unates/ - (Still in progress, currently not relevant for synthesis and dependency)
 ```
 
 ## Algorithm Implementations
-TBD.
+Depynt - Algorithm to synthesize a reactive synthesis specification.
+* Entrypoint for algorithm is `bins/synthesis.cpp`
 
-## Available Utils Commands
-TBD.
-
+The algorithm has the following steps:
+1. Construct NBA A of the LTL specification (Implemented by Spot)
+2. Find a maximal set of dependent variables (Source code: `src/findDeps/find_deps_by_automaton.cpp`)
+3.  If no dependent variable was found, synthesis NBA A using Spot and close the process.
+4. Construct NBA A' which is a clone of A with the dependent variables removed. (Source code: `src/synthesis/synthesis_utils.cpp`)
+5. Synthesis a strategy as AIG for A' using Spot. (Source code: `src/synthesis/synthesis_utils.cpp`).
+ 5.1. If A' is not realizable, the specification is not realizable and the process is closed.
+6. Synthesis a strategy as AIG format for dependent variables (Source code: `src/synthesis/dependents_synthesiser.cpp`)
+7. (If requested) Merge the 2 strategies (Source code: `src/synthesis/merge_strategies.cpp`)
+   7.1. This step uses AIGER and BLIF format to merge the strategy.
+   7.2. ABC is used to balance and final strategy.
+8. (If requested) Model checking the synthesized strategy - by checking if the negation of the specification intersects with the language of strategy.

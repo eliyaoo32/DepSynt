@@ -11,7 +11,7 @@ using namespace std;
 
 void FindDepsByAutomaton::find_dependencies(vector<string>& dependent_variables,
                                             vector<string>& independent_variables,
-                                            bool use_shared_edges) {
+                                            bool use_single_bdd) {
     m_measures.start_find_deps();
 
     // Find Dependencies
@@ -44,7 +44,7 @@ void FindDepsByAutomaton::find_dependencies(vector<string>& dependent_variables,
 
         // Check if candidates variable is dependent
         if (FindDepsByAutomaton::is_variable_dependent(dependent_var, dependency_set,
-                                                       compatibleStates, use_shared_edges)) {
+                                                       compatibleStates, use_single_bdd)) {
             dependent_variables.push_back(dependent_var);
             m_measures.end_testing_variable(true, dependency_set);
         } else {
@@ -99,7 +99,7 @@ void FindDepsByAutomaton::extract_dependency_set(
 bool FindDepsByAutomaton::is_variable_dependent(std::string dependent_var,
                                                 vector<std::string>& dependency_vars,
                                                 vector<PairState>& pairStates,
-                                                bool use_shared_edges) {
+                                                bool use_single_bdd) {
     // Extract variables indexes
     vector<VarIndexer> reset_vars_nums;
     vector<int> dependency_vars_nums;
@@ -117,7 +117,7 @@ bool FindDepsByAutomaton::is_variable_dependent(std::string dependent_var,
                                    m_bdd_cacher->get_prime_variable_index(var)});
     }
 
-    if(use_shared_edges) {
+    if(use_single_bdd) {
         /**
          * For each pair-state (p,q), if:
          * 1. Denote Edge[p] = Ep1, ..., Epn and Edge[q] = Eq1, ..., Eqn
