@@ -7,6 +7,17 @@ This project expose 2 tools:
 
 2) Find dependencies - find maximal set of dependent varialbes in LTL formula.
 
+# Build & Run on TACAS24' VM
+1. Explanation & download of TACAS24' VM: https://zenodo.org/records/7113223
+2. Run build script on sudo mode:
+```bash
+sudo ./scripts/build.sh
+```
+make sure the file is executable:
+```bash
+chmod +x ./scripts/build.sh
+```
+
 
 # 3rd Parties Dependencies
 This tool uses the following 3rd parties:
@@ -64,13 +75,8 @@ IN=$(syfco --print-input-signals ./scripts/benchmarks/tlsf/ltl2dpa/ltl2dpa10.tls
 Find dependency is a standalone tool that finds the maximal set of dependent variables in LTL formula, without time limitation and without synthesising process.
 The CLI tool source code is available in `bins/findDeps.cpp`.
 
-# Build & Run on TACAS24' VM
-1. Explanation about TACAS24' VM: https://zenodo.org/records/7113223
-
-2. 
-
 # Run on Docker
-1. Docker file can be downloaded from .
+1. Docker file can be downloaded from https://figshare.com/articles/software/DepSynt_docker_image/24915732
 2. Load the docker image from the file:
 ```bash
 docker load --input depsynt.tar.gz

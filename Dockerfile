@@ -7,8 +7,6 @@ RUN apt-get update && apt-get install -y \
     libboost-all-dev \
     wget \
     gnupg2
-# TODO: install libboost-program-options-dev instead of libboost-all-dev (Check where boost/range and boost/algorithm and requires)
-
 
 # Install spot
 RUN wget -q -O - https://www.lrde.epita.fr/repo/debian.gpg | apt-key add -

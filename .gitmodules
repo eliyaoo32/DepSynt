@@ -10,3 +10,6 @@
 [submodule "libs/spot"]
 	path = libs/spot
 	url = https://gitlab.lre.epita.fr/spot/spot.git
+[submodule "scripts/syfco"]
+	path = scripts/syfco
+	url = https://github.com/reactive-systems/syfco.git
