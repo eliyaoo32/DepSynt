@@ -187,13 +187,17 @@ int main(int argc, const char* argv[]) {
         // Print the strategy
         if(final_strategy != nullptr) {
             spot::print_aiger(std::cout, final_strategy) << '\n';
-        } else if(indeps_strategy != nullptr) {
-            spot::print_aiger(std::cout, indeps_strategy) << '\n';
-        } else if(deps_strategy != nullptr) {
-            spot::print_aiger(std::cout, deps_strategy) << '\n';
+        } else if(indeps_strategy != nullptr || deps_strategy != nullptr) {
+            if (indeps_strategy != nullptr) {
+                spot::print_aiger(std::cout, indeps_strategy) << '\n';
+            }
+            if (deps_strategy != nullptr) {
+                spot::print_aiger(std::cout, deps_strategy) << '\n';
+            }
         } else {
             throw std::runtime_error("No strategy was found");
         }
+
         if (options.apply_model_checking) {
             assert(final_strategy != nullptr && "Model checking is only supported when merging strategies");
             synt_measure.start_model_checking();
