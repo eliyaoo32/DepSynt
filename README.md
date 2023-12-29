@@ -4,6 +4,8 @@ The tool **DepSynt** developed as part of this work builds on the publicly avail
 Our comparisons are done with the best performing entries in SYNTCOMP 2023 competition. Four of these entries are implemented in Spot. The fifth one, named Strix, is not implemented in Spot, but is provided as part of this artifact for the sake of completeness.  Our artifact contains instructions on how to install our tool and competing ones, and also describes how to run our tool on individual benchmarks and on a batch of them.
 We also describe how to compare the performance of DepSynt with the five competing tools. The runtimes reported in the paper are obtained from a high performance computing cluster, and may differ from those obtained from the TACAS Artifact Evaluation VM.  However, the relative trends should be the same as those reported in the paper.
 
+Link to the Github repository: https://github.com/eliyaoo32/DepSynt
+
 # Building & Installation
 * The build process might take 20 minutes approximately.
 * Assuming that you have the TACAS24' VM, you can build DepSynt by running the following commands:
