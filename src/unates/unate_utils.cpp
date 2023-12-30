@@ -91,10 +91,10 @@ void UnatesHandlerMeasures::end_automaton_complement() {
 }
 
 
-void UnatesHandlerMeasures::get_json_object(json::object& obj) const {
-    json::array unate_states;
+void UnatesHandlerMeasures::get_json_object(json& obj) const {
+    json unate_states = json::array();
     for(const auto& state : this->tested_states) {
-        json::object state_obj;
+        json state_obj;
         state_obj["state"] = state.state;
         state_obj["total_duration"] = state.total_duration;
         state_obj["removed_edges"] = state.removed_edges;
@@ -105,7 +105,7 @@ void UnatesHandlerMeasures::get_json_object(json::object& obj) const {
         state_obj["positive_unate_variables"] = boost::algorithm::join(state.positive_unate_variables, ",");
         state_obj["not_unate_variables"] = boost::algorithm::join(state.not_unate_variables, ",");
         state_obj["unknown_unate_variables"] = boost::algorithm::join(state.unknown_unate_variables, ",");
-        unate_states.emplace_back(state_obj);
+        unate_states.push_back(state_obj);
     }
 
     obj.emplace("unate_algorithm", m_algorithm_name);

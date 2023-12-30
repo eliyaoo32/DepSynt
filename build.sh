@@ -1,11 +1,19 @@
-# Install packages
-cd ./packages
+# Install BOOST
+cd ./packages/boost
 sudo dpkg -i *.deb
-# Create symbolic link of libboost_json.so
-sudo ln -s /usr/lib/x86_64-linux-gnu/libboost_json.so.1.83.0 /usr/lib/x86_64-linux-gnu/libboost_json.so
-cd ../
+cd ../../
 
-# Build ABC
+# Install nlohmann/json
+cd ./packages/nlohmann-json
+sudo dpkg -i *.deb
+cd ../../
+
+# Install Spot
+cd ./packages/spot
+sudo dpkg -i *.deb
+cd ../../
+
+# Install ABC
 cd ./libs/abc
 make ABC_USE_NO_READLINE=1 ABC_USE_PIC=1 libabc.so
 ln -s ./libabc.so /usr/local/lib/libabc.so

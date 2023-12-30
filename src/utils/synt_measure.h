@@ -1,11 +1,11 @@
 #ifndef REACTIVE_SYNTHESIS_BFSS_SYNT_MEASURE_H
 #define REACTIVE_SYNTHESIS_BFSS_SYNT_MEASURE_H
 
-#include <boost/json.hpp>
 #include <iostream>
 #include <spot/twa/twa.hh>
 #include <spot/twaalgos/aiger.hh>
 #include <vector>
+#include <nlohmann/json.hpp>
 
 #include "synt_instance.h"
 #include "bdd_utils.h"
@@ -14,7 +14,7 @@
 
 using namespace std;
 
-namespace json = boost::json;
+using json = nlohmann::json;
 
 struct TestedVariable {
     string name;
@@ -61,7 +61,7 @@ private:
 
 protected:
     bool m_measure_bdd;
-    virtual void get_json_object(json::object &obj) const;
+    virtual void get_json_object(json &obj) const;
 
 public:
     explicit BaseMeasures(SyntInstance &m_synt_instance)
@@ -92,7 +92,7 @@ public:
 
 class FindUnatesMeasures : public BaseMeasures, public UnatesHandlerMeasures {
 protected:
-    void get_json_object(json::object &obj) const override;
+    void get_json_object(json &obj) const override;
 
 public:
     explicit FindUnatesMeasures(SyntInstance &m_synt_instance)
@@ -107,7 +107,7 @@ private:
     vector<TestedVariable> m_tested_variables;
 
 protected:
-    void get_json_object(json::object &obj) const override;
+    void get_json_object(json &obj) const override;
 
 public:
     explicit BaseDependentsMeasures(SyntInstance &m_synt_instance)
@@ -131,7 +131,7 @@ private:
     TimeMeasure m_total_find_deps_duration;
 
 protected:
-    void get_json_object(json::object &obj) const override;
+    void get_json_object(json &obj) const override;
 
 public:
     explicit AutomatonFindDepsMeasure(SyntInstance &m_synt_instance,
@@ -170,7 +170,7 @@ private:
     bool m_skipped_unate;
 
 protected:
-    void get_json_object(json::object &obj) const override;
+    void get_json_object(json &obj) const override;
 
 public:
     explicit SynthesisMeasure(SyntInstance &m_synt_instance,

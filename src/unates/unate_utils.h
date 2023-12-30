@@ -2,13 +2,15 @@
 #define REACTIVE_SYNTHESIS_BFSS_UNATE_UTILS_H
 
 #include <unordered_set>
+#include <nlohmann/json.hpp>
 #include <vector>
 #include <string>
-#include <boost/json.hpp>
 
 #include "utils.h"
 using namespace std;
-namespace json = boost::json;
+
+using json = nlohmann::json;
+
 
 enum class UnateType {
     Positive,
@@ -59,7 +61,7 @@ private:
     string m_algorithm_name;
 
 protected:
-    void get_json_object(json::object &obj) const;
+    void get_json_object(json &obj) const;
 
 public:
     UnatesHandlerMeasures() : currently_testing_var(""), m_total_edges_after_unate(-1), m_algorithm_name("UNKNOWN") {

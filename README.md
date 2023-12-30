@@ -11,6 +11,7 @@ Link to the Github repository: https://github.com/eliyaoo32/DepSynt
 * The build process might take 20 minutes approximately.
 * Assuming that you have the TACAS24' VM, you can build DepSynt by running the following commands:
 ```bash
+chmod +x ./build.sh
 sudo ./build.sh
 ```
 

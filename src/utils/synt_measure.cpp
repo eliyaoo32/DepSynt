@@ -3,14 +3,14 @@
 
 #include <fstream>
 
-void aiger_description_obj(json::object& obj, const AigerDescription& description) {
+void aiger_description_obj(json& obj, const AigerDescription& description) {
     obj.emplace("total_inputs", description.inputs);
     obj.emplace("total_outputs", description.outputs);
     obj.emplace("total_latches", description.latches);
     obj.emplace("total_gates", description.gates);
 }
 
-void nba_bdd_summary_obj(json::object& obj, const NBABDDSummary& sum) {
+void nba_bdd_summary_obj(json& obj, const NBABDDSummary& sum) {
     obj.emplace("avg_bdd_size", sum.avg_bdd_size);
     obj.emplace("max_bdd_size", sum.max_bdd_size);
     obj.emplace("min_bdd_size", sum.min_bdd_size);
@@ -54,18 +54,18 @@ void BaseDependentsMeasures::end_testing_variable(bool is_dependent,
     currently_testing_var = nullptr;
 }
 
-void BaseMeasures::get_json_object(json::object& obj) const {
+void BaseMeasures::get_json_object(json& obj) const {
     // General information
-    json::array output_vars;
+    json output_vars = json::array();
     std::transform(m_synt_instance.get_output_vars().begin(),
                    m_synt_instance.get_output_vars().end(),
                    std::back_inserter(output_vars),
-                   [](const std::string& var) { return json::string(var); });
-    json::array input_vars;
+                   [](const std::string& var) { return std::string(var); });
+    json input_vars = json::array();
     std::transform(m_synt_instance.get_input_vars().begin(),
                    m_synt_instance.get_input_vars().end(),
                    std::back_inserter(input_vars),
-                   [](const std::string& var) { return json::string(var); });
+                   [](const std::string& var) { return std::string(var); });
 
     obj.emplace("is_completed", m_is_completed);
     obj.emplace("output_vars", output_vars);
@@ -74,7 +74,7 @@ void BaseMeasures::get_json_object(json::object& obj) const {
     obj["total_time"] = this->m_total_time.time_elapsed();
 
     // Automaton information
-    json::object automaton;
+    json automaton;
     automaton["is_built"] = this->m_is_automaton_built;
     if (this->m_is_automaton_built) {
         automaton["build_duration"] = this->m_aut_construct_time.get_duration();
@@ -93,9 +93,9 @@ void BaseMeasures::get_json_object(json::object& obj) const {
 
     obj.emplace("automaton", automaton);
 
-    json::object bdd_obj;
+    json bdd_obj;
     if(m_measure_bdd) {
-        json::object obj_origin_nba_bdd_summary;
+        json obj_origin_nba_bdd_summary;
         nba_bdd_summary_obj(obj_origin_nba_bdd_summary,
                             m_origin_nba_bdd_summary);
         bdd_obj.emplace("origin_nba", obj_origin_nba_bdd_summary);
@@ -109,22 +109,20 @@ void AutomatonFindDepsMeasure::end_find_deps(bool is_completed) {
     m_is_search_dependencies_completed = is_completed;
 }
 
-void BaseDependentsMeasures::get_json_object(json::object& obj) const {
+void BaseDependentsMeasures::get_json_object(json& obj) const {
     BaseMeasures::get_json_object(obj);
 
-    json::object dependency_obj;
+    json dependency_obj;
     dependency_obj.emplace("dependency_approach", "formula");
 
     // Dependency information
-    json::array tested_vars;
+    json tested_vars = json::array();;
     for (const auto& var : this->m_tested_variables) {
-        json::object var_obj;
+        json var_obj;
         var_obj["name"] = var.name;
         var_obj["duration"] = var.duration;
         var_obj["is_dependent"] = var.is_dependent;
-        var_obj.emplace("tested_dependency_set",
-                        json::array(var.tested_dependency_set.begin(),
-                                    var.tested_dependency_set.end()));
+        var_obj.emplace("tested_dependency_set", var.tested_dependency_set);
 
         tested_vars.emplace_back(var_obj);
     }
@@ -133,7 +131,7 @@ void BaseDependentsMeasures::get_json_object(json::object& obj) const {
     obj.emplace("dependency", dependency_obj);
 }
 
-void FindUnatesMeasures::get_json_object(json::object& obj) const {
+void FindUnatesMeasures::get_json_object(json& obj) const {
     BaseMeasures::get_json_object(obj);
     UnatesHandlerMeasures::get_json_object(obj);
 }
@@ -168,9 +166,9 @@ void BaseMeasures::end_prune_automaton(
     }
 }
 
-void AutomatonFindDepsMeasure::get_json_object(json::object& obj) const {
+void AutomatonFindDepsMeasure::get_json_object(json& obj) const {
     BaseDependentsMeasures::get_json_object(obj);
-    json::object& dependency_obj = obj["dependency"].as_object();
+    json& dependency_obj = obj["dependency"];
 
     dependency_obj["dependency_approach"] = "automaton";
     dependency_obj["total_duration"] =
@@ -195,11 +193,11 @@ void SynthesisMeasure::end_independents_synthesis(spot::aig_ptr& aiger_strat) {
     m_independents_total_duration.end();
 }
 
-void SynthesisMeasure::get_json_object(json::object& obj) const {
+void SynthesisMeasure::get_json_object(json& obj) const {
     AutomatonFindDepsMeasure::get_json_object(obj);
 
     // Unate
-    json::object unate_obj;
+    json unate_obj;
     unate_obj.emplace("skipped_unate", m_skipped_unate);
     if(!m_skipped_unate) {
         UnatesHandlerMeasures::get_json_object(unate_obj);
@@ -207,7 +205,7 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
     obj.emplace("unate", unate_obj);
 
     // Synthesis process
-    json::object synthesis_process_obj;
+    json synthesis_process_obj;
 
     // Report remove depenedents
     if (m_remove_dependent_ap.has_started()) {
@@ -232,7 +230,7 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
                                       m_merge_strategies.get_duration());
     }
 
-    json::object independent_strategy_obj, dependent_strategy_obj;
+    json independent_strategy_obj, dependent_strategy_obj;
 
     independent_strategy_obj.emplace("duration",
                                      m_independents_total_duration.get_duration());
@@ -244,7 +242,7 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
     aiger_description_obj(dependent_strategy_obj, m_dependent_strategy);
 
     if(m_merge_strategies.has_started()) {
-        json::object final_strategy_obj;
+        json final_strategy_obj;
         final_strategy_obj.emplace("merge_duration",
                                        m_merge_strategies.get_duration());
         aiger_description_obj(final_strategy_obj, m_final_strategy);
@@ -259,18 +257,18 @@ void SynthesisMeasure::get_json_object(json::object& obj) const {
 
     // Update bdd summary
     if(m_measure_bdd) {
-        json::object& bdd_summary = obj["bdd_summary"].as_object();
-        bdd_summary.emplace("projected_nba", json::object());
+        json& bdd_summary = obj["bdd_summary"];
+        bdd_summary.emplace("projected_nba", json());
 
-        nba_bdd_summary_obj(bdd_summary["projected_nba"].as_object(),
+        nba_bdd_summary_obj(bdd_summary["projected_nba"],
                             m_projected_nba_bdd_summary);
     }
 }
 
 ostream& operator<<(ostream& os, const BaseMeasures& sm) {
-    json::object obj;
+    json obj;
     sm.get_json_object(obj);
-    os << json::serialize(obj);
+    os << obj;
 
     return os;
 }
