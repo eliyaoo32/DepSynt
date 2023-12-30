@@ -22,5 +22,4 @@ cd ../../
 # Build Synthesis
 cmake .
 make synthesis
-ln -s ./synthesis /usr/local/bin/depsynt
-ln -s ./synthesis ./depsynt
+mv ./synthesis ./depsynt
