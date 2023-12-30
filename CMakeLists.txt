@@ -11,10 +11,11 @@ FILE(GLOB aiger_lib_SRC ${PROJECT_SOURCE_DIR}/libs/aiger/*.c)
 add_executable(find_dependencies ${non_executable_SRC} ${aiger_lib_SRC} bins/find_dependencies.cpp)
 add_executable(synthesis ${non_executable_SRC} ${aiger_lib_SRC} bins/synthesis.cpp)
 
-list(APPEND CMAKE_PREFIX_PATH "./libs/spot" "./libs/abc")
+list(APPEND CMAKE_PREFIX_PATH "./libs/spot" "./libs/abc" "./libs/json")
 include_directories(./libs/abc/src)
 include_directories(./libs/spot/spot)
-include_directories(./src/findDeps ./src/models ./src/synthesis ./src/utils ./src/unates ./libs/aiger ./libs/abc ./libs/abc/src)
+include_directories(./libs/json/include)
+include_directories(./src/findDeps ./src/models ./src/synthesis ./src/utils ./src/unates ./libs/json ./libs/json/include ./libs/aiger ./libs/abc ./libs/abc/src)
 
 # Configuration
 option(TEMP_DIRECTORY "Directory to store temporary files" "./")
@@ -40,7 +41,7 @@ add_library(boost_options STATIC IMPORTED)
 set_target_properties(boost_options PROPERTIES IMPORTED_LOCATION ${boost_options_location})
 
 # Include Boots JSON package
-find_library(boost_json_location NAMES libboost_json.a)
+find_library(boost_json_location NAMES libboost_json.so)
 if (NOT boost_json_location)
     message(FATAL_ERROR "Boost-JSON library not found")
 endif ()
