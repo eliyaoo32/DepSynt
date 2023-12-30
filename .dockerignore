@@ -8,3 +8,12 @@ scripts/
 .clang-format
 Taskfile.yml
 *.md  # Excludes all markdown files, like README.md
+
+# CMake
+cmake/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+CTestTestfile.cmake
+cmake-build-debug/

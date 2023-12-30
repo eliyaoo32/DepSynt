@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     g++ \
     cmake \
     libboost-all-dev \
+    nlohmann-json3-dev \
     wget \
     gnupg2
 
@@ -16,12 +17,6 @@ RUN apt-get update && apt-get install -y \
     libspot0=2.11.4.0-1 libspotltsmin0=2.11.4.0-1 libspotgen0=2.11.4.0-1 \
     libbddx0=2.11.4.0-1 libbddx-dev=2.11.4.0-1
 
-# Install BoostJson
-RUN echo "deb http://deb.debian.org/debian sid main" >> /etc/apt/sources.list
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libboost-json-dev \
-    && rm -rf /var/lib/apt/lists/*
-
 # Build ABC
 COPY ./libs/abc /usr/src/app/libs/abc
 RUN cd ./libs/abc && make ABC_USE_NO_READLINE=1 ABC_USE_PIC=1 libabc.so
@@ -29,7 +24,6 @@ ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/src/app/libs/abc"
 
 # Copy project
 COPY . .
-
 
 # Create a build directory
 RUN cmake . && make synthesis
