@@ -43,7 +43,7 @@ Tool to synthesis LTL specification using dependencies and Unates concept:
 The benchmarks are available in two formats:
 1) TLSF - The benchmarks are located in the `scripts/benchmarks/tlsf` folder.
 
-2) LTL Formula - The benchmarks are located in the `scripts/ltl-benchmarks` folder.
+2) LTL Formula - The benchmarks are located in the `scripts/benchmarks-ltl` folder.
 
 We have converted from TLSF specification to LTL using the public available tool Syfco (Included in this artifact).
 
@@ -124,7 +124,8 @@ UNREALIZABLE
 ## How to run comparison between DepSynt, Ltlsynt and Strix on multiple benchmarks together
 * This process can take very long time on the VM.
 * All the execution have to be run sequentially on the VM.
-* Note that the results reported in the paper were obtained on a high performance computing cluster with parallel runs. These times may differ from those obtained from the TACAS Artifact Evaluation VM.  However, the relative trends should be the same as those reported in the paper.
+* Note that the results reported in the paper were obtained on a high performance computing cluster with parallel runs using Slurm.
+* These times may differ from those obtained from the TACAS Artifact Evaluation VM.  However, the relative trends should be the same as those reported in the paper.
 
 ```bash
 chmod +x ./run-comparison.sh

@@ -5,6 +5,7 @@ scripts/
 .gitattributes
 .gitignore
 .gitmodules
+.DS_Store
 .clang-format
 Taskfile.yml
 *.md  # Excludes all markdown files, like README.md
