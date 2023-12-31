@@ -124,13 +124,21 @@ UNREALIZABLE
 ## How to run comparison between DepSynt, Ltlsynt and Strix on multiple benchmarks together
 * This process can take very long time on the VM.
 * All the execution have to be run sequentially on the VM.
-* Note that the results reported in the paper were obtained on a high performance computing cluster with parallel runs using Slurm.
+* Note that the results reported in the paper were obtained on a high performance computing cluster with parallel runs using Slurm which is reliable in terms time and resources per tool.
 * These times may differ from those obtained from the TACAS Artifact Evaluation VM.  However, the relative trends should be the same as those reported in the paper.
 
+For example, suppose we want to run DepSynt, Ltlsynt and Strix on the benchmarks `ltl2dpa16,ltl2dpa10,Increment` together.
+The following command should then be executed:
 ```bash
-chmod +x ./run-comparison.sh
-sudo ./run-comparison.sh
+python3 ./run-benchmarks.py --timeout=10000 --benchmarks=ltl2dpa16,ltl2dpa10,Increment
 ```
 
-* The file `benchmarks.csv` with `ltl_formula, inputs, outputs` contains the list of benchmarks on which the comparison has to be run.
-* The expected output is a CSV file `results.csv` containing all the performance numbers and related details.
+Important notes:
+* The benchmarks name are case-sensitive, the same as appears in the folder `scripts/benchmarks-ltl`.
+* The timeout is in milliseconds.
+* The script outputs in CSV with the headers: benchmark, depsynt_status, depsynt_duration, strix_status, strix_duration, ltlsynt_status, ltlsynt_duration.
+* You can write the CSV to file using the `--file` option:
+
+```bash
+python3 ./run-benchmarks.py --file=./results.csv --timeout=10000 --benchmarks=ltl2dpa16,ltl2dpa10,Increment
+```
