@@ -1,0 +1,5 @@
+Name: ltl2dba06
+Family: None
+Formula: ((F ((p) && (X (F ((q) && (X (F ((r) && (X (F (s))))))))))) <-> (G (F (acc))))
+Input: s,r,q,p
+Output: acc

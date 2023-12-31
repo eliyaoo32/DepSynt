@@ -1,0 +1,5 @@
+Name: CheckAlarm_6bea956e
+Family: tsl_smart_home_jarvis/extracted-benchmarks
+Formula: ((G (! (((u0alarm29control0f1dturn2on1b) && (! ((u0alarm29control0f1dturn2off1b) || (u0alarm29control0alarm29control)))) <-> ((! (((u0alarm29control0f1dturn2off1b) && (! (u0alarm29control0alarm29control))) <-> ((u0alarm29control0alarm29control) && (! (u0alarm29control0f1dturn2off1b))))) && (! (u0alarm29control0f1dturn2on1b)))))) && (((G ((((u0alarm29control0f1dturn2on1b) -> (X (p0b0alarm))) U (u0alarm29control0f1dturn2off1b)) || (G ((u0alarm29control0f1dturn2on1b) -> (X (p0b0alarm)))))) && (G ((((u0alarm29control0f1dturn2off1b) -> (X (! (p0b0alarm)))) U (u0alarm29control0f1dturn2on1b)) || (G ((u0alarm29control0f1dturn2off1b) -> (X (! (p0b0alarm)))))))) -> (false)))
+Input: p0b0alarm
+Output: u0alarm29control0f1dturn2off1b,u0alarm29control0f1dturn2on1b,u0alarm29control0alarm29control

@@ -1,0 +1,5 @@
+Name: arbiter_with_buffer1
+Family: arbiters_zoo
+Formula: ((G (true)) && (G ((r_0) -> (((try_0) <-> (X (ack_0))) U (g_0)))))
+Input: try_0,r_0
+Output: ack_0,g_0

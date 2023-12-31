@@ -1,0 +1,5 @@
+Name: detector_unreal2
+Family: detector_unreal
+Formula: ((((G (F (r_0))) && (G (F (r_1)))) <-> (G (F (g)))) && (G ((((r_0) && (r_1)) -> (G (! (g)))) && (true))))
+Input: r_0,r_1
+Output: g

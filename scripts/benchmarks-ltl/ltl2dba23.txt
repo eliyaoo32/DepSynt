@@ -1,0 +1,5 @@
+Name: ltl2dba23
+Family: None
+Formula: ((G ((p) -> (G (q)))) <-> (G (F (acc))))
+Input: q,p
+Output: acc

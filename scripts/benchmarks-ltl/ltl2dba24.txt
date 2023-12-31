@@ -1,0 +1,5 @@
+Name: ltl2dba24
+Family: None
+Formula: ((F (p)) <-> (G (F (acc))))
+Input: p
+Output: acc

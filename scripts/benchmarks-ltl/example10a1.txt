@@ -1,0 +1,5 @@
+Name: example10a1
+Family: arbiters_s4
+Formula: (((((G ((((g) && (G (! (r)))) -> (F (! (g)))) && (((g) && (X ((! (r)) && (! (g))))) -> (X ((r) R (! (g))))))) && ((r) R (! (g)))) && (G ((r) -> (F (g))))) && ((true) -> (X (X (G (((! (g)) && (X (g))) -> (X (X (g))))))))) && ((! (true)) -> (X (X (G (((! (g)) && (X (g))) -> (X (X (! (g))))))))))
+Input: r
+Output: g

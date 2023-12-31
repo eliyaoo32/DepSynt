@@ -1,0 +1,5 @@
+Name: example102
+Family: arbiters_s4
+Formula: (((X (X (X (r)))) -> (X (X (X (G ((r) <-> (g))))))) && ((! (X (X (X (r))))) -> (G (! (g)))))
+Input: r
+Output: g

@@ -1,0 +1,5 @@
+Name: PlugDeviceModel_b0840146
+Family: tsl_smart_home_jarvis/extracted-benchmarks
+Formula: ((G (true)) && (true))
+Input: 
+Output: 

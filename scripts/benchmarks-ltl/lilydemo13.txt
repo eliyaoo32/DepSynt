@@ -1,0 +1,5 @@
+Name: lilydemo13
+Family: lily
+Formula: (((G (r1)) -> (F (a1))) && ((G (! (r1))) -> (F (! (a1)))))
+Input: r1
+Output: a1

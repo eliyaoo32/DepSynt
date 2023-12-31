@@ -1,0 +1,5 @@
+Name: ltl2dpa23
+Family: ltl2dpa
+Formula: ((G ((p0) <-> (! (p1)))) && ((F (G (((F (a)) || (G (F (b)))) || (F (G ((a) || (b))))))) <-> (G (F (p0)))))
+Input: b,a
+Output: p1,p0

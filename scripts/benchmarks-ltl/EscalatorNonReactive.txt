@@ -1,0 +1,5 @@
+Name: EscalatorNonReactive
+Family: tsl_paper
+Formula: ((G (! (((u0steps0steps) && (! (u0steps0f1dmove1b))) <-> ((u0steps0f1dmove1b) && (! (u0steps0steps)))))) && (G (u0steps0f1dmove1b)))
+Input: 
+Output: u0steps0f1dmove1b,u0steps0steps

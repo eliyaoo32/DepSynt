@@ -1,0 +1,5 @@
+Name: lilydemo10
+Family: lily
+Formula: (((G (F (req))) || (F (cancel))) -> ((G (F (grant))) || (G (ack))))
+Input: cancel,req
+Output: ack,grant

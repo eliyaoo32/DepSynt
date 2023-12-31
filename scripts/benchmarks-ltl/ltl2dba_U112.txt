@@ -1,0 +1,5 @@
+Name: ltl2dba_U112
+Family: ltl2dba
+Formula: (((((((((((((p_0) U (p_1)) U (p_2)) U (p_3)) U (p_4)) U (p_5)) U (p_6)) U (p_7)) U (p_8)) U (p_9)) U (p_10)) U (p_11)) <-> (G (F (acc))))
+Input: p_0,p_1,p_2,p_3,p_4,p_5,p_6,p_7,p_8,p_9,p_10,p_11
+Output: acc

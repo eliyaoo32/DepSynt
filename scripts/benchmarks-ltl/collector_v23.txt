@@ -1,0 +1,5 @@
+Name: collector_v23
+Family: collector
+Formula: ((G ((((allfinished) -> (X (((! (allfinished)) U (finished_0)) || (G (! (allfinished)))))) && ((allfinished) -> (X (((! (allfinished)) U (finished_1)) || (G (! (allfinished))))))) && ((allfinished) -> (X (((! (allfinished)) U (finished_2)) || (G (! (allfinished)))))))) && ((G (F (allfinished))) <-> (((G (F (finished_0))) && (G (F (finished_1)))) && (G (F (finished_2))))))
+Input: finished_0,finished_1,finished_2
+Output: allfinished

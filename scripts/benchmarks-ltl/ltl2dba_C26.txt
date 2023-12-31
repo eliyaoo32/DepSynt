@@ -1,0 +1,5 @@
+Name: ltl2dba_C26
+Family: ltl2dba
+Formula: (((((((G (F (p_0))) && (G (F (p_1)))) && (G (F (p_2)))) && (G (F (p_3)))) && (G (F (p_4)))) && (G (F (p_5)))) <-> (G (F (acc))))
+Input: p_0,p_1,p_2,p_3,p_4,p_5
+Output: acc

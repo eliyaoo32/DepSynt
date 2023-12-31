@@ -1,0 +1,5 @@
+Name: lilydemo20
+Family: lily
+Formula: (((((! (etc)) && (G (((! (etc)) && (! (sts))) -> (X (! (etc)))))) && (G ((etc) -> (F (! (etc)))))) && (G ((sts) -> (X (etc))))) -> (G (((((((((shlr) && (X (! (shlr)))) -> (sts)) && (((sflr) && (X (! (sflr)))) -> (sts))) && (((! (sflr)) && ((! (etc)) || (! (ec)))) -> (X (sflr)))) && (((! (shlr)) && ((! (etc)) || (ec))) -> (X (shlr)))) && ((sflr) || (shlr))) && ((ec) -> (F (! (sflr))))) && (F (! (shlr))))))
+Input: etc,ec
+Output: shlr,sflr,sts

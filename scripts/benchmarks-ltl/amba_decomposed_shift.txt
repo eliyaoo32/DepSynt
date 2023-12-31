@@ -1,0 +1,5 @@
+Name: amba_decomposed_shift
+Family: None
+Formula: (G (((hready) -> ((X (hmastlock)) <-> (locked))) && ((! (hready)) -> ((X (hmastlock)) <-> (hmastlock)))))
+Input: locked,hready
+Output: hmastlock

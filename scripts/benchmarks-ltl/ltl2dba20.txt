@@ -1,0 +1,5 @@
+Name: ltl2dba20
+Family: None
+Formula: (((G ((p) -> (F (q)))) && (G ((r) -> (F (s))))) <-> (G (F (acc))))
+Input: s,r,q,p
+Output: acc

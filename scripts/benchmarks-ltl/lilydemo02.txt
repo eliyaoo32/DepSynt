@@ -1,0 +1,5 @@
+Name: lilydemo02
+Family: lily
+Formula: (G ((((req) -> (X ((grant) || (X ((grant) || (X (grant))))))) && ((grant) -> (X (! (grant))))) && ((cancel) -> (X ((! (grant)) U (go))))))
+Input: go,cancel,req
+Output: grant

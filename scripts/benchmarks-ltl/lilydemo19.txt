@@ -1,0 +1,5 @@
+Name: lilydemo19
+Family: lily
+Formula: ((G (F (ets))) -> (G ((((((hl) -> ((hl) U (ets))) && ((fl) -> ((fl) U (ets)))) && (! ((hl) && (fl)))) && ((ec) -> (F (fl)))) && (F (hl)))))
+Input: ec,ets
+Output: fl,hl

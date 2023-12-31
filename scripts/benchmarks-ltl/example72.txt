@@ -1,0 +1,5 @@
+Name: example72
+Family: arbiters_s4
+Formula: (((G (((! (g_0)) && (true)) || ((true) && (! (g_1))))) && (G ((r_0) -> ((g_0) || (X (g_0)))))) && (G ((r_1) -> ((g_1) || (X (g_1))))))
+Input: r_0,r_1
+Output: g_0,g_1

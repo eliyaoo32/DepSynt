@@ -1,0 +1,5 @@
+Name: ltl2dba_U15
+Family: ltl2dba
+Formula: ((((((p_0) U (p_1)) U (p_2)) U (p_3)) U (p_4)) <-> (G (F (acc))))
+Input: p_0,p_1,p_2,p_3,p_4
+Output: acc

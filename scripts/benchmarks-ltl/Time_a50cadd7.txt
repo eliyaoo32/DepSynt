@@ -1,0 +1,5 @@
+Name: Time_a50cadd7
+Family: tsl_smart_home_jarvis/extracted-benchmarks
+Formula: (((((((((G (true)) && (G (F (p0p0between0t29am50t29am2423)))) && (G (F (! (p0p0between0t29am50t29am2423))))) && (G (F (p0b0t29saturday)))) && (G (F (! (p0b0t29saturday))))) && (G (F (p0b0t29sunday)))) && (G (F (! (p0b0t29sunday))))) && (G (F (p0p0between0t29pm70t29pm8)))) && (G (F (! (p0p0between0t29pm70t29pm8)))))
+Input: p0p0between0t29pm70t29pm8,p0p0between0t29am50t29am2423,p0b0t29sunday,p0b0t29saturday
+Output: 

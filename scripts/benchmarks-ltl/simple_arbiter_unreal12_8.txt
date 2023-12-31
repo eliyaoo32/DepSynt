@@ -1,0 +1,5 @@
+Name: simple_arbiter_unreal12_8
+Family: simple_arbiter_unreal
+Formula: (((G ((((! (g_0)) && (true)) || ((true) && (! (g_1)))) && (((r_0) && (X (r_1))) -> (X (X (X (X (X (X (X (X ((g_0) && (g_1))))))))))))) && (G ((r_0) -> (F (g_0))))) && (G ((r_1) -> (F (g_1)))))
+Input: r_0,r_1
+Output: g_0,g_1

@@ -1,0 +1,5 @@
+Name: CheckWindows_54e1f7d2
+Family: tsl_smart_home_jarvis/extracted-benchmarks
+Formula: ((G (true)) && ((G ((p0b0room29window29opened) -> (((! (p0p0all2windows2closed0room)) U (p0b0room29window29closed)) || (G (! (p0p0all2windows2closed0room)))))) -> (false)))
+Input: p0p0all2windows2closed0room,p0b0room29window29closed,p0b0room29window29opened
+Output: 

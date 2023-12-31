@@ -1,0 +1,5 @@
+Name: ltl2dba_E3
+Family: ltl2dba
+Formula: ((((F (p_0)) && (F (p_1))) && (F (p_2))) <-> (G (F (acc))))
+Input: p_0,p_1,p_2
+Output: acc

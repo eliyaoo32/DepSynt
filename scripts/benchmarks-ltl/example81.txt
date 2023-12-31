@@ -1,0 +1,5 @@
+Name: example81
+Family: arbiters_s4
+Formula: (((G (true)) && (G ((r_0) -> ((r_0) && (X (g_0)))))) && (G (((g_0) && (! (r_0))) -> (X (! (g_0))))))
+Input: r_0
+Output: g_0

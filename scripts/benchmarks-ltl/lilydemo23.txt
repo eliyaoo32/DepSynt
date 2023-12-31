@@ -1,0 +1,5 @@
+Name: lilydemo23
+Family: lily
+Formula: (((G (((e) && (X (s))) -> (X (e)))) && (G (F (! (e))))) -> (G (X ((! (e)) && (X (! (s)))))))
+Input: e
+Output: s

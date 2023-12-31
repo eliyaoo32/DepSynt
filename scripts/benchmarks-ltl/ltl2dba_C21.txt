@@ -1,0 +1,5 @@
+Name: ltl2dba_C21
+Family: ltl2dba
+Formula: ((G (F (p_0))) <-> (G (F (acc))))
+Input: p_0
+Output: acc

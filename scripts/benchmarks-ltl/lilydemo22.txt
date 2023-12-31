@@ -1,0 +1,5 @@
+Name: lilydemo22
+Family: lily
+Formula: ((((((((! (godown)) && (! (goup))) && (! (ws))) && (G (! ((godown) && (goup))))) && (G (F (! (ws))))) && (G (((! (ws)) && (ss)) -> (X (! (ws)))))) && (G ((ws) -> (X ((! (ws)) || (X ((! (ws)) || (X ((! (ws)) || (X (! (ws)))))))))))) -> (G (((! ((ws) && (X (ss)))) && ((goup) -> (F (! (ss))))) && ((godown) -> (F (ss))))))
+Input: ws,goup,godown
+Output: ss

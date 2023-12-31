@@ -1,0 +1,5 @@
+Name: ltl2dba_theta1
+Family: ltl2dba
+Formula: ((! ((G (F (p_0))) -> (G ((q) -> (F (r)))))) <-> (G (F (acc))))
+Input: r,q,p_0
+Output: acc

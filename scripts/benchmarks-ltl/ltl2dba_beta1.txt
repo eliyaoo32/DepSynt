@@ -1,0 +1,5 @@
+Name: ltl2dba_beta1
+Family: ltl2dba
+Formula: (((F (p_0)) && (F (q_0))) <-> (G (F (acc))))
+Input: q_0,p_0
+Output: acc

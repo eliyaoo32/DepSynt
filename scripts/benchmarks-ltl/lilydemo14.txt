@@ -1,0 +1,5 @@
+Name: lilydemo14
+Family: lily
+Formula: (((G (! ((g0) && (g1)))) && ((G (F (r0))) -> (G (F (g0))))) && ((G (F (r1))) -> (G (F (g1)))))
+Input: r1,r0
+Output: g1,g0

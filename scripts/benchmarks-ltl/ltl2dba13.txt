@@ -1,0 +1,5 @@
+Name: ltl2dba13
+Family: None
+Formula: ((((G (! (r))) && (G ((p) -> (F (q))))) && (G ((q) -> (F (r))))) <-> (G (F (acc))))
+Input: r,q,p
+Output: acc

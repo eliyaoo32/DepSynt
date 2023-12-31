@@ -1,0 +1,5 @@
+Name: prioritized_arbiter_unreal12_5
+Family: prioritized_arbiter_unreal
+Formula: ((G (F (! (r_m)))) -> ((((G ((((((! (g_0)) && (true)) || ((true) && (! (g_1)))) && (! ((g_m) && (g_0)))) && (! ((g_m) && (g_1)))) && (((r_0) && (X (r_1))) -> (X (X (X (X (X ((g_0) && (g_1)))))))))) && (G ((r_0) -> (F (g_0))))) && (G ((r_1) -> (F (g_1))))) && (G ((r_m) -> (X (((! (g_0)) && (! (g_1))) U (g_m)))))))
+Input: r_m,r_0,r_1
+Output: g_m,g_0,g_1

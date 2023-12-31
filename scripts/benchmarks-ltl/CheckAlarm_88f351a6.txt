@@ -1,0 +1,5 @@
+Name: CheckAlarm_88f351a6
+Family: tsl_smart_home_jarvis/extracted-benchmarks
+Formula: ((G (! (((u02device29control0f1d2device29turn2on1b) && (! ((u02device29control0f1d2device29turn2off1b) || (u02device29control02device29control)))) <-> ((! (((u02device29control0f1d2device29turn2off1b) && (! (u02device29control02device29control))) <-> ((u02device29control02device29control) && (! (u02device29control0f1d2device29turn2off1b))))) && (! (u02device29control0f1d2device29turn2on1b)))))) && (((G ((((u02device29control0f1d2device29turn2on1b) -> (X (p0b02device29alarm))) U (u02device29control0f1d2device29turn2off1b)) || (G ((u02device29control0f1d2device29turn2on1b) -> (X (p0b02device29alarm)))))) && (G ((((u02device29control0f1d2device29turn2off1b) -> (X (! (p0b02device29alarm)))) U (u02device29control0f1d2device29turn2on1b)) || (G ((u02device29control0f1d2device29turn2off1b) -> (X (! (p0b02device29alarm)))))))) -> (false)))
+Input: p0b02device29alarm
+Output: u02device29control0f1d2device29turn2off1b,u02device29control0f1d2device29turn2on1b,u02device29control02device29control

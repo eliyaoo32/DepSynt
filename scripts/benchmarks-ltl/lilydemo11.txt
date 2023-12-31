@@ -1,0 +1,5 @@
+Name: lilydemo11
+Family: lily
+Formula: (! ((G ((req) -> (F (ack)))) && (G ((go) -> (F (grant))))))
+Input: go,req
+Output: ack,grant

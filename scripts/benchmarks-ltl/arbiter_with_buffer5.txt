@@ -1,0 +1,5 @@
+Name: arbiter_with_buffer5
+Family: arbiters_zoo
+Formula: ((((((G (((((! (g_0)) && (! (g_1))) && (! (g_2))) && (((! (g_3)) && (true)) || ((true) && (! (g_4))))) || (((((! (g_0)) && (! (g_1))) && (true)) || ((((! (g_0)) && (true)) || ((true) && (! (g_1)))) && (! (g_2)))) && ((! (g_3)) && (! (g_4)))))) && (G ((r_0) -> (((try_0) <-> (X (ack_0))) U (g_0))))) && (G ((r_1) -> (((try_1) <-> (X (ack_1))) U (g_1))))) && (G ((r_2) -> (((try_2) <-> (X (ack_2))) U (g_2))))) && (G ((r_3) -> (((try_3) <-> (X (ack_3))) U (g_3))))) && (G ((r_4) -> (((try_4) <-> (X (ack_4))) U (g_4)))))
+Input: try_0,try_1,try_2,try_3,try_4,r_0,r_1,r_2,r_3,r_4
+Output: ack_0,ack_1,ack_2,ack_3,ack_4,g_0,g_1,g_2,g_3,g_4

@@ -1,0 +1,5 @@
+Name: ltl2dba_Q4
+Family: ltl2dba
+Formula: ((((((F (p_0)) || (G (p_1))) && ((F (p_1)) || (G (p_2)))) && ((F (p_2)) || (G (p_3)))) && (F (p_3))) <-> (G (F (acc))))
+Input: p_0,p_1,p_2,p_3
+Output: acc

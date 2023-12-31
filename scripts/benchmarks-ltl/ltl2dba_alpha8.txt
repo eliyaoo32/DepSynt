@@ -1,0 +1,5 @@
+Name: ltl2dba_alpha8
+Family: ltl2dba
+Formula: ((F (((p) && (X ((p) && (X ((p) && (X ((p) && (X ((p) && (X ((p) && (X ((p) && (X ((p) && (X (p))))))))))))))))) && ((q) && (X ((q) && (X ((q) && (X ((q) && (X ((q) && (X ((q) && (X ((q) && (X ((q) && (X (q))))))))))))))))))) <-> (G (F (acc))))
+Input: q,p
+Output: acc

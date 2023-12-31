@@ -1,0 +1,5 @@
+Name: ltl2dpa07
+Family: ltl2dpa
+Formula: ((G ((p0) <-> (! (p1)))) && ((G ((a) || (F ((b) || (c))))) <-> (G (F (p0)))))
+Input: c,b,a
+Output: p1,p0
