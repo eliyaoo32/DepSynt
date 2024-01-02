@@ -11,15 +11,15 @@ namespace Options = boost::program_options;
 using namespace std;
 
 void parse_cli_common(BaseCLIOptions &options, Options::options_description &desc) {
-    desc.add_options()("formula,f",
+    desc.add_options()("formula",
                        Options::value<string>(&options.formula)->required(),
                        "LTL formula")(
-        "output,o", Options::value<string>(&options.outputs)->default_value(""),
+        "output", Options::value<string>(&options.outputs)->default_value(""),
 
-        "Output variables")("input,i",
+        "Output variables")("input",
                             Options::value<string>(&options.inputs)->default_value(""),
                             "Input variables")(
-        "verbose,v", Options::bool_switch(&options.verbose), "Verbose messages")(
+        "verbose", Options::bool_switch(&options.verbose), "Verbose messages")(
         "measures-path",
         Options::value<string>(&options.measures_path)->default_value(""));
 }
@@ -30,14 +30,14 @@ void parse_cli_common(BaseCLIOptions &options, Options::options_description &des
  * - Skip eject dependencies
  * - Skip synt dependencies
  */
-
 bool parse_synthesis_cli(int argc, const char *argv[],
                          SynthesisCLIOptions &options) {
     Options::options_description desc(
         "Tool to synthesis LTL specification using dependencies");
     parse_cli_common(options, desc);
     options.skip_unates = true; // Currently, we always skip unates
-    desc.add_options()(
+    desc.add_options()
+        ("help,h", "produce help message")(
             "model-name",
             Options::value<string>(&options.model_name)->required(),
             "Unique model name of the specification"
@@ -60,6 +60,14 @@ bool parse_synthesis_cli(int argc, const char *argv[],
         Options::bool_switch(&options.measure_bdd)->default_value(false),
         "Should measure the BDD size of NBAs"
         );
+
+    // Check if help is requested
+    for(int i = 0; i < argc; i++) {
+        if(strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) {
+            cout << desc << endl;
+            return false;
+        }
+    }
 
     try {
         Options::command_line_parser parser{argc, argv};
@@ -119,7 +127,7 @@ bool parse_find_dependencies_cli(int argc, const char *argv[],
     Options::options_description desc(
         "Tool to find dependencies in LTL specification");
     parse_cli_common(options, desc);
-    desc.add_options()("algo,algorithm", Options::value<string>(),
+    desc.add_options()("algo", Options::value<string>(),
                        "Which algorithm to use: formula, automaton")(
         "find-input-only",
         Options::bool_switch(&options.find_input_dependencies)->default_value(false),

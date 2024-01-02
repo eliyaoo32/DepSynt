@@ -173,11 +173,11 @@ src/
   unates/ - (Still in progress, currently not relevant for synthesis and dependency)
 ```
 
-## Algorithm Implementations
-DepSynt - Algorithm to synthesize a reactive synthesis specification.
-* Entrypoint for algorithm is `bins/synthesis.cpp`
+## Code Overview
+DepSynt is a tool to synthesize a reactive synthesis specification exploting dependent variables.
+* Entrypoint for the tool is `bins/synthesis.cpp`
 
-The algorithm has the following steps:
+The tool has the following steps:
 1. Construct NBA A of the LTL specification (Implemented by Spot)
 2. Find a maximal set of dependent variables (Source code: `src/findDeps/find_deps_by_automaton.cpp`)
 3.  If no dependent variable was found, synthesis NBA A using Spot and close the process.

@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(description="Run benchmarks with specific timeo
 # Adding arguments
 parser.add_argument("--benchmarks", type=str, required=True, help="List of benchmarks separated by comma")
 parser.add_argument("--timeout", type=int, required=True,  help="Timeout for each benchmark in milliseconds")
-parser.add_argument("--file", type=str, help="File to write the results to (CSV format)")
+parser.add_argument("--output-csv", type=str, help="File to write the results to (CSV format)")
 
 DEPENDENCY_TIMEOUT = 10000
 
@@ -107,6 +107,15 @@ def get_benchmark_path(benchmark_name: str) -> str:
     return f'./scripts/benchmarks-ltl/{benchmark_name}.txt'
 
 
+def get_all_benchmarks() -> List[str]:
+    benchmarks = []
+    for file in os.listdir("./scripts/benchmarks-ltl/"):
+        if file.endswith(".txt"):
+            benchmarks.append(file.replace(".txt", ""))
+
+    return benchmarks
+
+
 def is_benchmark_exists(benchmark_name: str) -> bool:
     benchmark_file = get_benchmark_path(benchmark_name)
     return os.path.exists(benchmark_file)
@@ -129,25 +138,31 @@ def print_results(results: List[ToolResult], file: str | None = None):
         combined[result.model_name][f"{result.tool_name.lower()}_status"] = result.status
         combined[result.model_name][f"{result.tool_name.lower()}_duration"] = result.duration
 
-        # Write the dictionary to a CSV
-        output = StringIO() if (file is None or file.strip() == "") else open(file.strip(), 'w', newline='')
+    # Write the dictionary to a CSV
+    output = StringIO() if (file is None or file.strip() == "") else open(file.strip(), 'w', newline='')
 
-        # Write the dictionary to CSV
-        writer = csv.DictWriter(output, fieldnames=["benchmark", "depsynt_status", "depsynt_duration", "strix_status", "strix_duration", "ltlsynt_status", "ltlsynt_duration"])
-        writer.writeheader()
-        for entry in combined.values():
-            writer.writerow(entry)
+    # Write the dictionary to CSV
+    writer = csv.DictWriter(output, fieldnames=["benchmark", "depsynt_status", "depsynt_duration", "strix_status", "strix_duration", "ltlsynt_status", "ltlsynt_duration"])
+    writer.writeheader()
+    for entry in combined.values():
+        writer.writerow(entry)
 
-        # If writing to StringIO, print the results, otherwise close the file
-        if isinstance(output, StringIO):
-            print(output.getvalue())
-        else:
-            output.close()
+    # If writing to StringIO, print the results, otherwise close the file
+    if isinstance(output, StringIO):
+        print(output.getvalue())
+    else:
+        output.close()
 
 
 def main():
     args = parser.parse_args()
-    benchmarks = [x.strip() for x in args.benchmarks.split(',')] if args.benchmarks else []
+
+    if args.benchmarks == "*":
+        benchmarks = get_all_benchmarks()
+    else:
+        benchmarks = [x.strip() for x in args.benchmarks.split(',')] if args.benchmarks else []
+
+    # Handle timeout
     try:
         timeout = args.timeout
         if timeout <= 0:
@@ -178,7 +193,7 @@ def main():
             print(f"[Done] Apply benchmark {benchmark} with tool {tool_name}")
 
     # Summarize Results
-    print_results(benchmarks_results, args.file)
+    print_results(benchmarks_results, args.output_csv)
 
 
 if __name__ == "__main__":

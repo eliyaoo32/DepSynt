@@ -16,6 +16,7 @@ cd ../../
 # Install ABC
 cd ./libs/abc
 make ABC_USE_NO_READLINE=1 ABC_USE_PIC=1 libabc.so
+rm -f /usr/local/lib/libabc.so
 ln -s ./libabc.so /usr/local/lib/libabc.so
 cd ../../
 
