@@ -22,5 +22,5 @@ cd ../../
 
 # Build Synthesis
 cmake .
-make synthesis
-mv ./synthesis ./depsynt
+make depsynt
+
